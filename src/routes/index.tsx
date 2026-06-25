@@ -142,22 +142,23 @@ function Home() {
           title="Products at the intersection of AI, platform and B2B."
           description="A focused practice shaped by years of working on data-intensive systems and AI-assisted experiences."
         />
-        <div className="mt-12 grid sm:grid-cols-2 gap-5">
+        <div className="mt-16 grid sm:grid-cols-2 gap-5">
           {whatIBuild.map(({ icon: Icon, title, desc }) => (
             <Card key={title}>
-              <div className="flex items-start gap-4">
-                <div className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-accent text-accent-foreground">
-                  <Icon className="size-5" />
+              <div className="flex items-start gap-5">
+                <div className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-accent text-accent-foreground transition-transform duration-500 group-hover/card:scale-110 group-hover/card:rotate-[-3deg]">
+                  <Icon className="size-5" strokeWidth={1.75} />
                 </div>
                 <div className="min-w-0">
-                  <h3 className="text-lg font-medium">{title}</h3>
-                  <p className="mt-1.5 text-sm text-muted-foreground">{desc}</p>
+                  <h3 className="text-lg md:text-xl font-medium">{title}</h3>
+                  <p className="mt-2 text-sm md:text-[15px] text-muted-foreground leading-relaxed">{desc}</p>
                 </div>
               </div>
             </Card>
           ))}
         </div>
       </Section>
+
 
       {/* FEATURED CASE STUDIES */}
       <Section>
