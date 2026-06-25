@@ -125,7 +125,7 @@ function Home() {
               key={m.label}
               className="group/stat bg-card p-7 md:p-9 transition-colors duration-500 hover:bg-accent/30"
             >
-              <div className="text-4xl md:text-5xl font-semibold tracking-tight transition-transform duration-500 group-hover/stat:-translate-y-0.5">
+              <div className="text-3xl md:text-4xl font-semibold tracking-tight transition-transform duration-500 group-hover/stat:-translate-y-0.5 break-words">
                 {m.value}
               </div>
               <div className="mt-3 text-sm text-muted-foreground">{m.label}</div>
