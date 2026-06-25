@@ -45,6 +45,7 @@ function Block({ title, children }: { title: string; children: React.ReactNode }
 function CaseStudyPage() {
   const { study } = Route.useLoaderData() as { study: CaseStudy };
   const s = study;
+  const idx = caseStudies.findIndex((c) => c.slug === s.slug);
   const next = caseStudies[(idx + 1) % caseStudies.length];
 
   return (
