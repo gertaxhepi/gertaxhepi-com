@@ -168,37 +168,41 @@ function Home() {
             title="Featured case studies"
             description="A closer look at how I approach discovery, strategy and delivery in real teams."
           />
-          <Link to="/case-studies" className="text-sm text-primary hover:underline inline-flex items-center gap-1">
-            All case studies <ArrowUpRight className="size-4" />
+          <Link
+            to="/case-studies"
+            className="group/link text-sm text-foreground/80 hover:text-foreground inline-flex items-center gap-1.5 transition-colors"
+          >
+            All case studies
+            <ArrowUpRight className="size-4 transition-transform duration-300 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5" />
           </Link>
         </div>
-        <div className="mt-12 grid md:grid-cols-2 gap-5">
+        <div className="mt-16 grid md:grid-cols-2 gap-5">
           {caseStudies.map((c) => (
             <Card key={c.slug} className="group flex flex-col">
-              <div className="text-xs text-muted-foreground">{c.context}</div>
-              <h3 className="mt-2 text-xl font-medium">{c.title}</h3>
-              <p className="mt-2 text-sm text-muted-foreground">{c.summary}</p>
-              <div className="mt-4 flex flex-wrap gap-1.5">
+              <div className="text-[11px] uppercase tracking-[0.18em] text-muted-foreground">{c.context}</div>
+              <h3 className="mt-3 text-2xl font-medium tracking-tight">{c.title}</h3>
+              <p className="mt-3 text-[15px] text-muted-foreground leading-relaxed">{c.summary}</p>
+              <div className="mt-5 flex flex-wrap gap-1.5">
                 {c.technologies.slice(0, 4).map((t) => (
                   <Pill key={t}>{t}</Pill>
                 ))}
               </div>
-              <div className="mt-5 border-t border-border pt-4">
-                <div className="text-xs uppercase tracking-wider text-muted-foreground mb-2">Outcomes</div>
-                <ul className="space-y-1.5 text-sm text-foreground/85">
+              <div className="mt-6 border-t border-border/70 pt-5">
+                <div className="text-[11px] uppercase tracking-[0.18em] text-muted-foreground mb-3">Outcomes</div>
+                <ul className="space-y-2 text-sm text-foreground/85">
                   {c.outcomes.slice(0, 2).map((o) => (
-                    <li key={o} className="flex gap-2">
-                      <span className="text-primary mt-1.5 size-1 rounded-full bg-primary shrink-0" />
+                    <li key={o} className="flex gap-2.5">
+                      <span className="mt-2 size-1 rounded-full bg-primary shrink-0" />
                       {o}
                     </li>
                   ))}
                 </ul>
               </div>
-              <div className="mt-6 pt-2">
+              <div className="mt-7">
                 <Link
                   to="/case-studies/$slug"
                   params={{ slug: c.slug }}
-                  className="text-sm font-medium text-primary inline-flex items-center gap-1 group-hover:gap-2 transition-all"
+                  className="text-sm font-medium text-foreground inline-flex items-center gap-1.5 transition-all group-hover:gap-2.5"
                 >
                   Read more <ArrowRight className="size-4" />
                 </Link>
@@ -207,6 +211,7 @@ function Home() {
           ))}
         </div>
       </Section>
+
 
       {/* PRINCIPLES */}
       <Section>
