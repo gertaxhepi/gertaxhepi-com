@@ -220,12 +220,12 @@ function Home() {
           title="How I think."
           description="A small set of beliefs that guide most of my decisions."
         />
-        <div className="mt-12 grid sm:grid-cols-2 gap-5">
+        <div className="mt-16 grid sm:grid-cols-2 gap-5">
           {principles.map((p) => (
             <Card key={p.n}>
-              <div className="font-display text-3xl text-primary/70 italic">{p.n}</div>
-              <h3 className="mt-3 text-lg font-medium">{p.title}</h3>
-              <p className="mt-2 text-sm text-muted-foreground">{p.desc}</p>
+              <div className="font-display text-4xl text-primary/70 italic leading-none">{p.n}</div>
+              <h3 className="mt-5 text-lg md:text-xl font-medium tracking-tight">{p.title}</h3>
+              <p className="mt-2.5 text-[15px] text-muted-foreground leading-relaxed">{p.desc}</p>
             </Card>
           ))}
         </div>
@@ -234,15 +234,19 @@ function Home() {
       {/* TIMELINE */}
       <Section>
         <SectionHeading eyebrow="Path so far" title="A career across building and shipping." />
-        <div className="mt-12 mx-auto max-w-2xl">
-          <ol className="relative border-l border-border ml-2">
+        <div className="mt-16 mx-auto max-w-2xl">
+          <ol className="relative border-l border-border/80 ml-2">
             {timeline.map((t, i) => (
-              <li key={t.role + i} className="ml-6 pb-8 last:pb-0">
-                <span className="absolute -left-[7px] grid size-3.5 place-items-center rounded-full border border-primary/30 bg-background">
+              <li
+                key={t.role + i}
+                data-reveal-item
+                className="ml-6 pb-10 last:pb-0 group/timeline"
+              >
+                <span className="absolute -left-[7px] grid size-3.5 place-items-center rounded-full border border-primary/40 bg-background transition-all duration-500 group-hover/timeline:scale-125 group-hover/timeline:border-primary">
                   <span className="size-1.5 rounded-full bg-primary" />
                 </span>
-                <div className="text-sm text-muted-foreground">{t.org}</div>
-                <div className="text-base font-medium">{t.role}</div>
+                <div className="text-xs uppercase tracking-[0.18em] text-muted-foreground">{t.org}</div>
+                <div className="mt-1 text-base md:text-lg font-medium">{t.role}</div>
               </li>
             ))}
           </ol>
@@ -250,21 +254,30 @@ function Home() {
       </Section>
 
       {/* CTA */}
-      <Section className="pb-28">
-        <div className="rounded-3xl border border-border bg-gradient-to-br from-accent/40 via-card to-card p-10 md:p-16 text-center">
-          <h2 className="text-3xl md:text-5xl font-semibold tracking-tight text-balance">
-            Let's build products that <span className="font-display italic text-primary">matter</span>.
-          </h2>
-          <p className="mt-4 text-muted-foreground max-w-xl mx-auto">
-            Open to senior PM roles in AI, platform and B2B SaaS, and to thoughtful conversations with founders and leaders.
-          </p>
-          <div className="mt-8 flex justify-center gap-3 flex-wrap">
-            <Button asChild size="lg" className="rounded-full px-6">
-              <Link to="/contact">Get in touch <ArrowRight className="ml-1" /></Link>
-            </Button>
-            <Button asChild variant="outline" size="lg" className="rounded-full px-6">
-              <Link to="/about">More about me</Link>
-            </Button>
+      <Section spacing="loose">
+        <div
+          data-reveal-item
+          className="relative overflow-hidden rounded-3xl border border-border/80 bg-card p-12 md:p-20 text-center shadow-elevated"
+        >
+          <div className="ambient-orb -top-32 left-1/2 -translate-x-1/2 size-[460px] opacity-40" aria-hidden />
+          <div className="relative">
+            <h2 className="text-4xl md:text-6xl font-semibold tracking-tight text-balance leading-[1.05]">
+              Let's build products that{" "}
+              <span className="font-display italic text-primary">matter</span>.
+            </h2>
+            <p className="mt-6 text-lg text-muted-foreground max-w-xl mx-auto leading-relaxed">
+              Open to senior PM roles in AI, platform and B2B SaaS, and to thoughtful conversations with founders and leaders.
+            </p>
+            <div className="mt-10 flex justify-center gap-3 flex-wrap">
+              <Button asChild size="lg" className="rounded-full px-6 h-11">
+                <Link to="/contact">
+                  Get in touch <ArrowRight />
+                </Link>
+              </Button>
+              <Button asChild variant="outline" size="lg" className="rounded-full px-6 h-11">
+                <Link to="/about">More about me</Link>
+              </Button>
+            </div>
           </div>
         </div>
       </Section>
@@ -274,26 +287,34 @@ function Home() {
 
 function PortraitCard() {
   return (
-    <div className="relative aspect-[4/5] w-full max-w-sm mx-auto">
-      <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-accent via-card to-subtle border border-border" />
+    <div className="group/portrait relative aspect-[4/5] w-full max-w-sm mx-auto transition-transform duration-700 ease-out hover:-translate-y-1">
+      <div className="absolute inset-0 rounded-3xl border border-border/80 bg-card shadow-elevated transition-shadow duration-700 group-hover/portrait:shadow-floating" />
+      <div
+        className="absolute inset-0 rounded-3xl bg-gradient-to-br from-accent/60 via-transparent to-transparent opacity-80"
+        aria-hidden
+      />
       <svg viewBox="0 0 200 250" className="absolute inset-0 w-full h-full p-8" aria-hidden>
         <defs>
           <linearGradient id="g1" x1="0" x2="1" y1="0" y2="1">
-            <stop offset="0" stopColor="oklch(0.52 0.21 295)" stopOpacity="0.18" />
-            <stop offset="1" stopColor="oklch(0.52 0.21 295)" stopOpacity="0" />
+            <stop offset="0" stopColor="oklch(0.5 0.2 295)" stopOpacity="0.22" />
+            <stop offset="1" stopColor="oklch(0.5 0.2 295)" stopOpacity="0" />
           </linearGradient>
         </defs>
-        <circle cx="100" cy="95" r="38" fill="url(#g1)" stroke="oklch(0.52 0.21 295 / 0.4)" strokeWidth="0.8" />
-        <path d="M40 200 C40 160, 70 145, 100 145 C130 145, 160 160, 160 200 L160 230 L40 230 Z" fill="url(#g1)" stroke="oklch(0.52 0.21 295 / 0.4)" strokeWidth="0.8" />
-        <g stroke="oklch(0.52 0.21 295 / 0.25)" strokeWidth="0.5" fill="none">
-          <circle cx="100" cy="125" r="70" />
+        <circle cx="100" cy="95" r="38" fill="url(#g1)" stroke="oklch(0.5 0.2 295 / 0.45)" strokeWidth="0.8" />
+        <path d="M40 200 C40 160, 70 145, 100 145 C130 145, 160 160, 160 200 L160 230 L40 230 Z" fill="url(#g1)" stroke="oklch(0.5 0.2 295 / 0.45)" strokeWidth="0.8" />
+        <g stroke="oklch(0.5 0.2 295 / 0.25)" strokeWidth="0.5" fill="none">
+          <circle cx="100" cy="125" r="70" className="transition-transform duration-1000 group-hover/portrait:scale-105 origin-center" />
           <circle cx="100" cy="125" r="95" />
         </g>
       </svg>
-      <div className="absolute bottom-5 left-5 right-5 rounded-2xl bg-card/95 backdrop-blur border border-border px-4 py-3">
-        <div className="text-xs uppercase tracking-wider text-muted-foreground">Currently</div>
-        <div className="text-sm font-medium">Building PeakProfile · Berlin</div>
+      <div className="absolute bottom-5 left-5 right-5 rounded-2xl bg-card/95 backdrop-blur border border-border/80 px-4 py-3 shadow-sm">
+        <div className="flex items-center gap-2 text-[11px] uppercase tracking-[0.18em] text-muted-foreground">
+          <span className="size-1.5 rounded-full bg-emerald-500" />
+          Currently
+        </div>
+        <div className="mt-1 text-sm font-medium">Building PeakProfile · Berlin</div>
       </div>
     </div>
   );
 }
+
