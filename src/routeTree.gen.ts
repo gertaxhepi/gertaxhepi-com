@@ -18,6 +18,7 @@ import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as CaseStudiesIndexRouteImport } from './routes/case-studies.index'
 import { Route as CaseStudiesSlugRouteImport } from './routes/case-studies.$slug'
+import { Route as ApiPublicContactSubmitRouteImport } from './routes/api/public/contact-submit'
 
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
@@ -64,6 +65,11 @@ const CaseStudiesSlugRoute = CaseStudiesSlugRouteImport.update({
   path: '/$slug',
   getParentRoute: () => CaseStudiesRoute,
 } as any)
+const ApiPublicContactSubmitRoute = ApiPublicContactSubmitRouteImport.update({
+  id: '/api/public/contact-submit',
+  path: '/api/public/contact-submit',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -75,6 +81,7 @@ export interface FileRoutesByFullPath {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/case-studies/$slug': typeof CaseStudiesSlugRoute
   '/case-studies/': typeof CaseStudiesIndexRoute
+  '/api/public/contact-submit': typeof ApiPublicContactSubmitRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -85,6 +92,7 @@ export interface FileRoutesByTo {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/case-studies/$slug': typeof CaseStudiesSlugRoute
   '/case-studies': typeof CaseStudiesIndexRoute
+  '/api/public/contact-submit': typeof ApiPublicContactSubmitRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -97,6 +105,7 @@ export interface FileRoutesById {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/case-studies/$slug': typeof CaseStudiesSlugRoute
   '/case-studies/': typeof CaseStudiesIndexRoute
+  '/api/public/contact-submit': typeof ApiPublicContactSubmitRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -110,6 +119,7 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/case-studies/$slug'
     | '/case-studies/'
+    | '/api/public/contact-submit'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -120,6 +130,7 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/case-studies/$slug'
     | '/case-studies'
+    | '/api/public/contact-submit'
   id:
     | '__root__'
     | '/'
@@ -131,6 +142,7 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/case-studies/$slug'
     | '/case-studies/'
+    | '/api/public/contact-submit'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -141,6 +153,7 @@ export interface RootRouteChildren {
   ProductThinkingRoute: typeof ProductThinkingRoute
   ResumeRoute: typeof ResumeRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  ApiPublicContactSubmitRoute: typeof ApiPublicContactSubmitRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -208,6 +221,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CaseStudiesSlugRouteImport
       parentRoute: typeof CaseStudiesRoute
     }
+    '/api/public/contact-submit': {
+      id: '/api/public/contact-submit'
+      path: '/api/public/contact-submit'
+      fullPath: '/api/public/contact-submit'
+      preLoaderRoute: typeof ApiPublicContactSubmitRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -233,6 +253,7 @@ const rootRouteChildren: RootRouteChildren = {
   ProductThinkingRoute: ProductThinkingRoute,
   ResumeRoute: ResumeRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  ApiPublicContactSubmitRoute: ApiPublicContactSubmitRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
