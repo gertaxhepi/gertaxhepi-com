@@ -1,4 +1,5 @@
 import { type ReactNode } from "react";
+import { Reveal } from "./Reveal";
 
 export function SectionHeading({
   eyebrow,
@@ -12,35 +13,62 @@ export function SectionHeading({
   align?: "left" | "center";
 }) {
   return (
-    <div className={align === "center" ? "text-center max-w-2xl mx-auto" : "max-w-2xl"}>
+    <Reveal
+      className={align === "center" ? "text-center max-w-3xl mx-auto" : "max-w-3xl"}
+    >
       {eyebrow && (
-        <div className="text-xs uppercase tracking-[0.18em] text-primary/80 font-medium mb-3">
+        <div
+          data-reveal-item
+          className="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.22em] text-muted-foreground font-medium mb-5"
+        >
+          <span className="size-1 rounded-full bg-primary/70" />
           {eyebrow}
         </div>
       )}
-      <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-balance">
+      <h2
+        data-reveal-item
+        className="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight text-balance leading-[1.05]"
+      >
         {title}
       </h2>
       {description && (
-        <p className="mt-4 text-base md:text-lg text-muted-foreground text-balance">
+        <p
+          data-reveal-item
+          className="mt-6 text-lg md:text-xl text-muted-foreground text-balance max-w-2xl"
+        >
           {description}
         </p>
       )}
-    </div>
+    </Reveal>
   );
 }
 
 export function Card({
   children,
   className = "",
+  interactive = true,
 }: {
   children: ReactNode;
   className?: string;
+  interactive?: boolean;
 }) {
   return (
     <div
-      className={`rounded-2xl border border-border bg-card p-6 md:p-7 transition-all duration-300 hover:border-primary/30 hover:shadow-[0_8px_30px_-12px_rgb(0_0_0_/_0.08)] ${className}`}
+      data-reveal-item
+      className={[
+        "group/card relative rounded-2xl border border-border/80 bg-card p-7 md:p-8",
+        "transition-[transform,box-shadow,border-color] duration-500 ease-out will-change-transform",
+        interactive
+          ? "hover:-translate-y-1 hover:scale-[1.005] hover:border-foreground/15 hover:shadow-floating"
+          : "",
+        className,
+      ].join(" ")}
     >
+      {/* Top hairline highlight */}
+      <span
+        aria-hidden
+        className="pointer-events-none absolute inset-x-6 top-0 h-px bg-gradient-to-r from-transparent via-foreground/10 to-transparent opacity-0 transition-opacity duration-500 group-hover/card:opacity-100"
+      />
       {children}
     </div>
   );
@@ -50,21 +78,33 @@ export function Section({
   children,
   className = "",
   id,
+  spacing = "default",
 }: {
   children: ReactNode;
   className?: string;
   id?: string;
+  spacing?: "default" | "tight" | "loose" | "none";
 }) {
+  const pad =
+    spacing === "none"
+      ? ""
+      : spacing === "tight"
+      ? "py-16 md:py-20"
+      : spacing === "loose"
+      ? "py-28 md:py-40"
+      : "py-24 md:py-32";
   return (
-    <section id={id} className={`container-page py-20 md:py-28 ${className}`}>
-      {children}
-    </section>
+    <Reveal as="section" className={`container-page ${pad} ${className}`}>
+      <div id={id} className="scroll-mt-24">
+        {children}
+      </div>
+    </Reveal>
   );
 }
 
 export function Pill({ children }: { children: ReactNode }) {
   return (
-    <span className="inline-flex items-center rounded-full border border-border bg-subtle px-2.5 py-1 text-xs text-muted-foreground">
+    <span className="inline-flex items-center rounded-full border border-border/80 bg-subtle/70 backdrop-blur-sm px-2.5 py-1 text-xs text-muted-foreground transition-colors hover:border-foreground/20 hover:text-foreground">
       {children}
     </span>
   );
