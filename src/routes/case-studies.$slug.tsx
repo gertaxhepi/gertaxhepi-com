@@ -1,7 +1,7 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
-import { ArrowLeft, ArrowRight } from "lucide-react";
 import { Card, Pill, Section } from "@/components/Primitives";
-import { caseStudies, getCaseStudy } from "@/data/case-studies";
+import { caseStudies, getCaseStudy, type CaseStudy } from "@/data/case-studies";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 
 export const Route = createFileRoute("/case-studies/$slug")({
   loader: ({ params }) => {
@@ -43,8 +43,8 @@ function Block({ title, children }: { title: string; children: React.ReactNode }
 }
 
 function CaseStudyPage() {
-  const { study: s } = Route.useLoaderData();
-  const idx = caseStudies.findIndex((c) => c.slug === s.slug);
+  const { study } = Route.useLoaderData() as { study: CaseStudy };
+  const s = study;
   const next = caseStudies[(idx + 1) % caseStudies.length];
 
   return (
