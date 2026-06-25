@@ -51,52 +51,89 @@ function Home() {
   return (
     <>
       {/* HERO */}
-      <Section className="pt-20 md:pt-28 pb-12 md:pb-16">
-        <div className="grid md:grid-cols-[1.4fr_1fr] gap-12 md:gap-16 items-center">
-          <div className="fade-up">
-            <div className="inline-flex items-center gap-2 rounded-full border border-border bg-subtle px-3 py-1 text-xs text-muted-foreground mb-6">
-              <span className="size-1.5 rounded-full bg-primary" />
+      <section className="relative container-page pt-28 md:pt-40 pb-16 md:pb-24 overflow-hidden">
+        {/* Ambient orbs — restrained, single accent */}
+        <div className="ambient-orb -top-24 -right-16 size-[520px] hidden md:block" aria-hidden />
+        <div
+          className="ambient-orb top-40 -left-32 size-[420px] opacity-30 hidden md:block"
+          style={{ animationDelay: "-6s" }}
+          aria-hidden
+        />
+
+        <div className="relative grid md:grid-cols-[1.4fr_1fr] gap-14 md:gap-20 items-center">
+          <div data-reveal-root data-revealed="true">
+            <div
+              data-reveal-item
+              className="inline-flex items-center gap-2 rounded-full border border-border/80 bg-background/60 backdrop-blur px-3 py-1.5 text-xs text-muted-foreground mb-8 transition-colors hover:border-foreground/20 hover:text-foreground"
+            >
+              <span className="relative flex size-1.5">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-60" />
+                <span className="relative inline-flex size-1.5 rounded-full bg-primary" />
+              </span>
               Available for senior PM roles
             </div>
-            <h1 className="text-5xl md:text-7xl font-semibold tracking-tight leading-[1.02] text-balance">
-              Gerta <span className="font-display italic font-normal text-primary">Xhepi</span>
+            <h1
+              data-reveal-item
+              className="text-6xl md:text-7xl lg:text-[88px] font-semibold tracking-tight leading-[0.98] text-balance"
+            >
+              Gerta{" "}
+              <span className="font-display italic font-normal text-primary">
+                Xhepi
+              </span>
             </h1>
-            <p className="mt-6 text-lg md:text-xl text-foreground/80 max-w-xl text-balance">
+            <p
+              data-reveal-item
+              className="mt-8 text-xl md:text-2xl text-foreground/85 max-w-xl text-balance leading-snug"
+            >
               Product Manager building AI, Platform and B2B SaaS products.
             </p>
-            <p className="mt-5 text-base text-muted-foreground max-w-xl">
-              I enjoy turning complex systems into products that help people make better decisions through customer discovery, structured thinking and close collaboration with engineering teams.
+            <p
+              data-reveal-item
+              className="mt-6 text-base md:text-lg text-muted-foreground max-w-xl leading-relaxed"
+            >
+              I enjoy turning complex systems into products that help people make
+              better decisions through customer discovery, structured thinking and
+              close collaboration with engineering teams.
             </p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <Button asChild size="lg" className="rounded-full px-6">
+            <div data-reveal-item className="mt-10 flex flex-wrap gap-3">
+              <Button asChild size="lg" className="rounded-full px-6 h-11">
                 <Link to="/case-studies">
-                  View Case Studies <ArrowRight className="ml-1" />
+                  View Case Studies <ArrowRight />
                 </Link>
               </Button>
-              <Button asChild variant="outline" size="lg" className="rounded-full px-6">
+              <Button asChild variant="outline" size="lg" className="rounded-full px-6 h-11">
                 <Link to="/resume">
                   <Download className="mr-1" /> Download Resume
                 </Link>
               </Button>
             </div>
           </div>
-          <div className="fade-up">
-            <PortraitCard />
+          <div data-reveal-root data-revealed="true">
+            <div data-reveal-item style={{ transitionDelay: "200ms" }}>
+              <PortraitCard />
+            </div>
           </div>
         </div>
-      </Section>
+      </section>
 
       {/* IMPACT */}
-      <Section className="py-12 md:py-16">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-px overflow-hidden rounded-2xl border border-border bg-border">
+      <Section spacing="tight">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-px overflow-hidden rounded-2xl border border-border/80 bg-border/80 shadow-elevated">
           {impact.map((m) => (
-            <div key={m.label} className="bg-card p-6 md:p-8">
-              <div className="text-3xl md:text-4xl font-semibold tracking-tight">{m.value}</div>
-              <div className="mt-2 text-sm text-muted-foreground">{m.label}</div>
+            <div
+              data-reveal-item
+              key={m.label}
+              className="group/stat bg-card p-7 md:p-9 transition-colors duration-500 hover:bg-accent/30"
+            >
+              <div className="text-4xl md:text-5xl font-semibold tracking-tight transition-transform duration-500 group-hover/stat:-translate-y-0.5">
+                {m.value}
+              </div>
+              <div className="mt-3 text-sm text-muted-foreground">{m.label}</div>
             </div>
           ))}
         </div>
       </Section>
+
 
       {/* WHAT I BUILD */}
       <Section>
