@@ -1,6 +1,6 @@
 import { Outlet, useLocation, useNavigate } from "@tanstack/react-router";
 import type { ReactNode, MouseEvent } from "react";
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { Menu, X } from "lucide-react";
 
 type NavItem = { label: string; sectionId: string };
