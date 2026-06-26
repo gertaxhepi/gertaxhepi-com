@@ -17,11 +17,13 @@ const RATE_LIMIT_WINDOW_MS = 60 * 60 * 1000; // 1 hour
 const RATE_LIMIT_MAX = 3;
 
 function getClientIp(request: Request): string {
-  const fwd = request.headers.get("x-forwarded-for");
-  if (fwd) return fwd.split(",")[0].trim();
+  // Prefer Cloudflare's unforgeable header. Fall back to the rightmost
+  // x-forwarded-for entry (last trusted proxy hop) rather than the leftmost,
+  // which is client-supplied and trivially spoofable.
   return (
     request.headers.get("cf-connecting-ip") ??
     request.headers.get("x-real-ip") ??
+    request.headers.get("x-forwarded-for")?.split(",").at(-1)?.trim() ??
     "unknown"
   );
 }
