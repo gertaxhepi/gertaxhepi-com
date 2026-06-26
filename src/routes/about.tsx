@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { Section, SectionHeading } from "@/components/Primitives";
 import { Reveal } from "@/components/Reveal";
 import { ArrowUpRight } from "lucide-react";
+import profileAsset from "@/assets/profile.png.asset.json";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
