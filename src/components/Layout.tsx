@@ -12,7 +12,7 @@ const navItems: readonly NavItem[] = [
   { label: "Contact", sectionId: "contact" },
 ] as const;
 
-const ACCENT = "#9A6A64";
+const ACCENT = "#8A5A5A";
 
 function useActiveSection(pathname: string) {
   const [activeSection, setActiveSection] = useState<string | null>(null);
