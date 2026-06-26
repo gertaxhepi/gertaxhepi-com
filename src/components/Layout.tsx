@@ -134,11 +134,11 @@ export function SiteHeader() {
       <div className="container-page flex h-[72px] items-center justify-between">
         {isCaseStudy ? (
           <a
-            href="/"
-            onClick={handleBack}
+            href="/#work"
+            onClick={handleBackToWork}
             className="text-sm font-medium text-foreground transition-opacity duration-300 hover:opacity-60"
           >
-            ← Back
+            ← Back to Home
           </a>
         ) : (
           <a
@@ -155,7 +155,7 @@ export function SiteHeader() {
             <nav className="flex items-center gap-8">
               <a
                 href="/"
-                onClick={handleBack}
+                onClick={handleBackToWork}
                 className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
               >
                 ← Back to Home
