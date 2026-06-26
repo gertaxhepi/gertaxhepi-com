@@ -45,10 +45,10 @@ export function SiteHeader() {
             <Link
               key={item.to}
               to={item.to}
-              className="relative rounded-full px-3.5 py-1.5 text-sm text-muted-foreground transition-colors duration-300 hover:text-foreground"
+              className="relative rounded-full px-3.5 py-1.5 text-sm font-bold text-muted-foreground transition-colors duration-300 hover:text-foreground"
               activeProps={{
                 className:
-                  "relative rounded-full px-3.5 py-1.5 text-sm text-foreground bg-foreground/[0.04]",
+                  "relative rounded-full px-3.5 py-1.5 text-sm font-bold text-foreground bg-foreground/[0.04]",
               }}
               activeOptions={{ exact: item.to === "/" }}
             >
@@ -75,10 +75,10 @@ export function SiteHeader() {
                 key={item.to}
                 to={item.to}
                 onClick={() => setOpen(false)}
-                className="rounded-md px-3 py-3 text-sm text-muted-foreground transition-colors hover:text-foreground hover:bg-accent/40"
+                className="rounded-md px-3 py-3 text-sm font-bold text-muted-foreground transition-colors hover:text-foreground hover:bg-accent/40"
                 activeProps={{
                   className:
-                    "rounded-md px-3 py-3 text-sm text-foreground bg-accent/40",
+                    "rounded-md px-3 py-3 text-sm font-bold text-foreground bg-accent/40",
                 }}
               >
                 {item.label}
@@ -158,7 +158,7 @@ export function SiteFooter() {
       </div>
       <div className="container-page pb-10 flex items-center justify-between text-xs text-muted-foreground">
         <span>© {new Date().getFullYear()} Gerta Xhepi. Crafted with care.</span>
-        <span className="hidden sm:inline">Built in Berlin.</span>
+        <span className="hidden sm:inline">Built in Germany.</span>
       </div>
     </footer>
   );
