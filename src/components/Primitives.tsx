@@ -19,7 +19,7 @@ export function SectionHeading({
       {eyebrow && (
         <div
           data-reveal-item
-          className="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.22em] text-muted-foreground font-medium mb-5"
+          className="inline-flex items-center gap-2 text-[13px] font-mono uppercase tracking-[0.08em] text-muted-foreground mb-5"
         >
           <span className="size-1 rounded-full bg-primary/70" />
           {eyebrow}

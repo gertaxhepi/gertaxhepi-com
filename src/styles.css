@@ -32,39 +32,40 @@
   --color-ring: var(--ring);
   --color-subtle: var(--subtle);
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
-  --font-display: "Instrument Serif", ui-serif, Georgia, serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  --font-display: "Inter", ui-sans-serif, system-ui, sans-serif;
 }
 
 :root {
-  --radius: 1rem;
-  /* Neutral, calm off-white — closer to Linear/Vercel */
-  --background: oklch(0.992 0.003 270);
-  --foreground: oklch(0.16 0.015 270);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.16 0.015 270);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.16 0.015 270);
-  --primary: oklch(0.5 0.2 295);
-  --primary-foreground: oklch(0.99 0 0);
-  --secondary: oklch(0.97 0.006 280);
-  --secondary-foreground: oklch(0.22 0.025 280);
-  --muted: oklch(0.97 0.005 280);
-  --muted-foreground: oklch(0.5 0.018 270);
-  --accent: oklch(0.955 0.018 295);
-  --accent-foreground: oklch(0.3 0.12 295);
-  --destructive: oklch(0.58 0.22 27);
-  --destructive-foreground: oklch(0.99 0 0);
-  --border: oklch(0.92 0.006 280);
-  --input: oklch(0.92 0.006 280);
-  --ring: oklch(0.5 0.2 295);
-  --subtle: oklch(0.968 0.005 280);
+  --radius: 0.5rem;
+  /* Visual Style Guide palette */
+  --background: #F4F2EB;        /* off white */
+  --foreground: #111111;        /* black */
+  --card: #F4F2EB;
+  --card-foreground: #111111;
+  --popover: #F4F2EB;
+  --popover-foreground: #111111;
+  --primary: #111111;
+  --primary-foreground: #F4F2EB;
+  --secondary: #ECEAE2;
+  --secondary-foreground: #111111;
+  --muted: #ECEAE2;
+  --muted-foreground: #333333;  /* dark gray secondary text */
+  --accent: #ECEAE2;
+  --accent-foreground: #111111;
+  --destructive: #b3261e;
+  --destructive-foreground: #F4F2EB;
+  --border: #B5B5B5;            /* gray */
+  --input: #B5B5B5;
+  --ring: #111111;
+  --subtle: #ECEAE2;
 
-  /* Premium shadows */
-  --shadow-xs: 0 1px 2px -1px rgb(15 15 25 / 0.04);
-  --shadow-sm: 0 2px 6px -2px rgb(15 15 25 / 0.05), 0 1px 2px -1px rgb(15 15 25 / 0.04);
-  --shadow-md: 0 8px 24px -12px rgb(15 15 25 / 0.10), 0 2px 6px -3px rgb(15 15 25 / 0.05);
-  --shadow-lg: 0 20px 48px -20px rgb(15 15 25 / 0.18), 0 6px 18px -10px rgb(15 15 25 / 0.08);
-  --shadow-glow: 0 0 0 1px rgb(15 15 25 / 0.04), 0 24px 60px -28px oklch(0.5 0.2 295 / 0.25);
+  /* Premium, restrained shadows */
+  --shadow-xs: 0 1px 2px -1px rgb(17 17 17 / 0.05);
+  --shadow-sm: 0 2px 6px -2px rgb(17 17 17 / 0.06), 0 1px 2px -1px rgb(17 17 17 / 0.04);
+  --shadow-md: 0 8px 24px -12px rgb(17 17 17 / 0.10), 0 2px 6px -3px rgb(17 17 17 / 0.05);
+  --shadow-lg: 0 20px 48px -20px rgb(17 17 17 / 0.18), 0 6px 18px -10px rgb(17 17 17 / 0.08);
+  --shadow-glow: 0 0 0 1px rgb(17 17 17 / 0.06), 0 24px 60px -28px rgb(17 17 17 / 0.20);
 }
 
 @layer base {
@@ -88,19 +89,9 @@
   }
   h1 { letter-spacing: -0.035em; }
   ::selection {
-    background-color: oklch(0.5 0.2 295 / 0.18);
+    background-color: rgb(17 17 17 / 0.14);
   }
-  /* Subtle background grain — adds depth without gradients */
-  body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    z-index: -1;
-    background-image:
-      radial-gradient(1200px 600px at 80% -10%, oklch(0.5 0.2 295 / 0.05), transparent 60%),
-      radial-gradient(900px 500px at -10% 20%, oklch(0.6 0.15 220 / 0.04), transparent 60%);
-  }
+  /* Keep background clean — no colored glows, per visual style guide */
   @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after {
       animation-duration: 0.001ms !important;
@@ -177,9 +168,9 @@
   position: absolute;
   border-radius: 9999px;
   filter: blur(80px);
-  opacity: 0.55;
+  opacity: 0.35;
   pointer-events: none;
-  background: radial-gradient(circle at 30% 30%, oklch(0.5 0.2 295 / 0.35), transparent 70%);
+  background: radial-gradient(circle at 30% 30%, rgb(17 17 17 / 0.10), transparent 70%);
   animation: drift 18s ease-in-out infinite alternate;
 }
 
