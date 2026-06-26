@@ -70,7 +70,7 @@ function Home() {
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-60" />
                 <span className="relative inline-flex size-1.5 rounded-full bg-primary" />
               </span>
-              Available for senior PM roles
+              Available for PM roles
             </div>
             <h1
               data-reveal-item
@@ -85,7 +85,7 @@ function Home() {
               data-reveal-item
               className="mt-8 text-xl md:text-2xl text-foreground/85 max-w-xl text-balance leading-snug"
             >
-              Product Manager building AI, Platform and B2B SaaS products.
+              Product Manager building B2B, B2C and SaaS products.
             </p>
             <p
               data-reveal-item
@@ -266,7 +266,7 @@ function Home() {
               <span className="font-display italic text-primary">matter</span>.
             </h2>
             <p className="mt-6 text-lg text-muted-foreground max-w-xl mx-auto leading-relaxed">
-              Open to senior PM roles in AI, platform and B2B SaaS, and to thoughtful conversations with founders and leaders.
+              Open to PM roles in B2B, B2C and SaaS, and to thoughtful conversations with founders and leaders.
             </p>
             <div className="mt-10 flex justify-center gap-3 flex-wrap">
               <Button asChild size="lg" className="rounded-full px-6 h-11">
@@ -312,7 +312,7 @@ function PortraitCard() {
           <span className="size-1.5 rounded-full bg-emerald-500" />
           Currently
         </div>
-        <div className="mt-1 text-sm font-medium">Building PeakProfile · Berlin</div>
+        <div className="mt-1 text-sm font-medium">Building PeakProfile · Germany</div>
       </div>
     </div>
   );
