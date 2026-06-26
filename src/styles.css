@@ -140,7 +140,7 @@
   transition: color 250ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 .nav-link:hover {
-  color: #9A6A64;
+  color: #8A5A5A;
 }
 
 @utility shadow-elevated { box-shadow: var(--shadow-md); }
