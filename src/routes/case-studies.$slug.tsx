@@ -70,18 +70,12 @@ function CaseStudyPage() {
     <>
       <Section className="pt-12 md:pt-20" spacing="tight">
         <Reveal>
-          <Link
-            to="/case-studies"
-            data-reveal-item
-            className="text-sm text-muted-foreground hover:text-foreground inline-flex items-center gap-2 transition-colors"
-          >
-            <ArrowLeft className="size-4" /> All case studies
-          </Link>
           <div
             data-reveal-item
-            className="mt-14 text-[11px] font-mono uppercase tracking-[0.22em] text-muted-foreground"
+            className="text-[11px] font-mono uppercase tracking-[0.22em] text-muted-foreground"
           >
             {s.context}
+          </div>
           </div>
           <h1
             data-reveal-item
