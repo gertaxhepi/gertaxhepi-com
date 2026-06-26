@@ -3,6 +3,8 @@ import { useEffect } from "react";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { Section, SectionHeading } from "@/components/Primitives";
 import { Reveal } from "@/components/Reveal";
+import { scrollToSection } from "@/components/Layout";
+
 import profileAsset from "@/assets/profile.png.asset.json";
 
 export const Route = createFileRoute("/")({
@@ -144,6 +146,10 @@ function Home() {
           <div data-reveal-item className="mt-14 flex flex-wrap items-center gap-x-10 gap-y-4">
             <a
               href="#work"
+              onClick={(e) => {
+                e.preventDefault();
+                scrollToSection("work");
+              }}
               className="group inline-flex items-center gap-2 text-sm font-medium border-b border-foreground pb-1 transition-opacity hover:opacity-60"
             >
               View My Work
@@ -151,11 +157,16 @@ function Home() {
             </a>
             <a
               href="#about"
+              onClick={(e) => {
+                e.preventDefault();
+                scrollToSection("about");
+              }}
               className="group inline-flex items-center gap-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
             >
               About Me
               <ArrowUpRight className="size-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </a>
+
           </div>
         </Reveal>
       </section>
