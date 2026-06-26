@@ -35,13 +35,9 @@ export function SiteHeader() {
       <div className="container-page flex h-[68px] items-center justify-between">
         <Link
           to="/"
-          className="group flex items-center gap-2.5 font-medium tracking-tight"
+          className="text-sm font-bold uppercase tracking-widest"
         >
-          <span className="relative grid h-8 w-8 place-items-center rounded-lg bg-foreground text-background text-[11px] font-semibold tracking-tight transition-transform duration-500 group-hover:-rotate-3 group-hover:scale-[1.04]">
-            GX
-            <span className="pointer-events-none absolute inset-0 rounded-lg ring-1 ring-inset ring-white/10" />
-          </span>
-          <span className="text-sm">Gerta Xhepi</span>
+          Gerta Xhepi
         </Link>
 
         <nav className="hidden md:flex items-center gap-0.5 rounded-full border border-border/0 px-1 py-1 transition-colors duration-500">
