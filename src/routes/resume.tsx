@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Card, Pill, Section } from "@/components/Primitives";
-import { Button } from "@/components/ui/button";
-import { Download, Linkedin, Mail, Phone, MapPin } from "lucide-react";
+import { Section } from "@/components/Primitives";
+import { Reveal } from "@/components/Reveal";
+import { Download, Linkedin, Mail, Phone, MapPin, ArrowUpRight } from "lucide-react";
 
 export const Route = createFileRoute("/resume")({
   head: () => ({
@@ -89,8 +89,8 @@ const experience = [
 ];
 
 const education = [
-  { title: "Master of Business Administration (MBA)", org: "ThePowerMBA", dates: "" },
-  { title: "Bachelor of Computer Science", org: "University Polytechnic of Bucharest", dates: "" },
+  { title: "Master of Business Administration (MBA)", org: "ThePowerMBA" },
+  { title: "Bachelor of Computer Science", org: "University Polytechnic of Bucharest" },
 ];
 
 const skills = [
@@ -115,107 +115,159 @@ const certificates = [
   "Project Manager — Google",
 ];
 
+function MetaLink({ href, icon: Icon, children, external }: { href: string; icon: React.ComponentType<{ className?: string }>; children: React.ReactNode; external?: boolean }) {
+  return (
+    <a
+      href={href}
+      target={external ? "_blank" : undefined}
+      rel={external ? "noreferrer" : undefined}
+      className="group inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
+    >
+      <Icon className="size-3.5" />
+      <span>{children}</span>
+    </a>
+  );
+}
+
 function Resume() {
   return (
-    <Section className="pt-16 md:pt-24">
-      <div className="flex items-end justify-between flex-wrap gap-6 mb-12">
-        <div className="max-w-2xl">
-          <div className="text-xs uppercase tracking-[0.18em] text-primary/80 mb-3">Resume</div>
-          <h1 className="text-4xl md:text-5xl font-semibold tracking-tight">Gerta Xhepi</h1>
-          <div className="mt-4 flex flex-wrap gap-x-4 gap-y-2 text-sm text-muted-foreground">
-            <a href="mailto:xhepigerta@gmail.com" className="inline-flex items-center gap-1.5 hover:text-foreground transition-colors">
-              <Mail className="size-3.5" /> xhepigerta@gmail.com
-            </a>
-            <span className="inline-flex items-center gap-1.5">
-              <Phone className="size-3.5" /> +49 152 1022 3821
-            </span>
-            <span className="inline-flex items-center gap-1.5">
+    <>
+      <Section className="pt-16 md:pt-28" spacing="tight">
+        <Reveal>
+          <div
+            data-reveal-item
+            className="text-[11px] font-mono uppercase tracking-[0.22em] text-muted-foreground mb-10"
+          >
+            Resume
+          </div>
+          <h1
+            data-reveal-item
+            className="text-5xl md:text-7xl font-semibold tracking-tight"
+          >
+            Gerta Xhepi
+          </h1>
+          <div
+            data-reveal-item
+            className="mt-10 flex flex-wrap gap-x-8 gap-y-3"
+          >
+            <MetaLink href="mailto:xhepigerta@gmail.com" icon={Mail}>xhepigerta@gmail.com</MetaLink>
+            <MetaLink href="tel:+4915210223821" icon={Phone}>+49 152 1022 3821</MetaLink>
+            <span className="inline-flex items-center gap-2 text-sm text-muted-foreground">
               <MapPin className="size-3.5" /> Germany
             </span>
+            <MetaLink href="https://www.linkedin.com/in/gerta-xhepi-94853289/" icon={Linkedin} external>LinkedIn</MetaLink>
           </div>
-        </div>
-        <div className="flex gap-3">
-          <Button asChild className="rounded-full">
-            <a href="/resume.pdf" download>
-              <Download className="mr-1" /> Download PDF
-            </a>
-          </Button>
-          <Button asChild variant="outline" className="rounded-full">
-            <a href="https://www.linkedin.com/in/gerta-xhepi-94853289/" target="_blank" rel="noreferrer">
-              <Linkedin className="mr-1" /> LinkedIn
-            </a>
-          </Button>
-        </div>
-      </div>
 
-      <Card className="p-8 md:p-10 mb-10" interactive={false}>
-        <div className="text-xs uppercase tracking-wider text-muted-foreground">Summary</div>
-        <p className="mt-3 text-base md:text-lg text-foreground/85 leading-relaxed">
-          Product Manager with 5+ years of experience and an MBA, building data-intensive SaaS products across marketplace and workflow-driven environments. Strong focus on product discovery, OKR execution, and structured data systems that improve decision-making, compliance, and operational efficiency. Experienced in translating complex user needs and regulatory constraints into scalable product solutions. Proven ability to align engineering, data science, legal, and business stakeholders around measurable outcomes in high-complexity environments. Strong software engineering background with hands-on product ownership in product-led organizations.
-        </p>
-      </Card>
+          <div data-reveal-item className="mt-10 flex flex-wrap gap-x-8 gap-y-3">
+            <a
+              href="/resume.pdf"
+              download
+              className="group inline-flex items-center gap-2 text-sm font-medium border-b border-foreground pb-1 transition-opacity hover:opacity-60"
+            >
+              <Download className="size-4" /> Download PDF
+            </a>
+            <a
+              href="https://www.linkedin.com/in/gerta-xhepi-94853289/"
+              target="_blank"
+              rel="noreferrer"
+              className="group inline-flex items-center gap-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+            >
+              View on LinkedIn
+              <ArrowUpRight className="size-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            </a>
+          </div>
+        </Reveal>
+      </Section>
 
-      <div className="grid md:grid-cols-[1.6fr_1fr] gap-10">
-        <div>
-          <h2 className="text-xs uppercase tracking-wider text-muted-foreground mb-4">Experience</h2>
-          <div className="space-y-4">
+      <Section spacing="tight">
+        <Reveal className="grid md:grid-cols-[1fr_2.4fr] gap-8 md:gap-16">
+          <div data-reveal-item className="text-[11px] font-mono uppercase tracking-[0.18em] text-muted-foreground">
+            Summary
+          </div>
+          <p data-reveal-item className="text-lg md:text-xl text-foreground/90 leading-relaxed max-w-3xl">
+            Product Manager with 5+ years of experience and an MBA, building data-intensive SaaS products across marketplace and workflow-driven environments. Strong focus on product discovery, OKR execution, and structured data systems that improve decision-making, compliance, and operational efficiency. Experienced in translating complex user needs and regulatory constraints into scalable product solutions. Proven ability to align engineering, data science, legal, and business stakeholders around measurable outcomes in high-complexity environments. Strong software engineering background with hands-on product ownership in product-led organizations.
+          </p>
+        </Reveal>
+      </Section>
+
+      <Section spacing="tight">
+        <Reveal className="grid md:grid-cols-[1fr_2.4fr] gap-8 md:gap-16">
+          <div data-reveal-item className="text-[11px] font-mono uppercase tracking-[0.18em] text-muted-foreground md:sticky md:top-28 md:self-start">
+            Experience
+          </div>
+          <div className="space-y-16 md:space-y-20">
             {experience.map((e) => (
-              <Card key={e.role + e.org}>
-                <div className="flex items-baseline justify-between gap-4 flex-wrap">
-                  <div>
-                    <div className="text-lg font-medium">{e.role}</div>
-                    <div className="text-sm text-muted-foreground">{e.org}</div>
-                  </div>
-                  <div className="text-xs text-muted-foreground font-mono">{e.dates}</div>
+              <article data-reveal-item key={e.role + e.org}>
+                <div className="text-[11px] font-mono uppercase tracking-[0.18em] text-muted-foreground mb-3">
+                  {e.dates}
                 </div>
-                <ul className="mt-4 space-y-2 text-sm text-foreground/85">
+                <h3 className="text-2xl md:text-3xl font-semibold tracking-tight">{e.role}</h3>
+                <div className="text-base text-muted-foreground mt-1">{e.org}</div>
+                <ul className="mt-6 space-y-3 text-[15px] md:text-base text-foreground/85 leading-relaxed max-w-3xl">
                   {e.bullets.map((b, i) => (
-                    <li key={i} className="flex gap-2.5">
-                      <span className="mt-2 size-1 rounded-full bg-primary shrink-0" />{b}
+                    <li key={i} className="grid grid-cols-[auto_1fr] gap-4">
+                      <span className="text-muted-foreground font-mono text-xs pt-1.5">—</span>
+                      <span>{b}</span>
                     </li>
                   ))}
                 </ul>
-              </Card>
+              </article>
             ))}
           </div>
-        </div>
+        </Reveal>
+      </Section>
 
-        <div className="space-y-8">
-          <div>
-            <h2 className="text-xs uppercase tracking-wider text-muted-foreground mb-4">Education</h2>
-            <div className="space-y-3">
-              {education.map((e) => (
-                <Card key={e.title} className="p-5" interactive={false}>
-                  <div className="text-base font-medium">{e.title}</div>
-                  <div className="text-sm text-muted-foreground">{e.org}</div>
-                </Card>
-              ))}
-            </div>
+      <Section spacing="tight">
+        <Reveal className="grid md:grid-cols-[1fr_2.4fr] gap-8 md:gap-16">
+          <div data-reveal-item className="text-[11px] font-mono uppercase tracking-[0.18em] text-muted-foreground">
+            Education
           </div>
-
-          <div>
-            <h2 className="text-xs uppercase tracking-wider text-muted-foreground mb-4">Skills</h2>
-            <Card className="p-5" interactive={false}>
-              <div className="flex flex-wrap gap-1.5">
-                {skills.map((s) => <Pill key={s}>{s}</Pill>)}
+          <div className="space-y-10">
+            {education.map((e) => (
+              <div data-reveal-item key={e.title}>
+                <h3 className="text-xl md:text-2xl font-semibold tracking-tight">{e.title}</h3>
+                <div className="text-sm text-muted-foreground mt-1">{e.org}</div>
               </div>
-            </Card>
+            ))}
           </div>
+        </Reveal>
+      </Section>
 
-          <div>
-            <h2 className="text-xs uppercase tracking-wider text-muted-foreground mb-4">Licenses & Certifications</h2>
-            <Card className="p-5" interactive={false}>
-              <ul className="space-y-2 text-sm">
-                {certificates.map((c, i) => (
-                  <li key={i} className="flex gap-2.5">
-                    <span className="mt-2 size-1 rounded-full bg-primary shrink-0" />{c}
-                  </li>
-                ))}
-              </ul>
-            </Card>
+      <Section spacing="tight">
+        <Reveal className="grid md:grid-cols-[1fr_2.4fr] gap-8 md:gap-16">
+          <div data-reveal-item className="text-[11px] font-mono uppercase tracking-[0.18em] text-muted-foreground">
+            Skills
           </div>
-        </div>
-      </div>
-    </Section>
+          <div data-reveal-item className="flex flex-wrap gap-x-8 gap-y-3 max-w-3xl text-base md:text-lg">
+            {skills.map((s, i) => (
+              <span key={s} className="text-foreground/90">
+                {s}
+                {i < skills.length - 1 && (
+                  <span className="text-muted-foreground/50 ml-8 font-mono">·</span>
+                )}
+              </span>
+            ))}
+          </div>
+        </Reveal>
+      </Section>
+
+      <Section spacing="tight">
+        <Reveal className="grid md:grid-cols-[1fr_2.4fr] gap-8 md:gap-16">
+          <div data-reveal-item className="text-[11px] font-mono uppercase tracking-[0.18em] text-muted-foreground">
+            Licenses & Certifications
+          </div>
+          <ul className="space-y-4 text-[15px] md:text-base text-foreground/90">
+            {certificates.map((c, i) => (
+              <li data-reveal-item key={i} className="grid grid-cols-[auto_1fr] gap-6">
+                <span className="text-[11px] font-mono uppercase tracking-[0.18em] text-muted-foreground pt-1">
+                  0{i + 1}
+                </span>
+                <span>{c}</span>
+              </li>
+            ))}
+          </ul>
+        </Reveal>
+      </Section>
+    </>
   );
 }

@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Card, Pill, Section, SectionHeading } from "@/components/Primitives";
+import { Section, SectionHeading } from "@/components/Primitives";
+import { Reveal } from "@/components/Reveal";
 import { Compass, Scale, Sparkles, Layers, Network, BarChart3, Users } from "lucide-react";
 
 export const Route = createFileRoute("/product-thinking")({
@@ -28,26 +29,42 @@ const topics = [
 
 function ProductThinking() {
   return (
-    <Section className="pt-16 md:pt-24">
-      <SectionHeading
-        eyebrow="Product thinking"
-        title="Notes on how I work."
-        description="A growing collection of evergreen pieces — written slowly, edited often. New articles are added under each topic."
-      />
-      <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-        {topics.map(({ icon: Icon, title, desc }) => (
-          <Card key={title} className="flex flex-col">
-            <div className="grid h-10 w-10 place-items-center rounded-xl bg-accent text-accent-foreground">
-              <Icon className="size-5" />
+    <>
+      <Section className="pt-16 md:pt-28" spacing="tight">
+        <SectionHeading
+          eyebrow="Product thinking"
+          title="Notes on how I work."
+          description="A growing collection of evergreen pieces — written slowly, edited often. New articles are added under each topic."
+        />
+      </Section>
+
+      <Section spacing="tight">
+        <Reveal className="divide-y divide-border">
+          {topics.map(({ icon: Icon, title, desc }, i) => (
+            <div
+              data-reveal-item
+              key={title}
+              className="grid md:grid-cols-[auto_auto_1fr_auto] gap-6 md:gap-12 items-start py-10 md:py-14"
+            >
+              <div className="text-[11px] font-mono uppercase tracking-[0.18em] text-muted-foreground md:pt-3">
+                0{i + 1}
+              </div>
+              <div className="md:pt-1">
+                <Icon className="size-5 stroke-[1.5]" />
+              </div>
+              <div>
+                <h2 className="text-2xl md:text-3xl font-semibold tracking-tight">{title}</h2>
+                <p className="mt-3 text-base md:text-lg text-muted-foreground leading-relaxed max-w-2xl">
+                  {desc}
+                </p>
+              </div>
+              <div className="text-[11px] font-mono uppercase tracking-[0.18em] text-muted-foreground md:pt-3">
+                Coming soon
+              </div>
             </div>
-            <h2 className="mt-5 text-lg font-medium">{title}</h2>
-            <p className="mt-2 text-sm text-muted-foreground flex-1">{desc}</p>
-            <div className="mt-5 pt-4 border-t border-border">
-              <Pill>Articles coming soon</Pill>
-            </div>
-          </Card>
-        ))}
-      </div>
-    </Section>
+          ))}
+        </Reveal>
+      </Section>
+    </>
   );
 }
