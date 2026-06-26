@@ -1,15 +1,15 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Card, Pill, Section } from "@/components/Primitives";
 import { Button } from "@/components/ui/button";
-import { Download, Linkedin } from "lucide-react";
+import { Download, Linkedin, Mail, Phone, MapPin } from "lucide-react";
 
 export const Route = createFileRoute("/resume")({
   head: () => ({
     meta: [
       { title: "Resume — Gerta Xhepi" },
-      { name: "description", content: "Resume of Gerta Xhepi: Product Manager, software engineering background, MBA." },
+      { name: "description", content: "Resume of Gerta Xhepi: Product Manager with 5+ years of experience, MBA, and software engineering background." },
       { property: "og:title", content: "Resume — Gerta Xhepi" },
-      { property: "og:description", content: "Experience, education, skills and certificates." },
+      { property: "og:description", content: "Experience, education, skills and certifications of Gerta Xhepi." },
       { property: "og:url", content: "/resume" },
     ],
     links: [{ rel: "canonical", href: "/resume" }],
@@ -19,70 +19,100 @@ export const Route = createFileRoute("/resume")({
 
 const experience = [
   {
-    role: "Founder & Product Builder",
-    org: "PeakProfile",
-    dates: "2024 — present",
+    role: "Founder / Product Builder",
+    org: "Building PeakProfile",
+    dates: "Jan 2025 — Present",
     bullets: [
-      "Founded an AI-powered decision support product for mountaineers",
-      "Designed evaluation pipeline for grounded LLM responses",
-      "Closed alpha with 80 users, 4.6/5 usefulness rating",
+      "Building early-stage product addressing trust, risk, and decision-making in high-stakes environments (mountaineering expeditions)",
+      "Designed structured profile system to transform fragmented self-reported experience into standardized, comparable data models",
+      "Exploring AI-driven scoring systems to assess readiness and improve matching between guides and participants",
+      "Focused on improving decision quality by reducing reliance on unstructured or unreliable data inputs",
     ],
   },
   {
     role: "Product Manager",
-    org: "jacando",
-    dates: "2022 — 2024",
+    org: "jacando AG",
+    dates: "Aug 2024 — Jan 2025",
     bullets: [
-      "Shipped electronic-signature MVP in 7 weeks, adopted by 200+ orgs",
-      "Owned workflow automation across hiring and onboarding",
-      "Partnered with engineering to modernise the contract pipeline",
+      "Led product discovery for secure e-signature workflows in enterprise HR SaaS through user interviews, process mapping, and competitor analysis",
+      "Designed and shipped end-to-end e-signature product integrated into HR workflows, reducing process execution time by 20%",
+      "Iterated on MVP based on customer feedback and usage insights, increasing product adoption by 20%",
+      "Mapped and optimized complex multi-step HR workflows with engineering and customers, improving user satisfaction by 30%",
+      "Prioritized roadmap based on user value, business impact, and technical feasibility",
     ],
   },
   {
     role: "Product Manager",
-    org: "New Work SE / XING",
-    dates: "2020 — 2022",
+    org: "New Work SE (XING / onlyfy Marketplace)",
+    dates: "Jul 2021 — Jul 2024",
     bullets: [
-      "Led salary transparency program protecting €50M+ in marketplace revenue",
-      "Improved estimation accuracy by 28% and coverage to 94%",
-      "Aligned product roadmap with EU pay-transparency regulation",
-    ],
-  },
-  {
-    role: "Co-Founder",
-    org: "Builtin",
-    dates: "2018 — 2020",
-    bullets: [
-      "Built early product from zero in a B2B niche",
-      "Ran discovery, design and engineering hand-in-hand",
+      "Led product discovery for job listing creation and structured data workflows using user research, behavioral analysis, and continuous feedback loops",
+      "Improved taxonomy and structured job data quality, increasing consistency, discoverability, and marketplace efficiency by 30%",
+      "Defined and owned product OKRs across listing quality, compliance, and monetization, aligning engineering, data science, and legal teams",
+      "Led regulatory-driven initiative on salary transparency, improving model accuracy by 60% and expanding salary coverage by 80%, protecting ~€50M+ revenue",
+      "Built data-driven decision-making frameworks using Adobe Analytics and Tableau to validate hypotheses and guide roadmap prioritization",
+      "Translated complex regulatory, legal, and business constraints into scalable product and data solutions under tight deadlines",
     ],
   },
   {
     role: "Software Engineer",
-    org: "Early career",
-    dates: "2016 — 2018",
+    org: "New Work SE",
+    dates: "Jul 2017 — Jul 2021",
     bullets: [
-      "Backend and data engineering on production systems",
-      "Foundation for how I work with engineering teams today",
+      "Built and scaled XING design system used by 150+ engineers, enabling consistent UI and faster product delivery",
+      "Collaborated with product managers and designers to translate user needs into scalable frontend architecture (React, GraphQL)",
+      "Improved system consistency and development efficiency through reusable component architecture",
+      "Contributed to engineering standards and cross-team technical alignment",
+    ],
+  },
+  {
+    role: "Co-Founder",
+    org: "TechFabric Creative (Buletin Buletin)",
+    dates: "Dec 2014 — Apr 2017",
+    bullets: [
+      "Co-founded Buletin Buletin, a personalized news aggregation product built on structured data, taxonomy, and ranking logic",
+      "Designed content categorization and personalization mechanisms to improve relevance and engagement",
+      "Led product discovery, feature development, and growth experiments, increasing user satisfaction by 50%",
+      "Owned product and technical strategy for a scalable content platform",
+    ],
+  },
+  {
+    role: "Software Developer Intern",
+    org: "Microsoft",
+    dates: "Jun 2013 — Sep 2013",
+    bullets: [
+      "Delivered features for internal HR systems, improving workflow efficiency by 30%",
+      "Collaborated cross-functionally with engineering, data, and operations teams to translate requirements into product improvements",
+      "Supported deployment and iteration of internal tools, improving user satisfaction by 20%",
     ],
   },
 ];
 
 const education = [
-  { title: "MBA", org: "Business school", dates: "" },
-  { title: "B.Sc. Software Engineering", org: "University", dates: "" },
+  { title: "Master of Business Administration (MBA)", org: "ThePowerMBA", dates: "" },
+  { title: "Bachelor of Computer Science", org: "University Polytechnic of Bucharest", dates: "" },
 ];
 
 const skills = [
-  "Product discovery", "Roadmapping", "AI product strategy", "Evaluation harnesses",
-  "Marketplace dynamics", "Platform PM", "SQL & analytics", "A/B testing",
-  "Stakeholder management", "Technical scoping", "PRD writing", "Workshop facilitation",
+  "Effective Communication",
+  "Collaboration",
+  "Data-driven Decision Making",
+  "Product Visioning",
+  "User-Centric Mindset",
+  "Stakeholder Management",
+  "User Research",
+  "Market Analysis",
+  "Product Strategy",
+  "Analytical Skills",
+  "Leadership and Team",
 ];
 
 const certificates = [
-  "Reforge — AI for Product Managers",
-  "Mind the Product — Advanced PM",
-  "Coursera — Deep Learning Specialization",
+  "Artificial Intelligence — Product School",
+  "Product Analytics — Product School",
+  "Product Strategy — Product School",
+  "Product Launches — Product School",
+  "Project Manager — Google",
 ];
 
 function Resume() {
@@ -92,7 +122,17 @@ function Resume() {
         <div className="max-w-2xl">
           <div className="text-xs uppercase tracking-[0.18em] text-primary/80 mb-3">Resume</div>
           <h1 className="text-4xl md:text-5xl font-semibold tracking-tight">Gerta Xhepi</h1>
-          <p className="mt-3 text-muted-foreground">Product Manager · Germany</p>
+          <div className="mt-4 flex flex-wrap gap-x-4 gap-y-2 text-sm text-muted-foreground">
+            <a href="mailto:xhepigerta@gmail.com" className="inline-flex items-center gap-1.5 hover:text-foreground transition-colors">
+              <Mail className="size-3.5" /> xhepigerta@gmail.com
+            </a>
+            <span className="inline-flex items-center gap-1.5">
+              <Phone className="size-3.5" /> +49 152 1022 3821
+            </span>
+            <span className="inline-flex items-center gap-1.5">
+              <MapPin className="size-3.5" /> Germany
+            </span>
+          </div>
         </div>
         <div className="flex gap-3">
           <Button asChild className="rounded-full">
@@ -101,17 +141,17 @@ function Resume() {
             </a>
           </Button>
           <Button asChild variant="outline" className="rounded-full">
-            <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer">
+            <a href="https://www.linkedin.com/in/gerta-xhepi-94853289/" target="_blank" rel="noreferrer">
               <Linkedin className="mr-1" /> LinkedIn
             </a>
           </Button>
         </div>
       </div>
 
-      <Card className="p-8 md:p-10 mb-10">
+      <Card className="p-8 md:p-10 mb-10" interactive={false}>
         <div className="text-xs uppercase tracking-wider text-muted-foreground">Summary</div>
         <p className="mt-3 text-base md:text-lg text-foreground/85 leading-relaxed">
-          Product Manager with 5+ years building data-intensive SaaS products across marketplaces, workflow automation and AI. Engineering background and an MBA. Known for structured thinking, calm execution and a close working relationship with engineering teams.
+          Product Manager with 5+ years of experience and an MBA, building data-intensive SaaS products across marketplace and workflow-driven environments. Strong focus on product discovery, OKR execution, and structured data systems that improve decision-making, compliance, and operational efficiency. Experienced in translating complex user needs and regulatory constraints into scalable product solutions. Proven ability to align engineering, data science, legal, and business stakeholders around measurable outcomes in high-complexity environments. Strong software engineering background with hands-on product ownership in product-led organizations.
         </p>
       </Card>
 
@@ -126,11 +166,11 @@ function Resume() {
                     <div className="text-lg font-medium">{e.role}</div>
                     <div className="text-sm text-muted-foreground">{e.org}</div>
                   </div>
-                  <div className="text-xs text-muted-foreground">{e.dates}</div>
+                  <div className="text-xs text-muted-foreground font-mono">{e.dates}</div>
                 </div>
                 <ul className="mt-4 space-y-2 text-sm text-foreground/85">
-                  {e.bullets.map((b) => (
-                    <li key={b} className="flex gap-2.5">
+                  {e.bullets.map((b, i) => (
+                    <li key={i} className="flex gap-2.5">
                       <span className="mt-2 size-1 rounded-full bg-primary shrink-0" />{b}
                     </li>
                   ))}
@@ -145,7 +185,7 @@ function Resume() {
             <h2 className="text-xs uppercase tracking-wider text-muted-foreground mb-4">Education</h2>
             <div className="space-y-3">
               {education.map((e) => (
-                <Card key={e.title} className="p-5">
+                <Card key={e.title} className="p-5" interactive={false}>
                   <div className="text-base font-medium">{e.title}</div>
                   <div className="text-sm text-muted-foreground">{e.org}</div>
                 </Card>
@@ -155,7 +195,7 @@ function Resume() {
 
           <div>
             <h2 className="text-xs uppercase tracking-wider text-muted-foreground mb-4">Skills</h2>
-            <Card className="p-5">
+            <Card className="p-5" interactive={false}>
               <div className="flex flex-wrap gap-1.5">
                 {skills.map((s) => <Pill key={s}>{s}</Pill>)}
               </div>
@@ -163,11 +203,11 @@ function Resume() {
           </div>
 
           <div>
-            <h2 className="text-xs uppercase tracking-wider text-muted-foreground mb-4">Certificates</h2>
-            <Card className="p-5">
+            <h2 className="text-xs uppercase tracking-wider text-muted-foreground mb-4">Licenses & Certifications</h2>
+            <Card className="p-5" interactive={false}>
               <ul className="space-y-2 text-sm">
-                {certificates.map((c) => (
-                  <li key={c} className="flex gap-2.5">
+                {certificates.map((c, i) => (
+                  <li key={i} className="flex gap-2.5">
                     <span className="mt-2 size-1 rounded-full bg-primary shrink-0" />{c}
                   </li>
                 ))}
