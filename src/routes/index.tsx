@@ -22,16 +22,16 @@ const selectedWork = [
     slug: "salary-transparency",
     title: "Salary Transparency & Structured Job Data",
     description:
-      "Rebuilt how salary ranges are sourced, modelled and displayed across a job marketplace serving millions of users.",
+      "Improving salary transparency by building better structured job data. Salary ranges shown to job seekers depended on the quality of employer-provided job data. My work focused on improving taxonomy, structured attributes and data quality so salary estimates became more reliable.",
     role: "Product Manager",
-    domain: "B2B Marketplace",
-    outcome: "Estimation error −28% · Compliance shipped on time",
+    domain: "Marketplace · Data Products",
+    outcome: "Estimation error −28% · Salary coverage 94%",
   },
   {
     slug: "electronic-signature",
     title: "Electronic Signature MVP",
     description:
-      "Designed and shipped a native in-product signing flow that removed third-party tools from the hiring workflow.",
+      "Launching an end-to-end e-signature experience that simplified hiring workflows for HR teams.",
     role: "Product Manager",
     domain: "HR SaaS",
     outcome: "MVP shipped in 7 weeks · 200+ companies adopted",
@@ -40,19 +40,19 @@ const selectedWork = [
     slug: "peakprofile",
     title: "PeakProfile",
     description:
-      "Founded an AI-powered decision support product for safer mountaineering, grounded in evaluation and trust.",
-    role: "Founder & Product Builder",
-    domain: "AI · Consumer",
+      "Building an AI-powered product that helps mountaineers make better decisions through structured experience data.",
+    role: "Founder",
+    domain: "AI Product",
     outcome: "Closed alpha · 4.6/5 usefulness rating",
   },
   {
-    slug: "platform-strategy",
-    title: "Platform Product Strategy",
+    slug: "product-thinking",
+    title: "Product Discovery & Decision Making",
     description:
-      "Shaped an internal platform strategy combining paved-road tooling with AI-assisted engineering workflows.",
-    role: "Product Manager",
-    domain: "Developer Platform",
-    outcome: "Service setup days → hours · Incidents −22%",
+      "My approach to understanding complex product problems through customer discovery, structured thinking and evidence-based decision making.",
+    role: "Product Management",
+    domain: "",
+    outcome: "How I approach product work",
   },
 ];
 
@@ -154,7 +154,7 @@ function Home() {
                       Role / Domain
                     </dt>
                     <dd className="text-sm md:text-[15px] font-medium">
-                      {c.role} · {c.domain}
+                      {c.domain ? `${c.role} · ${c.domain}` : c.role}
                     </dd>
                   </div>
                   <div>
@@ -165,24 +165,44 @@ function Home() {
                   </div>
                 </dl>
 
-                <Link
-                  to="/case-studies/$slug"
-                  params={{ slug: c.slug }}
-                  className="group mt-10 inline-flex items-center gap-2 text-sm font-medium border-b border-foreground pb-1 transition-opacity hover:opacity-60"
-                >
-                  Read case study
-                  <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-1" />
-                </Link>
+                {c.slug === "product-thinking" ? (
+                  <Link
+                    to="/product-thinking"
+                    className="group mt-10 inline-flex items-center gap-2 text-sm font-medium border-b border-foreground pb-1 transition-opacity hover:opacity-60"
+                  >
+                    Read case study
+                    <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-1" />
+                  </Link>
+                ) : (
+                  <Link
+                    to="/case-studies/$slug"
+                    params={{ slug: c.slug }}
+                    className="group mt-10 inline-flex items-center gap-2 text-sm font-medium border-b border-foreground pb-1 transition-opacity hover:opacity-60"
+                  >
+                    Read case study
+                    <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-1" />
+                  </Link>
+                )}
               </div>
               <div className="hidden md:block md:pt-3">
-                <Link
-                  to="/case-studies/$slug"
-                  params={{ slug: c.slug }}
-                  aria-label={`Read case study: ${c.title}`}
-                  className="group inline-flex transition-opacity hover:opacity-60"
-                >
-                  <ArrowUpRight className="size-5 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
-                </Link>
+                {c.slug === "product-thinking" ? (
+                  <Link
+                    to="/product-thinking"
+                    aria-label={`Read case study: ${c.title}`}
+                    className="group inline-flex transition-opacity hover:opacity-60"
+                  >
+                    <ArrowUpRight className="size-5 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
+                  </Link>
+                ) : (
+                  <Link
+                    to="/case-studies/$slug"
+                    params={{ slug: c.slug }}
+                    aria-label={`Read case study: ${c.title}`}
+                    className="group inline-flex transition-opacity hover:opacity-60"
+                  >
+                    <ArrowUpRight className="size-5 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
+                  </Link>
+                )}
               </div>
             </div>
           ))}

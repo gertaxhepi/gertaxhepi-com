@@ -20,63 +20,60 @@ export type CaseStudy = {
 export const caseStudies: CaseStudy[] = [
   {
     slug: "salary-transparency",
-    title: "Salary Transparency",
+    title: "Salary Transparency & Structured Job Data",
     summary:
-      "Improving salary estimation accuracy and marketplace data quality while supporting regulatory compliance.",
-    technologies: ["ML models", "Data pipelines", "A/B testing", "PostgreSQL", "Looker"],
+      "Improving salary transparency by building better structured job data.",
+    technologies: ["Taxonomy", "Structured data", "Data pipelines", "ML models"],
     outcomes: [
       "Reduced estimation error by 28%",
       "Increased salary coverage to 94% of job postings",
-      "Shipped EU pay-transparency compliance ahead of deadline",
     ],
-    context: "B2B marketplace · 12M+ users",
+    context: "B2B Marketplace · Data Products",
     overview:
-      "Salary information is one of the most decisive signals on a job marketplace. We rebuilt how salary ranges are sourced, modelled and displayed across the product to raise trust and align with the upcoming EU pay-transparency directive.",
+      "Salary ranges shown to job seekers depended on the quality of employer-provided job data. My work focused on improving taxonomy, structured attributes and data quality so salary estimates became more reliable.",
     problem:
-      "Job seekers complained that listed salaries were missing, inaccurate, or inconsistent. At the same time, employers were preparing for new regulation that would require them to publish ranges. The marketplace risked losing trust on both sides if we did not modernise the underlying system.",
+      "Job postings arrived with inconsistent or incomplete structured data. Salaries were estimated from sparse, noisy inputs — role titles that meant different things, missing seniority levels, conflicting location mappings. The result was estimates that felt wrong to users and eroded trust.",
     discovery: [
-      "30 user interviews across seekers, recruiters and HR leaders",
-      "Funnel analysis showing 41% drop-off on jobs without salary",
-      "Audit of every salary source: structured fields, parsed text, ML estimate",
-      "Regulatory deep-dive with legal and policy teams",
+      "Mapped every field that fed into the salary model and scored its completeness",
+      "Interviewed job seekers to understand which estimates felt credible and why",
+      "Audited employer posting flows to find where structured data was being lost",
+      "Traced data lineage from ingestion through to the final estimate",
     ],
     constraints: [
-      "No additional headcount; one squad of four engineers",
-      "Backwards compatibility with three legacy ingestion systems",
-      "Compliance deadline fixed by external regulation",
+      "Three legacy ingestion systems with different schemas",
+      "No additional engineering headcount",
+      "Changes had to ship without breaking existing estimates",
     ],
     strategy: [
-      "Treat salary as a first-class entity with provenance and confidence",
-      "Sequence work: data model → estimation → UI → employer tooling",
-      "Use confidence to decide when to show, hide, or annotate a range",
+      "Treat structured data as the product surface, not just a backend concern",
+      "Build a unified taxonomy before improving the model",
+      "Use confidence scores to decide when to show, hide or qualify an estimate",
     ],
     solution: [
-      "Unified salary schema with source, currency, period and confidence",
-      "New ML estimator combining role, seniority, location and company signals",
-      "Employer console to set ranges, see benchmarks and preview the listing",
-      "Seeker UI redesigned around transparent ranges and source labels",
+      "Unified job taxonomy mapping titles, seniority and location to canonical values",
+      "New structured data pipeline with validation at ingestion",
+      "Confidence scoring that surfaced source quality alongside the estimate",
     ],
     engineering:
-      "Worked closely with the data and platform teams to land the new schema behind a feature flag, backfill historical postings and run a multi-week shadow comparison before flipping traffic.",
+      "Worked closely with data and engineering teams to land the new schema behind a feature flag, backfill historical postings and run a shadow comparison before flipping traffic.",
     metrics: [
       { label: "Estimation error", value: "−28%" },
       { label: "Salary coverage", value: "94%" },
       { label: "Apply rate uplift", value: "+11%" },
-      { label: "Compliance", value: "On time" },
     ],
     lessons: [
+      "Better AI starts with better ground truth, not better algorithms",
       "Provenance matters as much as the number itself",
       "Confidence intervals are a product surface, not just a metric",
-      "Regulation can be a catalyst for long-overdue platform work",
     ],
     reflection:
       "The most rewarding part was watching trust become measurable. Once users understood where a number came from, even imperfect estimates became useful.",
   },
   {
     slug: "electronic-signature",
-    title: "Electronic Signature",
+    title: "Electronic Signature MVP",
     summary:
-      "Launching an MVP in under two months to simplify hiring workflows for HR teams.",
+      "Launching an end-to-end e-signature experience that simplified hiring workflows for HR teams.",
     technologies: ["Node.js", "PDF rendering", "Webhooks", "Stripe-style audit log"],
     outcomes: [
       "MVP shipped in 7 weeks",
@@ -85,7 +82,7 @@ export const caseStudies: CaseStudy[] = [
     ],
     context: "HR SaaS · SMB segment",
     overview:
-      "HR teams were exporting contracts to third-party signing tools, breaking the hiring flow and creating compliance gaps. We embedded a native signature experience inside the existing workflow.",
+      "HR teams were exporting contracts to third-party signing tools, breaking the hiring flow and creating gaps. We embedded a native signature experience inside the existing workflow.",
     problem:
       "Hiring managers had to leave the product to send, track and store signed contracts. Each round-trip cost time and created risk: lost documents, expired links, missing audit trails.",
     discovery: [
@@ -128,14 +125,14 @@ export const caseStudies: CaseStudy[] = [
     slug: "peakprofile",
     title: "PeakProfile",
     summary:
-      "Building an AI-powered decision support platform for safer mountaineering.",
+      "Building an AI-powered product that helps mountaineers make better decisions through structured experience data.",
     technologies: ["LLM evaluation", "Vector search", "React", "Geospatial data"],
     outcomes: [
       "Closed alpha with 80 mountaineers",
       "Decision-support flow rated 4.6/5 on usefulness",
       "Foundations for a structured risk-profile dataset",
     ],
-    context: "Founder-led · early-stage AI product",
+    context: "Founder · AI Product",
     overview:
       "PeakProfile helps mountaineers reason about route choice, conditions and personal risk profile. It is my own product — a place to practise discovery, model behaviour and AI evaluation end-to-end.",
     problem:
@@ -175,58 +172,6 @@ export const caseStudies: CaseStudy[] = [
     ],
     reflection:
       "PeakProfile is where I get to be founder, PM and user at once. It keeps my thinking honest because the stakes are real.",
-  },
-  {
-    slug: "platform-strategy",
-    title: "Platform Strategy",
-    summary:
-      "Designing internal platform capabilities and AI-assisted engineering workflows.",
-    technologies: ["Internal platforms", "Developer experience", "AI tooling"],
-    outcomes: [
-      "Cut new-service setup from days to hours",
-      "Adopted AI-assisted code review across 6 squads",
-      "Reduced on-call incidents by 22%",
-    ],
-    context: "Engineering platform · 60+ engineers",
-    overview:
-      "Treating the engineering organisation as the customer, we shaped a platform strategy that combined paved-road tooling with AI-assisted workflows.",
-    problem:
-      "Squads were re-implementing the same patterns — auth, observability, deployment — slowly and inconsistently. Reviews were a bottleneck and onboarding took weeks.",
-    discovery: [
-      "Developer experience survey across all squads",
-      "Shadowed three teams through a full release cycle",
-      "Quantified time spent on undifferentiated heavy lifting",
-    ],
-    constraints: [
-      "No mandate; adoption had to be voluntary",
-      "Heterogeneous stack and a complex monorepo",
-      "Limited platform headcount",
-    ],
-    strategy: [
-      "Paved road, not golden cage: defaults that are easy to leave",
-      "Treat the platform as a product with users, releases and a roadmap",
-      "Use AI where it removes toil, not where it replaces judgement",
-    ],
-    solution: [
-      "Service template with auth, telemetry and CI ready out of the box",
-      "AI-assisted code review focused on policy and consistency checks",
-      "Internal docs treated as a first-class surface, not a wiki",
-    ],
-    engineering:
-      "Worked side by side with staff engineers on the API surface and rollout plan. We measured adoption like product usage and iterated on the rough edges.",
-    metrics: [
-      { label: "Service setup", value: "Days → hours" },
-      { label: "Review wait", value: "−47%" },
-      { label: "Incidents", value: "−22%" },
-      { label: "Squad adoption", value: "6 / 8" },
-    ],
-    lessons: [
-      "Internal products need real product management",
-      "Adoption is the only metric that compounds",
-      "AI tooling lands when it lowers cognitive load, not when it impresses",
-    ],
-    reflection:
-      "Platform work is patient work. The wins are quiet, but they show up everywhere later.",
   },
 ];
 
