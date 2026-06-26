@@ -1,6 +1,6 @@
 import { Outlet, useLocation, useNavigate } from "@tanstack/react-router";
 import type { ReactNode, MouseEvent } from "react";
-import { useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { Menu, X } from "lucide-react";
 
 type NavItem = { label: string; sectionId: string };
@@ -12,6 +12,24 @@ const navItems: readonly NavItem[] = [
 ] as const;
 
 const ACCENT = "#8A5A5A";
+
+// Shared helper: smooth-scroll to a homepage section and update the URL hash.
+export function scrollToSection(sectionId: string) {
+  if (typeof window === "undefined") return;
+  const el = document.getElementById(sectionId);
+  if (!el) return;
+  el.scrollIntoView({ behavior: "smooth", block: "start" });
+  if (sectionId === "home") {
+    history.replaceState(null, "", "/");
+  } else {
+    history.replaceState(null, "", `#${sectionId}`);
+  }
+  // Notify scroll-spy so the nav highlights immediately,
+  // before IntersectionObserver catches up during the smooth scroll.
+  window.dispatchEvent(
+    new CustomEvent("lovable:section-intent", { detail: { sectionId } }),
+  );
+}
 
 function useActiveSection(pathname: string) {
   const [activeSection, setActiveSection] = useState<string | null>(null);
@@ -39,7 +57,19 @@ function useActiveSection(pathname: string) {
     );
 
     nodes.forEach((n) => io.observe(n));
-    return () => io.disconnect();
+
+    const onIntent = (e: Event) => {
+      const detail = (e as CustomEvent<{ sectionId: string }>).detail;
+      if (!detail) return;
+      if (detail.sectionId === "home") setActiveSection(null);
+      else if (ids.includes(detail.sectionId)) setActiveSection(detail.sectionId);
+    };
+    window.addEventListener("lovable:section-intent", onIntent);
+
+    return () => {
+      io.disconnect();
+      window.removeEventListener("lovable:section-intent", onIntent);
+    };
   }, [pathname]);
 
   return activeSection;
@@ -50,6 +80,7 @@ export function SiteHeader() {
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
   const pathname = location.pathname;
+  const isFocusedDoc = pathname.startsWith("/resume");
   const activeSection = useActiveSection(pathname);
   const navigate = useNavigate();
 
@@ -65,29 +96,20 @@ export function SiteHeader() {
     return null;
   }, [pathname, activeSection]);
 
-  const handleNavClick = (
-    e: MouseEvent<HTMLAnchorElement>,
-    sectionId: string,
-  ) => {
-    setOpen(false);
-    // On homepage, intercept and smooth-scroll to the section, updating the URL hash.
-    if (pathname === "/") {
-      e.preventDefault();
-      const el = document.getElementById(sectionId);
-      if (el) {
-        el.scrollIntoView({ behavior: "smooth", block: "start" });
-        if (sectionId === "home") {
-          history.replaceState(null, "", "/");
-        } else {
-          history.replaceState(null, "", `#${sectionId}`);
-        }
+  const handleNavClick = useCallback(
+    (e: MouseEvent<HTMLAnchorElement>, sectionId: string) => {
+      setOpen(false);
+      if (pathname === "/") {
+        e.preventDefault();
+        scrollToSection(sectionId);
+        return;
       }
-      return;
-    }
-    // From any other route, SPA-navigate to "/" with a hash; index.tsx scrolls on mount.
-    e.preventDefault();
-    navigate({ to: "/", hash: sectionId === "home" ? undefined : sectionId });
-  };
+      e.preventDefault();
+      navigate({ to: "/", hash: sectionId === "home" ? undefined : sectionId });
+    },
+    [pathname, navigate],
+  );
+
 
   return (
     <header
