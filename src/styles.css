@@ -168,9 +168,9 @@
   position: absolute;
   border-radius: 9999px;
   filter: blur(80px);
-  opacity: 0.55;
+  opacity: 0.35;
   pointer-events: none;
-  background: radial-gradient(circle at 30% 30%, oklch(0.5 0.2 295 / 0.35), transparent 70%);
+  background: radial-gradient(circle at 30% 30%, rgb(17 17 17 / 0.10), transparent 70%);
   animation: drift 18s ease-in-out infinite alternate;
 }
 
