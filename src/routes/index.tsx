@@ -255,16 +255,6 @@ function Home() {
           ))}
         </Reveal>
 
-        <Reveal className="mt-16">
-          <Link
-            data-reveal-item
-            to="/case-studies"
-            className="group inline-flex items-center gap-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
-          >
-            See all work
-            <ArrowUpRight className="size-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-          </Link>
-        </Reveal>
       </Section>
 
       {/* ABOUT */}
