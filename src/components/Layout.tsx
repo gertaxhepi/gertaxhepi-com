@@ -129,34 +129,47 @@ export function SiteHeader() {
           Gerta Xhepi
         </a>
 
-        <nav className="hidden md:flex items-center gap-8">
-          {navItems.map((item) => {
-            const isActive = activeId === item.sectionId;
-            return (
-              <a
-                key={item.sectionId}
-                href={`/#${item.sectionId}`}
-                onClick={(e) => handleNavClick(e, item.sectionId)}
-                className="nav-link text-sm font-bold transition-colors duration-300"
-                style={{ color: isActive ? ACCENT : undefined }}
-              >
-                {item.label}
-              </a>
-            );
-          })}
-        </nav>
+        {isFocusedDoc ? (
+          <nav className="flex items-center gap-8">
+            <a
+              href="/"
+              className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+            >
+              ← Back to Home
+            </a>
+          </nav>
+        ) : (
+          <>
+            <nav className="hidden md:flex items-center gap-8">
+              {navItems.map((item) => {
+                const isActive = activeId === item.sectionId;
+                return (
+                  <a
+                    key={item.sectionId}
+                    href={`/#${item.sectionId}`}
+                    onClick={(e) => handleNavClick(e, item.sectionId)}
+                    className="nav-link text-sm font-bold transition-colors duration-300"
+                    style={{ color: isActive ? ACCENT : undefined }}
+                  >
+                    {item.label}
+                  </a>
+                );
+              })}
+            </nav>
 
-        <button
-          className="md:hidden grid h-10 w-10 place-items-center nav-link transition-colors"
-          onClick={() => setOpen((s) => !s)}
-          aria-label="Toggle menu"
-          aria-expanded={open}
-        >
-          {open ? <X className="size-5" /> : <Menu className="size-5" />}
-        </button>
+            <button
+              className="md:hidden grid h-10 w-10 place-items-center nav-link transition-colors"
+              onClick={() => setOpen((s) => !s)}
+              aria-label="Toggle menu"
+              aria-expanded={open}
+            >
+              {open ? <X className="size-5" /> : <Menu className="size-5" />}
+            </button>
+          </>
+        )}
       </div>
 
-      {open && (
+      {!isFocusedDoc && open && (
         <div className="md:hidden bg-background/85 backdrop-blur-md">
           <nav className="container-page flex flex-col py-4 gap-1">
             {navItems.map((item) => {
@@ -176,6 +189,7 @@ export function SiteHeader() {
           </nav>
         </div>
       )}
+
     </header>
   );
 }
