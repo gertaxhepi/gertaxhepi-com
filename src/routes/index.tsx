@@ -43,7 +43,7 @@ const selectedWork = [
       "Building an AI-powered product that helps mountaineers make better decisions through structured experience data.",
     role: "Founder",
     domain: "AI Product",
-    outcome: "Closed alpha · 4.6/5 usefulness rating",
+    outcome: "20 early users · 30+ discovery interviews · MVP in development",
   },
   {
     slug: "product-thinking",

@@ -23,7 +23,7 @@ export const caseStudies: CaseStudy[] = [
     title: "Salary Transparency & Structured Job Data",
     summary:
       "Improving salary transparency by building better structured job data.",
-    technologies: ["Taxonomy", "Structured data", "Data pipelines", "ML models"],
+  technologies: ["Structured Data", "Taxonomy", "Ground Truth", "Marketplace", "Data Quality"],
     outcomes: [
       "Reduced estimation error by 28%",
       "Increased salary coverage to 94% of job postings",
@@ -74,7 +74,7 @@ export const caseStudies: CaseStudy[] = [
     title: "Electronic Signature MVP",
     summary:
       "Launching an end-to-end e-signature experience that simplified hiring workflows for HR teams.",
-    technologies: ["Node.js", "PDF rendering", "Webhooks", "Stripe-style audit log"],
+    technologies: ["MVP Strategy", "Workflow Automation", "Product Discovery", "Cross-functional Delivery"],
     outcomes: [
       "MVP shipped in 7 weeks",
       "200+ companies adopted within the first quarter",
@@ -126,11 +126,12 @@ export const caseStudies: CaseStudy[] = [
     title: "PeakProfile",
     summary:
       "Building an AI-powered product that helps mountaineers make better decisions through structured experience data.",
-    technologies: ["LLM evaluation", "Vector search", "React", "Geospatial data"],
+    technologies: ["AI Product", "Trust Systems", "Decision Support", "User Research"],
     outcomes: [
-      "Closed alpha with 80 mountaineers",
-      "Decision-support flow rated 4.6/5 on usefulness",
-      "Foundations for a structured risk-profile dataset",
+      "20 early users engaged",
+      "30+ discovery interviews conducted",
+      "3 AI prototypes tested",
+      "MVP in active development",
     ],
     context: "Founder · AI Product",
     overview:
@@ -160,10 +161,10 @@ export const caseStudies: CaseStudy[] = [
     engineering:
       "Set up an evaluation harness before the second model change. Every prompt and retriever update is scored against a frozen set of realistic scenarios.",
     metrics: [
-      { label: "Alpha users", value: "80" },
-      { label: "Usefulness", value: "4.6 / 5" },
-      { label: "Hallucination rate", value: "−63%" },
-      { label: "Retention W4", value: "38%" },
+      { label: "Early users", value: "20" },
+      { label: "Discovery interviews", value: "30+" },
+      { label: "AI prototypes tested", value: "3" },
+      { label: "Status", value: "MVP in development" },
     ],
     lessons: [
       "Evaluation infrastructure is the real product surface for AI",
