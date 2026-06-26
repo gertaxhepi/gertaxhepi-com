@@ -1,13 +1,15 @@
-import { Link, Outlet, useLocation } from "@tanstack/react-router";
-import type { ReactNode } from "react";
+import { Outlet, useLocation, useNavigate } from "@tanstack/react-router";
+import type { ReactNode, MouseEvent } from "react";
 import { useEffect, useMemo, useState } from "react";
 import { Menu, X } from "lucide-react";
 
-const navItems = [
-  { to: "/", label: "Home", sectionId: "home" },
-  { to: "/case-studies", label: "Work", sectionId: "work" },
-  { to: "/about", label: "About", sectionId: "about" },
-  { to: "/contact", label: "Contact", sectionId: "contact" },
+type NavItem = { label: string; sectionId: string };
+
+const navItems: readonly NavItem[] = [
+  { label: "Home", sectionId: "home" },
+  { label: "Work", sectionId: "work" },
+  { label: "About", sectionId: "about" },
+  { label: "Contact", sectionId: "contact" },
 ] as const;
 
 const ACCENT = "#9A6A64";
@@ -18,6 +20,7 @@ function useActiveSection(pathname: string) {
   useEffect(() => {
     setActiveSection(null);
     if (typeof window === "undefined") return;
+    if (pathname !== "/") return;
 
     const ids = navItems.map((i) => i.sectionId);
     const nodes = ids
@@ -28,19 +31,12 @@ function useActiveSection(pathname: string) {
 
     const io = new IntersectionObserver(
       (entries) => {
-        // pick the entry closest to the top that is intersecting
         const visible = entries
           .filter((e) => e.isIntersecting)
           .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
-        if (visible[0]) {
-          setActiveSection(visible[0].target.id);
-        }
+        if (visible[0]) setActiveSection(visible[0].target.id);
       },
-      {
-        // viewport band where a section is considered "current"
-        rootMargin: "-30% 0px -55% 0px",
-        threshold: 0,
-      },
+      { rootMargin: "-30% 0px -55% 0px", threshold: 0 },
     );
 
     nodes.forEach((n) => io.observe(n));
@@ -50,18 +46,13 @@ function useActiveSection(pathname: string) {
   return activeSection;
 }
 
-function navLinkStyle(isActive: boolean): React.CSSProperties {
-  return {
-    color: isActive ? ACCENT : undefined,
-  };
-}
-
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
   const pathname = location.pathname;
   const activeSection = useActiveSection(pathname);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -70,19 +61,34 @@ export function SiteHeader() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const activeTo = useMemo(() => {
-    if (pathname === "/" && activeSection) {
-      const match = navItems.find((n) => n.sectionId === activeSection);
-      if (match) return match.to;
-    }
-    // exact route match — fall back to longest prefix for nested routes
-    const exact = navItems.find((n) => n.to === pathname);
-    if (exact) return exact.to;
-    const prefix = [...navItems]
-      .filter((n) => n.to !== "/" && pathname.startsWith(n.to))
-      .sort((a, b) => b.to.length - a.to.length)[0];
-    return prefix?.to ?? "/";
+  const activeId = useMemo(() => {
+    if (pathname === "/") return activeSection ?? "home";
+    return null;
   }, [pathname, activeSection]);
+
+  const handleNavClick = (
+    e: MouseEvent<HTMLAnchorElement>,
+    sectionId: string,
+  ) => {
+    setOpen(false);
+    // On homepage, intercept and smooth-scroll to the section, updating the URL hash.
+    if (pathname === "/") {
+      e.preventDefault();
+      const el = document.getElementById(sectionId);
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth", block: "start" });
+        if (sectionId === "home") {
+          history.replaceState(null, "", "/");
+        } else {
+          history.replaceState(null, "", `#${sectionId}`);
+        }
+      }
+      return;
+    }
+    // From any other route, SPA-navigate to "/" with a hash; index.tsx scrolls on mount.
+    e.preventDefault();
+    navigate({ to: "/", hash: sectionId === "home" ? undefined : sectionId });
+  };
 
   return (
     <header
@@ -94,26 +100,28 @@ export function SiteHeader() {
       ].join(" ")}
     >
       <div className="container-page flex h-[72px] items-center justify-between">
-        <Link
-          to="/"
+        <a
+          href="/#home"
+          onClick={(e) => handleNavClick(e, "home")}
           className="text-sm font-bold uppercase tracking-[0.2em] nav-link"
-          style={{ color: activeTo === "/" ? ACCENT : undefined }}
+          style={{ color: activeId === "home" ? ACCENT : undefined }}
         >
           Gerta Xhepi
-        </Link>
+        </a>
 
         <nav className="hidden md:flex items-center gap-8">
           {navItems.map((item) => {
-            const isActive = activeTo === item.to;
+            const isActive = activeId === item.sectionId;
             return (
-              <Link
-                key={item.to}
-                to={item.to}
+              <a
+                key={item.sectionId}
+                href={`/#${item.sectionId}`}
+                onClick={(e) => handleNavClick(e, item.sectionId)}
                 className="nav-link text-sm font-bold transition-colors duration-300"
-                style={navLinkStyle(isActive)}
+                style={{ color: isActive ? ACCENT : undefined }}
               >
                 {item.label}
-              </Link>
+              </a>
             );
           })}
         </nav>
@@ -132,17 +140,17 @@ export function SiteHeader() {
         <div className="md:hidden bg-background/85 backdrop-blur-md">
           <nav className="container-page flex flex-col py-4 gap-1">
             {navItems.map((item) => {
-              const isActive = activeTo === item.to;
+              const isActive = activeId === item.sectionId;
               return (
-                <Link
-                  key={item.to}
-                  to={item.to}
-                  onClick={() => setOpen(false)}
+                <a
+                  key={item.sectionId}
+                  href={`/#${item.sectionId}`}
+                  onClick={(e) => handleNavClick(e, item.sectionId)}
                   className="nav-link px-1 py-3 text-sm font-bold transition-colors"
-                  style={navLinkStyle(isActive)}
+                  style={{ color: isActive ? ACCENT : undefined }}
                 >
                   {item.label}
-                </Link>
+                </a>
               );
             })}
           </nav>
@@ -168,13 +176,13 @@ export function SiteFooter() {
           </div>
           <ul className="mt-6 space-y-3">
             {navItems.slice(1).map((i) => (
-              <li key={i.to}>
-                <Link
-                  to={i.to}
+              <li key={i.sectionId}>
+                <a
+                  href={`/#${i.sectionId}`}
                   className="text-foreground/85 transition-colors hover:text-foreground"
                 >
                   {i.label}
-                </Link>
+                </a>
               </li>
             ))}
           </ul>

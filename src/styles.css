@@ -99,6 +99,9 @@
       scroll-behavior: auto !important;
     }
   }
+  section[id] {
+    scroll-margin-top: 96px;
+  }
 }
 
 @utility container-page {
