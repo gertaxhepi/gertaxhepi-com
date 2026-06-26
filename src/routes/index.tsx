@@ -18,11 +18,11 @@ export const Route = createFileRoute("/")({
   component: Home,
 });
 
-const impact = [
-  { value: "5+", label: "Years building SaaS products" },
-  { value: "€50M+", label: "Marketplace revenue protected" },
-  { value: "200+", label: "Companies using products I launched" },
-  { value: "Engineering", label: "Background + MBA" },
+const profile = [
+  { label: "Experience", value: "5+ years building digital products" },
+  { label: "Domains", value: "B2B \u2022 B2C \u2022 SaaS \u2022 AI \u2022 Marketplaces" },
+  { label: "Background", value: "Software Engineering \u2192 Product Management" },
+  { label: "Current Focus", value: "AI Products \u2022 Platform Products \u2022 Decision Support Systems" },
 ];
 
 const whatIBuild = [
@@ -116,19 +116,17 @@ function Home() {
         </div>
       </section>
 
-      {/* IMPACT */}
-      <Section spacing="tight">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-px overflow-hidden rounded-2xl border border-border/80 bg-border/80 shadow-elevated">
-          {impact.map((m) => (
-            <div
-              data-reveal-item
-              key={m.label}
-              className="group/stat bg-card p-7 md:p-9 transition-colors duration-500 hover:bg-accent/30"
-            >
-              <div className="text-3xl md:text-4xl font-semibold tracking-tight transition-transform duration-500 group-hover/stat:-translate-y-0.5 break-words">
-                {m.value}
+      {/* PROFILE */}
+      <Section spacing="tight" className="border-t border-border/40">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 md:gap-8 lg:gap-10">
+          {profile.map((item) => (
+            <div data-reveal-item key={item.label}>
+              <div className="text-[11px] font-mono uppercase tracking-[0.18em] text-muted-foreground mb-3">
+                {item.label}
               </div>
-              <div className="mt-3 text-sm text-muted-foreground">{m.label}</div>
+              <div className="text-base md:text-[17px] font-medium text-foreground leading-snug text-balance">
+                {item.value}
+              </div>
             </div>
           ))}
         </div>
