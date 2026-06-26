@@ -25,7 +25,7 @@ function CaseStudiesIndex() {
         <SectionHeading
           eyebrow="Case studies"
           title="Selected product work."
-          description="Each case study walks through the problem, discovery, strategy and what we shipped — including the parts that didn't work."
+          description="A closer look at how I work on complex product problems."
         />
       </Section>
 
