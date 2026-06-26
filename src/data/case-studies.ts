@@ -23,7 +23,7 @@ export const caseStudies: CaseStudy[] = [
     title: "Salary Transparency & Structured Job Data",
     summary:
       "Improving salary transparency by building better structured job data.",
-    technologies: ["Taxonomy", "Structured data", "Data pipelines", "ML models"],
+  technologies: ["Structured Data", "Taxonomy", "Ground Truth", "Marketplace", "Data Quality"],
     outcomes: [
       "Reduced estimation error by 28%",
       "Increased salary coverage to 94% of job postings",
