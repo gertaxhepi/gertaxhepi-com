@@ -1,14 +1,15 @@
-import { Link, Outlet, useLocation } from "@tanstack/react-router";
+import { Link, Outlet, useLocation, useNavigate } from "@tanstack/react-router";
 import type { ReactNode } from "react";
 import { useEffect, useMemo, useState } from "react";
 import { Menu, X } from "lucide-react";
 
 const navItems = [
-  { to: "/", label: "Home", sectionId: "home" },
-  { to: "/case-studies", label: "Work", sectionId: "work" },
-  { to: "/about", label: "About", sectionId: "about" },
-  { to: "/contact", label: "Contact", sectionId: "contact" },
+  { label: "Home", sectionId: "home" },
+  { label: "Work", sectionId: "work" },
+  { label: "About", sectionId: "about" },
+  { label: "Contact", sectionId: "contact" },
 ] as const;
+
 
 const ACCENT = "#9A6A64";
 
