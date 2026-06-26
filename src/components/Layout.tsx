@@ -1,4 +1,4 @@
-import { Link, Outlet, useLocation, useNavigate } from "@tanstack/react-router";
+import { Outlet, useLocation, useNavigate } from "@tanstack/react-router";
 import type { ReactNode, MouseEvent } from "react";
 import { useEffect, useMemo, useState } from "react";
 import { Menu, X } from "lucide-react";
