@@ -114,7 +114,7 @@ function Home() {
       </section>
 
       {/* SELECTED WORK */}
-      <Section spacing="tight">
+      <Section id="work" spacing="tight">
         <Reveal>
           <div
             data-reveal-item
