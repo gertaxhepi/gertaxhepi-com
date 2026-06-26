@@ -114,15 +114,10 @@ export function SiteHeader() {
     [pathname, navigate],
   );
 
-  const handleBack = useCallback(
+  const handleBackToWork = useCallback(
     (e: MouseEvent<HTMLAnchorElement>) => {
       e.preventDefault();
-      // Prefer browser back so the homepage scroll position is restored.
-      if (typeof window !== "undefined" && window.history.length > 1) {
-        window.history.back();
-        return;
-      }
-      navigate({ to: "/" });
+      navigate({ to: "/", hash: "work" });
     },
     [navigate],
   );
