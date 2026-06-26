@@ -40,34 +40,69 @@ function useActiveSection(pathname: string) {
     if (pathname !== "/") return;
 
     const ids = navItems.map((i) => i.sectionId);
-    const nodes = ids
-      .map((id) => document.getElementById(id))
-      .filter((n): n is HTMLElement => !!n);
+    let lockUntil = 0;
+    let lockedId: string | null = null;
+    const NAV_OFFSET = 88; // ~72px header + breathing room
 
-    if (nodes.length === 0) return;
+    const compute = (): string | null => {
+      const scrollY = window.scrollY;
+      const viewportH = window.innerHeight;
+      const docH = document.documentElement.scrollHeight;
 
-    const io = new IntersectionObserver(
-      (entries) => {
-        const visible = entries
-          .filter((e) => e.isIntersecting)
-          .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
-        if (visible[0]) setActiveSection(visible[0].target.id);
-      },
-      { rootMargin: "-30% 0px -55% 0px", threshold: 0 },
-    );
+      // Top of page → hero, no highlight.
+      if (scrollY < 120) return null;
 
-    nodes.forEach((n) => io.observe(n));
+      // Bottom of page → last section (handles short final sections).
+      if (scrollY + viewportH >= docH - 4) {
+        return ids[ids.length - 1] ?? null;
+      }
+
+      const probe = scrollY + NAV_OFFSET + 1;
+      let current: string | null = null;
+      for (const id of ids) {
+        const el = document.getElementById(id);
+        if (!el) continue;
+        const top = el.getBoundingClientRect().top + scrollY;
+        if (top <= probe) current = id;
+        else break;
+      }
+      return current;
+    };
+
+    const update = () => {
+      if (Date.now() < lockUntil && lockedId) {
+        setActiveSection(lockedId);
+        return;
+      }
+      setActiveSection(compute());
+    };
+
+    update();
+    window.addEventListener("scroll", update, { passive: true });
+    window.addEventListener("resize", update);
 
     const onIntent = (e: Event) => {
       const detail = (e as CustomEvent<{ sectionId: string }>).detail;
       if (!detail) return;
-      if (detail.sectionId === "home") setActiveSection(null);
-      else if (ids.includes(detail.sectionId)) setActiveSection(detail.sectionId);
+      if (detail.sectionId === "home") {
+        lockedId = null;
+        lockUntil = 0;
+        setActiveSection(null);
+        return;
+      }
+      if (ids.includes(detail.sectionId)) {
+        lockedId = detail.sectionId;
+        // Hold the clicked section through the smooth-scroll animation
+        // so transient passes don't steal the highlight.
+        lockUntil = Date.now() + 1200;
+        setActiveSection(detail.sectionId);
+      }
     };
     window.addEventListener("lovable:section-intent", onIntent);
 
     return () => {
-      io.disconnect();
+      window.removeEventListener("scroll", update);
+      window.removeEventListener("resize", update);
       window.removeEventListener("lovable:section-intent", onIntent);
     };
   }, [pathname]);
