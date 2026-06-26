@@ -26,29 +26,28 @@ export function SiteHeader() {
   return (
     <header
       className={[
-        "sticky top-0 z-40 w-full transition-[background-color,backdrop-filter,border-color,box-shadow] duration-500 ease-out",
+        "sticky top-0 z-40 w-full transition-[background-color,backdrop-filter] duration-500 ease-out",
         scrolled
-          ? "border-b border-border/60 bg-background/70 backdrop-blur-xl supports-[backdrop-filter]:bg-background/55 shadow-[0_1px_0_0_rgb(15_15_25/0.02),0_8px_24px_-20px_rgb(15_15_25/0.15)]"
-          : "border-b border-transparent bg-transparent",
+          ? "bg-background/80 backdrop-blur-xl supports-[backdrop-filter]:bg-background/70"
+          : "bg-transparent",
       ].join(" ")}
     >
-      <div className="container-page flex h-[68px] items-center justify-between">
+      <div className="container-page flex h-[72px] items-center justify-between">
         <Link
           to="/"
-          className="text-sm font-bold uppercase tracking-widest"
+          className="text-sm font-bold uppercase tracking-[0.2em]"
         >
           Gerta Xhepi
         </Link>
 
-        <nav className="hidden md:flex items-center gap-0.5 rounded-full border border-border/0 px-1 py-1 transition-colors duration-500">
+        <nav className="hidden md:flex items-center gap-8">
           {navItems.slice(1).map((item) => (
             <Link
               key={item.to}
               to={item.to}
-              className="relative rounded-full px-3.5 py-1.5 text-sm font-bold text-muted-foreground transition-colors duration-300 hover:text-foreground"
+              className="text-sm font-bold text-muted-foreground transition-colors duration-300 hover:text-foreground"
               activeProps={{
-                className:
-                  "relative rounded-full px-3.5 py-1.5 text-sm font-bold text-foreground bg-foreground/[0.04]",
+                className: "text-sm font-bold text-foreground",
               }}
               activeOptions={{ exact: item.to === "/" }}
             >
@@ -58,27 +57,26 @@ export function SiteHeader() {
         </nav>
 
         <button
-          className="md:hidden grid h-10 w-10 place-items-center rounded-full border border-border/80 bg-background/60 backdrop-blur transition-colors hover:bg-accent/40"
+          className="md:hidden grid h-10 w-10 place-items-center transition-colors hover:text-foreground text-muted-foreground"
           onClick={() => setOpen((s) => !s)}
           aria-label="Toggle menu"
           aria-expanded={open}
         >
-          {open ? <X className="size-4" /> : <Menu className="size-4" />}
+          {open ? <X className="size-5" /> : <Menu className="size-5" />}
         </button>
       </div>
 
       {open && (
-        <div className="md:hidden border-t border-border/60 bg-background/90 backdrop-blur-xl">
-          <nav className="container-page flex flex-col py-2">
+        <div className="md:hidden bg-background/95 backdrop-blur-xl">
+          <nav className="container-page flex flex-col py-4 gap-1">
             {navItems.slice(1).map((item) => (
               <Link
                 key={item.to}
                 to={item.to}
                 onClick={() => setOpen(false)}
-                className="rounded-md px-3 py-3 text-sm font-bold text-muted-foreground transition-colors hover:text-foreground hover:bg-accent/40"
+                className="px-1 py-3 text-sm font-bold text-muted-foreground transition-colors hover:text-foreground"
                 activeProps={{
-                  className:
-                    "rounded-md px-3 py-3 text-sm font-bold text-foreground bg-accent/40",
+                  className: "px-1 py-3 text-sm font-bold text-foreground",
                 }}
               >
                 {item.label}
@@ -93,33 +91,24 @@ export function SiteHeader() {
 
 export function SiteFooter() {
   return (
-    <footer className="relative mt-32 border-t border-border/60">
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-x-0 -top-px h-px bg-gradient-to-r from-transparent via-foreground/15 to-transparent"
-      />
-      <div className="container-page py-16 grid gap-10 md:grid-cols-3 text-sm">
+    <footer className="mt-40">
+      <div className="container-page py-20 grid gap-16 md:grid-cols-3 text-sm">
         <div>
-          <div className="flex items-center gap-2.5">
-            <span className="grid h-8 w-8 place-items-center rounded-lg bg-foreground text-background text-[11px] font-semibold">
-              GX
-            </span>
-            <span className="font-medium tracking-tight">Gerta Xhepi</span>
-          </div>
-          <p className="mt-4 text-muted-foreground max-w-xs leading-relaxed">
+          <div className="text-sm font-bold uppercase tracking-[0.2em]">Gerta Xhepi</div>
+          <p className="mt-6 text-muted-foreground max-w-xs leading-relaxed">
             Product Manager working at the intersection of AI, platform and B2B SaaS.
           </p>
         </div>
         <div>
-          <div className="text-[11px] uppercase tracking-[0.22em] text-muted-foreground">
+          <div className="text-[11px] font-mono uppercase tracking-[0.18em] text-muted-foreground">
             Explore
           </div>
-          <ul className="mt-4 space-y-2.5">
+          <ul className="mt-6 space-y-3">
             {navItems.slice(1).map((i) => (
               <li key={i.to}>
                 <Link
                   to={i.to}
-                  className="text-foreground/80 transition-colors hover:text-foreground"
+                  className="text-foreground/85 transition-colors hover:text-foreground"
                 >
                   {i.label}
                 </Link>
@@ -128,14 +117,14 @@ export function SiteFooter() {
           </ul>
         </div>
         <div>
-          <div className="text-[11px] uppercase tracking-[0.22em] text-muted-foreground">
+          <div className="text-[11px] font-mono uppercase tracking-[0.18em] text-muted-foreground">
             Elsewhere
           </div>
-          <ul className="mt-4 space-y-2.5">
+          <ul className="mt-6 space-y-3">
             <li>
               <a
-                href="https://www.linkedin.com/in/gertaxhepi"
-                className="transition-colors hover:text-foreground"
+                href="https://www.linkedin.com/in/gerta-xhepi-94853289/"
+                className="transition-colors hover:text-foreground text-foreground/85"
                 target="_blank"
                 rel="noreferrer"
               >
@@ -145,9 +134,9 @@ export function SiteFooter() {
             <li>
               <a
                 href="mailto:xhepigerta@gmail.com"
-                className="transition-colors hover:text-foreground"
+                className="transition-colors hover:text-foreground text-foreground/85"
               >
-                Email
+                xhepigerta@gmail.com
               </a>
             </li>
             <li>
@@ -156,9 +145,9 @@ export function SiteFooter() {
           </ul>
         </div>
       </div>
-      <div className="container-page pb-10 flex items-center justify-between text-xs text-muted-foreground">
-        <span>© {new Date().getFullYear()} Gerta Xhepi. Crafted with care.</span>
-        <span className="hidden sm:inline">Built in Germany.</span>
+      <div className="container-page pb-12 flex items-center justify-between text-xs font-mono uppercase tracking-[0.14em] text-muted-foreground">
+        <span>© {new Date().getFullYear()} Gerta Xhepi</span>
+        <span className="hidden sm:inline">Made in Germany</span>
       </div>
     </footer>
   );
