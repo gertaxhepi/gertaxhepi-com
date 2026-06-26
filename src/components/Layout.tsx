@@ -1,18 +1,67 @@
-import { Link, Outlet } from "@tanstack/react-router";
+import { Link, Outlet, useLocation } from "@tanstack/react-router";
 import type { ReactNode } from "react";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Menu, X } from "lucide-react";
 
 const navItems = [
-  { to: "/", label: "Home" },
-  { to: "/case-studies", label: "My Work" },
-  { to: "/about", label: "About Me" },
-  { to: "/contact", label: "Contact" },
+  { to: "/", label: "Home", sectionId: "home" },
+  { to: "/case-studies", label: "Work", sectionId: "work" },
+  { to: "/about", label: "About", sectionId: "about" },
+  { to: "/contact", label: "Contact", sectionId: "contact" },
 ] as const;
+
+const ACCENT = "#9A6A64";
+
+function useActiveSection(pathname: string) {
+  const [activeSection, setActiveSection] = useState<string | null>(null);
+
+  useEffect(() => {
+    setActiveSection(null);
+    if (typeof window === "undefined") return;
+
+    const ids = navItems.map((i) => i.sectionId);
+    const nodes = ids
+      .map((id) => document.getElementById(id))
+      .filter((n): n is HTMLElement => !!n);
+
+    if (nodes.length === 0) return;
+
+    const io = new IntersectionObserver(
+      (entries) => {
+        // pick the entry closest to the top that is intersecting
+        const visible = entries
+          .filter((e) => e.isIntersecting)
+          .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
+        if (visible[0]) {
+          setActiveSection(visible[0].target.id);
+        }
+      },
+      {
+        // viewport band where a section is considered "current"
+        rootMargin: "-30% 0px -55% 0px",
+        threshold: 0,
+      },
+    );
+
+    nodes.forEach((n) => io.observe(n));
+    return () => io.disconnect();
+  }, [pathname]);
+
+  return activeSection;
+}
+
+function navLinkStyle(isActive: boolean): React.CSSProperties {
+  return {
+    color: isActive ? ACCENT : undefined,
+  };
+}
 
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const location = useLocation();
+  const pathname = location.pathname;
+  const activeSection = useActiveSection(pathname);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -21,41 +70,56 @@ export function SiteHeader() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  const activeTo = useMemo(() => {
+    if (pathname === "/" && activeSection) {
+      const match = navItems.find((n) => n.sectionId === activeSection);
+      if (match) return match.to;
+    }
+    // exact route match — fall back to longest prefix for nested routes
+    const exact = navItems.find((n) => n.to === pathname);
+    if (exact) return exact.to;
+    const prefix = [...navItems]
+      .filter((n) => n.to !== "/" && pathname.startsWith(n.to))
+      .sort((a, b) => b.to.length - a.to.length)[0];
+    return prefix?.to ?? "/";
+  }, [pathname, activeSection]);
+
   return (
     <header
       className={[
-        "sticky top-0 z-40 w-full transition-[background-color,backdrop-filter] duration-500 ease-out",
+        "fixed top-0 z-40 w-full transition-[background-color,backdrop-filter] duration-500 ease-out",
         scrolled
-          ? "bg-background/80 backdrop-blur-xl supports-[backdrop-filter]:bg-background/70"
+          ? "bg-background/70 backdrop-blur-md supports-[backdrop-filter]:bg-background/55"
           : "bg-transparent",
       ].join(" ")}
     >
       <div className="container-page flex h-[72px] items-center justify-between">
         <Link
           to="/"
-          className="text-sm font-bold uppercase tracking-[0.2em]"
+          className="text-sm font-bold uppercase tracking-[0.2em] nav-link"
+          style={{ color: activeTo === "/" ? ACCENT : undefined }}
         >
           Gerta Xhepi
         </Link>
 
         <nav className="hidden md:flex items-center gap-8">
-          {navItems.slice(1).map((item) => (
-            <Link
-              key={item.to}
-              to={item.to}
-              className="text-sm font-bold text-muted-foreground transition-colors duration-300 hover:text-foreground"
-              activeProps={{
-                className: "text-sm font-bold text-foreground",
-              }}
-              activeOptions={{ exact: item.to === "/" }}
-            >
-              {item.label}
-            </Link>
-          ))}
+          {navItems.map((item) => {
+            const isActive = activeTo === item.to;
+            return (
+              <Link
+                key={item.to}
+                to={item.to}
+                className="nav-link text-sm font-bold transition-colors duration-300"
+                style={navLinkStyle(isActive)}
+              >
+                {item.label}
+              </Link>
+            );
+          })}
         </nav>
 
         <button
-          className="md:hidden grid h-10 w-10 place-items-center transition-colors hover:text-foreground text-muted-foreground"
+          className="md:hidden grid h-10 w-10 place-items-center nav-link transition-colors"
           onClick={() => setOpen((s) => !s)}
           aria-label="Toggle menu"
           aria-expanded={open}
@@ -65,21 +129,22 @@ export function SiteHeader() {
       </div>
 
       {open && (
-        <div className="md:hidden bg-background/95 backdrop-blur-xl">
+        <div className="md:hidden bg-background/85 backdrop-blur-md">
           <nav className="container-page flex flex-col py-4 gap-1">
-            {navItems.slice(1).map((item) => (
-              <Link
-                key={item.to}
-                to={item.to}
-                onClick={() => setOpen(false)}
-                className="px-1 py-3 text-sm font-bold text-muted-foreground transition-colors hover:text-foreground"
-                activeProps={{
-                  className: "px-1 py-3 text-sm font-bold text-foreground",
-                }}
-              >
-                {item.label}
-              </Link>
-            ))}
+            {navItems.map((item) => {
+              const isActive = activeTo === item.to;
+              return (
+                <Link
+                  key={item.to}
+                  to={item.to}
+                  onClick={() => setOpen(false)}
+                  className="nav-link px-1 py-3 text-sm font-bold transition-colors"
+                  style={navLinkStyle(isActive)}
+                >
+                  {item.label}
+                </Link>
+              );
+            })}
           </nav>
         </div>
       )}
@@ -155,7 +220,7 @@ export function PageShell({ children }: { children: ReactNode }) {
   return (
     <div className="flex min-h-screen flex-col">
       <SiteHeader />
-      <main className="flex-1">{children}</main>
+      <main className="flex-1 pt-[72px]">{children}</main>
       <SiteFooter />
     </div>
   );
