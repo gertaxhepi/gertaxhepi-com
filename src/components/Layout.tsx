@@ -173,7 +173,7 @@ export function SiteFooter() {
             Explore
           </div>
           <ul className="mt-6 space-y-3">
-            {navItems.slice(1).map((i) => (
+            {navItems.map((i) => (
               <li key={i.sectionId}>
                 <a
                   href={`/#${i.sectionId}`}
