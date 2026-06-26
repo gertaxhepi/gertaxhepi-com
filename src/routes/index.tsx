@@ -185,14 +185,24 @@ function Home() {
                 )}
               </div>
               <div className="hidden md:block md:pt-3">
-                <Link
-                  to="/case-studies/$slug"
-                  params={{ slug: c.slug }}
-                  aria-label={`Read case study: ${c.title}`}
-                  className="group inline-flex transition-opacity hover:opacity-60"
-                >
-                  <ArrowUpRight className="size-5 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
-                </Link>
+                {c.slug === "product-thinking" ? (
+                  <Link
+                    to="/product-thinking"
+                    aria-label={`Read case study: ${c.title}`}
+                    className="group inline-flex transition-opacity hover:opacity-60"
+                  >
+                    <ArrowUpRight className="size-5 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
+                  </Link>
+                ) : (
+                  <Link
+                    to="/case-studies/$slug"
+                    params={{ slug: c.slug }}
+                    aria-label={`Read case study: ${c.title}`}
+                    className="group inline-flex transition-opacity hover:opacity-60"
+                  >
+                    <ArrowUpRight className="size-5 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
+                  </Link>
+                )}
               </div>
             </div>
           ))}
