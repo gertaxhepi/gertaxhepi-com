@@ -63,6 +63,29 @@ function CaseStudiesIndex() {
               </div>
             </Link>
           ))}
+          <Link
+            to="/product-thinking"
+            data-reveal-item
+            className="group grid md:grid-cols-[auto_1fr_auto] gap-6 md:gap-16 py-12 md:py-16 transition-opacity hover:opacity-60"
+          >
+            <div className="text-[11px] font-mono uppercase tracking-[0.18em] text-muted-foreground md:pt-3">
+              04
+            </div>
+            <div>
+              <div className="text-[11px] font-mono uppercase tracking-[0.18em] text-muted-foreground mb-4">
+                Approach
+              </div>
+              <h2 className="text-3xl md:text-4xl font-semibold tracking-tight">
+                Product Discovery & Decision Making
+              </h2>
+              <p className="mt-5 text-base md:text-lg text-muted-foreground leading-relaxed max-w-2xl">
+                My approach to understanding complex product problems through customer discovery, structured thinking and evidence-based decision making.
+              </p>
+            </div>
+            <div className="md:pt-3">
+              <ArrowUpRight className="size-5 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
+            </div>
+          </Link>
         </Reveal>
       </Section>
     </>
