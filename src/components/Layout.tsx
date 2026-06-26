@@ -1,6 +1,6 @@
 import { Outlet, useLocation, useNavigate } from "@tanstack/react-router";
 import type { ReactNode, MouseEvent } from "react";
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { Menu, X } from "lucide-react";
 
 type NavItem = { label: string; sectionId: string };
@@ -256,59 +256,6 @@ export function SiteHeader() {
 export function SiteFooter() {
   return (
     <footer className="mt-40">
-      <div className="container-page py-20 grid gap-16 md:grid-cols-3 text-sm">
-        <div>
-          <div className="text-sm font-bold uppercase tracking-[0.2em]">Gerta Xhepi</div>
-          <p className="mt-6 text-muted-foreground max-w-xs leading-relaxed">
-            Product Manager working at the intersection of AI, platform and B2B SaaS.
-          </p>
-        </div>
-        <div>
-          <div className="text-[11px] font-mono uppercase tracking-[0.18em] text-muted-foreground">
-            Explore
-          </div>
-          <ul className="mt-6 space-y-3">
-            {navItems.map((i) => (
-              <li key={i.sectionId}>
-                <a
-                  href={`/#${i.sectionId}`}
-                  className="text-foreground/85 transition-colors hover:text-foreground"
-                >
-                  {i.label}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </div>
-        <div>
-          <div className="text-[11px] font-mono uppercase tracking-[0.18em] text-muted-foreground">
-            Elsewhere
-          </div>
-          <ul className="mt-6 space-y-3">
-            <li>
-              <a
-                href="https://www.linkedin.com/in/gerta-xhepi-94853289/"
-                className="transition-colors hover:text-foreground text-foreground/85"
-                target="_blank"
-                rel="noreferrer"
-              >
-                LinkedIn
-              </a>
-            </li>
-            <li>
-              <a
-                href="mailto:xhepigerta@gmail.com"
-                className="transition-colors hover:text-foreground text-foreground/85"
-              >
-                xhepigerta@gmail.com
-              </a>
-            </li>
-            <li>
-              <span className="text-muted-foreground">Germany</span>
-            </li>
-          </ul>
-        </div>
-      </div>
       <div className="container-page pb-12 flex items-center justify-between text-xs font-mono uppercase tracking-[0.14em] text-muted-foreground">
         <span>© {new Date().getFullYear()} Gerta Xhepi</span>
         <span className="hidden sm:inline">Made in Germany</span>
