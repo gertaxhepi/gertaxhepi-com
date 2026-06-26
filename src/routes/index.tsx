@@ -116,19 +116,17 @@ function Home() {
         </div>
       </section>
 
-      {/* IMPACT */}
-      <Section spacing="tight">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-px overflow-hidden rounded-2xl border border-border/80 bg-border/80 shadow-elevated">
-          {impact.map((m) => (
-            <div
-              data-reveal-item
-              key={m.label}
-              className="group/stat bg-card p-7 md:p-9 transition-colors duration-500 hover:bg-accent/30"
-            >
-              <div className="text-3xl md:text-4xl font-semibold tracking-tight transition-transform duration-500 group-hover/stat:-translate-y-0.5 break-words">
-                {m.value}
+      {/* PROFILE */}
+      <Section spacing="tight" className="border-t border-border/40">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 md:gap-8 lg:gap-10">
+          {profile.map((item) => (
+            <div data-reveal-item key={item.label}>
+              <div className="text-[11px] font-mono uppercase tracking-[0.18em] text-muted-foreground mb-3">
+                {item.label}
               </div>
-              <div className="mt-3 text-sm text-muted-foreground">{m.label}</div>
+              <div className="text-base md:text-[17px] font-medium text-foreground leading-snug text-balance">
+                {item.value}
+              </div>
             </div>
           ))}
         </div>
