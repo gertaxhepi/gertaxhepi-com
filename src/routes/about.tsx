@@ -7,10 +7,10 @@ import profileAsset from "@/assets/profile.png.asset.json";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About — Gerta Xhepi" },
-      { name: "description", content: "Product Manager with 5+ years building data-intensive SaaS products. Engineering background, MBA, founder of PeakProfile." },
-      { property: "og:title", content: "About — Gerta Xhepi" },
-      { property: "og:description", content: "Product Manager with an engineering background and an MBA, working at the intersection of AI, platform and B2B SaaS." },
+      { title: "About Me — Gerta Xhepi" },
+      { name: "description", content: "Product Manager with 5+ years building digital products across B2B, B2C, SaaS, AI and marketplaces. Background in software engineering, early experience at Microsoft." },
+      { property: "og:title", content: "About Me — Gerta Xhepi" },
+      { property: "og:description", content: "Product Manager working at the intersection of customer needs, data, business and engineering." },
       { property: "og:url", content: "/about" },
     ],
     links: [{ rel: "canonical", href: "/about" }],
@@ -18,19 +18,26 @@ export const Route = createFileRoute("/about")({
   component: About,
 });
 
-const meta = [
-  { label: "Focus", value: "AI \u00b7 Platform \u00b7 Marketplaces \u00b7 Workflow automation" },
-  { label: "Currently", value: "Founder, PeakProfile \u2014 AI for safer mountaineering" },
-  { label: "Based in", value: "Germany \u00b7 Open to remote" },
+const profile = [
+  { label: "Experience", value: "5+ years building digital products" },
+  { label: "Domains", value: "B2B \u00b7 B2C \u00b7 SaaS \u00b7 AI \u00b7 Marketplaces" },
+  { label: "Background", value: "Software Engineering \u2192 Product Management" },
+  { label: "Current Focus", value: "AI Products \u00b7 Platform Products \u00b7 Decision Support Systems" },
 ];
 
-const values = [
-  { t: "Clarity over cleverness", d: "Plain words and simple diagrams help teams move faster than impressive frameworks." },
-  { t: "Closeness to engineering", d: "I do my best work when I sit with engineers and understand the system we're shaping." },
-  { t: "Respect for users", d: "Real conversations with real people are non-negotiable, no matter how senior the role." },
-  { t: "Long-term thinking", d: "Most product wins are quiet and compounding. I try to optimise for the next two years, not the next quarter." },
-  { t: "Honest measurement", d: "Metrics should help us decide, not help us look good." },
-  { t: "Calm execution", d: "Steady weekly progress beats heroic sprints almost every time." },
+const whatIWorkOn = [
+  { n: "01", title: "AI Products", desc: "Designing practical AI experiences grounded in evaluation and real customer problems." },
+  { n: "02", title: "Platform Products", desc: "Building internal capabilities that help engineering teams move faster with less friction." },
+  { n: "03", title: "Marketplace Systems", desc: "Improving trust, data quality and discoverability across complex two-sided marketplaces." },
+  { n: "04", title: "Workflow Automation", desc: "Simplifying operational processes with focused, well-scoped product experiences." },
+];
+
+const timeline = [
+  { role: "Software Engineer", org: "Microsoft", note: "Early career" },
+  { role: "Co-Founder / Product Builder", org: "Builtin" },
+  { role: "Product Manager", org: "New Work SE / XING" },
+  { role: "Product Manager", org: "jacando" },
+  { role: "Founder / Product Builder", org: "PeakProfile", note: "Current" },
 ];
 
 function About() {
@@ -42,7 +49,7 @@ function About() {
             data-reveal-item
             className="text-[11px] font-mono uppercase tracking-[0.22em] text-muted-foreground mb-10"
           >
-            About
+            About Me
           </div>
           <h1
             data-reveal-item
@@ -57,20 +64,17 @@ function About() {
         <div className="grid md:grid-cols-[1.6fr_1fr] gap-16 md:gap-24">
           <Reveal className="space-y-7 text-lg md:text-xl text-foreground/90 leading-relaxed">
             <p data-reveal-item>
-              I'm a Product Manager with over five years of experience building data-intensive SaaS products. My background is in software engineering and I hold an MBA, which together shape how I approach product work — close to the system, close to the customer, and close to the business.
+              I'm a Product Manager with 5+ years of experience building digital products across B2B, B2C, SaaS, AI and marketplaces. I started my career in software engineering, including early experience at Microsoft, before moving into product management.
             </p>
             <p data-reveal-item>
-              I've built and shipped marketplaces, workflow automation, AI products and structured data systems. Across all of them, I enjoy solving technically complex problems where customer needs, business goals and engineering reality intersect.
+              I enjoy working on complex products where customer needs, data, business goals and engineering constraints intersect.
             </p>
             <p data-reveal-item>
               These days, much of my energy goes into{" "}
               <Link to="/case-studies/$slug" params={{ slug: "peakprofile" }} className="underline underline-offset-4 decoration-foreground/30 hover:decoration-foreground transition-colors">
                 PeakProfile
               </Link>
-              , my own AI product exploring trust, risk and decision-making in mountaineering. It's where I get to practise discovery, model behaviour and evaluation end-to-end.
-            </p>
-            <p data-reveal-item>
-              Outside of product, I spend a lot of time in the mountains. Mountaineering taught me how to plan under uncertainty, take responsibility for decisions and respect systems I don't fully control. PeakProfile exists because of those hours on rock and snow.
+              , my own AI product exploring trust, risk and decision-making in mountaineering — a place where I get to practise discovery, model behaviour and evaluation end-to-end.
             </p>
           </Reveal>
 
@@ -83,14 +87,6 @@ function About() {
                 loading="eager"
               />
             </div>
-            {meta.map((m) => (
-              <div data-reveal-item key={m.label}>
-                <div className="text-[11px] font-mono uppercase tracking-[0.18em] text-muted-foreground mb-3">
-                  {m.label}
-                </div>
-                <div className="text-base font-medium leading-snug">{m.value}</div>
-              </div>
-            ))}
             <div data-reveal-item>
               <Link
                 to="/contact"
@@ -104,23 +100,71 @@ function About() {
         </div>
       </Section>
 
+      {/* PROFILE */}
       <Section>
-        <SectionHeading eyebrow="What I value" title="A few things I care about deeply." />
+        <SectionHeading eyebrow="Profile" title="A short snapshot." />
+        <Reveal className="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-16">
+          {profile.map((item) => (
+            <div data-reveal-item key={item.label}>
+              <div className="text-[11px] font-mono uppercase tracking-[0.18em] text-muted-foreground mb-4">
+                {item.label}
+              </div>
+              <div className="text-base md:text-[17px] font-medium text-foreground leading-snug text-balance">
+                {item.value}
+              </div>
+            </div>
+          ))}
+        </Reveal>
+      </Section>
+
+      {/* WHAT I WORK ON */}
+      <Section>
+        <SectionHeading
+          eyebrow="What I work on"
+          title="Where I do my best product work."
+        />
         <div className="mt-20 grid md:grid-cols-2 gap-x-16 gap-y-14">
-          {values.map((v, i) => (
-            <div data-reveal-item key={v.t} className="grid grid-cols-[auto_1fr] gap-8">
+          {whatIWorkOn.map(({ n, title, desc }) => (
+            <div data-reveal-item key={title} className="grid grid-cols-[auto_1fr] gap-8">
               <div className="text-[11px] font-mono uppercase tracking-[0.18em] text-muted-foreground pt-1.5">
-                0{i + 1}
+                {n}
               </div>
               <div>
-                <h3 className="text-xl md:text-2xl font-semibold tracking-tight">{v.t}</h3>
+                <h3 className="text-2xl font-semibold tracking-tight">{title}</h3>
                 <p className="mt-3 text-[15px] md:text-base text-muted-foreground leading-relaxed max-w-md">
-                  {v.d}
+                  {desc}
                 </p>
               </div>
             </div>
           ))}
         </div>
+      </Section>
+
+      {/* CAREER TIMELINE */}
+      <Section>
+        <SectionHeading eyebrow="Career" title="A path across building and shipping." />
+        <Reveal className="mt-16 max-w-3xl divide-y divide-border">
+          {timeline.map((t, i) => (
+            <div
+              key={t.role + i}
+              data-reveal-item
+              className="grid grid-cols-[auto_1fr_auto] gap-6 md:gap-8 py-7"
+            >
+              <div className="text-[11px] font-mono uppercase tracking-[0.18em] text-muted-foreground pt-1">
+                0{i + 1}
+              </div>
+              <div>
+                <div className="text-lg font-medium">{t.org}</div>
+                <div className="text-sm text-muted-foreground mt-1">{t.role}</div>
+              </div>
+              {t.note && (
+                <div className="text-[11px] font-mono uppercase tracking-[0.18em] text-muted-foreground pt-2 text-right">
+                  {t.note}
+                </div>
+              )}
+            </div>
+          ))}
+        </Reveal>
       </Section>
     </>
   );
