@@ -6,7 +6,6 @@ import { Menu, X } from "lucide-react";
 type NavItem = { label: string; sectionId: string };
 
 const navItems: readonly NavItem[] = [
-  { label: "Home", sectionId: "home" },
   { label: "Work", sectionId: "work" },
   { label: "About", sectionId: "about" },
   { label: "Contact", sectionId: "contact" },
