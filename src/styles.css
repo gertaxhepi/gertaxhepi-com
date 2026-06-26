@@ -107,6 +107,23 @@
   padding-inline: 1.5rem;
 }
 
+@utility minimal-input {
+  display: block;
+  width: 100%;
+  background-color: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--color-border);
+  border-radius: 0;
+  padding: 0.5rem 0;
+  font-size: 1rem;
+  color: var(--color-foreground);
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+@utility minimal-input:focus {
+  border-color: var(--color-foreground);
+}
+
 @utility text-balance {
   text-wrap: balance;
 }
