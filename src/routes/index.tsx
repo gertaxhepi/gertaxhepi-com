@@ -165,14 +165,24 @@ function Home() {
                   </div>
                 </dl>
 
-                <Link
-                  to="/case-studies/$slug"
-                  params={{ slug: c.slug }}
-                  className="group mt-10 inline-flex items-center gap-2 text-sm font-medium border-b border-foreground pb-1 transition-opacity hover:opacity-60"
-                >
-                  Read case study
-                  <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-1" />
-                </Link>
+                {c.slug === "product-thinking" ? (
+                  <Link
+                    to="/product-thinking"
+                    className="group mt-10 inline-flex items-center gap-2 text-sm font-medium border-b border-foreground pb-1 transition-opacity hover:opacity-60"
+                  >
+                    Read case study
+                    <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-1" />
+                  </Link>
+                ) : (
+                  <Link
+                    to="/case-studies/$slug"
+                    params={{ slug: c.slug }}
+                    className="group mt-10 inline-flex items-center gap-2 text-sm font-medium border-b border-foreground pb-1 transition-opacity hover:opacity-60"
+                  >
+                    Read case study
+                    <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-1" />
+                  </Link>
+                )}
               </div>
               <div className="hidden md:block md:pt-3">
                 <Link
