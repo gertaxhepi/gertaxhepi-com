@@ -8,7 +8,7 @@ const paths = [
   "/case-studies/salary-transparency",
   "/case-studies/electronic-signature",
   "/case-studies/peakprofile",
-  "/case-studies/platform-strategy",
+  
 ];
 
 export const Route = createFileRoute("/sitemap.xml")({
