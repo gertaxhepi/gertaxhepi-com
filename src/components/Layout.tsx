@@ -61,7 +61,7 @@ export function SiteHeader() {
   }, []);
 
   const activeId = useMemo(() => {
-    if (pathname === "/") return activeSection ?? "home";
+    if (pathname === "/") return activeSection;
     return null;
   }, [pathname, activeSection]);
 
