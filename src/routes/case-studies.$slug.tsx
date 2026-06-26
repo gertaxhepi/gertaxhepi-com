@@ -76,7 +76,6 @@ function CaseStudyPage() {
           >
             {s.context}
           </div>
-          </div>
           <h1
             data-reveal-item
             className="mt-6 text-5xl md:text-7xl font-semibold tracking-tight text-balance leading-[1.02] max-w-4xl"
