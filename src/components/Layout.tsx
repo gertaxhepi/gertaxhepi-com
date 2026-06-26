@@ -102,8 +102,7 @@ export function SiteHeader() {
         <a
           href="/#home"
           onClick={(e) => handleNavClick(e, "home")}
-          className="text-sm font-bold uppercase tracking-[0.2em] nav-link"
-          style={{ color: activeId === "home" ? ACCENT : undefined }}
+          className="text-sm font-bold uppercase tracking-[0.2em] text-foreground transition-opacity duration-300 hover:opacity-70"
         >
           Gerta Xhepi
         </a>
