@@ -3,6 +3,8 @@ import { useEffect } from "react";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { Section, SectionHeading } from "@/components/Primitives";
 import { Reveal } from "@/components/Reveal";
+import { scrollToSection } from "@/components/Layout";
+
 import profileAsset from "@/assets/profile.png.asset.json";
 
 export const Route = createFileRoute("/")({
