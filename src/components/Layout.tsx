@@ -80,7 +80,9 @@ export function SiteHeader() {
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
   const pathname = location.pathname;
-  const isFocusedDoc = pathname.startsWith("/resume");
+  const isResume = pathname.startsWith("/resume");
+  const isCaseStudy = pathname.startsWith("/case-studies/");
+  const isFocusedDoc = isResume || isCaseStudy;
   const activeSection = useActiveSection(pathname);
   const navigate = useNavigate();
 
@@ -110,6 +112,18 @@ export function SiteHeader() {
     [pathname, navigate],
   );
 
+  const handleBack = useCallback(
+    (e: MouseEvent<HTMLAnchorElement>) => {
+      e.preventDefault();
+      // Prefer browser back so the homepage scroll position is restored.
+      if (typeof window !== "undefined" && window.history.length > 1) {
+        window.history.back();
+        return;
+      }
+      navigate({ to: "/" });
+    },
+    [navigate],
+  );
 
   return (
     <header
@@ -121,23 +135,36 @@ export function SiteHeader() {
       ].join(" ")}
     >
       <div className="container-page flex h-[72px] items-center justify-between">
-        <a
-          href="/#home"
-          onClick={(e) => handleNavClick(e, "home")}
-          className="text-sm font-bold uppercase tracking-[0.2em] text-foreground transition-opacity duration-300 hover:opacity-70"
-        >
-          Gerta Xhepi
-        </a>
+        {isCaseStudy ? (
+          <a
+            href="/"
+            onClick={handleBack}
+            className="text-sm font-medium text-foreground transition-opacity duration-300 hover:opacity-60"
+          >
+            ← Back
+          </a>
+        ) : (
+          <a
+            href="/#home"
+            onClick={(e) => handleNavClick(e, "home")}
+            className="text-sm font-bold uppercase tracking-[0.2em] text-foreground transition-opacity duration-300 hover:opacity-70"
+          >
+            Gerta Xhepi
+          </a>
+        )}
 
         {isFocusedDoc ? (
-          <nav className="flex items-center gap-8">
-            <a
-              href="/"
-              className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
-            >
-              ← Back to Home
-            </a>
-          </nav>
+          isResume ? (
+            <nav className="flex items-center gap-8">
+              <a
+                href="/"
+                onClick={handleBack}
+                className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+              >
+                ← Back to Home
+              </a>
+            </nav>
+          ) : null
         ) : (
           <>
             <nav className="hidden md:flex items-center gap-8">
