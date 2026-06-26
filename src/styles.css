@@ -120,8 +120,12 @@
   outline: none;
   transition: border-color 0.3s ease;
 }
-@utility minimal-input:focus {
+.minimal-input:focus {
   border-color: var(--color-foreground);
+}
+.minimal-input::placeholder {
+  color: var(--color-muted-foreground);
+  opacity: 0.6;
 }
 
 @utility text-balance {
