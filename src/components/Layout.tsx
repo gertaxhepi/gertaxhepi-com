@@ -81,7 +81,9 @@ export function SiteHeader() {
   const location = useLocation();
   const pathname = location.pathname;
   const isResume = pathname.startsWith("/resume");
-  const isCaseStudy = pathname.startsWith("/case-studies/");
+  const isCaseStudy =
+    pathname.startsWith("/case-studies/") &&
+    pathname.length > "/case-studies/".length;
   const isFocusedDoc = isResume || isCaseStudy;
   const activeSection = useActiveSection(pathname);
   const navigate = useNavigate();
