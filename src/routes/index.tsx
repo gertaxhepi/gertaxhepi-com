@@ -18,11 +18,11 @@ export const Route = createFileRoute("/")({
   component: Home,
 });
 
-const impact = [
-  { value: "5+", label: "Years building SaaS products" },
-  { value: "€50M+", label: "Marketplace revenue protected" },
-  { value: "200+", label: "Companies using products I launched" },
-  { value: "Engineering", label: "Background + MBA" },
+const profile = [
+  { label: "Experience", value: "5+ years building digital products" },
+  { label: "Domains", value: "B2B \u2022 B2C \u2022 SaaS \u2022 AI \u2022 Marketplaces" },
+  { label: "Background", value: "Software Engineering \u2192 Product Management" },
+  { label: "Current Focus", value: "AI Products \u2022 Platform Products \u2022 Decision Support Systems" },
 ];
 
 const whatIBuild = [
