@@ -132,6 +132,14 @@
   text-wrap: balance;
 }
 
+/* Navigation link hover — subtle terracotta */
+.nav-link {
+  transition: color 250ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+.nav-link:hover {
+  color: #9A6A64;
+}
+
 @utility shadow-elevated { box-shadow: var(--shadow-md); }
 @utility shadow-floating { box-shadow: var(--shadow-lg); }
 @utility shadow-glow-primary { box-shadow: var(--shadow-glow); }
