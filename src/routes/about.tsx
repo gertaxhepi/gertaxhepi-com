@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { Section, SectionHeading } from "@/components/Primitives";
 import { Reveal } from "@/components/Reveal";
 import { ArrowUpRight } from "lucide-react";
+import profileAsset from "@/assets/profile.png.asset.json";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -74,6 +75,14 @@ function About() {
           </Reveal>
 
           <Reveal className="space-y-10">
+            <div data-reveal-item>
+              <img
+                src={profileAsset.url}
+                alt="Gerta Xhepi"
+                className="w-full grayscale"
+                loading="eager"
+              />
+            </div>
             {meta.map((m) => (
               <div data-reveal-item key={m.label}>
                 <div className="text-[11px] font-mono uppercase tracking-[0.18em] text-muted-foreground mb-3">
