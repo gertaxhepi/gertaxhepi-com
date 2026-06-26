@@ -19,9 +19,8 @@ export function SectionHeading({
       {eyebrow && (
         <div
           data-reveal-item
-          className="inline-flex items-center gap-2 text-[13px] font-mono uppercase tracking-[0.08em] text-muted-foreground mb-5"
+          className="text-[11px] font-mono uppercase tracking-[0.18em] text-muted-foreground mb-8"
         >
-          <span className="size-1 rounded-full bg-primary/70" />
           {eyebrow}
         </div>
       )}
@@ -34,7 +33,7 @@ export function SectionHeading({
       {description && (
         <p
           data-reveal-item
-          className="mt-6 text-lg md:text-xl text-muted-foreground text-balance max-w-2xl"
+          className="mt-8 text-lg md:text-xl text-muted-foreground text-balance max-w-2xl leading-relaxed"
         >
           {description}
         </p>
@@ -43,32 +42,20 @@ export function SectionHeading({
   );
 }
 
+/**
+ * Card — borderless editorial content block.
+ * No borders, no shadows, no background. Just spacing + reveal hook.
+ */
 export function Card({
   children,
   className = "",
-  interactive = true,
 }: {
   children: ReactNode;
   className?: string;
   interactive?: boolean;
 }) {
   return (
-    <div
-      data-reveal-item
-      className={[
-        "group/card relative rounded-2xl border border-border/80 bg-card p-7 md:p-8",
-        "transition-[transform,box-shadow,border-color] duration-500 ease-out will-change-transform",
-        interactive
-          ? "hover:-translate-y-1 hover:scale-[1.005] hover:border-foreground/15 hover:shadow-floating"
-          : "",
-        className,
-      ].join(" ")}
-    >
-      {/* Top hairline highlight */}
-      <span
-        aria-hidden
-        className="pointer-events-none absolute inset-x-6 top-0 h-px bg-gradient-to-r from-transparent via-foreground/10 to-transparent opacity-0 transition-opacity duration-500 group-hover/card:opacity-100"
-      />
+    <div data-reveal-item className={["relative", className].join(" ")}>
       {children}
     </div>
   );
@@ -89,10 +76,10 @@ export function Section({
     spacing === "none"
       ? ""
       : spacing === "tight"
-      ? "py-16 md:py-20"
+      ? "py-20 md:py-28"
       : spacing === "loose"
-      ? "py-28 md:py-40"
-      : "py-24 md:py-32";
+      ? "py-32 md:py-48"
+      : "py-28 md:py-40";
   return (
     <Reveal as="section" className={`container-page ${pad} ${className}`}>
       <div id={id} className="scroll-mt-24">
@@ -104,7 +91,7 @@ export function Section({
 
 export function Pill({ children }: { children: ReactNode }) {
   return (
-    <span className="inline-flex items-center rounded-full border border-border/80 bg-subtle/70 backdrop-blur-sm px-2.5 py-1 text-xs text-muted-foreground transition-colors hover:border-foreground/20 hover:text-foreground">
+    <span className="inline-flex items-center text-xs font-mono uppercase tracking-[0.12em] text-muted-foreground">
       {children}
     </span>
   );
