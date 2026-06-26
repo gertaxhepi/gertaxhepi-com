@@ -60,7 +60,7 @@ function Home() {
   return (
     <>
       {/* HERO */}
-      <section className="container-page pt-24 md:pt-40 pb-24 md:pb-40">
+      <section id="home" className="container-page pt-24 md:pt-40 pb-24 md:pb-40">
         <Reveal>
           <div
             data-reveal-item
