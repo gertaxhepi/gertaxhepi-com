@@ -36,7 +36,7 @@ export const Route = createFileRoute("/case-studies/$slug")({
 
 function Block({ title, children }: { title: string; children: React.ReactNode }) {
   return (
-    <div data-reveal-item className="grid md:grid-cols-[1fr_2.4fr] gap-6 md:gap-16 py-12 md:py-16">
+    <div data-reveal-item className="grid md:grid-cols-[1fr_2.4fr] gap-6 md:gap-16 py-10 md:py-14">
       <div className="text-[11px] font-mono uppercase tracking-[0.18em] text-muted-foreground md:pt-2">
         {title}
       </div>
