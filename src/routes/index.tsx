@@ -129,19 +129,19 @@ function Home() {
 
           <p
             data-reveal-item
-            className="mt-10 text-2xl md:text-3xl lg:text-[34px] font-medium tracking-tight text-foreground leading-[1.2] max-w-4xl text-balance"
+            className="mt-8 text-2xl md:text-3xl lg:text-[34px] font-medium tracking-tight text-foreground leading-[1.2] max-w-4xl text-balance"
           >
             Building AI, marketplace and workflow products where customer needs, technology and business meet.
           </p>
 
           <p
             data-reveal-item
-            className="mt-8 text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed"
+            className="mt-6 text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed"
           >
             I work on complex product problems where customer needs, data and technology meet — from marketplace systems and workflow automation to AI-powered decision support.
           </p>
 
-          <div data-reveal-item className="mt-14 flex flex-wrap items-center gap-x-10 gap-y-4">
+          <div data-reveal-item className="mt-10 flex flex-wrap items-center gap-x-10 gap-y-4">
             <a
               href="#work"
               onClick={(e) => {
