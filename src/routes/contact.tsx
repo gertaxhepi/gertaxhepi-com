@@ -52,13 +52,13 @@ function Contact() {
             data-reveal-item
             className="text-5xl md:text-7xl lg:text-[88px] font-semibold tracking-tight leading-[1.02] text-balance max-w-4xl"
           >
-            Let's build thoughtful products.
+            Let's build products people actually want to use.
           </h1>
           <p
             data-reveal-item
             className="mt-10 text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed"
           >
-            Open to PM roles and conversations with founders and product leaders. The best ways to reach me are below.
+            I'm always happy to talk about product, AI, marketplaces or interesting opportunities.
           </p>
         </Reveal>
       </Section>
