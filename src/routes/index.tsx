@@ -58,11 +58,19 @@ const profile = [
   { label: "Current Focus", value: "AI Products · Platform Products · Decision Support Systems" },
 ];
 
-const whatIWorkOn = [
-  { n: "01", title: "AI Products", desc: "Designing practical AI experiences grounded in evaluation and real customer problems." },
-  { n: "02", title: "Platform Products", desc: "Building internal capabilities that help engineering teams move faster with less friction." },
-  { n: "03", title: "Marketplace Systems", desc: "Improving trust, data quality and discoverability across complex two-sided marketplaces." },
-  { n: "04", title: "Workflow Automation", desc: "Simplifying operational processes with focused, well-scoped product experiences." },
+const howIThink = [
+  "How I approach Product Discovery",
+  "Why better data leads to better decisions",
+  "What building an AI product taught me",
+  "Teaching Hatha Yoga changed how I think about Product Management",
+  "Books that shaped how I think about Product",
+];
+
+const outsideWork = [
+  "Traditional Hatha Yoga Teacher & Founder of Hima Yoga",
+  "Marathon Runner",
+  "Mountaineering & Outdoor Adventure",
+  "Philosophy, Art & Music",
 ];
 
 type Channel = {
