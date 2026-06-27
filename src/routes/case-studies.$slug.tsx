@@ -80,37 +80,43 @@ function SalaryTransparencyPage({ study }: { study: CaseStudy }) {
             data-reveal-item
             className="mt-5 text-5xl md:text-7xl font-semibold tracking-tight text-balance leading-[1.02] max-w-4xl"
           >
-            {s.title}
+            Salary Transparency Platform
           </h1>
           <p
             data-reveal-item
             className="mt-6 text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed"
           >
-            {s.summary}
+            Improving salary transparency for millions of job seekers by transforming inconsistent job data into reliable salary estimates.
           </p>
-          <div
-            data-reveal-item
-            className="mt-8 flex flex-wrap gap-x-8 gap-y-3 text-xs font-mono uppercase tracking-[0.14em] text-muted-foreground"
-          >
-            {s.technologies.map((t) => (
-              <span key={t}>{t}</span>
-            ))}
-          </div>
 
           <div
             data-reveal-item
-            className="mt-12 md:mt-16 grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-12"
+            className="mt-14 md:mt-20 grid grid-cols-1 md:grid-cols-3 gap-14 md:gap-16"
           >
-            {s.metrics.map((m) => (
-              <div key={m.label}>
-                <div className="text-4xl md:text-5xl font-semibold tracking-tight tabular-nums">
-                  {m.value}
-                </div>
-                <div className="mt-3 text-[11px] font-mono uppercase tracking-[0.18em] text-muted-foreground">
-                  {m.label}
-                </div>
+            <div>
+              <div className="text-5xl md:text-6xl font-semibold tracking-tight tabular-nums">
+                28%
               </div>
-            ))}
+              <div className="mt-4 text-[11px] font-mono uppercase tracking-[0.18em] text-muted-foreground">
+                Lower salary estimation error
+              </div>
+            </div>
+            <div>
+              <div className="text-5xl md:text-6xl font-semibold tracking-tight tabular-nums">
+                94%
+              </div>
+              <div className="mt-4 text-[11px] font-mono uppercase tracking-[0.18em] text-muted-foreground">
+                Salary coverage
+              </div>
+            </div>
+            <div>
+              <div className="text-5xl md:text-6xl font-semibold tracking-tight tabular-nums">
+                +11%
+              </div>
+              <div className="mt-4 text-[11px] font-mono uppercase tracking-[0.18em] text-muted-foreground">
+                Applications
+              </div>
+            </div>
           </div>
         </Reveal>
       </Section>
