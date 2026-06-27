@@ -107,11 +107,11 @@ function Home() {
   return (
     <>
       {/* HERO */}
-      <section id="home" className="container-page pt-24 md:pt-40 pb-24 md:pb-40">
+      <section id="home" className="container-page pt-20 md:pt-36 pb-20 md:pb-28">
         <Reveal>
           <div
             data-reveal-item
-            className="text-[11px] font-mono uppercase tracking-[0.22em] text-muted-foreground mb-10 flex items-center gap-3"
+            className="text-[11px] font-mono uppercase tracking-[0.22em] text-muted-foreground mb-8 flex items-center gap-3"
           >
             <span className="relative flex size-1.5">
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-foreground opacity-50" />
