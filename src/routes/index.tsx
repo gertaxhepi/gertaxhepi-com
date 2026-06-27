@@ -55,7 +55,7 @@ const profile = [
   { label: "Experience", value: "5+ years building digital products" },
   { label: "Domains", value: "B2B · B2C · SaaS · AI · Marketplaces" },
   { label: "Background", value: "Software Engineering → Product Management" },
-  { label: "Current Focus", value: "AI Products · Platform Products · Decision Support Systems" },
+  { label: "Today", value: "AI Products · Platform Products · Decision Support Systems" },
 ];
 
 const howIThink = [
@@ -63,14 +63,13 @@ const howIThink = [
   "Why better data leads to better decisions",
   "What building an AI product taught me",
   "Teaching Hatha Yoga changed how I think about Product Management",
-  "Books that shaped how I think about Product",
+  "Books that shaped my thinking",
 ];
 
 const outsideWork = [
-  "Traditional Hatha Yoga Teacher & Founder of Hima Yoga",
-  "Marathon Runner",
-  "Mountaineering & Outdoor Adventure",
-  "Philosophy, Art & Music",
+  { number: "01", title: "Traditional Hatha Yoga Teacher", subtitle: "Founder · Hima Yoga" },
+  { number: "02", title: "Outdoor Sports", subtitle: "Marathon Running · Mountaineering · Rock Climbing" },
+  { number: "03", title: "Culture", subtitle: "Philosophy · Art · Music" },
 ];
 
 type Channel = {
@@ -272,26 +271,8 @@ function Home() {
 
       </Section>
 
-      {/* ABOUT */}
-      <Section id="about" spacing="tight">
-        <Reveal>
-          <div
-            data-reveal-item
-            className="text-[11px] font-mono uppercase tracking-[0.22em] text-muted-foreground mb-10"
-          >
-            About Me
-          </div>
-          <h2
-            data-reveal-item
-            className="text-4xl md:text-6xl font-semibold tracking-tight text-balance leading-[1.02] max-w-4xl"
-          >
-            Building products at the intersection of technology, business and people.
-          </h2>
-        </Reveal>
-      </Section>
-
       {/* A SHORT SNAPSHOT */}
-      <Section spacing="tight">
+      <Section id="about" spacing="tight">
         <SectionHeading eyebrow="Profile" title="A short snapshot." />
         <Reveal className="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-16">
           {profile.map((item) => (
@@ -307,25 +288,25 @@ function Home() {
         </Reveal>
       </Section>
 
-      {/* MY STORY */}
+      {/* HOW I GOT HERE */}
       <Section spacing="tight">
-        <SectionHeading eyebrow="My Story" title="How I got here." />
+        <SectionHeading eyebrow="My Story" title="How I Got Here." />
         <div className="mt-16 grid md:grid-cols-[1.6fr_1fr] gap-16 md:gap-24">
           <Reveal className="space-y-7 text-lg md:text-xl text-foreground/90 leading-relaxed">
             <p data-reveal-item>
-              I began my career as a software engineer. Writing code taught me how products are built, but I kept finding myself more interested in why we were building them and for whom. That curiosity led me into product management.
+              I began my career as a software engineer, where I learned how products are built. Even then, I was always drawn to understanding problems and finding better ways to solve them. That curiosity, alongside building products of my own, eventually led me into Product Management.
             </p>
             <p data-reveal-item>
-              Over the years, I've built products used by millions of people, including at XING, one of Europe's largest professional networks. I've worked on marketplace systems, workflow tools and AI-powered features — always with the same underlying question: how do we help people make better decisions?
+              Since then, I've worked on products used by millions of people, including at XING, building marketplace systems, workflow tools and AI-powered features.
             </p>
             <p data-reveal-item>
-              Today, I'm also the founder of{" "}
+              Today, I'm building{" "}
               <Link to="/case-studies/$slug" params={{ slug: "peakprofile" }} className="underline underline-offset-4 decoration-foreground/30 hover:decoration-foreground transition-colors">
                 PeakProfile
               </Link>
-              , where I'm exploring how AI can help people make better decisions in high-risk environments. It's a space where product discovery, model behaviour and human trust all intersect — and where I get to practise the full product cycle end-to-end.
+              , where I'm exploring how AI and structured data can support better decision-making in high-risk environments.
             </p>
-            <p data-reveal-item>
+            <p data-reveal-item className="pt-4">
               I'm fascinated by products that help people make better decisions. Whether through better data, thoughtful workflows or AI, that's the thread connecting nearly everything I've built.
             </p>
           </Reveal>
@@ -345,7 +326,7 @@ function Home() {
 
       {/* HOW I THINK */}
       <Section>
-        <SectionHeading eyebrow="How I Think" title="Ideas that shape my work." />
+        <SectionHeading eyebrow="How I Think" title="Ideas That Shape My Work." />
         <p
           data-reveal-item
           className="mt-10 text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed"
@@ -371,20 +352,21 @@ function Home() {
       {/* OUTSIDE OF WORK */}
       <Section>
         <SectionHeading eyebrow="Outside of Work" title="The person behind the product." />
-        <p
-          data-reveal-item
-          className="mt-10 text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed"
-        >
-          Outside of product, I enjoy disciplines that require patience, curiosity and continuous learning.
-        </p>
-        <Reveal className="mt-16 max-w-3xl space-y-8">
+        <Reveal className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-16 max-w-4xl">
           {outsideWork.map((item) => (
             <div
-              key={item}
+              key={item.number}
               data-reveal-item
-              className="text-lg md:text-xl font-medium text-foreground"
             >
-              {item}
+              <div className="text-[11px] font-mono uppercase tracking-[0.18em] text-muted-foreground mb-4">
+                {item.number}
+              </div>
+              <div className="text-base md:text-[17px] font-medium text-foreground leading-snug text-balance">
+                {item.title}
+              </div>
+              <div className="mt-2 text-sm text-muted-foreground">
+                {item.subtitle}
+              </div>
             </div>
           ))}
         </Reveal>
