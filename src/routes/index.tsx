@@ -107,11 +107,11 @@ function Home() {
   return (
     <>
       {/* HERO */}
-      <section id="home" className="container-page pt-24 md:pt-40 pb-24 md:pb-40">
+      <section id="home" className="container-page pt-20 md:pt-36 pb-20 md:pb-28">
         <Reveal>
           <div
             data-reveal-item
-            className="text-[11px] font-mono uppercase tracking-[0.22em] text-muted-foreground mb-10 flex items-center gap-3"
+            className="text-[11px] font-mono uppercase tracking-[0.22em] text-muted-foreground mb-8 flex items-center gap-3"
           >
             <span className="relative flex size-1.5">
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-foreground opacity-50" />
@@ -129,19 +129,19 @@ function Home() {
 
           <p
             data-reveal-item
-            className="mt-10 text-2xl md:text-3xl lg:text-[34px] font-medium tracking-tight text-foreground leading-[1.2] max-w-4xl text-balance"
+            className="mt-8 text-2xl md:text-3xl lg:text-[34px] font-medium tracking-tight text-foreground leading-[1.2] max-w-4xl text-balance"
           >
             Building AI, marketplace and workflow products where customer needs, technology and business meet.
           </p>
 
           <p
             data-reveal-item
-            className="mt-8 text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed"
+            className="mt-6 text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed"
           >
             I work on complex product problems where customer needs, data and technology meet — from marketplace systems and workflow automation to AI-powered decision support.
           </p>
 
-          <div data-reveal-item className="mt-14 flex flex-wrap items-center gap-x-10 gap-y-4">
+          <div data-reveal-item className="mt-10 flex flex-wrap items-center gap-x-10 gap-y-4">
             <a
               href="#work"
               onClick={(e) => {
