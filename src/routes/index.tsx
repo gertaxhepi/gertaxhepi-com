@@ -124,7 +124,7 @@ function Home() {
             data-reveal-item
             className="mt-10 text-2xl md:text-3xl lg:text-[34px] font-medium tracking-tight text-foreground leading-[1.2] max-w-4xl text-balance"
           >
-            Product Manager building thoughtful digital products across B2B, B2C, SaaS, AI and marketplaces.
+            Building AI, marketplace and workflow products where customer needs, technology and business meet.
           </p>
 
           <p
