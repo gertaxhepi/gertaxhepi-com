@@ -280,21 +280,45 @@ function Home() {
             Building products at the intersection of technology, business and people.
           </h2>
         </Reveal>
+      </Section>
 
-        <div className="mt-20 grid md:grid-cols-[1.6fr_1fr] gap-16 md:gap-24">
+      {/* A SHORT SNAPSHOT */}
+      <Section spacing="tight">
+        <SectionHeading eyebrow="Profile" title="A short snapshot." />
+        <Reveal className="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-16">
+          {profile.map((item) => (
+            <div data-reveal-item key={item.label}>
+              <div className="text-[11px] font-mono uppercase tracking-[0.18em] text-muted-foreground mb-4">
+                {item.label}
+              </div>
+              <div className="text-base md:text-[17px] font-medium text-foreground leading-snug text-balance">
+                {item.value}
+              </div>
+            </div>
+          ))}
+        </Reveal>
+      </Section>
+
+      {/* MY STORY */}
+      <Section spacing="tight">
+        <SectionHeading eyebrow="My Story" title="How I got here." />
+        <div className="mt-16 grid md:grid-cols-[1.6fr_1fr] gap-16 md:gap-24">
           <Reveal className="space-y-7 text-lg md:text-xl text-foreground/90 leading-relaxed">
             <p data-reveal-item>
-              I'm a Product Manager with 5+ years of experience building digital products across B2B, B2C, SaaS, AI and marketplaces. I started my career in software engineering, including early experience at Microsoft, before moving into product management.
+              I began my career as a software engineer. Writing code taught me how products are built, but I kept finding myself more interested in why we were building them and for whom. That curiosity led me into product management.
             </p>
             <p data-reveal-item>
-              I enjoy working on complex products where customer needs, data, business goals and engineering constraints intersect.
+              Over the years, I've built products used by millions of people, including at XING, one of Europe's largest professional networks. I've worked on marketplace systems, workflow tools and AI-powered features — always with the same underlying question: how do we help people make better decisions?
             </p>
             <p data-reveal-item>
-              These days, much of my energy goes into{" "}
+              Today, I'm also the founder of{" "}
               <Link to="/case-studies/$slug" params={{ slug: "peakprofile" }} className="underline underline-offset-4 decoration-foreground/30 hover:decoration-foreground transition-colors">
                 PeakProfile
               </Link>
-              , my own AI product exploring trust, risk and decision-making in mountaineering — a place where I get to practise discovery, model behaviour and evaluation end-to-end.
+              , where I'm exploring how AI can help people make better decisions in high-risk environments. It's a space where product discovery, model behaviour and human trust all intersect — and where I get to practise the full product cycle end-to-end.
+            </p>
+            <p data-reveal-item>
+              I'm fascinated by products that help people make better decisions. Whether through better data, thoughtful workflows or AI, that's the thread connecting nearly everything I've built.
             </p>
           </Reveal>
 
@@ -311,39 +335,51 @@ function Home() {
         </div>
       </Section>
 
+      {/* HOW I THINK */}
       <Section>
-        <SectionHeading eyebrow="Profile" title="A short snapshot." />
-        <Reveal className="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-16">
-          {profile.map((item) => (
-            <div data-reveal-item key={item.label}>
-              <div className="text-[11px] font-mono uppercase tracking-[0.18em] text-muted-foreground mb-4">
-                {item.label}
-              </div>
-              <div className="text-base md:text-[17px] font-medium text-foreground leading-snug text-balance">
-                {item.value}
-              </div>
+        <SectionHeading eyebrow="How I Think" title="Ideas that shape my work." />
+        <p
+          data-reveal-item
+          className="mt-10 text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed"
+        >
+          My work is shaped by a few recurring ideas. Over time I'll be writing about the frameworks, books and experiences that have influenced how I build products.
+        </p>
+        <Reveal className="mt-16 max-w-3xl divide-y divide-border">
+          {howIThink.map((title) => (
+            <div
+              key={title}
+              data-reveal-item
+              className="flex items-start justify-between gap-6 py-7"
+            >
+              <h3 className="text-xl md:text-2xl font-medium tracking-tight">{title}</h3>
+              <span className="text-[11px] font-mono uppercase tracking-[0.18em] text-muted-foreground shrink-0 pt-1.5">
+                Coming soon
+              </span>
             </div>
           ))}
         </Reveal>
       </Section>
 
+      {/* OUTSIDE OF WORK */}
       <Section>
-        <SectionHeading eyebrow="What I work on" title="Where I do my best product work." />
-        <div className="mt-20 grid md:grid-cols-2 gap-x-16 gap-y-14">
-          {whatIWorkOn.map(({ n, title, desc }) => (
-            <div data-reveal-item key={title} className="grid grid-cols-[auto_1fr] gap-8">
-              <div className="text-[11px] font-mono uppercase tracking-[0.18em] text-muted-foreground pt-1.5">
-                {n}
-              </div>
-              <div>
-                <h3 className="text-2xl font-semibold tracking-tight">{title}</h3>
-                <p className="mt-3 text-[15px] md:text-base text-muted-foreground leading-relaxed max-w-md">
-                  {desc}
-                </p>
-              </div>
+        <SectionHeading eyebrow="Outside of Work" title="The person behind the product." />
+        <p
+          data-reveal-item
+          className="mt-10 text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed"
+        >
+          Outside of product, I enjoy disciplines that require patience, curiosity and continuous learning.
+        </p>
+        <Reveal className="mt-16 max-w-3xl space-y-8">
+          {outsideWork.map((item) => (
+            <div
+              key={item}
+              data-reveal-item
+              className="text-lg md:text-xl font-medium text-foreground"
+            >
+              {item}
             </div>
           ))}
-        </div>
+        </Reveal>
       </Section>
 
       {/* CONTACT */}
