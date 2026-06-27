@@ -74,7 +74,7 @@ function SalaryTransparencyPage({ study }: { study: CaseStudy }) {
             data-reveal-item
             className="text-[11px] font-mono uppercase tracking-[0.22em] text-muted-foreground"
           >
-            {s.context}
+            XING • Product Manager
           </div>
           <h1
             data-reveal-item
