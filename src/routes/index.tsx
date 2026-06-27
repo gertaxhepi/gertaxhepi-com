@@ -190,6 +190,11 @@ function Home() {
                 0{i + 1}
               </div>
               <div className="max-w-2xl">
+                {c.slug === "salary-transparency" && (
+                  <div className="text-[11px] font-mono uppercase tracking-[0.22em] mb-3" style={{ color: '#8A5A5A' }}>
+                    Featured Project
+                  </div>
+                )}
                 <h3 className="text-2xl md:text-3xl font-semibold tracking-tight">
                   {c.title}
                 </h3>
