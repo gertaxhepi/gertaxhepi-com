@@ -57,9 +57,9 @@ export const caseStudies: CaseStudy[] = [
     engineering:
       "Worked closely with data and engineering teams to land the new schema behind a feature flag, backfill historical postings and run a shadow comparison before flipping traffic.",
     metrics: [
-      { label: "Reduced salary estimation error", value: "28%" },
-      { label: "Salary coverage", value: "94% of eligible job postings" },
-      { label: "Apply rate increase", value: "+11%" },
+      { label: "Lower salary estimation error", value: "28%" },
+      { label: "Salary coverage", value: "94%" },
+      { label: "Applications", value: "+11%" },
     ],
     lessons: [
       "Better AI starts with better ground truth, not better algorithms",
