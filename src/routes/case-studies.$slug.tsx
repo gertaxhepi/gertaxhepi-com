@@ -67,6 +67,7 @@ function SalaryTransparencyPage({ study }: { study: CaseStudy }) {
 
   return (
     <>
+      {/* Hero + At a Glance — single viewport */}
       <Section className="pt-12 md:pt-20" spacing="tight">
         <Reveal>
           <div
@@ -77,40 +78,34 @@ function SalaryTransparencyPage({ study }: { study: CaseStudy }) {
           </div>
           <h1
             data-reveal-item
-            className="mt-6 text-5xl md:text-7xl font-semibold tracking-tight text-balance leading-[1.02] max-w-4xl"
+            className="mt-5 text-5xl md:text-7xl font-semibold tracking-tight text-balance leading-[1.02] max-w-4xl"
           >
             {s.title}
           </h1>
           <p
             data-reveal-item
-            className="mt-8 text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed"
+            className="mt-6 text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed"
           >
             {s.summary}
           </p>
           <div
             data-reveal-item
-            className="mt-10 flex flex-wrap gap-x-8 gap-y-3 text-xs font-mono uppercase tracking-[0.14em] text-muted-foreground"
+            className="mt-8 flex flex-wrap gap-x-8 gap-y-3 text-xs font-mono uppercase tracking-[0.14em] text-muted-foreground"
           >
             {s.technologies.map((t) => (
               <span key={t}>{t}</span>
             ))}
           </div>
-        </Reveal>
-      </Section>
 
-      {/* At a Glance */}
-      <Section spacing="tight">
-        <Reveal>
           <div
             data-reveal-item
-            className="text-[11px] font-mono uppercase tracking-[0.22em] text-muted-foreground mb-10"
+            className="mt-12 md:mt-16 grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-12"
           >
-            At a glance
-          </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-12 lg:gap-16">
             {s.metrics.map((m) => (
-              <div data-reveal-item key={m.label}>
-                <div className="text-3xl md:text-4xl font-semibold tracking-tight">{m.value}</div>
+              <div key={m.label}>
+                <div className="text-4xl md:text-5xl font-semibold tracking-tight tabular-nums">
+                  {m.value}
+                </div>
                 <div className="mt-3 text-[11px] font-mono uppercase tracking-[0.18em] text-muted-foreground">
                   {m.label}
                 </div>
@@ -123,9 +118,15 @@ function SalaryTransparencyPage({ study }: { study: CaseStudy }) {
       <Section spacing="tight">
         <Reveal>
           <Block title="The Challenge">
-            <div className="space-y-8">
+            <div className="space-y-6">
               <p className="text-base md:text-lg text-foreground/90 leading-relaxed">
-                {s.overview}
+                Job seekers were making career decisions based on salary estimates they couldn't fully trust.
+              </p>
+              <p className="text-base md:text-lg text-foreground/90 leading-relaxed">
+                Behind the scenes, job postings arrived with inconsistent or incomplete structured data — role titles that meant different things across employers, missing seniority levels, conflicting location mappings, and gaps in core attributes. The salary model was being fed sparse, noisy inputs, so the estimates it produced felt wrong to users and eroded trust in the marketplace.
+              </p>
+              <p className="text-base md:text-lg text-foreground/90 leading-relaxed">
+                My work focused on improving taxonomy, structured data and data quality so salary estimates became more reliable and trustworthy.
               </p>
               <div className="pt-2">
                 <div className="text-[11px] font-mono uppercase tracking-[0.18em] text-muted-foreground mb-4">
@@ -137,7 +138,7 @@ function SalaryTransparencyPage({ study }: { study: CaseStudy }) {
           </Block>
 
           <Block title="Discovery">
-            <div className="space-y-8">
+            <div className="space-y-6">
               <p className="text-base md:text-lg text-foreground/90 leading-relaxed">
                 To understand where trust was breaking down, I focused on understanding both the data and the user experience.
               </p>
@@ -148,27 +149,27 @@ function SalaryTransparencyPage({ study }: { study: CaseStudy }) {
           <Block title="Key Decisions">
             <div className="space-y-10">
               <div>
-                <h3 className="text-lg md:text-xl font-semibold tracking-tight mb-2">
+                <h3 className="text-2xl md:text-3xl font-semibold tracking-tight mb-3 text-balance">
                   Treat structured data as the product
                 </h3>
                 <p className="text-base md:text-lg text-foreground/90 leading-relaxed">
-                  Rather than treating taxonomy as backend infrastructure, we treated structured data as part of the user experience because it directly influenced salary estimates.
+                  Rather than treating taxonomy as backend infrastructure, we treated structured data as part of the user experience because it directly shaped the salary estimates users saw.
                 </p>
               </div>
               <div>
-                <h3 className="text-lg md:text-xl font-semibold tracking-tight mb-2">
+                <h3 className="text-2xl md:text-3xl font-semibold tracking-tight mb-3 text-balance">
                   Standardize before optimizing
                 </h3>
                 <p className="text-base md:text-lg text-foreground/90 leading-relaxed">
-                  Built a unified taxonomy before improving the salary model itself.
+                  Built a unified taxonomy before improving the salary model itself, so every later gain compounded on a stable foundation.
                 </p>
               </div>
               <div>
-                <h3 className="text-lg md:text-xl font-semibold tracking-tight mb-2">
+                <h3 className="text-2xl md:text-3xl font-semibold tracking-tight mb-3 text-balance">
                   Make uncertainty visible
                 </h3>
                 <p className="text-base md:text-lg text-foreground/90 leading-relaxed">
-                  Used confidence scoring so users could understand when estimates were reliable instead of hiding uncertainty.
+                  Used confidence scoring so users could understand when estimates were reliable, instead of hiding uncertainty behind a single number.
                 </p>
               </div>
             </div>
@@ -181,9 +182,9 @@ function SalaryTransparencyPage({ study }: { study: CaseStudy }) {
                   01
                 </span>
                 <div>
-                  <h3 className="text-lg md:text-xl font-semibold tracking-tight mb-2">Unified taxonomy</h3>
+                  <h3 className="text-lg md:text-xl font-semibold tracking-tight mb-2">Unified job taxonomy</h3>
                   <p className="text-base md:text-lg text-foreground/90 leading-relaxed">
-                    Mapped titles, seniority and locations into canonical values.
+                    Mapped titles, seniority and locations into canonical values so postings could be compared on the same terms.
                   </p>
                 </div>
               </div>
@@ -192,9 +193,9 @@ function SalaryTransparencyPage({ study }: { study: CaseStudy }) {
                   02
                 </span>
                 <div>
-                  <h3 className="text-lg md:text-xl font-semibold tracking-tight mb-2">Validation pipeline</h3>
+                  <h3 className="text-lg md:text-xl font-semibold tracking-tight mb-2">Improve data quality at ingestion</h3>
                   <p className="text-base md:text-lg text-foreground/90 leading-relaxed">
-                    Introduced validation during data ingestion to improve completeness before salary estimation.
+                    Caught gaps and inconsistencies as postings entered the system, so the salary model worked from cleaner inputs.
                   </p>
                 </div>
               </div>
@@ -203,9 +204,9 @@ function SalaryTransparencyPage({ study }: { study: CaseStudy }) {
                   03
                 </span>
                 <div>
-                  <h3 className="text-lg md:text-xl font-semibold tracking-tight mb-2">Confidence scoring</h3>
+                  <h3 className="text-lg md:text-xl font-semibold tracking-tight mb-2">Show users how confident the estimate is</h3>
                   <p className="text-base md:text-lg text-foreground/90 leading-relaxed">
-                    Displayed data quality alongside salary estimates to improve transparency and trust.
+                    Displayed data quality alongside salary estimates so people could weigh the answer instead of accepting it blindly.
                   </p>
                 </div>
               </div>
@@ -215,12 +216,12 @@ function SalaryTransparencyPage({ study }: { study: CaseStudy }) {
           <Block title="Results">
             <div className="space-y-10">
               <p className="text-base md:text-lg text-foreground/90 leading-relaxed">
-                Improving data quality increased both the accuracy and coverage of salary estimates, making salary information more trustworthy for job seekers while improving engagement.
+                Improving structured data increased both the accuracy and coverage of salary estimates, making salary information more trustworthy for millions of job seekers while increasing marketplace engagement.
               </p>
-              <div className="grid grid-cols-2 md:grid-cols-3 gap-12 lg:gap-16 pt-6">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-12">
                 {s.metrics.map((m) => (
                   <div key={m.label}>
-                    <div className="text-3xl md:text-4xl font-semibold tracking-tight">{m.value}</div>
+                    <div className="text-3xl md:text-4xl font-semibold tracking-tight tabular-nums">{m.value}</div>
                     <div className="mt-3 text-[11px] font-mono uppercase tracking-[0.18em] text-muted-foreground">
                       {m.label}
                     </div>
@@ -237,6 +238,7 @@ function SalaryTransparencyPage({ study }: { study: CaseStudy }) {
           </Block>
         </Reveal>
       </Section>
+
 
       <Section spacing="tight">
         <Link
