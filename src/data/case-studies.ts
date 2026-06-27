@@ -22,7 +22,7 @@ export const caseStudies: CaseStudy[] = [
     slug: "salary-transparency",
     title: "Salary Transparency & Structured Job Data",
     summary:
-      "Improving salary transparency by building better structured job data.",
+      "Improving salary transparency for millions of job seekers through higher-quality structured job data.",
   technologies: ["Structured Data", "Taxonomy", "Ground Truth", "Marketplace", "Data Quality"],
     outcomes: [
       "Reduced estimation error by 28%",
@@ -30,19 +30,19 @@ export const caseStudies: CaseStudy[] = [
     ],
     context: "B2B Marketplace · Data Products",
     overview:
-      "Salary ranges shown to job seekers depended on the quality of employer-provided job data. My work focused on improving taxonomy, structured attributes and data quality so salary estimates became more reliable.",
+      "Salary ranges shown to job seekers depended on the quality of employer-provided job data. Job postings arrived with inconsistent or incomplete structured data. Salaries were estimated from sparse, noisy inputs — role titles that meant different things, missing seniority levels, conflicting location mappings. The result was estimates that felt wrong to users and eroded trust. My work focused on improving taxonomy, structured attributes and data quality so salary estimates became more reliable and trustworthy.",
     problem:
       "Job postings arrived with inconsistent or incomplete structured data. Salaries were estimated from sparse, noisy inputs — role titles that meant different things, missing seniority levels, conflicting location mappings. The result was estimates that felt wrong to users and eroded trust.",
     discovery: [
-      "Mapped every field that fed into the salary model and scored its completeness",
+      "Mapped every field feeding the salary estimation pipeline",
       "Interviewed job seekers to understand which estimates felt credible and why",
-      "Audited employer posting flows to find where structured data was being lost",
-      "Traced data lineage from ingestion through to the final estimate",
+      "Audited employer posting flows to identify where structured data was being lost",
+      "Traced data lineage from ingestion through to the salary estimation model",
     ],
     constraints: [
-      "Three legacy ingestion systems with different schemas",
+      "Three legacy ingestion systems",
       "No additional engineering headcount",
-      "Changes had to ship without breaking existing estimates",
+      "Zero disruption during rollout",
     ],
     strategy: [
       "Treat structured data as the product surface, not just a backend concern",
@@ -57,9 +57,9 @@ export const caseStudies: CaseStudy[] = [
     engineering:
       "Worked closely with data and engineering teams to land the new schema behind a feature flag, backfill historical postings and run a shadow comparison before flipping traffic.",
     metrics: [
-      { label: "Estimation error", value: "−28%" },
-      { label: "Salary coverage", value: "94%" },
-      { label: "Apply rate uplift", value: "+11%" },
+      { label: "Reduced salary estimation error", value: "28%" },
+      { label: "Salary coverage", value: "94% of eligible job postings" },
+      { label: "Apply rate increase", value: "+11%" },
     ],
     lessons: [
       "Better AI starts with better ground truth, not better algorithms",
@@ -67,7 +67,7 @@ export const caseStudies: CaseStudy[] = [
       "Confidence intervals are a product surface, not just a metric",
     ],
     reflection:
-      "The most rewarding part was watching trust become measurable. Once users understood where a number came from, even imperfect estimates became useful.",
+      "Good AI starts long before the model. Better decisions come from better data, thoughtful product design and helping users understand where answers come from. That lesson has shaped nearly every product I've built since.",
   },
   {
     slug: "electronic-signature",
