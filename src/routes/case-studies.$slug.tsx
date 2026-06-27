@@ -74,7 +74,7 @@ function SalaryTransparencyPage({ study }: { study: CaseStudy }) {
             data-reveal-item
             className="text-[11px] font-mono uppercase tracking-[0.22em] text-muted-foreground"
           >
-            {s.context}
+            XING • Product Manager
           </div>
           <h1
             data-reveal-item
@@ -89,32 +89,34 @@ function SalaryTransparencyPage({ study }: { study: CaseStudy }) {
             Improving salary transparency for millions of job seekers by transforming inconsistent job data into reliable salary estimates.
           </p>
 
-          <div
-            data-reveal-item
-            className="mt-14 md:mt-20 grid grid-cols-1 md:grid-cols-3 gap-14 md:gap-16"
-          >
-            <div>
-              <div className="text-5xl md:text-6xl font-semibold tracking-tight tabular-nums">
-                28%
-              </div>
-              <div className="mt-4 text-[11px] font-mono uppercase tracking-[0.18em] text-muted-foreground">
-                Lower salary estimation error
-              </div>
+          <div data-reveal-item className="mt-10 md:mt-14">
+            <div className="text-[11px] font-mono uppercase tracking-[0.22em] text-muted-foreground mb-8 md:mb-10">
+              Impact
             </div>
-            <div>
-              <div className="text-5xl md:text-6xl font-semibold tracking-tight tabular-nums">
-                94%
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-16 md:gap-20">
+              <div>
+                <div className="text-[2.75rem] md:text-[3.25rem] font-semibold tracking-tight tabular-nums leading-none">
+                  28%
+                </div>
+                <div className="mt-4 text-[11px] font-mono uppercase tracking-[0.18em] text-muted-foreground whitespace-nowrap">
+                  Lower salary estimation error
+                </div>
               </div>
-              <div className="mt-4 text-[11px] font-mono uppercase tracking-[0.18em] text-muted-foreground">
-                Salary coverage
+              <div>
+                <div className="text-[2.75rem] md:text-[3.25rem] font-semibold tracking-tight tabular-nums leading-none">
+                  94%
+                </div>
+                <div className="mt-4 text-[11px] font-mono uppercase tracking-[0.18em] text-muted-foreground whitespace-nowrap">
+                  Jobs with salary estimates
+                </div>
               </div>
-            </div>
-            <div>
-              <div className="text-5xl md:text-6xl font-semibold tracking-tight tabular-nums">
-                +11%
-              </div>
-              <div className="mt-4 text-[11px] font-mono uppercase tracking-[0.18em] text-muted-foreground">
-                Applications
+              <div>
+                <div className="text-[2.75rem] md:text-[3.25rem] font-semibold tracking-tight tabular-nums leading-none">
+                  +11%
+                </div>
+                <div className="mt-4 text-[11px] font-mono uppercase tracking-[0.18em] text-muted-foreground whitespace-nowrap">
+                  Job applications
+                </div>
               </div>
             </div>
           </div>
