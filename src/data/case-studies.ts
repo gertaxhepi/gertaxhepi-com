@@ -67,7 +67,7 @@ export const caseStudies: CaseStudy[] = [
       "Confidence intervals are a product surface, not just a metric",
     ],
     reflection:
-      "Good AI starts long before the model. Better decisions come from better data, thoughtful product design and helping users understand where answers come from. That lesson has shaped nearly every product I've built since.",
+      "Better products start long before the algorithm. Better decisions come from better data, thoughtful product design and helping users understand where answers come from. That lesson has shaped nearly every product I've built since.",
   },
   {
     slug: "electronic-signature",
