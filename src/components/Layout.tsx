@@ -135,11 +135,10 @@ export function SiteHeader() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const isWritingArea =
-    pathname.startsWith("/writing") || pathname.startsWith("/essays/");
+  const isWritingArea = pathname.startsWith("/essays/");
 
   const activeId = useMemo(() => {
-    if (isWritingArea) return "__writing__";
+    if (isWritingArea) return "writing";
     if (pathname === "/") return activeSection;
     return null;
   }, [pathname, activeSection, isWritingArea]);
@@ -157,12 +156,7 @@ export function SiteHeader() {
         navigate({ to: "/" });
         return;
       }
-      if (item.route) {
-        e.preventDefault();
-        navigate({ to: item.route });
-        return;
-      }
-      const sectionId = item.sectionId as string;
+      const sectionId = item.sectionId;
       if (pathname === "/") {
         e.preventDefault();
         scrollToSection(sectionId);
@@ -188,7 +182,7 @@ export function SiteHeader() {
   const handleBackToWriting = useCallback(
     (e: MouseEvent<HTMLAnchorElement>) => {
       e.preventDefault();
-      navigate({ to: "/writing" });
+      navigate({ to: "/", hash: "writing" });
     },
     [navigate],
   );
