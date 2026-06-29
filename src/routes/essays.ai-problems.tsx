@@ -95,8 +95,8 @@ function EssayPage() {
               But after a while, I found myself asking a different question.
             </p>
 
-            <p>
-              <em>Is this really the skill I'm trying to develop?</em>
+            <p className="text-center italic text-foreground/80 my-4">
+              Is this really the skill I'm trying to develop?
             </p>
 
             <p>
@@ -116,7 +116,11 @@ function EssayPage() {
             </p>
 
             <p>
-              The conversations became much richer. Not overnight. Gradually. I realised I wasn't giving AI more instructions. I was giving it more understanding.
+              The conversations became much richer. Not overnight. Gradually.
+            </p>
+
+            <p className="text-xl md:text-2xl font-medium leading-snug text-foreground tracking-tight my-4">
+              I realised I wasn't giving AI more instructions. I was giving it more understanding.
             </p>
 
             <p>
@@ -127,17 +131,10 @@ function EssayPage() {
               I'm still exploring this idea. I don't know if it's the right conclusion, and I'm sure my thinking will continue to evolve. But it's one thought I keep coming back to. Working with AI hasn't changed how I think about Product Management. If anything, it has reinforced one of the most valuable lessons I learned early in my career.
             </p>
 
-            <p className="mt-16 md:mt-20">
+            <p className="mt-16 md:mt-20 text-xl md:text-2xl font-semibold tracking-tight text-foreground leading-snug">
               Good solutions begin with good understanding.
             </p>
           </article>
-
-          <div className="pt-24 md:pt-32">
-            <p className="text-sm text-muted-foreground leading-relaxed">
-              —<br />
-              More essays will appear here whenever I discover something worth writing about.
-            </p>
-          </div>
         </Reveal>
       </Section>
     </>
