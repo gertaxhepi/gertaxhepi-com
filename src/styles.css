@@ -156,8 +156,9 @@
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* Reveal-on-scroll wiring (paired with src/components/Reveal.tsx) */
-[data-reveal-root] [data-reveal-item] {
+/* Reveal-on-scroll wiring (paired with src/components/Reveal.tsx).
+   Content stays visible if client hydration fails, instead of rendering blank. */
+html[data-reveal-ready="true"] [data-reveal-root][data-revealed="false"] [data-reveal-item] {
   opacity: 0;
   transform: translateY(12px);
   transition:
