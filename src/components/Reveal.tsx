@@ -23,6 +23,8 @@ export function Reveal({
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
+    document.documentElement.dataset.revealReady = "true";
+
     const node = ref.current;
     if (!node) return;
     if (typeof IntersectionObserver === "undefined") {
