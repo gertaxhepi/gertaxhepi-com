@@ -147,13 +147,13 @@ function About() {
             <p className="mt-5 text-base md:text-lg text-muted-foreground leading-relaxed max-w-2xl">
               A reflection on mentorship, AI and why understanding a problem matters more than writing better prompts.
             </p>
-            <a
-              href="#"
+            <Link
+              to="/essays/ai-problems"
               className="group inline-flex items-center gap-2 text-sm font-medium mt-8 border-b border-foreground pb-1 transition-opacity hover:opacity-60"
             >
               Read essay
               <span className="transition-transform duration-300 group-hover:translate-x-0.5">→</span>
-            </a>
+            </Link>
           </div>
         </Reveal>
       </Section>
