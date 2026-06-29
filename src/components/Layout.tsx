@@ -1,117 +1,18 @@
-import { Outlet, useLocation, useNavigate } from "@tanstack/react-router";
+import { Outlet, useLocation, useNavigate, Link } from "@tanstack/react-router";
 import type { ReactNode, MouseEvent } from "react";
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 
-type NavItem = { label: string; sectionId: string };
+type NavItem = { label: string; to: string };
 
 const navItems: readonly NavItem[] = [
-  { label: "Work", sectionId: "work" },
-  { label: "Writing", sectionId: "writing" },
-  { label: "About", sectionId: "about" },
-  { label: "Contact", sectionId: "contact" },
+  { label: "Work", to: "/work" },
+  { label: "Writing", to: "/writing" },
+  { label: "About", to: "/about" },
+  { label: "Contact", to: "/contact" },
 ] as const;
 
 const ACCENT = "#8A5A5A";
-
-// Shared helper: smooth-scroll to a homepage section and update the URL hash.
-export function scrollToSection(sectionId: string) {
-  if (typeof window === "undefined") return;
-  const el = document.getElementById(sectionId);
-  if (!el) return;
-  el.scrollIntoView({ behavior: "smooth", block: "start" });
-  if (sectionId === "home") {
-    history.replaceState(null, "", "/");
-  } else {
-    history.replaceState(null, "", `#${sectionId}`);
-  }
-  // Notify scroll-spy so the nav highlights immediately,
-  // before IntersectionObserver catches up during the smooth scroll.
-  window.dispatchEvent(
-    new CustomEvent("lovable:section-intent", { detail: { sectionId } }),
-  );
-}
-
-function useActiveSection(pathname: string) {
-  const [activeSection, setActiveSection] = useState<string | null>(null);
-
-  useEffect(() => {
-    setActiveSection(null);
-    if (typeof window === "undefined") return;
-    if (pathname !== "/") return;
-
-    const ids = navItems
-      .map((i) => i.sectionId)
-      .filter((s): s is string => Boolean(s));
-    let lockUntil = 0;
-    let lockedId: string | null = null;
-    const NAV_OFFSET = 88; // ~72px header + breathing room
-
-    const compute = (): string | null => {
-      const scrollY = window.scrollY;
-      const viewportH = window.innerHeight;
-      const docH = document.documentElement.scrollHeight;
-
-      // Top of page → hero, no highlight.
-      if (scrollY < 120) return null;
-
-      // Bottom of page → last section (handles short final sections).
-      if (scrollY + viewportH >= docH - 4) {
-        return ids[ids.length - 1] ?? null;
-      }
-
-      const probe = scrollY + NAV_OFFSET + 1;
-      let current: string | null = null;
-      for (const id of ids) {
-        const el = document.getElementById(id);
-        if (!el) continue;
-        const top = el.getBoundingClientRect().top + scrollY;
-        if (top <= probe) current = id;
-        else break;
-      }
-      return current;
-    };
-
-    const update = () => {
-      if (Date.now() < lockUntil && lockedId) {
-        setActiveSection(lockedId);
-        return;
-      }
-      setActiveSection(compute());
-    };
-
-    update();
-    window.addEventListener("scroll", update, { passive: true });
-    window.addEventListener("resize", update);
-
-    const onIntent = (e: Event) => {
-      const detail = (e as CustomEvent<{ sectionId: string }>).detail;
-      if (!detail) return;
-      if (detail.sectionId === "home") {
-        lockedId = null;
-        lockUntil = 0;
-        setActiveSection(null);
-        return;
-      }
-      if (ids.includes(detail.sectionId)) {
-        lockedId = detail.sectionId;
-        // Hold the clicked section through the smooth-scroll animation
-        // so transient passes don't steal the highlight.
-        lockUntil = Date.now() + 1200;
-        setActiveSection(detail.sectionId);
-      }
-    };
-    window.addEventListener("lovable:section-intent", onIntent);
-
-    return () => {
-      window.removeEventListener("scroll", update);
-      window.removeEventListener("resize", update);
-      window.removeEventListener("lovable:section-intent", onIntent);
-    };
-  }, [pathname]);
-
-  return activeSection;
-}
 
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
@@ -125,7 +26,6 @@ export function SiteHeader() {
   const isEssay =
     pathname.startsWith("/essays/") && pathname.length > "/essays/".length;
   const isFocusedDoc = isResume || isCaseStudy || isEssay;
-  const activeSection = useActiveSection(pathname);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -135,46 +35,18 @@ export function SiteHeader() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const isWritingArea = pathname.startsWith("/essays/");
-
-  const activeId = useMemo(() => {
-    if (isWritingArea) return "writing";
-    if (pathname === "/") return activeSection;
-    return null;
-  }, [pathname, activeSection, isWritingArea]);
-
-  const handleNavClick = useCallback(
-    (e: MouseEvent<HTMLAnchorElement>, item: NavItem | "home") => {
-      setOpen(false);
-      if (item === "home") {
-        if (pathname === "/") {
-          e.preventDefault();
-          scrollToSection("home");
-          return;
-        }
-        e.preventDefault();
-        navigate({ to: "/" });
-        return;
-      }
-      const sectionId = item.sectionId;
-      if (pathname === "/") {
-        e.preventDefault();
-        scrollToSection(sectionId);
-        return;
-      }
-      e.preventDefault();
-      navigate({
-        to: "/",
-        hash: sectionId === "home" ? undefined : sectionId,
-      });
-    },
-    [pathname, navigate],
-  );
+  const isActive = (to: string) => {
+    if (to === "/writing") return pathname === "/writing";
+    if (to === "/work") return pathname === "/work";
+    if (to === "/about") return pathname === "/about";
+    if (to === "/contact") return pathname === "/contact";
+    return false;
+  };
 
   const handleBackToWork = useCallback(
     (e: MouseEvent<HTMLAnchorElement>) => {
       e.preventDefault();
-      navigate({ to: "/", hash: "work" });
+      navigate({ to: "/work" });
     },
     [navigate],
   );
@@ -182,7 +54,7 @@ export function SiteHeader() {
   const handleBackToWriting = useCallback(
     (e: MouseEvent<HTMLAnchorElement>) => {
       e.preventDefault();
-      navigate({ to: "/", hash: "writing" });
+      navigate({ to: "/writing" });
     },
     [navigate],
   );
@@ -199,57 +71,55 @@ export function SiteHeader() {
       <div className="container-page flex h-[72px] items-center justify-between">
         {isCaseStudy ? (
           <a
-            href="/#work"
+            href="/work"
             onClick={handleBackToWork}
             className="text-sm font-medium text-foreground transition-opacity duration-300 hover:opacity-60"
           >
-            ← Back to Home
+            ← Back to Work
           </a>
         ) : isEssay ? (
           <a
-            href="/#writing"
+            href="/writing"
             onClick={handleBackToWriting}
             className="text-sm font-medium text-foreground transition-opacity duration-300 hover:opacity-60"
           >
             ← Back to Writing
           </a>
         ) : (
-          <a
-            href="/#home"
-            onClick={(e) => handleNavClick(e, "home")}
+          <Link
+            to="/"
             className="text-sm font-bold uppercase tracking-[0.2em] text-foreground transition-opacity duration-300 hover:opacity-70"
           >
             Gerta Xhepi
-          </a>
+          </Link>
         )}
 
         {isFocusedDoc ? (
           isResume ? (
             <nav className="flex items-center gap-8">
-              <a
-                href="/"
-                onClick={handleBackToWork}
+              <Link
+                to="/"
                 className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
               >
                 ← Back to Home
-              </a>
+              </Link>
             </nav>
           ) : null
         ) : (
           <>
             <nav className="hidden md:flex items-center gap-8">
               {navItems.map((item) => {
-                const isActive = activeId === item.sectionId;
+                const active = isActive(item.to);
                 return (
-                  <a
-                    key={item.sectionId}
-                    href={`/#${item.sectionId}`}
-                    onClick={(e) => handleNavClick(e, item)}
+                  <Link
+                    key={item.to}
+                    to={item.to}
+                    onClick={() => setOpen(false)}
                     className="nav-link text-sm font-bold transition-colors duration-300"
-                    style={{ color: isActive ? ACCENT : undefined }}
+                    style={{ color: active ? ACCENT : undefined }}
                   >
                     {item.label}
-                  </a>
+                  </Link>
                 );
               })}
             </nav>
@@ -270,17 +140,17 @@ export function SiteHeader() {
         <div className="md:hidden bg-background/85 backdrop-blur-md">
           <nav className="container-page flex flex-col py-4 gap-1">
             {navItems.map((item) => {
-              const isActive = activeId === item.sectionId;
+              const active = isActive(item.to);
               return (
-                <a
-                  key={item.sectionId}
-                  href={`/#${item.sectionId}`}
-                  onClick={(e) => handleNavClick(e, item)}
+                <Link
+                  key={item.to}
+                  to={item.to}
+                  onClick={() => setOpen(false)}
                   className="nav-link px-1 py-3 text-sm font-bold transition-colors"
-                  style={{ color: isActive ? ACCENT : undefined }}
+                  style={{ color: active ? ACCENT : undefined }}
                 >
                   {item.label}
-                </a>
+                </Link>
               );
             })}
           </nav>
