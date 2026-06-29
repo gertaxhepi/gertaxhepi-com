@@ -207,7 +207,7 @@ export function SiteHeader() {
           </a>
         ) : isEssay ? (
           <a
-            href="/writing"
+            href="/#writing"
             onClick={handleBackToWriting}
             className="text-sm font-medium text-foreground transition-opacity duration-300 hover:opacity-60"
           >
