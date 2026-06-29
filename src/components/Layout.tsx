@@ -185,6 +185,14 @@ export function SiteHeader() {
           >
             ← Back to Home
           </a>
+        ) : isEssay ? (
+          <a
+            href="/#about"
+            onClick={handleBackToAbout}
+            className="text-sm font-medium text-foreground transition-opacity duration-300 hover:opacity-60"
+          >
+            ← Back to Home
+          </a>
         ) : (
           <a
             href="/#home"
