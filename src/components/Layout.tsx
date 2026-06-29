@@ -42,7 +42,9 @@ function useActiveSection(pathname: string) {
     if (typeof window === "undefined") return;
     if (pathname !== "/") return;
 
-    const ids = navItems.map((i) => i.sectionId);
+    const ids = navItems
+      .map((i) => i.sectionId)
+      .filter((s): s is string => Boolean(s));
     let lockUntil = 0;
     let lockedId: string | null = null;
     const NAV_OFFSET = 88; // ~72px header + breathing room
