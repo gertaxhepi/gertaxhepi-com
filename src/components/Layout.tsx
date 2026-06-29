@@ -137,21 +137,33 @@ export function SiteHeader() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  const isWritingArea =
+    pathname.startsWith("/writing") || pathname.startsWith("/essays/");
+
   const activeId = useMemo(() => {
+    if (isWritingArea) return "__writing__";
     if (pathname === "/") return activeSection;
     return null;
-  }, [pathname, activeSection]);
+  }, [pathname, activeSection, isWritingArea]);
 
   const handleNavClick = useCallback(
-    (e: MouseEvent<HTMLAnchorElement>, sectionId: string) => {
+    (e: MouseEvent<HTMLAnchorElement>, item: NavItem) => {
       setOpen(false);
+      if (item.route) {
+        e.preventDefault();
+        navigate({ to: item.route });
+        return;
+      }
       if (pathname === "/") {
         e.preventDefault();
-        scrollToSection(sectionId);
+        scrollToSection(item.sectionId);
         return;
       }
       e.preventDefault();
-      navigate({ to: "/", hash: sectionId === "home" ? undefined : sectionId });
+      navigate({
+        to: "/",
+        hash: item.sectionId === "home" ? undefined : item.sectionId,
+      });
     },
     [pathname, navigate],
   );
@@ -164,10 +176,10 @@ export function SiteHeader() {
     [navigate],
   );
 
-  const handleBackToAbout = useCallback(
+  const handleBackToWriting = useCallback(
     (e: MouseEvent<HTMLAnchorElement>) => {
       e.preventDefault();
-      navigate({ to: "/", hash: "about" });
+      navigate({ to: "/writing" });
     },
     [navigate],
   );
