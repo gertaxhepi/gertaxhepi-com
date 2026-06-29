@@ -271,6 +271,63 @@ function Home() {
 
       </Section>
 
+      {/* WRITING */}
+      <Section id="writing" spacing="tight">
+        <Reveal>
+          <div
+            data-reveal-item
+            className="text-[11px] font-mono uppercase tracking-[0.22em] text-muted-foreground mb-10"
+          >
+            Writing
+          </div>
+          <h2
+            data-reveal-item
+            className="text-4xl md:text-6xl font-semibold tracking-tight leading-[1.02] max-w-3xl text-balance"
+          >
+            Thoughts Worth Keeping
+          </h2>
+          <p
+            data-reveal-item
+            className="mt-8 text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed"
+          >
+            I write from time to time when an idea, experience or question stays with me after the work is done. These essays are not meant to teach or give final answers. They are a way to clarify my thinking and share the ideas I would want future teammates, collaborators and product people to understand about how I approach work.
+          </p>
+        </Reveal>
+
+        <Reveal className="mt-20 max-w-3xl">
+          <article data-reveal-item className="group">
+            <div className="text-[11px] font-mono uppercase tracking-[0.22em] text-muted-foreground mb-6">
+              Essay 01 · June 2026 · 6 min read
+            </div>
+            <Link
+              to="/essays/ai-problems"
+              className="block"
+            >
+              <h3 className="text-2xl md:text-3xl lg:text-4xl font-medium tracking-tight leading-[1.15] text-balance transition-colors duration-300 group-hover:text-[#8A5A5A]">
+                Working with AI Is Teaching Me to Understand Problems More Deeply
+              </h3>
+            </Link>
+            <p className="mt-6 text-base md:text-lg text-muted-foreground leading-relaxed max-w-2xl">
+              A reflection on mentorship, AI and why understanding a problem matters more than writing better prompts.
+            </p>
+            <Link
+              to="/essays/ai-problems"
+              className="mt-8 inline-flex items-center gap-2 text-sm font-medium transition-colors duration-300 group-hover:text-[#8A5A5A]"
+            >
+              Read essay
+              <span className="transition-transform duration-300 group-hover:translate-x-1">
+                →
+              </span>
+            </Link>
+          </article>
+
+          <p data-reveal-item className="mt-24 text-sm text-muted-foreground leading-relaxed">
+            More essays will appear here whenever I discover something worth writing about.
+          </p>
+        </Reveal>
+      </Section>
+
+
       {/* A SHORT SNAPSHOT */}
       <Section id="about" spacing="tight">
         <SectionHeading eyebrow="Profile" title="A short snapshot." />
