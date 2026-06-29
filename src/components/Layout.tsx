@@ -119,7 +119,9 @@ export function SiteHeader() {
   const isCaseStudy =
     pathname.startsWith("/case-studies/") &&
     pathname.length > "/case-studies/".length;
-  const isFocusedDoc = isResume || isCaseStudy;
+  const isEssay =
+    pathname.startsWith("/essays/") && pathname.length > "/essays/".length;
+  const isFocusedDoc = isResume || isCaseStudy || isEssay;
   const activeSection = useActiveSection(pathname);
   const navigate = useNavigate();
 
@@ -157,6 +159,14 @@ export function SiteHeader() {
     [navigate],
   );
 
+  const handleBackToAbout = useCallback(
+    (e: MouseEvent<HTMLAnchorElement>) => {
+      e.preventDefault();
+      navigate({ to: "/", hash: "about" });
+    },
+    [navigate],
+  );
+
   return (
     <header
       className={[
@@ -171,6 +181,14 @@ export function SiteHeader() {
           <a
             href="/#work"
             onClick={handleBackToWork}
+            className="text-sm font-medium text-foreground transition-opacity duration-300 hover:opacity-60"
+          >
+            ← Back to Home
+          </a>
+        ) : isEssay ? (
+          <a
+            href="/#about"
+            onClick={handleBackToAbout}
             className="text-sm font-medium text-foreground transition-opacity duration-300 hover:opacity-60"
           >
             ← Back to Home
