@@ -147,22 +147,33 @@ export function SiteHeader() {
   }, [pathname, activeSection, isWritingArea]);
 
   const handleNavClick = useCallback(
-    (e: MouseEvent<HTMLAnchorElement>, item: NavItem) => {
+    (e: MouseEvent<HTMLAnchorElement>, item: NavItem | "home") => {
       setOpen(false);
+      if (item === "home") {
+        if (pathname === "/") {
+          e.preventDefault();
+          scrollToSection("home");
+          return;
+        }
+        e.preventDefault();
+        navigate({ to: "/" });
+        return;
+      }
       if (item.route) {
         e.preventDefault();
         navigate({ to: item.route });
         return;
       }
+      const sectionId = item.sectionId as string;
       if (pathname === "/") {
         e.preventDefault();
-        scrollToSection(item.sectionId);
+        scrollToSection(sectionId);
         return;
       }
       e.preventDefault();
       navigate({
         to: "/",
-        hash: item.sectionId === "home" ? undefined : item.sectionId,
+        hash: sectionId === "home" ? undefined : sectionId,
       });
     },
     [pathname, navigate],
