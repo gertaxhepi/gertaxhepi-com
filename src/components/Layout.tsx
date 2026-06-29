@@ -38,7 +38,6 @@ export function SiteHeader() {
     if (to === "/writing") return pathname === "/writing";
     if (to === "/work") return pathname === "/work";
     if (to === "/about") return pathname === "/about";
-    if (to === "/contact") return pathname === "/contact";
     return false;
   };
 
