@@ -3,14 +3,12 @@ import type { ReactNode, MouseEvent } from "react";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { Menu, X } from "lucide-react";
 
-type NavItem =
-  | { label: string; sectionId: string; route?: undefined }
-  | { label: string; route: string; sectionId?: undefined };
+type NavItem = { label: string; sectionId: string };
 
 const navItems: readonly NavItem[] = [
   { label: "Work", sectionId: "work" },
+  { label: "Writing", sectionId: "writing" },
   { label: "About", sectionId: "about" },
-  { label: "Writing", route: "/writing" },
   { label: "Contact", sectionId: "contact" },
 ] as const;
 
