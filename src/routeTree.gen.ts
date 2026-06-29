@@ -14,7 +14,6 @@ import { Route as WorkRouteImport } from './routes/work'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ResumeRouteImport } from './routes/resume'
 import { Route as ProductThinkingRouteImport } from './routes/product-thinking'
-import { Route as ContactRouteImport } from './routes/contact'
 import { Route as CaseStudiesRouteImport } from './routes/case-studies'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
@@ -46,11 +45,6 @@ const ResumeRoute = ResumeRouteImport.update({
 const ProductThinkingRoute = ProductThinkingRouteImport.update({
   id: '/product-thinking',
   path: '/product-thinking',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ContactRoute = ContactRouteImport.update({
-  id: '/contact',
-  path: '/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CaseStudiesRoute = CaseStudiesRouteImport.update({
@@ -93,7 +87,6 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/case-studies': typeof CaseStudiesRouteWithChildren
-  '/contact': typeof ContactRoute
   '/product-thinking': typeof ProductThinkingRoute
   '/resume': typeof ResumeRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -107,7 +100,6 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
-  '/contact': typeof ContactRoute
   '/product-thinking': typeof ProductThinkingRoute
   '/resume': typeof ResumeRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -123,7 +115,6 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/case-studies': typeof CaseStudiesRouteWithChildren
-  '/contact': typeof ContactRoute
   '/product-thinking': typeof ProductThinkingRoute
   '/resume': typeof ResumeRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -140,7 +131,6 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/case-studies'
-    | '/contact'
     | '/product-thinking'
     | '/resume'
     | '/sitemap.xml'
@@ -154,7 +144,6 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/about'
-    | '/contact'
     | '/product-thinking'
     | '/resume'
     | '/sitemap.xml'
@@ -169,7 +158,6 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/case-studies'
-    | '/contact'
     | '/product-thinking'
     | '/resume'
     | '/sitemap.xml'
@@ -185,7 +173,6 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
   CaseStudiesRoute: typeof CaseStudiesRouteWithChildren
-  ContactRoute: typeof ContactRoute
   ProductThinkingRoute: typeof ProductThinkingRoute
   ResumeRoute: typeof ResumeRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
@@ -230,13 +217,6 @@ declare module '@tanstack/react-router' {
       path: '/product-thinking'
       fullPath: '/product-thinking'
       preLoaderRoute: typeof ProductThinkingRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/contact': {
-      id: '/contact'
-      path: '/contact'
-      fullPath: '/contact'
-      preLoaderRoute: typeof ContactRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/case-studies': {
@@ -309,7 +289,6 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   CaseStudiesRoute: CaseStudiesRouteWithChildren,
-  ContactRoute: ContactRoute,
   ProductThinkingRoute: ProductThinkingRoute,
   ResumeRoute: ResumeRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
