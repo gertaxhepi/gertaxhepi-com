@@ -282,12 +282,16 @@ export function SiteHeader() {
         <div className="md:hidden bg-background/85 backdrop-blur-md">
           <nav className="container-page flex flex-col py-4 gap-1">
             {navItems.map((item) => {
-              const isActive = activeId === item.sectionId;
+              const key = item.sectionId ?? item.route!;
+              const href = item.route ?? `/#${item.sectionId}`;
+              const isActive = item.route
+                ? isWritingArea && item.route === "/writing"
+                : activeId === item.sectionId;
               return (
                 <a
-                  key={item.sectionId}
-                  href={`/#${item.sectionId}`}
-                  onClick={(e) => handleNavClick(e, item.sectionId)}
+                  key={key}
+                  href={href}
+                  onClick={(e) => handleNavClick(e, item)}
                   className="nav-link px-1 py-3 text-sm font-bold transition-colors"
                   style={{ color: isActive ? ACCENT : undefined }}
                 >
