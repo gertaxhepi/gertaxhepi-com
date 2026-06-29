@@ -159,6 +159,14 @@ export function SiteHeader() {
     [navigate],
   );
 
+  const handleBackToAbout = useCallback(
+    (e: MouseEvent<HTMLAnchorElement>) => {
+      e.preventDefault();
+      navigate({ to: "/", hash: "about" });
+    },
+    [navigate],
+  );
+
   return (
     <header
       className={[
