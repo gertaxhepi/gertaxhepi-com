@@ -17,6 +17,7 @@ import { Route as CaseStudiesRouteImport } from './routes/case-studies'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as CaseStudiesIndexRouteImport } from './routes/case-studies.index'
+import { Route as EssaysAiProblemsRouteImport } from './routes/essays.ai-problems'
 import { Route as CaseStudiesSlugRouteImport } from './routes/case-studies.$slug'
 import { Route as ApiPublicContactSubmitRouteImport } from './routes/api/public/contact-submit'
 
@@ -60,6 +61,11 @@ const CaseStudiesIndexRoute = CaseStudiesIndexRouteImport.update({
   path: '/',
   getParentRoute: () => CaseStudiesRoute,
 } as any)
+const EssaysAiProblemsRoute = EssaysAiProblemsRouteImport.update({
+  id: '/essays/ai-problems',
+  path: '/essays/ai-problems',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const CaseStudiesSlugRoute = CaseStudiesSlugRouteImport.update({
   id: '/$slug',
   path: '/$slug',
@@ -80,6 +86,7 @@ export interface FileRoutesByFullPath {
   '/resume': typeof ResumeRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/case-studies/$slug': typeof CaseStudiesSlugRoute
+  '/essays/ai-problems': typeof EssaysAiProblemsRoute
   '/case-studies/': typeof CaseStudiesIndexRoute
   '/api/public/contact-submit': typeof ApiPublicContactSubmitRoute
 }
@@ -91,6 +98,7 @@ export interface FileRoutesByTo {
   '/resume': typeof ResumeRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/case-studies/$slug': typeof CaseStudiesSlugRoute
+  '/essays/ai-problems': typeof EssaysAiProblemsRoute
   '/case-studies': typeof CaseStudiesIndexRoute
   '/api/public/contact-submit': typeof ApiPublicContactSubmitRoute
 }
@@ -104,6 +112,7 @@ export interface FileRoutesById {
   '/resume': typeof ResumeRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/case-studies/$slug': typeof CaseStudiesSlugRoute
+  '/essays/ai-problems': typeof EssaysAiProblemsRoute
   '/case-studies/': typeof CaseStudiesIndexRoute
   '/api/public/contact-submit': typeof ApiPublicContactSubmitRoute
 }
@@ -118,6 +127,7 @@ export interface FileRouteTypes {
     | '/resume'
     | '/sitemap.xml'
     | '/case-studies/$slug'
+    | '/essays/ai-problems'
     | '/case-studies/'
     | '/api/public/contact-submit'
   fileRoutesByTo: FileRoutesByTo
@@ -129,6 +139,7 @@ export interface FileRouteTypes {
     | '/resume'
     | '/sitemap.xml'
     | '/case-studies/$slug'
+    | '/essays/ai-problems'
     | '/case-studies'
     | '/api/public/contact-submit'
   id:
@@ -141,6 +152,7 @@ export interface FileRouteTypes {
     | '/resume'
     | '/sitemap.xml'
     | '/case-studies/$slug'
+    | '/essays/ai-problems'
     | '/case-studies/'
     | '/api/public/contact-submit'
   fileRoutesById: FileRoutesById
@@ -153,6 +165,7 @@ export interface RootRouteChildren {
   ProductThinkingRoute: typeof ProductThinkingRoute
   ResumeRoute: typeof ResumeRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  EssaysAiProblemsRoute: typeof EssaysAiProblemsRoute
   ApiPublicContactSubmitRoute: typeof ApiPublicContactSubmitRoute
 }
 
@@ -214,6 +227,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CaseStudiesIndexRouteImport
       parentRoute: typeof CaseStudiesRoute
     }
+    '/essays/ai-problems': {
+      id: '/essays/ai-problems'
+      path: '/essays/ai-problems'
+      fullPath: '/essays/ai-problems'
+      preLoaderRoute: typeof EssaysAiProblemsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/case-studies/$slug': {
       id: '/case-studies/$slug'
       path: '/$slug'
@@ -253,6 +273,7 @@ const rootRouteChildren: RootRouteChildren = {
   ProductThinkingRoute: ProductThinkingRoute,
   ResumeRoute: ResumeRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  EssaysAiProblemsRoute: EssaysAiProblemsRoute,
   ApiPublicContactSubmitRoute: ApiPublicContactSubmitRoute,
 }
 export const routeTree = rootRouteImport
