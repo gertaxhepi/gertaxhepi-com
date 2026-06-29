@@ -215,11 +215,11 @@ export function SiteHeader() {
           </a>
         ) : isEssay ? (
           <a
-            href="/#about"
-            onClick={handleBackToAbout}
+            href="/writing"
+            onClick={handleBackToWriting}
             className="text-sm font-medium text-foreground transition-opacity duration-300 hover:opacity-60"
           >
-            ← Back to Home
+            ← Back to Writing
           </a>
         ) : (
           <a
