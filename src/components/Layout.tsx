@@ -3,14 +3,12 @@ import type { ReactNode, MouseEvent } from "react";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { Menu, X } from "lucide-react";
 
-type NavItem =
-  | { label: string; sectionId: string; route?: undefined }
-  | { label: string; route: string; sectionId?: undefined };
+type NavItem = { label: string; sectionId: string };
 
 const navItems: readonly NavItem[] = [
   { label: "Work", sectionId: "work" },
+  { label: "Writing", sectionId: "writing" },
   { label: "About", sectionId: "about" },
-  { label: "Writing", route: "/writing" },
   { label: "Contact", sectionId: "contact" },
 ] as const;
 
@@ -137,11 +135,10 @@ export function SiteHeader() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const isWritingArea =
-    pathname.startsWith("/writing") || pathname.startsWith("/essays/");
+  const isWritingArea = pathname.startsWith("/essays/");
 
   const activeId = useMemo(() => {
-    if (isWritingArea) return "__writing__";
+    if (isWritingArea) return "writing";
     if (pathname === "/") return activeSection;
     return null;
   }, [pathname, activeSection, isWritingArea]);
@@ -159,12 +156,7 @@ export function SiteHeader() {
         navigate({ to: "/" });
         return;
       }
-      if (item.route) {
-        e.preventDefault();
-        navigate({ to: item.route });
-        return;
-      }
-      const sectionId = item.sectionId as string;
+      const sectionId = item.sectionId;
       if (pathname === "/") {
         e.preventDefault();
         scrollToSection(sectionId);
@@ -190,7 +182,7 @@ export function SiteHeader() {
   const handleBackToWriting = useCallback(
     (e: MouseEvent<HTMLAnchorElement>) => {
       e.preventDefault();
-      navigate({ to: "/writing" });
+      navigate({ to: "/", hash: "writing" });
     },
     [navigate],
   );
@@ -215,7 +207,7 @@ export function SiteHeader() {
           </a>
         ) : isEssay ? (
           <a
-            href="/writing"
+            href="/#writing"
             onClick={handleBackToWriting}
             className="text-sm font-medium text-foreground transition-opacity duration-300 hover:opacity-60"
           >
@@ -247,15 +239,11 @@ export function SiteHeader() {
           <>
             <nav className="hidden md:flex items-center gap-8">
               {navItems.map((item) => {
-                const key = item.sectionId ?? item.route!;
-                const href = item.route ?? `/#${item.sectionId}`;
-                const isActive = item.route
-                  ? isWritingArea && item.route === "/writing"
-                  : activeId === item.sectionId;
+                const isActive = activeId === item.sectionId;
                 return (
                   <a
-                    key={key}
-                    href={href}
+                    key={item.sectionId}
+                    href={`/#${item.sectionId}`}
                     onClick={(e) => handleNavClick(e, item)}
                     className="nav-link text-sm font-bold transition-colors duration-300"
                     style={{ color: isActive ? ACCENT : undefined }}
@@ -282,15 +270,11 @@ export function SiteHeader() {
         <div className="md:hidden bg-background/85 backdrop-blur-md">
           <nav className="container-page flex flex-col py-4 gap-1">
             {navItems.map((item) => {
-              const key = item.sectionId ?? item.route!;
-              const href = item.route ?? `/#${item.sectionId}`;
-              const isActive = item.route
-                ? isWritingArea && item.route === "/writing"
-                : activeId === item.sectionId;
+              const isActive = activeId === item.sectionId;
               return (
                 <a
-                  key={key}
-                  href={href}
+                  key={item.sectionId}
+                  href={`/#${item.sectionId}`}
                   onClick={(e) => handleNavClick(e, item)}
                   className="nav-link px-1 py-3 text-sm font-bold transition-colors"
                   style={{ color: isActive ? ACCENT : undefined }}
