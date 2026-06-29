@@ -247,12 +247,16 @@ export function SiteHeader() {
           <>
             <nav className="hidden md:flex items-center gap-8">
               {navItems.map((item) => {
-                const isActive = activeId === item.sectionId;
+                const key = item.sectionId ?? item.route!;
+                const href = item.route ?? `/#${item.sectionId}`;
+                const isActive = item.route
+                  ? isWritingArea && item.route === "/writing"
+                  : activeId === item.sectionId;
                 return (
                   <a
-                    key={item.sectionId}
-                    href={`/#${item.sectionId}`}
-                    onClick={(e) => handleNavClick(e, item.sectionId)}
+                    key={key}
+                    href={href}
+                    onClick={(e) => handleNavClick(e, item)}
                     className="nav-link text-sm font-bold transition-colors duration-300"
                     style={{ color: isActive ? ACCENT : undefined }}
                   >
