@@ -124,39 +124,6 @@ function About() {
         </div>
       </Section>
 
-      {/* IDEAS THAT SHAPE MY WORK */}
-      <Section>
-        <SectionHeading
-          eyebrow="How I Think"
-          title="Ideas That Shape My Work."
-        />
-        <p
-          data-reveal-item
-          className="mt-10 text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed"
-        >
-          My work is shaped by a few recurring ideas. These essays are reflections on the people, experiences and questions that continue to influence how I build products.
-        </p>
-        <Reveal className="mt-20 max-w-3xl">
-          <div data-reveal-item>
-            <div className="text-[11px] font-mono uppercase tracking-[0.18em] text-muted-foreground mb-5">
-              Essay 01 · June 2026
-            </div>
-            <h3 className="text-2xl md:text-3xl font-medium tracking-tight leading-snug">
-              Working with AI Is Teaching Me to Understand Problems More Deeply
-            </h3>
-            <p className="mt-5 text-base md:text-lg text-muted-foreground leading-relaxed max-w-2xl">
-              A reflection on mentorship, AI and why understanding a problem matters more than writing better prompts.
-            </p>
-            <Link
-              to="/essays/ai-problems"
-              className="group inline-flex items-center gap-2 text-sm font-medium mt-8 border-b border-foreground pb-1 transition-opacity hover:opacity-60"
-            >
-              Read essay
-              <span className="transition-transform duration-300 group-hover:translate-x-0.5">→</span>
-            </Link>
-          </div>
-        </Reveal>
-      </Section>
 
       {/* OUTSIDE OF WORK */}
       <Section>

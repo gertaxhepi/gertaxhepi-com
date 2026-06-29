@@ -3,11 +3,14 @@ import type { ReactNode, MouseEvent } from "react";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { Menu, X } from "lucide-react";
 
-type NavItem = { label: string; sectionId: string };
+type NavItem =
+  | { label: string; sectionId: string; route?: undefined }
+  | { label: string; route: string; sectionId?: undefined };
 
 const navItems: readonly NavItem[] = [
   { label: "Work", sectionId: "work" },
   { label: "About", sectionId: "about" },
+  { label: "Writing", route: "/writing" },
   { label: "Contact", sectionId: "contact" },
 ] as const;
 
@@ -39,7 +42,9 @@ function useActiveSection(pathname: string) {
     if (typeof window === "undefined") return;
     if (pathname !== "/") return;
 
-    const ids = navItems.map((i) => i.sectionId);
+    const ids = navItems
+      .map((i) => i.sectionId)
+      .filter((s): s is string => Boolean(s));
     let lockUntil = 0;
     let lockedId: string | null = null;
     const NAV_OFFSET = 88; // ~72px header + breathing room
@@ -132,21 +137,44 @@ export function SiteHeader() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  const isWritingArea =
+    pathname.startsWith("/writing") || pathname.startsWith("/essays/");
+
   const activeId = useMemo(() => {
+    if (isWritingArea) return "__writing__";
     if (pathname === "/") return activeSection;
     return null;
-  }, [pathname, activeSection]);
+  }, [pathname, activeSection, isWritingArea]);
 
   const handleNavClick = useCallback(
-    (e: MouseEvent<HTMLAnchorElement>, sectionId: string) => {
+    (e: MouseEvent<HTMLAnchorElement>, item: NavItem | "home") => {
       setOpen(false);
+      if (item === "home") {
+        if (pathname === "/") {
+          e.preventDefault();
+          scrollToSection("home");
+          return;
+        }
+        e.preventDefault();
+        navigate({ to: "/" });
+        return;
+      }
+      if (item.route) {
+        e.preventDefault();
+        navigate({ to: item.route });
+        return;
+      }
+      const sectionId = item.sectionId as string;
       if (pathname === "/") {
         e.preventDefault();
         scrollToSection(sectionId);
         return;
       }
       e.preventDefault();
-      navigate({ to: "/", hash: sectionId === "home" ? undefined : sectionId });
+      navigate({
+        to: "/",
+        hash: sectionId === "home" ? undefined : sectionId,
+      });
     },
     [pathname, navigate],
   );
@@ -159,10 +187,10 @@ export function SiteHeader() {
     [navigate],
   );
 
-  const handleBackToAbout = useCallback(
+  const handleBackToWriting = useCallback(
     (e: MouseEvent<HTMLAnchorElement>) => {
       e.preventDefault();
-      navigate({ to: "/", hash: "about" });
+      navigate({ to: "/writing" });
     },
     [navigate],
   );
@@ -187,11 +215,11 @@ export function SiteHeader() {
           </a>
         ) : isEssay ? (
           <a
-            href="/#about"
-            onClick={handleBackToAbout}
+            href="/writing"
+            onClick={handleBackToWriting}
             className="text-sm font-medium text-foreground transition-opacity duration-300 hover:opacity-60"
           >
-            ← Back to Home
+            ← Back to Writing
           </a>
         ) : (
           <a
@@ -219,12 +247,16 @@ export function SiteHeader() {
           <>
             <nav className="hidden md:flex items-center gap-8">
               {navItems.map((item) => {
-                const isActive = activeId === item.sectionId;
+                const key = item.sectionId ?? item.route!;
+                const href = item.route ?? `/#${item.sectionId}`;
+                const isActive = item.route
+                  ? isWritingArea && item.route === "/writing"
+                  : activeId === item.sectionId;
                 return (
                   <a
-                    key={item.sectionId}
-                    href={`/#${item.sectionId}`}
-                    onClick={(e) => handleNavClick(e, item.sectionId)}
+                    key={key}
+                    href={href}
+                    onClick={(e) => handleNavClick(e, item)}
                     className="nav-link text-sm font-bold transition-colors duration-300"
                     style={{ color: isActive ? ACCENT : undefined }}
                   >
@@ -250,12 +282,16 @@ export function SiteHeader() {
         <div className="md:hidden bg-background/85 backdrop-blur-md">
           <nav className="container-page flex flex-col py-4 gap-1">
             {navItems.map((item) => {
-              const isActive = activeId === item.sectionId;
+              const key = item.sectionId ?? item.route!;
+              const href = item.route ?? `/#${item.sectionId}`;
+              const isActive = item.route
+                ? isWritingArea && item.route === "/writing"
+                : activeId === item.sectionId;
               return (
                 <a
-                  key={item.sectionId}
-                  href={`/#${item.sectionId}`}
-                  onClick={(e) => handleNavClick(e, item.sectionId)}
+                  key={key}
+                  href={href}
+                  onClick={(e) => handleNavClick(e, item)}
                   className="nav-link px-1 py-3 text-sm font-bold transition-colors"
                   style={{ color: isActive ? ACCENT : undefined }}
                 >

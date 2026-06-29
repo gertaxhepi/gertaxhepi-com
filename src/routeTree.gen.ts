@@ -9,6 +9,7 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as WritingRouteImport } from './routes/writing'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ResumeRouteImport } from './routes/resume'
 import { Route as ProductThinkingRouteImport } from './routes/product-thinking'
@@ -21,6 +22,11 @@ import { Route as EssaysAiProblemsRouteImport } from './routes/essays.ai-problem
 import { Route as CaseStudiesSlugRouteImport } from './routes/case-studies.$slug'
 import { Route as ApiPublicContactSubmitRouteImport } from './routes/api/public/contact-submit'
 
+const WritingRoute = WritingRouteImport.update({
+  id: '/writing',
+  path: '/writing',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
   path: '/sitemap.xml',
@@ -85,6 +91,7 @@ export interface FileRoutesByFullPath {
   '/product-thinking': typeof ProductThinkingRoute
   '/resume': typeof ResumeRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/writing': typeof WritingRoute
   '/case-studies/$slug': typeof CaseStudiesSlugRoute
   '/essays/ai-problems': typeof EssaysAiProblemsRoute
   '/case-studies/': typeof CaseStudiesIndexRoute
@@ -97,6 +104,7 @@ export interface FileRoutesByTo {
   '/product-thinking': typeof ProductThinkingRoute
   '/resume': typeof ResumeRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/writing': typeof WritingRoute
   '/case-studies/$slug': typeof CaseStudiesSlugRoute
   '/essays/ai-problems': typeof EssaysAiProblemsRoute
   '/case-studies': typeof CaseStudiesIndexRoute
@@ -111,6 +119,7 @@ export interface FileRoutesById {
   '/product-thinking': typeof ProductThinkingRoute
   '/resume': typeof ResumeRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/writing': typeof WritingRoute
   '/case-studies/$slug': typeof CaseStudiesSlugRoute
   '/essays/ai-problems': typeof EssaysAiProblemsRoute
   '/case-studies/': typeof CaseStudiesIndexRoute
@@ -126,6 +135,7 @@ export interface FileRouteTypes {
     | '/product-thinking'
     | '/resume'
     | '/sitemap.xml'
+    | '/writing'
     | '/case-studies/$slug'
     | '/essays/ai-problems'
     | '/case-studies/'
@@ -138,6 +148,7 @@ export interface FileRouteTypes {
     | '/product-thinking'
     | '/resume'
     | '/sitemap.xml'
+    | '/writing'
     | '/case-studies/$slug'
     | '/essays/ai-problems'
     | '/case-studies'
@@ -151,6 +162,7 @@ export interface FileRouteTypes {
     | '/product-thinking'
     | '/resume'
     | '/sitemap.xml'
+    | '/writing'
     | '/case-studies/$slug'
     | '/essays/ai-problems'
     | '/case-studies/'
@@ -165,12 +177,20 @@ export interface RootRouteChildren {
   ProductThinkingRoute: typeof ProductThinkingRoute
   ResumeRoute: typeof ResumeRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  WritingRoute: typeof WritingRoute
   EssaysAiProblemsRoute: typeof EssaysAiProblemsRoute
   ApiPublicContactSubmitRoute: typeof ApiPublicContactSubmitRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/writing': {
+      id: '/writing'
+      path: '/writing'
+      fullPath: '/writing'
+      preLoaderRoute: typeof WritingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/sitemap.xml': {
       id: '/sitemap.xml'
       path: '/sitemap.xml'
@@ -273,6 +293,7 @@ const rootRouteChildren: RootRouteChildren = {
   ProductThinkingRoute: ProductThinkingRoute,
   ResumeRoute: ResumeRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  WritingRoute: WritingRoute,
   EssaysAiProblemsRoute: EssaysAiProblemsRoute,
   ApiPublicContactSubmitRoute: ApiPublicContactSubmitRoute,
 }
