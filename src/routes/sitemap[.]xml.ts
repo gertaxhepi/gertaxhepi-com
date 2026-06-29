@@ -5,7 +5,6 @@ const BASE_URL = "";
 
 const paths = [
   "/", "/about", "/case-studies", "/product-thinking", "/resume", "/contact",
-  "/writing",
   "/essays/ai-problems",
   "/case-studies/salary-transparency",
   "/case-studies/electronic-signature",
