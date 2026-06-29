@@ -6,10 +6,9 @@ import { Menu, X } from "lucide-react";
 type NavItem = { label: string; to: string };
 
 const navItems: readonly NavItem[] = [
+  { label: "About", to: "/about" },
   { label: "Work", to: "/work" },
   { label: "Writing", to: "/writing" },
-  { label: "About", to: "/about" },
-  { label: "Contact", to: "/contact" },
 ] as const;
 
 const ACCENT = "#8A5A5A";
@@ -39,7 +38,6 @@ export function SiteHeader() {
     if (to === "/writing") return pathname === "/writing";
     if (to === "/work") return pathname === "/work";
     if (to === "/about") return pathname === "/about";
-    if (to === "/contact") return pathname === "/contact";
     return false;
   };
 
