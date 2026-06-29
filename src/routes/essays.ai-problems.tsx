@@ -35,13 +35,13 @@ function EssayPage() {
   return (
     <>
       {/* Header */}
-      <Section className="pt-12 md:pt-20" spacing="tight">
+      <Section className="pt-12 md:pt-20 pb-8 md:pb-10" spacing="none">
         <Reveal>
           <div
             data-reveal-item
             className="text-[11px] font-mono uppercase tracking-[0.22em] text-muted-foreground"
           >
-            Essay 01 · June 2026
+            Essay 01 · June 2026 · 6 min read
           </div>
           <h1
             data-reveal-item
@@ -51,18 +51,22 @@ function EssayPage() {
           </h1>
           <p
             data-reveal-item
-            className="mt-6 text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed"
+            className="mt-5 text-base md:text-[17px] text-muted-foreground max-w-2xl leading-relaxed"
           >
             A reflection on mentorship, AI and why understanding a problem
             matters more than writing better prompts.
           </p>
+          <div
+            data-reveal-item
+            className="mt-8 h-px bg-foreground/[0.06] max-w-[45rem]"
+          />
         </Reveal>
       </Section>
 
       {/* Body */}
-      <Section spacing="tight">
-        <Reveal className="max-w-2xl">
-          <article className="space-y-6 text-base md:text-[17px] text-foreground/90 leading-[1.75]">
+      <Section className="pt-4 md:pt-6" spacing="none">
+        <Reveal className="max-w-[45rem]">
+          <article className="space-y-10 text-base md:text-[17px] text-foreground/90 leading-[1.75]">
             <p>Over the past couple of years, I've watched countless conversations about AI.</p>
 
             <p>Some were exciting. Some were intimidating. Some were incredibly practical.</p>
@@ -187,6 +191,13 @@ function EssayPage() {
 
             <p>Good solutions begin with good understanding.</p>
           </article>
+
+          <div className="pt-24 md:pt-32">
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              —<br />
+              More essays will appear here whenever I discover something worth writing about.
+            </p>
+          </div>
         </Reveal>
       </Section>
     </>
