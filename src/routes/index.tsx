@@ -48,12 +48,12 @@ function Home() {
           data-reveal-item
           className="mt-8 text-2xl md:text-3xl lg:text-[34px] font-medium tracking-tight text-foreground leading-[1.2] max-w-4xl text-balance"
         >
-          I build products where technology, data and customer needs come together.
+          I'm a Product Manager with a background in Software Engineering.
         </p>
 
         <p data-reveal-item className="mt-6 text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed">
-          I'm a Product Manager with a background in Software Engineering, building marketplace, workflow and AI-powered
-          products. I'm particularly interested in using AI and structured data to help people make better decisions.
+          I build products where technology, data and customer needs come together. Have a look around. You'll find some
+          of the products I've worked on, a few thoughts I've written down, and the journey that brought me here.
         </p>
 
         <div data-reveal-item className="mt-10 flex flex-wrap items-center gap-x-10 gap-y-4">
