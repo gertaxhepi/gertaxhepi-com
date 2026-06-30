@@ -18,12 +18,6 @@ export const Route = createFileRoute("/about")({
   component: About,
 });
 
-const profile = [
-  { label: "Experience", value: "5+ years building digital products" },
-  { label: "Domains", value: "B2B \u00b7 B2C \u00b7 SaaS \u00b7 AI \u00b7 Marketplaces" },
-  { label: "Background", value: "Software Engineering \u2192 Product Management" },
-  { label: "Today", value: "AI Products \u00b7 Platform Products \u00b7 Decision Support Systems" },
-];
 
 const howIThink = [
   "How I approach Product Discovery",
