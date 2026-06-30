@@ -18,12 +18,6 @@ export const Route = createFileRoute("/about")({
   component: About,
 });
 
-const profile = [
-  { label: "Experience", value: "5+ years building digital products" },
-  { label: "Domains", value: "B2B \u00b7 B2C \u00b7 SaaS \u00b7 AI \u00b7 Marketplaces" },
-  { label: "Background", value: "Software Engineering \u2192 Product Management" },
-  { label: "Today", value: "AI Products \u00b7 Platform Products \u00b7 Decision Support Systems" },
-];
 
 const howIThink = [
   "How I approach Product Discovery",
@@ -62,23 +56,6 @@ const channels: Channel[] = [
 function About() {
   return (
     <>
-      {/* A SHORT SNAPSHOT */}
-      <Section className="pt-16 md:pt-28" spacing="tight">
-        <SectionHeading eyebrow="Profile" title="A short snapshot." />
-        <Reveal className="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-16">
-          {profile.map((item) => (
-            <div data-reveal-item key={item.label}>
-              <div className="text-[11px] font-mono uppercase tracking-[0.18em] text-muted-foreground mb-4">
-                {item.label}
-              </div>
-              <div className="text-base md:text-[17px] font-medium text-foreground leading-snug text-balance">
-                {item.value}
-              </div>
-            </div>
-          ))}
-        </Reveal>
-      </Section>
-
       {/* HOW I GOT HERE */}
       <Section spacing="tight">
         <SectionHeading eyebrow="My Story" title="How I Got Here." />
