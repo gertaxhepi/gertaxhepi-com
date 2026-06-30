@@ -22,9 +22,7 @@ export function SiteHeader() {
   const isCaseStudy =
     pathname.startsWith("/case-studies/") &&
     pathname.length > "/case-studies/".length;
-  const isEssay =
-    pathname.startsWith("/essays/") && pathname.length > "/essays/".length;
-  const isFocusedDoc = isResume || isCaseStudy || isEssay;
+  const isFocusedDoc = isResume || isCaseStudy;
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -49,13 +47,6 @@ export function SiteHeader() {
     [navigate],
   );
 
-  const handleBackToWriting = useCallback(
-    (e: MouseEvent<HTMLAnchorElement>) => {
-      e.preventDefault();
-      navigate({ to: "/writing" });
-    },
-    [navigate],
-  );
 
   return (
     <header
@@ -74,14 +65,6 @@ export function SiteHeader() {
             className="text-sm font-medium text-foreground transition-opacity duration-300 hover:opacity-60"
           >
             ← Back to Work
-          </a>
-        ) : isEssay ? (
-          <a
-            href="/writing"
-            onClick={handleBackToWriting}
-            className="text-sm font-medium text-foreground transition-opacity duration-300 hover:opacity-60"
-          >
-            ← Back to Writing
           </a>
         ) : (
           <Link
