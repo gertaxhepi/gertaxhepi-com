@@ -47,13 +47,6 @@ export function SiteHeader() {
     [navigate],
   );
 
-  const handleBackToWriting = useCallback(
-    (e: MouseEvent<HTMLAnchorElement>) => {
-      e.preventDefault();
-      navigate({ to: "/writing" });
-    },
-    [navigate],
-  );
 
   return (
     <header
