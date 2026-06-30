@@ -38,6 +38,19 @@ function EssayPage() {
       {/* Header */}
       <Section className="pt-12 md:pt-20 pb-8 md:pb-10" spacing="none">
         <Reveal>
+          <nav
+            data-reveal-item
+            aria-label="Breadcrumb"
+            className="mb-8 text-[11px] font-mono uppercase tracking-[0.22em] text-muted-foreground"
+          >
+            <Link to="/" className="transition-opacity hover:opacity-60 hover:text-foreground">
+              Home
+            </Link>
+            <span className="mx-2 opacity-50">/</span>
+            <Link to="/writing" className="transition-opacity hover:opacity-60 hover:text-foreground">
+              Writing
+            </Link>
+          </nav>
           <div
             data-reveal-item
             className="text-[11px] font-mono uppercase tracking-[0.22em] text-muted-foreground"
