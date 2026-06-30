@@ -64,7 +64,7 @@ function About() {
     <>
       {/* About Me */}
       <Section spacing="tight">
-        <SectionHeading eyebrow="My Story" title="About Me." />
+        <SectionHeading eyebrow="My Story" title="About Me" />
         <div className="mt-16 grid md:grid-cols-[1.6fr_1fr] gap-16 md:gap-24">
           <Reveal className="space-y-7 text-lg md:text-xl text-foreground/90 leading-relaxed">
             <p data-reveal-item>
