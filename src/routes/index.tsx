@@ -41,7 +41,7 @@ function Home() {
           data-reveal-item
           className="text-[44px] sm:text-6xl md:text-7xl lg:text-[112px] font-bold tracking-[-0.04em] leading-[0.95] text-balance"
         >
-          Hi, I'm Gerta.
+          Hi, I'm Gerta ☺︎
         </h1>
 
         <p
