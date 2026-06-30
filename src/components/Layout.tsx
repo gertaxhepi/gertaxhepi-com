@@ -22,9 +22,7 @@ export function SiteHeader() {
   const isCaseStudy =
     pathname.startsWith("/case-studies/") &&
     pathname.length > "/case-studies/".length;
-  const isEssay =
-    pathname.startsWith("/essays/") && pathname.length > "/essays/".length;
-  const isFocusedDoc = isResume || isCaseStudy || isEssay;
+  const isFocusedDoc = isResume || isCaseStudy;
   const navigate = useNavigate();
 
   useEffect(() => {
