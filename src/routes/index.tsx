@@ -6,9 +6,15 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "Gerta Xhepi — Product Manager" },
-      { name: "description", content: "Product Manager building thoughtful digital products across B2B, B2C, SaaS, AI and marketplaces." },
+      {
+        name: "description",
+        content: "Product Manager building thoughtful digital products across B2B, B2C, SaaS, AI and marketplaces.",
+      },
       { property: "og:title", content: "Gerta Xhepi — Product Manager" },
-      { property: "og:description", content: "Product Manager building thoughtful digital products across B2B, B2C, SaaS, AI and marketplaces." },
+      {
+        property: "og:description",
+        content: "Product Manager building thoughtful digital products across B2B, B2C, SaaS, AI and marketplaces.",
+      },
       { property: "og:url", content: "/" },
     ],
     links: [{ rel: "canonical", href: "/" }],
@@ -35,21 +41,19 @@ function Home() {
           data-reveal-item
           className="text-[44px] sm:text-6xl md:text-7xl lg:text-[112px] font-bold tracking-[-0.04em] leading-[0.95] text-balance"
         >
-          Gerta Xhepi
+          Hi, I'm Gerta.
         </h1>
 
         <p
           data-reveal-item
           className="mt-8 text-2xl md:text-3xl lg:text-[34px] font-medium tracking-tight text-foreground leading-[1.2] max-w-4xl text-balance"
         >
-          Building AI, marketplace and workflow products where customer needs, technology and business meet.
+          I build products by first understanding the problems they're trying to solve.
         </p>
 
-        <p
-          data-reveal-item
-          className="mt-6 text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed"
-        >
-          I work on complex product problems where customer needs, data and technology meet — from marketplace systems and workflow automation to AI-powered decision support.
+        <p data-reveal-item className="mt-6 text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed">
+          Product Manager with a background in Software Engineering, currently exploring how AI and structured data can
+          help people make better decisions.
         </p>
 
         <div data-reveal-item className="mt-10 flex flex-wrap items-center gap-x-10 gap-y-4">
