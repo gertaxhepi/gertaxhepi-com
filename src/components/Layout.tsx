@@ -73,14 +73,6 @@ export function SiteHeader() {
           >
             ← Back to Work
           </a>
-        ) : isEssay ? (
-          <a
-            href="/writing"
-            onClick={handleBackToWriting}
-            className="text-sm font-medium text-foreground transition-opacity duration-300 hover:opacity-60"
-          >
-            ← Back to Writing
-          </a>
         ) : (
           <Link
             to="/"
