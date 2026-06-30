@@ -26,19 +26,19 @@ function Writing() {
           className="text-[11px] font-mono uppercase tracking-[0.22em] mb-10"
           style={{ color: '#8A5A5A' }}
         >
-          Writing
+          WRITING
         </div>
         <h1
           data-reveal-item
           className="text-4xl md:text-6xl font-semibold tracking-tight leading-[1.02] max-w-3xl text-balance"
         >
-          Thoughts Worth Keeping
+          How I Think
         </h1>
         <p
           data-reveal-item
           className="mt-8 text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed"
         >
-          I write from time to time when an idea, experience or question stays with me after the work is done. These essays are not meant to teach or provide final answers. They are simply reflections on ideas that continue to shape how I think about building products.
+          Products are only part of the story. The other part is how our thinking evolves while building them. This is where I collect the ideas, questions and experiences that continue to shape mine.
         </p>
       </Reveal>
 
