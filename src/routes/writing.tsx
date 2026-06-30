@@ -26,20 +26,36 @@ function Writing() {
           className="text-[11px] font-mono uppercase tracking-[0.22em] mb-10"
           style={{ color: '#8A5A5A' }}
         >
-          Writing
+          WRITING
         </div>
         <h1
           data-reveal-item
           className="text-4xl md:text-6xl font-semibold tracking-tight leading-[1.02] max-w-3xl text-balance"
         >
-          Thoughts Worth Keeping
-        </h1>
-        <p
-          data-reveal-item
-          className="mt-8 text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed"
-        >
-          I write from time to time when an idea, experience or question stays with me after the work is done. These essays are not meant to teach or provide final answers. They are simply reflections on ideas that continue to shape how I think about building products.
-        </p>
+ call this `code--line_replace` with the exact old_content and new_content. I must be precise with the old_content match. Let me construct the exact text from lines 24-42. 
+
+Looking at the file:
+Line 24:         <div
+Line 25:           data-reveal-item
+Line 26:           className="text-[11px] font-mono uppercase tracking-[0.22em] mb-10"
+Line 27:           style={{ color: '#8A5A5A' }}
+Line 28:         >
+Line 29:           Writing
+Line 30:         </div>
+Line 31:         <h1
+Line 32:           data-reveal-item
+Line 33:           className="text-4xl md:text-6xl font-semibold tracking-tight leading-[1.02] max-w-3xl text-balance"
+Line 34:         >
+Line 35:           Thoughts Worth Keeping
+Line 36:         </h1>
+Line 37:         <p
+Line 38:           data-reveal-item
+Line 39:           className="mt-8 text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed"
+Line 40:         >
+Line 41:           I write from time to time when an idea, experience or question stays with me after the work is done. These essays are not meant to teach or provide final answers. They are simply reflections on ideas that continue to shape how I think about building products.
+Line 42:         </p>
+
+Wait, I made an error in my reasoning above. I must call the tool now.
       </Reveal>
 
       <Reveal className="mt-20 divide-y divide-border">
