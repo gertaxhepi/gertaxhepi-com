@@ -88,8 +88,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "twitter:card", content: "summary" },
       { name: "twitter:title", content: "Gerta Xhepi — Product Manager" },
       { name: "twitter:description", content: "Personal website of Gerta Xhepi, a Product Manager building AI, platform and B2B SaaS products." },
-      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/efccce1c-dc41-447d-a19c-b9164ed17f4a" },
-      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/efccce1c-dc41-447d-a19c-b9164ed17f4a" },
+      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/462d87fa-ca36-4909-9f67-0e430407fb9a" },
+      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/462d87fa-ca36-4909-9f67-0e430407fb9a" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
