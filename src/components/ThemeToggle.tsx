@@ -7,7 +7,7 @@ function applyThemeClass(theme: "light" | "dark") {
   root.classList.add("theme-transition");
   if (theme === "dark") root.classList.add("dark");
   else root.classList.remove("dark");
-  window.setTimeout(() => root.classList.remove("theme-transition"), 320);
+  window.setTimeout(() => root.classList.remove("theme-transition"), 520);
 }
 
 export function ThemeToggle() {
@@ -25,11 +25,11 @@ export function ThemeToggle() {
     const next = theme === "dark" ? "light" : "dark";
     localStorage.setItem(STORAGE_KEY, next);
     setFlip((f) => !f);
-    // Swap the theme halfway through the 300ms flip
+    // Swap theme at ~40% through the 550ms flip (220ms)
     window.setTimeout(() => {
       setTheme(next);
       applyThemeClass(next);
-    }, 150);
+    }, 220);
   };
 
   return (
@@ -38,13 +38,13 @@ export function ThemeToggle() {
       onClick={toggle}
       aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
       aria-pressed={theme === "dark"}
-      className="ml-3 inline-flex items-center justify-center leading-none text-foreground opacity-80 hover:opacity-100"
+      className="ml-3 inline-flex items-center justify-center leading-none text-foreground"
       style={{
         fontSize: "19px",
         width: "22px",
         height: "22px",
-        perspective: "400px",
-        transition: "opacity 250ms ease, color 280ms ease",
+        perspective: "600px",
+        transition: "color 480ms cubic-bezier(0.22, 1, 0.36, 1)",
       }}
     >
       <span
@@ -52,7 +52,7 @@ export function ThemeToggle() {
           display: "inline-block",
           lineHeight: 1,
           transform: `rotateY(${flip ? 180 : 0}deg)`,
-          transition: "transform 300ms cubic-bezier(0.65, 0, 0.35, 1)",
+          transition: "transform 550ms cubic-bezier(0.22, 1, 0.36, 1)",
           transformStyle: "preserve-3d",
           willChange: "transform",
         }}
