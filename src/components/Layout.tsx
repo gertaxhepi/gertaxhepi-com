@@ -2,6 +2,7 @@ import { Outlet, useLocation, useNavigate, Link } from "@tanstack/react-router";
 import type { ReactNode, MouseEvent } from "react";
 import { useCallback, useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
+import { ThemeToggle } from "./ThemeToggle";
 
 type NavItem = { label: string; to: string };
 
@@ -67,12 +68,15 @@ export function SiteHeader() {
             ← Back to Work
           </a>
         ) : (
-          <Link
-            to="/"
-            className="text-sm font-bold uppercase tracking-[0.2em] text-foreground transition-opacity duration-300 hover:opacity-70"
-          >
-            Gerta Xhepi
-          </Link>
+          <div className="flex items-center">
+            <Link
+              to="/"
+              className="text-sm font-bold uppercase tracking-[0.2em] text-foreground transition-opacity duration-300 hover:opacity-70"
+            >
+              Gerta Xhepi
+            </Link>
+            <ThemeToggle />
+          </div>
         )}
 
         {isFocusedDoc ? (
