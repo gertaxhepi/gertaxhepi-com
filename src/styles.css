@@ -69,42 +69,19 @@
 }
 
 .dark {
-  --background: #0E0E0D;         /* near black, warm */
-  --foreground: #F2EEE4;         /* warm white */
+  --background: #111111;         /* near black */
+  --foreground: #F5F5F2;         /* warm white */
   --card: transparent;
-  --card-foreground: #F2EEE4;
-  --popover: #0E0E0D;
-  --popover-foreground: #F2EEE4;
-  --primary: #F2EEE4;
-  --primary-foreground: #0E0E0D;
+  --card-foreground: #F5F5F2;
+  --popover: #111111;
+  --popover-foreground: #F5F5F2;
+  --primary: #F5F5F2;
+  --primary-foreground: #111111;
   --secondary: #1A1917;
-  --secondary-foreground: #F2EEE4;
+  --secondary-foreground: #F5F5F2;
   --muted: #1A1917;
   --muted-foreground: #9A948A;   /* muted warm grey */
-  --accent: #1A1917;
-  --accent-foreground: #F2EEE4;
-  --destructive: #d9534f;
-  --destructive-foreground: #F2EEE4;
-  --border: #23221F;
-  --input: #2C2A26;
-  --ring: #F2EEE4;
-  --subtle: #1A1917;
-}
-.dark ::selection {
-  background-color: rgb(242 238 228 / 0.16);
-}
 
-/* Smooth theme transition */
-html.theme-transition,
-html.theme-transition body,
-html.theme-transition * {
-  transition:
-    background-color 280ms ease,
-    color 280ms ease,
-    border-color 280ms ease,
-    fill 280ms ease,
-    stroke 280ms ease !important;
-}
 
 @layer base {
   * {
