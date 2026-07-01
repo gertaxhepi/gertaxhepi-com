@@ -81,7 +81,30 @@
   --secondary-foreground: #F5F5F2;
   --muted: #1A1917;
   --muted-foreground: #9A948A;   /* muted warm grey */
+  --accent: #1A1917;
+  --accent-foreground: #F5F5F2;
+  --destructive: #d9534f;
+  --destructive-foreground: #F5F5F2;
+  --border: #23221F;
+  --input: #2C2A26;
+  --ring: #F5F5F2;
+  --subtle: #1A1917;
+}
+.dark ::selection {
+  background-color: rgb(245 245 242 / 0.16);
+}
 
+/* Smooth theme transition */
+html.theme-transition,
+html.theme-transition body,
+html.theme-transition * {
+  transition:
+    background-color 480ms cubic-bezier(0.22, 1, 0.36, 1),
+    color 480ms cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 480ms cubic-bezier(0.22, 1, 0.36, 1),
+    fill 480ms cubic-bezier(0.22, 1, 0.36, 1),
+    stroke 480ms cubic-bezier(0.22, 1, 0.36, 1) !important;
+}
 
 @layer base {
   * {
