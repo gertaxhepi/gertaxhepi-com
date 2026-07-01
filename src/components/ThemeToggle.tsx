@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 const STORAGE_KEY = "theme";
 
-function applyTheme(theme: "light" | "dark") {
+function applyThemeClass(theme: "light" | "dark") {
   const root = document.documentElement;
   root.classList.add("theme-transition");
   if (theme === "dark") root.classList.add("dark");
@@ -12,10 +12,10 @@ function applyTheme(theme: "light" | "dark") {
 
 export function ThemeToggle() {
   const [theme, setTheme] = useState<"light" | "dark">("light");
-  const [spin, setSpin] = useState(false);
+  const [flip, setFlip] = useState(false);
 
   useEffect(() => {
-    const stored = (localStorage.getItem(STORAGE_KEY) as "light" | "dark" | null);
+    const stored = localStorage.getItem(STORAGE_KEY) as "light" | "dark" | null;
     const initial = stored ?? "light";
     setTheme(initial);
     if (initial === "dark") document.documentElement.classList.add("dark");
@@ -23,11 +23,13 @@ export function ThemeToggle() {
 
   const toggle = () => {
     const next = theme === "dark" ? "light" : "dark";
-    setTheme(next);
     localStorage.setItem(STORAGE_KEY, next);
-    applyTheme(next);
-    setSpin(true);
-    window.setTimeout(() => setSpin(false), 300);
+    setFlip((f) => !f);
+    // Swap the theme halfway through the 300ms flip
+    window.setTimeout(() => {
+      setTheme(next);
+      applyThemeClass(next);
+    }, 150);
   };
 
   return (
@@ -35,16 +37,28 @@ export function ThemeToggle() {
       type="button"
       onClick={toggle}
       aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
-      className="ml-3 inline-flex items-center justify-center leading-none text-foreground opacity-80 hover:opacity-100 transition-opacity"
+      aria-pressed={theme === "dark"}
+      className="ml-3 inline-flex items-center justify-center leading-none text-foreground opacity-80 hover:opacity-100"
       style={{
         fontSize: "19px",
         width: "22px",
         height: "22px",
-        transform: spin ? "rotate(180deg)" : "rotate(0deg)",
-        transition: "transform 280ms cubic-bezier(0.22,1,0.36,1), opacity 250ms ease, color 280ms ease",
+        perspective: "400px",
+        transition: "opacity 250ms ease, color 280ms ease",
       }}
     >
-      ◐
+      <span
+        style={{
+          display: "inline-block",
+          lineHeight: 1,
+          transform: `rotateY(${flip ? 180 : 0}deg)`,
+          transition: "transform 300ms cubic-bezier(0.65, 0, 0.35, 1)",
+          transformStyle: "preserve-3d",
+          willChange: "transform",
+        }}
+      >
+        ◐
+      </span>
     </button>
   );
 }
