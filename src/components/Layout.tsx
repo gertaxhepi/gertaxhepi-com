@@ -2,6 +2,7 @@ import { Outlet, useLocation, useNavigate, Link } from "@tanstack/react-router";
 import type { ReactNode, MouseEvent } from "react";
 import { useCallback, useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
+import { ThemeToggle } from "./ThemeToggle";
 
 type NavItem = { label: string; to: string };
 
