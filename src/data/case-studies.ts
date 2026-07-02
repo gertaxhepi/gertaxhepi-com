@@ -128,10 +128,10 @@ export const caseStudies: CaseStudy[] = [
     overview:
       "HR teams were exporting contracts to third-party signing tools, breaking the hiring flow and creating gaps.",
     challengeLead:
-      "Hiring managers were losing days — and sometimes candidates — every time a contract had to leave the product.",
+      "The hiring workflow broke every time a contract needed to be signed.",
     challengeBody: [
-      "To send an offer, HR teams exported a PDF, switched to a third-party signing tool, uploaded the document, configured signers, and then manually copied the signed file back into the candidate record. Each round-trip cost time and introduced risk: lost documents, expired links, missing audit trails, and broken handoffs into onboarding.",
-      "The product owned the hiring workflow everywhere except the most important moment — the signature. My work focused on bringing that moment back into the product without compromising legal validity.",
+      "Although HR teams managed recruitment inside jacando, they had to leave the platform to complete one of the most important steps in the process. To send an offer, they exported a contract, uploaded it to a third-party e-signature tool, configured the signer, and then manually uploaded the signed document back into the candidate record.",
+  "Switching between tools slowed the process, created unnecessary administrative work, and made it difficult to keep the hiring workflow in one place. My goal was to bring the signing experience back into the product so HR teams could send, sign and manage contracts without leaving the workflow.",
     ],
     discoveryLead:
       "I started by following real contracts end-to-end with the teams that lived this workflow every week.",
@@ -142,10 +142,10 @@ export const caseStudies: CaseStudy[] = [
       "Reviewed legal requirements across the DACH region with counsel",
     ],
     constraints: [
-      "Two-month window before the next sales cycle",
-      "Must work without changing the existing contract templates",
-      "Legal validity across DACH region",
-    ],
+  "Deliver the MVP before the next sales cycle",
+  "Keep existing contract templates fully compatible",
+  "Meet legal requirements for electronic signatures across the DACH region",
+  "Minimize implementation effort for existing customers",
     keyDecisions: [
       {
         title: "Solve the 80% case first",
