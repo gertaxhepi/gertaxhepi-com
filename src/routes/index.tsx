@@ -34,7 +34,7 @@ function Home() {
             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-foreground opacity-50" />
             <span className="relative inline-flex size-1.5 rounded-full bg-foreground" />
           </span>
-          Available for PM roles
+          Based in Germany · Open to Remote Product Opportunities Across Europe
         </div>
 
         <h1
