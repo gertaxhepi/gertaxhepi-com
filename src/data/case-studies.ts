@@ -119,93 +119,82 @@ export const caseStudies: CaseStudy[] = [
     summary: "Launched an end-to-end e-signature experience that streamlined hiring workflows for HR teams.",
     role: "jacando • Product Manager",
     technologies: ["MVP Strategy", "Workflow Automation", "Product Discovery", "Cross-functional Delivery"],
-    outcomes: [
-      "MVP shipped in 7 weeks",
-      "200+ companies adopted within the first quarter",
-      "Cut average time-to-hire by 3 days",
-    ],
+    outcomes: ["MVP launched in 7 weeks", "200+ customers using the feature", "Reduced average time-to-hire by 3 days"],
     context: "HR SaaS · SMB segment",
     overview: "HR teams had to leave the platform every time a contract needed to be signed.",
-
     challengeLead: "The hiring workflow broke every time a contract needed to be signed.",
-
     challengeBody: [
       "Although HR teams managed recruitment inside jacando, they had to leave the platform to complete one of the most important steps in the process. To send an offer, they exported a contract, switched to a third-party e-signature tool, uploaded the document, configured signers, and manually uploaded the signed contract back into the candidate record.",
       "Switching between tools created unnecessary administrative work, fragmented the hiring experience, and made it harder to manage contracts from a single place. My goal was to bring the entire signing process back into the product while meeting legal requirements.",
     ],
-
-    discoveryLead: "I started by following real hiring workflows from offer creation through signed contract.",
-
+    discoveryLead:
+      "Before designing the solution, I needed to understand both the hiring workflow and the e-signature ecosystem.",
     discovery: [
-      "Observed how HR teams prepared and sent employment contracts",
-      "Mapped every step from offer creation to onboarding",
-      "Identified where users left the product and why",
-      "Worked with legal and engineering to understand technical and compliance requirements",
+      "Interviewed HR teams to understand how contracts were created, signed and managed.",
+      "Mapped the hiring workflow to identify where users left the product and where the biggest friction occurred.",
+      "Evaluated multiple e-signature providers based on API capabilities, legal compliance and implementation effort.",
+      "Reviewed competitor products to understand common workflows and user expectations.",
+      "Worked closely with legal and engineering to define an MVP that balanced compliance, user experience and delivery speed.",
     ],
-
     constraints: [
       "Deliver the MVP before the next sales cycle",
       "Keep existing contract templates fully compatible",
       "Support legally compliant electronic signatures across the DACH region",
       "Integrate with an external trust provider rather than building signing infrastructure",
     ],
-
     keyDecisions: [
-      {
-        title: "Focus on the core hiring workflow",
-        description:
-          "Rather than supporting every signing scenario, we focused on the contract flow used by most HR teams so we could deliver value quickly.",
-      },
-      {
-        title: "Keep customers' existing documents",
-        description: "The solution worked with current contract templates, avoiding migration work for customers.",
-      },
       {
         title: "Use a trusted e-signature provider",
         description:
-          "Instead of building the legal infrastructure ourselves, we integrated an established provider and focused on creating a seamless user experience.",
+          "Rather than building signing infrastructure ourselves, we integrated an established provider and focused our effort on creating a seamless hiring experience.",
+      },
+      {
+        title: "Keep HR teams in one workflow",
+        description:
+          "Instead of sending users to another application, every important step — from preparing a contract to tracking its signature — remained inside jacando.",
+      },
+      {
+        title: "Start with the most common hiring flow",
+        description:
+          "Rather than supporting every signing scenario, we focused on the contract flow used by most HR teams so we could launch quickly, validate the solution, and expand over time.",
       },
     ],
-
     solutionItems: [
       {
-        title: "End-to-end signing inside the product",
-        description: "HR teams could prepare, send, track and store contracts without leaving jacando.",
-      },
-      {
-        title: "Automatic status tracking",
+        title: "Keep the hiring workflow in one place",
         description:
-          "Signing progress became visible directly within the hiring workflow, eliminating manual follow-ups.",
+          "HR teams could prepare, send, sign and store employment contracts without leaving jacando, eliminating the need to switch between multiple tools.",
       },
       {
-        title: "Integrated audit trail",
-        description: "Signed contracts and audit information were automatically stored in the candidate record.",
+        title: "Integrate, don't reinvent",
+        description:
+          "Instead of building our own signing infrastructure, we integrated a trusted e-signature provider and focused engineering effort on delivering a seamless user experience.",
+      },
+      {
+        title: "Reduce manual work",
+        description:
+          "Contract status, signed documents and audit information were automatically synchronized back into the hiring workflow, removing repetitive manual steps for HR teams.",
       },
     ],
-
     resultsLead:
-      "By bringing contract signing into the product, HR teams completed the hiring workflow faster while reducing manual work and context switching.",
-
+      "The MVP was delivered in seven weeks and successfully launched before the next sales cycle. By bringing contract signing into the hiring workflow, HR teams completed offers faster, reduced manual work and no longer needed to switch between multiple tools.",
     metrics: [
       { label: "From idea to launch", value: "7 weeks" },
-      { label: "Companies using the feature", value: "200+" },
-      { label: "Hiring workflow", value: "3 days faster" },
+      { label: "Customers using the feature", value: "200+" },
+      { label: "Faster hiring workflow", value: "3 days" },
     ],
-
     heroMetrics: [
       { label: "From idea to launch", value: "7 weeks" },
-      { label: "Companies using the feature", value: "200+" },
-      { label: "Hiring workflow", value: "3 days faster" },
+      { label: "Customers using the feature", value: "200+" },
+      { label: "Faster hiring workflow", value: "3 days" },
     ],
-
     lessons: [
       "The biggest opportunities often come from removing context switching.",
       "A focused MVP creates more value than a feature-complete first release.",
       "Good integrations should feel invisible to the user.",
     ],
-
     reflection:
-      "This project reinforced an important lesson for me: sometimes the most valuable product isn't a new capability, but removing unnecessary friction from an existing workflow.",
+      "This project reminded me that great product work isn't always about adding something new. Sometimes the biggest impact comes from removing friction people have quietly accepted as part of their everyday work.",
   },
   {
     slug: "peakprofile",
