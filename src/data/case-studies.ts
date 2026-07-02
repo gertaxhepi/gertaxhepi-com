@@ -200,90 +200,94 @@ export const caseStudies: CaseStudy[] = [
     slug: "peakprofile",
     title: "PeakProfile",
     summary:
-      "Building an AI-powered product that helps mountaineers make better decisions through structured experience data.",
+      "Building an AI-powered decision support product that helps mountaineers and guides plan safer expeditions.",
     role: "PeakProfile • Founder & Product",
     technologies: ["AI Product", "Trust Systems", "Decision Support", "User Research"],
     outcomes: [
-      "20 early users engaged",
+      "20 early testers",
       "30+ discovery interviews conducted",
-      "3 AI prototypes tested",
+      "3 AI approaches evaluated",
       "MVP in active development",
     ],
     context: "Founder · AI Product",
-    overview: "PeakProfile helps mountaineers reason about route choice, conditions and personal risk profile.",
+    overview:
+      "PeakProfile helps mountaineers and guides assess whether an expedition is the right fit based on route difficulty, conditions, experience and readiness.",
     challengeLead:
-      "Mountaineers were making high-stakes decisions with information scattered across forums, weather services and personal memory.",
+      "Mountaineering has become more accessible, but experience and technical skills do not grow at the same pace.",
     challengeBody: [
-      "Route choice, turnaround times and risk assessments depend on synthesising a lot of fragmented context: recent conditions, party experience, objective hazards and personal history. Off-the-shelf chatbots either hallucinated specifics or gave generic advice exactly where the cost of being wrong is highest.",
-      "I started PeakProfile to explore what a trustworthy decision-support product could look like in a domain where over-confidence is dangerous and lived experience matters as much as data.",
+      "Social media inspires more people to climb bigger mountains, often framing mountaineering as self-improvement. That can be true, but it can also hide the learning curve. Safe expeditions depend on technical skills, physical readiness, judgement and experience.",
+      "Guides often have limited information to understand a client's real ability before planning an expedition. At the same time, climbers piece together information from weather forecasts, guidebooks, forums, accident reports and recent trip reports. The information exists, but it is fragmented, inconsistent and constantly changing.",
+      "PeakProfile explores whether AI can help guides and climbers make better decisions by combining structured data, historical knowledge and personal experience into one trustworthy planning assistant.",
     ],
     discoveryLead:
-      "Because the stakes are real, discovery had to come from people who actually make these calls in the mountains.",
+      "Because the consequences of poor decisions are real, discovery focused on how experienced mountaineers actually assess readiness and risk.",
     discovery: [
-      "30+ interviews with alpinists, guides and SAR volunteers",
-      "Diary study of how plans change in the 48 hours before a climb",
-      "Mapped the decision tree from objective to turnaround time",
-      "Tested 3 AI prototypes with target users to pressure-test trust",
+      "Conducted 30+ interviews with climbers, mountain guides and SAR volunteers.",
+      "Studied expedition planning across forums, guidebooks, weather reports, accident reports and recent trip reports.",
+      "Mapped how route selection changes based on weather, objective hazards, experience and fitness.",
+      "Compared how experienced and inexperienced climbers evaluate the same mountain.",
+      "Built and tested three AI approaches to understand where users trusted and distrusted the recommendations.",
     ],
     constraints: [
-      "Tiny team, long iteration cycles, real-world consequences",
-      "Must never feel authoritative about safety",
-      "Cold-start data problem",
+      "Safety decisions must always remain with the climber and guide.",
+      "AI recommendations must be explainable and transparent.",
+      "Information comes from many fragmented and constantly changing sources.",
+      "Trust is more important than automation.",
     ],
     keyDecisions: [
       {
         title: "Decision support, not decisions",
         description:
-          "The product never makes the call for the user. It structures information, surfaces trade-offs and keeps the climber in the loop — because that's where accountability has to live.",
+          "The product never decides whether someone should climb a mountain. It structures information, highlights trade-offs and helps users make more informed decisions while keeping accountability with the climber and guide.",
       },
       {
-        title: "Ground every answer in sources",
+        title: "Classify before recommending",
         description:
-          "AI responses are anchored to cited, structured inputs rather than free-form generation. Users can always trace why the product said what it said.",
+          "Instead of asking an LLM to generate advice directly, PeakProfile first classifies the important signals: route difficulty, recent conditions, required technical skills, experience level, fitness and environmental risks. The AI then explains the trade-offs using this structured understanding.",
       },
       {
-        title: "Build evaluation before scale",
+        title: "Ground every answer in evidence",
         description:
-          "Invested early in an evaluation harness so model and retrieval changes could be scored against a frozen set of realistic scenarios — making quality measurable from day one.",
+          "Recommendations are linked back to weather reports, route information, accident reports and community knowledge whenever possible, making it easier for users to understand why the product reached a conclusion.",
       },
     ],
     solutionItems: [
       {
-        title: "Route briefing assistant",
+        title: "Route briefing",
         description:
-          "A structured briefing grounded in conditions and route data, designed to support — not replace — the climber's own planning.",
+          "Combines current conditions, objective hazards, route information and recent community reports into one structured planning view.",
       },
       {
-        title: "Personal risk profile",
+        title: "Personal readiness profile",
         description:
-          "Suggestions adapt over time to the climber's experience, recent activity and stated risk tolerance, so the product gets more useful the longer it's used.",
+          "Uses climbing history, recent activity, fitness and technical experience to help users understand whether an objective matches their current ability.",
       },
       {
-        title: "Post-trip reflection capture",
+        title: "Guide matching",
         description:
-          "Lightweight prompts after each trip turn lived experience into structured data, slowly building the dataset the product needs to keep improving.",
+          "Gives guides a richer understanding of a client's experience than a short conversation or simple questionnaire, helping create better matched expeditions.",
       },
     ],
     resultsLead:
-      "PeakProfile is early — the goal at this stage is signal, not scale. The numbers below reflect how much I've learned with a small, engaged group of users while the MVP takes shape.",
+      "PeakProfile is still in development. At this stage the objective is learning rather than scale. These metrics reflect product discovery and early validation.",
     metrics: [
-      { label: "Early users", value: "20" },
+      { label: "Early testers", value: "20" },
       { label: "Discovery interviews", value: "30+" },
-      { label: "AI prototypes tested", value: "3" },
+      { label: "AI approaches evaluated", value: "3" },
       { label: "Status", value: "MVP in dev" },
     ],
     heroMetrics: [
-      { label: "Early users", value: "20" },
+      { label: "Early testers", value: "20" },
       { label: "Discovery interviews", value: "30+" },
-      { label: "AI prototypes tested", value: "3" },
+      { label: "AI approaches evaluated", value: "3" },
     ],
     lessons: [
-      "Evaluation infrastructure is the real product surface for AI",
-      "Trust comes from restraint, not from confidence",
-      "Domain experts unlock orders of magnitude in quality",
+      "In high-stakes domains, explainability matters more than confident answers.",
+      "AI should support judgement, not replace it.",
+      "Trust starts with structure, classification and evidence.",
     ],
     reflection:
-      "PeakProfile is where I get to be founder, PM and user at once. The stakes keep my thinking honest — you can't ship over-confident answers when real decisions depend on them.",
+      "Building PeakProfile has changed how I think about AI products. In high-stakes environments, the goal is not to replace human judgement with confident answers. It is to help people make better decisions by bringing together the right information at the right moment.",
   },
 ];
 
