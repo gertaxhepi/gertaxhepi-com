@@ -25,7 +25,6 @@ export const Route = createFileRoute("/")({
 function Home() {
   return (
     <section className="container-page pt-16 md:pt-28 2xl:pt-24 pb-20 md:pb-28">
-      <div className="mx-auto max-w-[1100px] 2xl:max-w-[1200px]">
       <Reveal>
         <div
           data-reveal-item
@@ -74,7 +73,6 @@ function Home() {
           </Link>
         </div>
       </Reveal>
-      </div>
     </section>
 
   );
