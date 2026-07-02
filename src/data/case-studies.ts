@@ -125,81 +125,87 @@ export const caseStudies: CaseStudy[] = [
       "Cut average time-to-hire by 3 days",
     ],
     context: "HR SaaS · SMB segment",
-    overview:
-      "HR teams were exporting contracts to third-party signing tools, breaking the hiring flow and creating gaps.",
-    challengeLead:
-      "The hiring workflow broke every time a contract needed to be signed.",
+    overview: "HR teams had to leave the platform every time a contract needed to be signed.",
+
+    challengeLead: "The hiring workflow broke every time a contract needed to be signed.",
+
     challengeBody: [
-      "Although HR teams managed recruitment inside jacando, they had to leave the platform to complete one of the most important steps in the process. To send an offer, they exported a contract, uploaded it to a third-party e-signature tool, configured the signer, and then manually uploaded the signed document back into the candidate record.",
-  "Switching between tools slowed the process, created unnecessary administrative work, and made it difficult to keep the hiring workflow in one place. My goal was to bring the signing experience back into the product so HR teams could send, sign and manage contracts without leaving the workflow.",
+      "Although HR teams managed recruitment inside jacando, they had to leave the platform to complete one of the most important steps in the process. To send an offer, they exported a contract, switched to a third-party e-signature tool, uploaded the document, configured signers, and manually uploaded the signed contract back into the candidate record.",
+      "Switching between tools created unnecessary administrative work, fragmented the hiring experience, and made it harder to manage contracts from a single place. My goal was to bring the entire signing process back into the product while meeting legal requirements.",
     ],
-    discoveryLead:
-      "I started by following real contracts end-to-end with the teams that lived this workflow every week.",
+
+    discoveryLead: "I started by following real hiring workflows from offer creation through signed contract.",
+
     discovery: [
-      "Diary studies with 12 HR teams over two weeks",
-      "Mapped the contract lifecycle from offer to onboarding",
-      "Identified three blocking moments where signing broke the flow",
-      "Reviewed legal requirements across the DACH region with counsel",
+      "Observed how HR teams prepared and sent employment contracts",
+      "Mapped every step from offer creation to onboarding",
+      "Identified where users left the product and why",
+      "Worked with legal and engineering to understand technical and compliance requirements",
     ],
+
     constraints: [
-  "Deliver the MVP before the next sales cycle",
-  "Keep existing contract templates fully compatible",
-  "Meet legal requirements for electronic signatures across the DACH region",
-  "Minimize implementation effort for existing customers",
+      "Deliver the MVP before the next sales cycle",
+      "Keep existing contract templates fully compatible",
+      "Support legally compliant electronic signatures across the DACH region",
+      "Integrate with an external trust provider rather than building signing infrastructure",
+    ],
+
     keyDecisions: [
       {
-        title: "Solve the 80% case first",
+        title: "Focus on the core hiring workflow",
         description:
-          "Scoped v1 to single signer, single document, web only. Most hiring contracts fit that shape, and shipping it unlocked the workflow for the majority of customers.",
+          "Rather than supporting every signing scenario, we focused on the contract flow used by most HR teams so we could deliver value quickly.",
       },
       {
-        title: "Defer advanced features on purpose",
-        description:
-          "Bulk send, templates and signer routing were explicitly deferred to v2. Cutting them protected the timeline and forced clarity about what really mattered for the first release.",
+        title: "Keep customers' existing documents",
+        description: "The solution worked with current contract templates, avoiding migration work for customers.",
       },
       {
-        title: "Partner for legal weight",
+        title: "Use a trusted e-signature provider",
         description:
-          "Integrated a qualified trust provider rather than building signing infrastructure from scratch, so the team could focus on the product experience around the signature.",
+          "Instead of building the legal infrastructure ourselves, we integrated an established provider and focused on creating a seamless user experience.",
       },
     ],
+
     solutionItems: [
       {
-        title: "In-product send → sign → store flow",
-        description:
-          "Contracts could be sent, signed and stored without ever leaving the product. Email reminders nudged signers automatically.",
+        title: "End-to-end signing inside the product",
+        description: "HR teams could prepare, send, track and store contracts without leaving jacando.",
       },
       {
-        title: "Tamper-evident audit trail",
+        title: "Automatic status tracking",
         description:
-          "Every signed PDF carried an audit log of who signed, when, and from where — turning compliance into a built-in feature rather than a manual task.",
+          "Signing progress became visible directly within the hiring workflow, eliminating manual follow-ups.",
       },
       {
-        title: "Status visible where work happens",
-        description:
-          "Signing status appeared directly on the candidate card, so hiring managers could see progress in the same place they tracked the rest of the hire.",
+        title: "Integrated audit trail",
+        description: "Signed contracts and audit information were automatically stored in the candidate record.",
       },
     ],
+
     resultsLead:
-      "Bringing signing back into the product compressed the hiring workflow, removed entire categories of manual work and gave HR teams a clear view of every contract in flight.",
+      "By bringing contract signing into the product, HR teams completed the hiring workflow faster while reducing manual work and context switching.",
+
     metrics: [
       { label: "From idea to launch", value: "7 weeks" },
       { label: "Companies using the feature", value: "200+" },
       { label: "Hiring workflow", value: "3 days faster" },
-      { label: "NPS on flow", value: "62" },
     ],
+
     heroMetrics: [
       { label: "From idea to launch", value: "7 weeks" },
       { label: "Companies using the feature", value: "200+" },
       { label: "Hiring workflow", value: "3 days faster" },
     ],
+
     lessons: [
-      "A demoable PRD is worth more than a perfect one",
-      "Pick the boring 80% on purpose",
-      "Audit trails are a feature, not an implementation detail",
+      "The biggest opportunities often come from removing context switching.",
+      "A focused MVP creates more value than a feature-complete first release.",
+      "Good integrations should feel invisible to the user.",
     ],
+
     reflection:
-      "Constraints made this project. A tight window forced clarity about what mattered, and the team rallied around a small, high-quality surface — a reminder that scope is one of the most powerful product tools you have.",
+      "This project reinforced an important lesson for me: sometimes the most valuable product isn't a new capability, but removing unnecessary friction from an existing workflow.",
   },
   {
     slug: "peakprofile",
