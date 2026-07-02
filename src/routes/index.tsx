@@ -24,7 +24,8 @@ export const Route = createFileRoute("/")({
 
 function Home() {
   return (
-    <section className="container-page pt-20 md:pt-36 pb-20 md:pb-28">
+    <section className="container-page pt-16 md:pt-28 2xl:pt-24 pb-20 md:pb-28">
+      <div className="mx-auto max-w-[1100px] 2xl:max-w-[1200px]">
       <Reveal>
         <div
           data-reveal-item
@@ -39,24 +40,24 @@ function Home() {
 
         <h1
           data-reveal-item
-          className="text-[44px] sm:text-6xl md:text-7xl lg:text-[112px] font-bold tracking-[-0.04em] leading-[0.95] text-balance"
+          className="text-[44px] sm:text-6xl md:text-7xl lg:text-[112px] 2xl:text-[124px] font-bold tracking-[-0.04em] leading-[0.95] text-balance"
         >
           Hi, I'm Gerta ☺︎
         </h1>
 
         <p
           data-reveal-item
-          className="mt-8 text-2xl md:text-3xl lg:text-[34px] font-medium tracking-tight text-foreground leading-[1.2] max-w-4xl text-balance"
+          className="mt-8 text-2xl md:text-3xl lg:text-[34px] 2xl:text-[38px] font-medium tracking-tight text-foreground leading-[1.2] max-w-4xl 2xl:max-w-[56rem] text-balance"
         >
           I build products where technology, data and customer needs come together.
         </p>
 
-        <p data-reveal-item className="mt-6 text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed">
+        <p data-reveal-item className="mt-6 text-lg md:text-xl 2xl:text-[21px] text-muted-foreground max-w-2xl 2xl:max-w-[40rem] leading-relaxed">
           This is a collection of my work, my journey into Product Management, and a few ideas that continue to shape
           how I think.
         </p>
 
-        <div data-reveal-item className="mt-10 flex flex-wrap items-center gap-x-10 gap-y-4">
+        <div data-reveal-item className="mt-10 2xl:mt-8 flex flex-wrap items-center gap-x-10 gap-y-4">
           <Link
             to="/work"
             className="group inline-flex items-center gap-2 text-sm font-medium border-b border-foreground pb-1 transition-opacity hover:opacity-60"
@@ -73,6 +74,8 @@ function Home() {
           </Link>
         </div>
       </Reveal>
+      </div>
     </section>
+
   );
 }
