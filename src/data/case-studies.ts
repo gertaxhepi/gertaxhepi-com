@@ -116,7 +116,7 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: "electronic-signature",
     title: "Electronic Signature MVP",
-    summary: "Launching an end-to-end e-signature experience that simplified hiring workflows for HR teams.",
+    summary: "Launched an end-to-end e-signature experience that streamlined hiring workflows for HR teams.",
     role: "jacando • Product Manager",
     technologies: ["MVP Strategy", "Workflow Automation", "Product Discovery", "Cross-functional Delivery"],
     outcomes: [
