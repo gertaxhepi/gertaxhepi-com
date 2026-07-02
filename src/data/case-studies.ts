@@ -38,15 +38,10 @@ export const caseStudies: CaseStudy[] = [
       "Improving salary transparency for millions of job seekers by transforming inconsistent job data into reliable salary estimates.",
     role: "XING • Product Manager",
     technologies: ["Structured Data", "Taxonomy", "Ground Truth", "Marketplace", "Data Quality"],
-    outcomes: [
-      "Reduced estimation error by 28%",
-      "Increased salary coverage to 94% of job postings",
-    ],
+    outcomes: ["Reduced estimation error by 28%", "Increased salary coverage to 94% of job postings"],
     context: "B2B Marketplace · Data Products",
-    overview:
-      "Salary ranges shown to job seekers depended on the quality of employer-provided job data.",
-    challengeLead:
-      "Job seekers were making career decisions based on salary estimates they couldn't fully trust.",
+    overview: "Salary ranges shown to job seekers depended on the quality of employer-provided job data.",
+    challengeLead: "Job seekers were making career decisions based on salary estimates they couldn't fully trust.",
     challengeBody: [
       "Behind the scenes, job postings arrived with inconsistent or incomplete structured data — role titles that meant different things across employers, missing seniority levels, conflicting location mappings, and gaps in core attributes. The salary model was being fed sparse, noisy inputs, so the estimates it produced felt wrong to users and eroded trust in the marketplace.",
       "My work focused on improving taxonomy, structured data and data quality so salary estimates became more reliable and trustworthy.",
@@ -121,8 +116,7 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: "electronic-signature",
     title: "Electronic Signature MVP",
-    summary:
-      "Launching an end-to-end e-signature experience that simplified hiring workflows for HR teams.",
+    summary: "Launching an end-to-end e-signature experience that simplified hiring workflows for HR teams.",
     role: "jacando • Product Manager",
     technologies: ["MVP Strategy", "Workflow Automation", "Product Discovery", "Cross-functional Delivery"],
     outcomes: [
@@ -189,15 +183,15 @@ export const caseStudies: CaseStudy[] = [
     resultsLead:
       "Bringing signing back into the product compressed the hiring workflow, removed entire categories of manual work and gave HR teams a clear view of every contract in flight.",
     metrics: [
-      { label: "Time to MVP", value: "7 weeks" },
-      { label: "Adoption", value: "200+ orgs" },
-      { label: "Time to hire", value: "−3 days" },
+      { label: "From idea to launch", value: "7 weeks" },
+      { label: "Companies using the feature", value: "200+" },
+      { label: "Hiring workflow", value: "3 days faster" },
       { label: "NPS on flow", value: "62" },
     ],
     heroMetrics: [
-      { label: "Time to MVP", value: "7 weeks" },
-      { label: "Companies onboarded", value: "200+" },
-      { label: "Shorter time to hire", value: "−3 days" },
+      { label: "From idea to launch", value: "7 weeks" },
+      { label: "Companies using the feature", value: "200+" },
+      { label: "Hiring workflow", value: "3 days faster" },
     ],
     lessons: [
       "A demoable PRD is worth more than a perfect one",
@@ -221,8 +215,7 @@ export const caseStudies: CaseStudy[] = [
       "MVP in active development",
     ],
     context: "Founder · AI Product",
-    overview:
-      "PeakProfile helps mountaineers reason about route choice, conditions and personal risk profile.",
+    overview: "PeakProfile helps mountaineers reason about route choice, conditions and personal risk profile.",
     challengeLead:
       "Mountaineers were making high-stakes decisions with information scattered across forums, weather services and personal memory.",
     challengeBody: [
@@ -299,5 +292,4 @@ export const caseStudies: CaseStudy[] = [
   },
 ];
 
-export const getCaseStudy = (slug: string) =>
-  caseStudies.find((c) => c.slug === slug);
+export const getCaseStudy = (slug: string) => caseStudies.find((c) => c.slug === slug);
