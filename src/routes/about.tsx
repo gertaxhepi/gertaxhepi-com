@@ -77,7 +77,8 @@ function About() {
               systems, workflow tools and AI-powered features.
             </p>
             <p data-reveal-item>
-              Today, I'm building{" "}
+              Currently, I'm building a personal AI product for mountaineers, exploring how structured data can help
+              people make better decisions in high-risk environments. I call it{" "}
               <Link
                 to="/case-studies/$slug"
                 params={{ slug: "peakprofile" }}
@@ -85,8 +86,6 @@ function About() {
               >
                 PeakProfile
               </Link>
-              , where I'm exploring how AI and structured data can support better decision-making in high-risk
-              environments.
             </p>
             <p data-reveal-item className="pt-4">
               I'm fascinated by products that help people make better decisions. Whether through better data, thoughtful
