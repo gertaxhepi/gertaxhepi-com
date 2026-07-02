@@ -274,7 +274,7 @@ export const caseStudies: CaseStudy[] = [
       { label: "Early testers", value: "20" },
       { label: "Discovery interviews", value: "30+" },
       { label: "AI approaches evaluated", value: "3" },
-      { label: "Status", value: "MVP in dev" },
+      { label: "Current stage", value: "Development" },
     ],
     heroMetrics: [
       { label: "Early testers", value: "20" },
