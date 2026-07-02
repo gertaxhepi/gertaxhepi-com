@@ -68,15 +68,12 @@ export function SiteHeader() {
             ← Back to Work
           </a>
         ) : (
-          <div className="flex items-center">
-            <Link
-              to="/"
-              className="text-sm font-bold uppercase tracking-[0.2em] text-foreground transition-opacity duration-300 hover:opacity-70"
-            >
-              Gerta Xhepi
-            </Link>
-            <ThemeToggle />
-          </div>
+          <Link
+            to="/"
+            className="text-sm font-bold uppercase tracking-[0.2em] text-foreground transition-opacity duration-300 hover:opacity-70"
+          >
+            Gerta Xhepi
+          </Link>
         )}
 
         {isFocusedDoc ? (
@@ -92,34 +89,43 @@ export function SiteHeader() {
           ) : null
         ) : (
           <>
-            <nav className="hidden md:flex items-center gap-8">
-              {navItems.map((item) => {
-                const active = isActive(item.to);
-                return (
-                  <Link
-                    key={item.to}
-                    to={item.to}
-                    onClick={() => setOpen(false)}
-                    className="nav-link text-sm font-bold transition-colors duration-300"
-                    style={{ color: active ? ACCENT : undefined }}
-                  >
-                    {item.label}
-                  </Link>
-                );
-              })}
-            </nav>
+            <div className="hidden md:flex items-center gap-8">
+              <nav className="flex items-center gap-8">
+                {navItems.map((item) => {
+                  const active = isActive(item.to);
+                  return (
+                    <Link
+                      key={item.to}
+                      to={item.to}
+                      onClick={() => setOpen(false)}
+                      className="nav-link text-sm font-bold transition-colors duration-300"
+                      style={{ color: active ? ACCENT : undefined }}
+                    >
+                      {item.label}
+                    </Link>
+                  );
+                })}
+              </nav>
+              <div style={{ marginLeft: "2px" }}>
+                <ThemeToggle />
+              </div>
+            </div>
 
-            <button
-              className="md:hidden grid h-10 w-10 place-items-center nav-link transition-colors"
-              onClick={() => setOpen((s) => !s)}
-              aria-label="Toggle menu"
-              aria-expanded={open}
-            >
-              {open ? <X className="size-5" /> : <Menu className="size-5" />}
-            </button>
+            <div className="md:hidden flex items-center gap-4">
+              <ThemeToggle />
+              <button
+                className="grid h-10 w-10 place-items-center nav-link transition-colors"
+                onClick={() => setOpen((s) => !s)}
+                aria-label="Toggle menu"
+                aria-expanded={open}
+              >
+                {open ? <X className="size-5" /> : <Menu className="size-5" />}
+              </button>
+            </div>
           </>
         )}
       </div>
+
 
       {!isFocusedDoc && open && (
         <div className="md:hidden bg-background/85 backdrop-blur-md">
