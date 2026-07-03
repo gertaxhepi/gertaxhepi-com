@@ -1,6 +1,7 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { Section } from "@/components/Primitives";
 import { Reveal } from "@/components/Reveal";
+import { Breadcrumb } from "@/components/Breadcrumb";
 import { caseStudies, getCaseStudy, type CaseStudy } from "@/data/case-studies";
 import { ArrowUpRight } from "lucide-react";
 
@@ -71,6 +72,14 @@ function CaseStudyPage() {
       {/* Hero + Impact */}
       <Section className="pt-12 md:pt-20" spacing="tight">
         <Reveal>
+          <div data-reveal-item className="mb-8">
+            <Breadcrumb
+              items={[
+                { label: "Home", to: "/" },
+                { label: "Work", to: "/work" },
+              ]}
+            />
+          </div>
           <div
             data-reveal-item
             className="text-[11px] font-mono uppercase tracking-[0.22em] text-muted-foreground"
