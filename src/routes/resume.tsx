@@ -121,7 +121,7 @@ function MetaLink({ href, icon: Icon, children, external }: { href: string; icon
     <a
       href={href}
       target={external ? "_blank" : undefined}
-      rel={external ? "noreferrer" : undefined}
+      rel={external ? "noopener noreferrer" : undefined}
       className="group inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
     >
       <Icon className="size-3.5" />
@@ -173,7 +173,7 @@ function Resume() {
             <a
               href="https://www.linkedin.com/in/gerta-xhepi-94853289/"
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
               className="group inline-flex items-center gap-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
             >
               View on LinkedIn

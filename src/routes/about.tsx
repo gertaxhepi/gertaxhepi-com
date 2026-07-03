@@ -98,19 +98,17 @@ function About() {
               <img src={profileAsset.url} alt="Gerta Xhepi" className="w-full grayscale" loading="eager" />
             </div>
             <div data-reveal-item className="flex flex-wrap items-center gap-x-8 gap-y-4">
-              <a
-                href="/resume.pdf"
-                target="_blank"
-                rel="noreferrer"
+              <Link
+                to="/resume"
                 className="group inline-flex items-center gap-2 text-sm font-medium border-b border-foreground pb-1 transition-opacity hover:opacity-60"
               >
                 View Resume
                 <ArrowUpRight className="size-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-              </a>
+              </Link>
               <a
                 href="https://www.linkedin.com/in/gerta-xhepi-94853289/"
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
                 className="group inline-flex items-center gap-2 text-sm font-medium border-b border-foreground pb-1 transition-opacity hover:opacity-60"
               >
                 LinkedIn
@@ -178,7 +176,7 @@ function About() {
                   <a
                     href={c.href}
                     target={c.external ? "_blank" : undefined}
-                    rel={c.external ? "noreferrer" : undefined}
+                    rel={c.external ? "noopener noreferrer" : undefined}
                     className="group inline-flex items-center gap-2 text-lg md:text-xl font-medium text-foreground transition-opacity hover:opacity-60"
                   >
                     {c.value}
