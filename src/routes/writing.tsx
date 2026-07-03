@@ -62,7 +62,7 @@ function Writing() {
                 <dt className="text-[11px] font-mono uppercase tracking-[0.18em] text-muted-foreground mb-2">
                   Read time
                 </dt>
-                <dd className="text-sm md:text-[15px] font-medium">6 min</dd>
+                <dd className="text-sm md:text-[15px] font-medium">7 min</dd>
               </div>
             </dl>
 
