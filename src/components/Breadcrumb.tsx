@@ -14,7 +14,7 @@ export function Breadcrumb({ items }: { items: Crumb[] }) {
     >
       {items.map((item, i) => {
         const isLast = i === items.length - 1;
-        const node: ReactNode = item.to && !isLast ? (
+        const node: ReactNode = item.to ? (
           <Link
             to={item.to}
             className="transition-opacity hover:opacity-60 hover:text-foreground"

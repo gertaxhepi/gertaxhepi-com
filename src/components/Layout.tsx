@@ -13,7 +13,7 @@ const navItems: readonly NavItem[] = [
 ] as const;
 
 const ACCENT = "#8A5A5A";
-const RESUME_URL = "/resume.pdf";
+const RESUME_URL = "/resume";
 const LINKEDIN_URL = "https://www.linkedin.com/in/gerta-xhepi-94853289/";
 
 export function SiteHeader() {
@@ -118,18 +118,16 @@ export function SiteFooter() {
       <div className="container-page pb-12 grid grid-cols-2 sm:grid-cols-3 items-center gap-4 text-xs font-mono uppercase tracking-[0.14em] text-muted-foreground">
         <span className="justify-self-start">© {new Date().getFullYear()} Gerta Xhepi</span>
         <div className="hidden sm:flex justify-self-center items-center gap-8">
-          <a
-            href={RESUME_URL}
-            target="_blank"
-            rel="noreferrer"
+          <Link
+            to={RESUME_URL}
             className="inline-flex items-center gap-1.5 transition-colors hover:text-foreground"
           >
             View Resume <span aria-hidden>↗</span>
-          </a>
+          </Link>
           <a
             href={LINKEDIN_URL}
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
             className="inline-flex items-center gap-1.5 transition-colors hover:text-foreground"
           >
             LinkedIn <span aria-hidden>↗</span>
