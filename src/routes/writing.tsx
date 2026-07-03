@@ -24,7 +24,7 @@ function Writing() {
         <div
           data-reveal-item
           className="text-[11px] font-mono uppercase tracking-[0.22em] mb-10"
-          style={{ color: '#8A5A5A' }}
+          style={{ color: "#8A5A5A" }}
         >
           WRITING
         </div>
@@ -34,29 +34,19 @@ function Writing() {
         >
           How I Think
         </h1>
-        <p
-          data-reveal-item
-          className="mt-8 text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed"
-        >
-          Products are only part of the story. The other part is how our thinking evolves while building them. This is where I collect the ideas, questions and experiences that continue to shape mine.
+        <p data-reveal-item className="mt-8 text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed">
+          Products are only part of the story. The other part is how our thinking evolves while building them. This is
+          where I collect the ideas, questions and experiences that continue to shape mine.
         </p>
       </Reveal>
 
       <Reveal className="mt-20 divide-y divide-border">
-        <div
-          data-reveal-item
-          className="grid md:grid-cols-[auto_1fr_auto] gap-6 md:gap-16 py-14 md:py-16"
-        >
-          <div className="text-[11px] font-mono uppercase tracking-[0.18em] text-muted-foreground md:pt-3">
-            01
-          </div>
+        <div data-reveal-item className="grid md:grid-cols-[auto_1fr_auto] gap-6 md:gap-16 py-14 md:py-16">
+          <div className="text-[11px] font-mono uppercase tracking-[0.18em] text-muted-foreground md:pt-3">01</div>
           <div className="max-w-2xl">
             <h2 className="text-2xl md:text-3xl font-semibold tracking-tight">
-              <Link
-                to="/essays/ai-problems"
-                className="transition-opacity hover:opacity-60"
-              >
-                Working with AI Is Teaching Me to Understand Problems More Deeply
+              <Link to="/essays/ai-problems" className="transition-opacity hover:opacity-60">
+                Understanding Before Solving
               </Link>
             </h2>
             <p className="mt-5 text-base md:text-lg text-muted-foreground leading-relaxed">
@@ -65,9 +55,7 @@ function Writing() {
 
             <dl className="mt-8 grid sm:grid-cols-2 gap-x-12 gap-y-6">
               <div>
-                <dt className="text-[11px] font-mono uppercase tracking-[0.18em] text-muted-foreground mb-2">
-                  Type
-                </dt>
+                <dt className="text-[11px] font-mono uppercase tracking-[0.18em] text-muted-foreground mb-2">Type</dt>
                 <dd className="text-sm md:text-[15px] font-medium">Reflection</dd>
               </div>
               <div>
