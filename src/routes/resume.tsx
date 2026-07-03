@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Section } from "@/components/Primitives";
 import { Reveal } from "@/components/Reveal";
+import { Breadcrumb } from "@/components/Breadcrumb";
 import { Download, Linkedin, Mail, Phone, MapPin, ArrowUpRight } from "lucide-react";
 
 export const Route = createFileRoute("/resume")({
@@ -134,6 +135,9 @@ function Resume() {
     <>
       <Section className="pt-16 md:pt-28" spacing="tight">
         <Reveal>
+          <div data-reveal-item className="mb-8">
+            <Breadcrumb items={[{ label: "Home", to: "/" }]} />
+          </div>
           <div
             data-reveal-item
             className="text-[11px] font-mono uppercase tracking-[0.22em] text-muted-foreground mb-10"

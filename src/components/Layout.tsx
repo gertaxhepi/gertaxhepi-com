@@ -1,6 +1,6 @@
-import { Outlet, useLocation, useNavigate, Link } from "@tanstack/react-router";
-import type { ReactNode, MouseEvent } from "react";
-import { useCallback, useEffect, useState } from "react";
+import { Outlet, useLocation, Link } from "@tanstack/react-router";
+import type { ReactNode } from "react";
+import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { ThemeToggle } from "./ThemeToggle";
 
@@ -13,18 +13,14 @@ const navItems: readonly NavItem[] = [
 ] as const;
 
 const ACCENT = "#8A5A5A";
+const RESUME_URL = "/resume.pdf";
+const LINKEDIN_URL = "https://www.linkedin.com/in/gerta-xhepi-94853289/";
 
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
   const pathname = location.pathname;
-  const isResume = pathname.startsWith("/resume");
-  const isCaseStudy =
-    pathname.startsWith("/case-studies/") &&
-    pathname.length > "/case-studies/".length;
-  const isFocusedDoc = isResume || isCaseStudy;
-  const navigate = useNavigate();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -40,15 +36,6 @@ export function SiteHeader() {
     return false;
   };
 
-  const handleBackToWork = useCallback(
-    (e: MouseEvent<HTMLAnchorElement>) => {
-      e.preventDefault();
-      navigate({ to: "/work" });
-    },
-    [navigate],
-  );
-
-
   return (
     <header
       className={[
@@ -59,75 +46,49 @@ export function SiteHeader() {
       ].join(" ")}
     >
       <div className="container-page flex h-[72px] items-center justify-between">
-        {isCaseStudy ? (
-          <a
-            href="/work"
-            onClick={handleBackToWork}
-            className="text-sm font-medium text-foreground transition-opacity duration-300 hover:opacity-60"
-          >
-            ← Back to Work
-          </a>
-        ) : (
-          <Link
-            to="/"
-            className="text-sm font-bold uppercase tracking-[0.2em] text-foreground transition-opacity duration-300 hover:opacity-70"
-          >
-            Gerta Xhepi
-          </Link>
-        )}
+        <Link
+          to="/"
+          className="text-sm font-bold uppercase tracking-[0.2em] text-foreground transition-opacity duration-300 hover:opacity-70"
+        >
+          Gerta Xhepi
+        </Link>
 
-        {isFocusedDoc ? (
-          isResume ? (
-            <nav className="flex items-center gap-8">
-              <Link
-                to="/"
-                className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
-              >
-                ← Back to Home
-              </Link>
-            </nav>
-          ) : null
-        ) : (
-          <>
-            <div className="hidden md:flex items-center gap-8">
-              <nav className="flex items-center gap-8">
-                {navItems.map((item) => {
-                  const active = isActive(item.to);
-                  return (
-                    <Link
-                      key={item.to}
-                      to={item.to}
-                      onClick={() => setOpen(false)}
-                      className="nav-link text-sm font-bold transition-colors duration-300"
-                      style={{ color: active ? ACCENT : undefined }}
-                    >
-                      {item.label}
-                    </Link>
-                  );
-                })}
-              </nav>
-              <div style={{ marginLeft: "2px" }}>
-                <ThemeToggle />
-              </div>
-            </div>
+        <div className="hidden md:flex items-center gap-8">
+          <nav className="flex items-center gap-8">
+            {navItems.map((item) => {
+              const active = isActive(item.to);
+              return (
+                <Link
+                  key={item.to}
+                  to={item.to}
+                  onClick={() => setOpen(false)}
+                  className="nav-link text-sm font-bold transition-colors duration-300"
+                  style={{ color: active ? ACCENT : undefined }}
+                >
+                  {item.label}
+                </Link>
+              );
+            })}
+          </nav>
+          <div style={{ marginLeft: "2px" }}>
+            <ThemeToggle />
+          </div>
+        </div>
 
-            <div className="md:hidden flex items-center gap-4">
-              <ThemeToggle />
-              <button
-                className="grid h-10 w-10 place-items-center nav-link transition-colors"
-                onClick={() => setOpen((s) => !s)}
-                aria-label="Toggle menu"
-                aria-expanded={open}
-              >
-                {open ? <X className="size-5" /> : <Menu className="size-5" />}
-              </button>
-            </div>
-          </>
-        )}
+        <div className="md:hidden flex items-center gap-4">
+          <ThemeToggle />
+          <button
+            className="grid h-10 w-10 place-items-center nav-link transition-colors"
+            onClick={() => setOpen((s) => !s)}
+            aria-label="Toggle menu"
+            aria-expanded={open}
+          >
+            {open ? <X className="size-5" /> : <Menu className="size-5" />}
+          </button>
+        </div>
       </div>
 
-
-      {!isFocusedDoc && open && (
+      {open && (
         <div className="md:hidden bg-background/85 backdrop-blur-md">
           <nav className="container-page flex flex-col py-4 gap-1">
             {navItems.map((item) => {
@@ -147,7 +108,6 @@ export function SiteHeader() {
           </nav>
         </div>
       )}
-
     </header>
   );
 }
@@ -155,9 +115,27 @@ export function SiteHeader() {
 export function SiteFooter() {
   return (
     <footer className="mt-40">
-      <div className="container-page pb-12 flex items-center justify-between text-xs font-mono uppercase tracking-[0.14em] text-muted-foreground">
-        <span>© {new Date().getFullYear()} Gerta Xhepi</span>
-        <span className="hidden sm:inline">Made in Germany</span>
+      <div className="container-page pb-12 grid grid-cols-2 sm:grid-cols-3 items-center gap-4 text-xs font-mono uppercase tracking-[0.14em] text-muted-foreground">
+        <span className="justify-self-start">© {new Date().getFullYear()} Gerta Xhepi</span>
+        <div className="hidden sm:flex justify-self-center items-center gap-8">
+          <a
+            href={RESUME_URL}
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-1.5 transition-colors hover:text-foreground"
+          >
+            View Resume <span aria-hidden>↗</span>
+          </a>
+          <a
+            href={LINKEDIN_URL}
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-1.5 transition-colors hover:text-foreground"
+          >
+            LinkedIn <span aria-hidden>↗</span>
+          </a>
+        </div>
+        <span className="justify-self-end">Based in Germany</span>
       </div>
     </footer>
   );
