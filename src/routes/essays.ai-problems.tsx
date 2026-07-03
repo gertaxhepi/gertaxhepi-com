@@ -2,28 +2,23 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { Section } from "@/components/Primitives";
 import { Reveal } from "@/components/Reveal";
 
-
 export const Route = createFileRoute("/essays/ai-problems")({
   head: () => ({
     meta: [
       {
-        title:
-          "Working with AI Is Teaching Me to Understand Problems More Deeply — Gerta Xhepi",
+        title: "Understanding Before Solving — Gerta Xhepi",
       },
       {
         name: "description",
-        content:
-          "A reflection on mentorship, AI and why understanding a problem matters more than writing better prompts.",
+        content: "A personal reflection on AI, mentorship, and the timeless value of understanding before solving.",
       },
       {
         property: "og:title",
-        content:
-          "Working with AI Is Teaching Me to Understand Problems More Deeply — Gerta Xhepi",
+        content: "Understanding Before Solving — Gerta Xhepi",
       },
       {
         property: "og:description",
-        content:
-          "A reflection on mentorship, AI and why understanding a problem matters more than writing better prompts.",
+        content: "A personal reflection on AI, mentorship, and the timeless value of understanding before solving.",
       },
       { property: "og:url", content: "/essays/ai-problems" },
     ],
@@ -51,29 +46,23 @@ function EssayPage() {
               Writing
             </Link>
           </nav>
-          <div
-            data-reveal-item
-            className="text-[11px] font-mono uppercase tracking-[0.22em] text-muted-foreground"
-          >
-            Essay 01 · June 2026 · 6 min read
+
+          <div data-reveal-item className="text-[11px] font-mono uppercase tracking-[0.22em] text-muted-foreground">
+            Essay 01 · June 2026 · 7 min read
           </div>
+
           <h1
             data-reveal-item
             className="mt-5 text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight text-balance leading-[1.05] max-w-4xl"
           >
-            Working with AI Is Teaching Me to Understand Problems More Deeply
+            Understanding Before Solving
           </h1>
-          <p
-            data-reveal-item
-            className="mt-5 text-base md:text-[17px] text-muted-foreground max-w-2xl leading-relaxed"
-          >
-            A reflection on mentorship, AI and why understanding a problem
-            matters more than writing better prompts.
+
+          <p data-reveal-item className="mt-5 text-base md:text-[17px] text-muted-foreground max-w-2xl leading-relaxed">
+            Has AI really changed the skill that matters?
           </p>
-          <div
-            data-reveal-item
-            className="mt-8 h-px bg-foreground/[0.06] max-w-[45rem]"
-          />
+
+          <div data-reveal-item className="mt-8 h-px bg-foreground/[0.06] max-w-[45rem]" />
         </Reveal>
       </Section>
 
@@ -82,72 +71,150 @@ function EssayPage() {
         <Reveal className="max-w-[45rem]">
           <article className="space-y-8 text-base md:text-[17px] text-foreground/90 leading-[1.75]">
             <p>
-              Over the past couple of years, I've watched countless conversations about AI. Some were exciting. Some were intimidating. Some were incredibly practical.
+              Over the past couple of years, I've watched countless conversations about AI. Some were exciting. Some
+              were intimidating. Some were incredibly practical.
             </p>
 
             <p>
-              I found myself reading, listening and experimenting, but after a while I realised something. I didn't want to build my understanding from other people's conclusions. I wanted to take my time, build products with AI, make mistakes and form my own opinion.
+              But after a while, I realised I didn't want to build my understanding from other people's conclusions. I
+              wanted to take my time, build products with AI, make mistakes and form my own opinion.
+            </p>
+
+            <p>This essay is simply a reflection on one of those observations.</p>
+
+            <p>
+              Looking back, I realise I've been incredibly fortunate throughout my career. I've had managers, team leads
+              and mentors who invested a lot of time in helping me grow. More than anything, they challenged how I
+              thought. They encouraged me to question my assumptions, structure my thinking and understand problems
+              before trying to solve them.
             </p>
 
             <p>
-              This essay is simply a reflection on one of those observations.
+              One of those mentors had a particularly lasting impact on me after I transitioned into Product Management.
             </p>
 
             <p>
-              When I transitioned from software engineering into Product Management, I was incredibly fortunate. I had a mentor who invested a lot of time in helping me grow. Looking back, I realise he wasn't just teaching me Product Management. He was teaching me how to think. I wasn't naturally good at structuring my thoughts. Like many people early in their careers, I was eager to jump into solving problems before fully understanding them. He noticed that. Instead of simply correcting me, he patiently helped me slow down. Before we talked about features, we talked about users. Before discussing solutions, we tried to understand why the problem existed in the first place. Before making decisions, we explored constraints, trade-offs and previous decisions.
+              I wasn't naturally good at structuring my thoughts. Like many people early in their careers, I was eager
+              to jump into solving problems before fully understanding them. He noticed that. Instead of simply
+              correcting me, he patiently helped me slow down.
             </p>
 
             <p>
-              One day he handed me a copy of <em>The Pyramid Principle</em>. At the time, I thought it was just another business book. Only years later did I realise why he had chosen it. It wasn't really teaching me how to communicate. It was teaching me how to organise my thinking. The better I understood a problem, the easier it became to explain it. I still find myself coming back to that lesson.
+              Before we talked about features, we talked about users. Before discussing solutions, we tried to
+              understand why the problem existed in the first place. Before making decisions, we explored constraints,
+              trade-offs and previous decisions.
             </p>
 
             <p>
-              When AI became part of my daily work, I approached it like many people probably did. I learned prompting. I experimented with different tools. I tried different techniques. Some worked better than others.
+              One day he handed me a copy of <em>The Pyramid Principle</em>. At the time, I thought it was just another
+              business book. Only years later did I realise why he had chosen it. It wasn't really teaching me how to
+              communicate. It was teaching me how to organise my thinking.
             </p>
 
+            <p>The better I understood a problem, the easier it became to explain it.</p>
+
+            <p>I still find myself coming back to that lesson.</p>
+
             <p>
-              But after a while, I found myself asking a different question.
+              When AI became part of my daily work, I approached it like many people probably did. I learned prompting.
+              I experimented with different tools. I tried different techniques. Some worked better than others.
             </p>
+
+            <p>But after a while, I found myself asking a different question.</p>
 
             <p className="text-center italic text-foreground/80 my-4">
               Is this really the skill I'm trying to develop?
             </p>
 
             <p>
-              The more I worked with AI, the more I noticed a pattern. Whenever I wasn't happy with the output, I rarely blamed the model. More often, I realised I hadn't given it enough to work with. Not because the prompt was bad. Because my own understanding of the problem wasn't complete.
+              The more I worked with AI, the more I noticed a pattern. Whenever I wasn't happy with the output, I rarely
+              blamed the model. More often, I realised I hadn't given it enough to work with. Not because I had written
+              a poor prompt, but because I hadn't yet understood the problem well enough to explain it.
             </p>
 
             <p>
-              I experienced this while working on a personal project exploring how AI could help people make better decisions in mountaineering. I wanted AI to help me understand a completely new domain. Naturally, I started asking questions.
+              I experienced this while working on a personal project exploring how AI could help people make better
+              decisions in mountaineering.
             </p>
 
             <p>
-              The answers were interesting, but they rarely took me very far. After a while, I stepped back and wondered whether I was approaching the problem in the wrong way.
+              At first, I asked AI questions that seemed reasonable. What features should a mountaineering product have?
+              How do other products approach this problem? What should I build?
             </p>
 
             <p>
-              Instead of asking AI to research the market, I started helping it understand the domain. I shared documentation from alpine organisations, accident reports, competitor products, my product vision and the type of decisions I wanted to help climbers make.
+              The answers weren't wrong, but they felt familiar. Route planning. Weather forecasts. GPS tracking.
+              Equipment checklists. Features that almost every outdoor app already offers.
             </p>
 
+            <p>Then I realised I was asking AI to solve a problem that I hadn't fully defined myself.</p>
+
             <p>
-              The conversations became much richer. Not overnight. Gradually.
+              Instead of asking AI to research the market, I started helping it understand the domain. I shared
+              documentation from alpine organisations, accident reports, competitor products, my product vision and the
+              type of decisions I wanted to help climbers make.
             </p>
+
+            <p>The conversation changed.</p>
+
+            <p>
+              Instead of discussing features, we started exploring why climbers continue despite warning signs, how
+              accident reports reveal recurring patterns in decision-making, where human judgement tends to fail, and
+              how a product could help someone recognise risk before committing to a climb rather than simply helping
+              them navigate once they were already on the mountain.
+            </p>
+
+            <p>That's when something clicked.</p>
 
             <p className="text-xl md:text-2xl font-medium leading-snug text-foreground tracking-tight my-4">
-              I realised I wasn't giving AI more instructions. I was giving it more understanding.
+              I realised I wasn't giving AI better prompts. I was giving it better understanding.
+            </p>
+
+            <p>Looking back, I realised I'd seen this pattern before.</p>
+
+            <p>
+              My mentors never expected me to have the right answers from the start. Before they challenged my
+              solutions, they helped me understand the world I was stepping into. They gave me context. They asked
+              better questions. They encouraged me to slow down before moving forward.
+            </p>
+
+            <p>Working with AI has brought me back to those lessons.</p>
+
+            <p>
+              It has reminded me that understanding a problem is often harder than solving it. And maybe that's why I've
+              become less interested in finding the perfect prompt and more interested in understanding a problem well
+              enough that I can explain it clearly, whether to another person or to an AI.
             </p>
 
             <p>
-              Looking back, I realised I'd seen this pattern before. It reminded me of my mentor. He never expected me to make good decisions on my first day. He first helped me understand the world I was stepping into. Working with AI has brought me back to that lesson. It has reminded me that understanding a problem is often harder than solving it. And maybe that's why I've become less interested in finding the perfect prompt and more interested in understanding the problem well enough that I can explain it clearly—to another person or to an AI.
+              I'm still exploring this idea, and I'm sure my thinking will continue to evolve. But it's one observation
+              I keep coming back to.
+            </p>
+
+            <p>AI has undoubtedly changed the way I work.</p>
+
+            <p>
+              It has changed how I research, how I prototype, how I write and even how I learn. It has made me faster in
+              ways I couldn't have imagined a few years ago.
             </p>
 
             <p>
-              I'm still exploring this idea. I don't know if it's the right conclusion, and I'm sure my thinking will continue to evolve. But it's one thought I keep coming back to. Working with AI hasn't changed how I think about Product Management. If anything, it has reinforced one of the most valuable lessons I learned early in my career.
+              But beneath all of that, I've found myself relying on the same lessons my mentors taught me years ago.
             </p>
 
             <p className="mt-16 md:mt-20 text-xl md:text-2xl font-semibold tracking-tight text-foreground leading-snug">
-              Good solutions begin with good understanding.
+              Understanding before solving.
             </p>
+
+            <p>Asking better questions.</p>
+
+            <p>Taking the time to understand the problem before searching for an answer.</p>
+
+            <p>Maybe that's what surprised me most.</p>
+
+            <p>Technology changes the way we work.</p>
+
+            <p>But it doesn't change the value of understanding.</p>
           </article>
         </Reveal>
       </Section>
