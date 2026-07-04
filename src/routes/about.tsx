@@ -11,8 +11,9 @@ export const Route = createFileRoute("/about")({
       {
         name: "description",
         content:
-          "Product Manager with 5+ years building digital products across B2B, B2C, SaaS, AI and marketplaces. Background in software engineering.",
+          "Product Manager with 5+ years building B2B, B2C, SaaS, AI and marketplace products. Software engineering background.",
       },
+
       { property: "og:title", content: "About Me — Gerta Xhepi" },
       {
         property: "og:description",

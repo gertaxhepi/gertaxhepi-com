@@ -1,16 +1,16 @@
 import { createFileRoute } from "@tanstack/react-router";
 import type {} from "@tanstack/react-start";
 
-const BASE_URL = "";
+const BASE_URL = "https://gertaproduct.com";
 
 const paths = [
-  "/", "/work", "/writing", "/about", "/resume",
+  "/", "/work", "/writing", "/about", "/resume", "/product-thinking",
   "/essays/ai-problems",
-  "/case-studies/salary-transparency",
+  "/case-studies", "/case-studies/salary-transparency",
   "/case-studies/electronic-signature",
   "/case-studies/peakprofile",
-  
 ];
+
 
 export const Route = createFileRoute("/sitemap.xml")({
   server: {
