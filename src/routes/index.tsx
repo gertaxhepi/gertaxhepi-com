@@ -75,7 +75,7 @@ function Home() {
             to="/work"
             className="group inline-flex items-center gap-2 text-sm font-medium border-b border-foreground pb-1 transition-opacity hover:opacity-60"
           >
-            View My Work
+            Browse product case studies
             <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-1" />
           </Link>
           <Link
