@@ -22,12 +22,14 @@ function CaseStudiesIndex() {
   return (
     <>
       <Section className="pt-16 md:pt-28" spacing="tight">
+        <h1 className="sr-only">Selected Product Case Studies</h1>
         <SectionHeading
           eyebrow="Case studies"
           title="Selected product work."
           description="A closer look at how I work on complex product problems."
         />
       </Section>
+
 
       <Section spacing="tight">
         <Reveal className="divide-y divide-border">

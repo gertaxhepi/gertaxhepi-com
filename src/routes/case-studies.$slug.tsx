@@ -14,6 +14,7 @@ export const Route = createFileRoute("/case-studies/$slug")({
   head: ({ loaderData }) => {
     const s = loaderData?.study;
     const title = s ? `${s.title} — Case Study` : "Case Study";
+    const url = `https://gertaproduct.com/case-studies/${s?.slug ?? ""}`;
     return {
       meta: [
         { title },
@@ -21,11 +22,39 @@ export const Route = createFileRoute("/case-studies/$slug")({
         { property: "og:title", content: title },
         { property: "og:description", content: s?.summary ?? "" },
         { property: "og:type", content: "article" },
-        { property: "og:url", content: `/case-studies/${s?.slug ?? ""}` },
+        { property: "og:url", content: url },
       ],
-      links: [{ rel: "canonical", href: `/case-studies/${s?.slug ?? ""}` }],
+      links: [{ rel: "canonical", href: url }],
+      scripts: s
+        ? [
+            {
+              type: "application/ld+json",
+              children: JSON.stringify({
+                "@context": "https://schema.org",
+                "@type": "Article",
+                headline: s.title,
+                description: s.summary,
+                author: { "@type": "Person", name: "Gerta Xhepi" },
+                url,
+              }),
+            },
+            {
+              type: "application/ld+json",
+              children: JSON.stringify({
+                "@context": "https://schema.org",
+                "@type": "BreadcrumbList",
+                itemListElement: [
+                  { "@type": "ListItem", position: 1, name: "Home", item: "https://gertaproduct.com/" },
+                  { "@type": "ListItem", position: 2, name: "Work", item: "https://gertaproduct.com/work" },
+                  { "@type": "ListItem", position: 3, name: s.title, item: url },
+                ],
+              }),
+            },
+          ]
+        : [],
     };
   },
+
   notFoundComponent: () => (
     <Section><p>Case study not found.</p></Section>
   ),
