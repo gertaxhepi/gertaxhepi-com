@@ -1,0 +1,24 @@
+# Gerta Xhepi
+
+> Personal portfolio of Gerta Xhepi, a Product Manager building AI, platform and B2B SaaS products.
+
+Gerta Xhepi is a Product Manager with a software engineering background, based in Germany and open to remote product opportunities across Europe. This site collects her selected product work, writing, and professional background.
+
+## Pages
+
+- [Home](/): Introduction and overview of Gerta's work as a Product Manager.
+- [About](/about): Background, how she thinks about product, and outside-of-work interests.
+- [Work](/work): Selected product case studies across AI, platform and marketplace products.
+- [Writing](/writing): Essays on product management, AI, and decision making.
+- [Resume](/resume): Professional experience and skills.
+- [Product Thinking](/product-thinking): Approach to product discovery and decision making.
+
+## Case studies
+
+- [Salary Transparency](/case-studies/salary-transparency): Building a salary transparency product.
+- [Electronic Signature](/case-studies/electronic-signature): Designing an e-signature workflow product.
+- [PeakProfile](/case-studies/peakprofile): Product work on PeakProfile.
+
+## Essays
+
+- [AI Problems](/essays/ai-problems): On the real problems facing AI products today.

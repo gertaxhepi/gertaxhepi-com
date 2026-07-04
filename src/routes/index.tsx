@@ -5,22 +5,36 @@ import { Reveal } from "@/components/Reveal";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Gerta Xhepi — Product Manager" },
+      { title: "Gerta Xhepi — PM Portfolio & Product Case Studies" },
       {
         name: "description",
         content: "Product Manager building thoughtful digital products across B2B, B2C, SaaS, AI and marketplaces.",
       },
-      { property: "og:title", content: "Gerta Xhepi — Product Manager" },
+      { property: "og:title", content: "Gerta Xhepi — Product Manager Portfolio" },
       {
         property: "og:description",
         content: "Product Manager building thoughtful digital products across B2B, B2C, SaaS, AI and marketplaces.",
       },
-      { property: "og:url", content: "/" },
+      { property: "og:url", content: "https://gertaproduct.com/" },
     ],
-    links: [{ rel: "canonical", href: "/" }],
+    links: [{ rel: "canonical", href: "https://gertaproduct.com/" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Person",
+          name: "Gerta Xhepi",
+          jobTitle: "Product Manager",
+          url: "https://gertaproduct.com/",
+          sameAs: ["https://www.linkedin.com/in/gerta-xhepi-94853289/"],
+        }),
+      },
+    ],
   }),
   component: Home,
 });
+
 
 function Home() {
   return (
@@ -61,7 +75,7 @@ function Home() {
             to="/work"
             className="group inline-flex items-center gap-2 text-sm font-medium border-b border-foreground pb-1 transition-opacity hover:opacity-60"
           >
-            View My Work
+            Browse product case studies
             <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-1" />
           </Link>
           <Link
