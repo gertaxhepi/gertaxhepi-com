@@ -199,21 +199,53 @@ function CaseStudyPage() {
 
           <Block title="Solution">
             <div className="space-y-8">
-              {s.solutionItems.map((item, i) => (
-                <div key={item.title} className="grid grid-cols-[auto_1fr] gap-6">
-                  <span className="text-[11px] font-mono uppercase tracking-[0.18em] text-muted-foreground pt-1.5">
-                    0{i + 1}
-                  </span>
-                  <div>
-                    <h3 className="text-lg md:text-xl font-semibold tracking-tight mb-2">
-                      {item.title}
-                    </h3>
-                    <p className="text-base md:text-lg text-foreground/90 leading-relaxed">
-                      {item.description}
+              {s.solutionIntro && (
+                <div className="space-y-5 max-w-3xl">
+                  <h3 className="text-2xl md:text-3xl font-semibold tracking-tight text-balance leading-[1.15]">
+                    {s.solutionIntro.title}
+                  </h3>
+                  {s.solutionIntro.paragraphs.map((p) => (
+                    <p key={p} className="text-base md:text-lg text-foreground/90 leading-relaxed">
+                      {p}
                     </p>
-                  </div>
+                  ))}
                 </div>
-              ))}
+              )}
+
+              {s.solutionDiagram && (
+                <figure className="pt-2 pb-1">
+                  <figcaption className="text-[11px] font-mono uppercase tracking-[0.18em] text-muted-foreground mb-4">
+                    {s.solutionDiagram.label}
+                  </figcaption>
+                  <img
+                    src={s.solutionDiagram.src}
+                    alt={s.solutionDiagram.alt}
+                    loading="lazy"
+                    className="block w-full h-auto rounded-md"
+                  />
+                  <figcaption className="mt-4 text-sm text-muted-foreground leading-relaxed max-w-2xl">
+                    {s.solutionDiagram.caption}
+                  </figcaption>
+                </figure>
+              )}
+
+              <div className="space-y-8 pt-2">
+                {s.solutionItems.map((item, i) => (
+                  <div key={item.title} className="grid grid-cols-[auto_1fr] gap-6">
+                    <span className="text-[11px] font-mono uppercase tracking-[0.18em] text-muted-foreground pt-1.5">
+                      0{i + 1}
+                    </span>
+                    <div>
+                      <h3 className="text-lg md:text-xl font-semibold tracking-tight mb-2">
+                        {item.title}
+                      </h3>
+                      <p className="text-base md:text-lg text-foreground/90 leading-relaxed">
+                        {item.description}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
           </Block>
 
