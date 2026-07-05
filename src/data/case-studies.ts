@@ -21,6 +21,10 @@ export type CaseStudy = {
   keyDecisions: DecisionItem[];
   /** Solution shipped, numbered. */
   solutionItems: DecisionItem[];
+  /** Optional intro heading + paragraphs shown above the solution items. */
+  solutionIntro?: { title: string; paragraphs: string[] };
+  /** Optional inline diagram rendered between the intro and the solution items. */
+  solutionDiagram?: { src: string; alt: string; label: string; caption: string };
   /** Short paragraph framing the results before the metric grid. */
   resultsLead: string;
   metrics: { label: string; value: string }[];
@@ -76,21 +80,34 @@ export const caseStudies: CaseStudy[] = [
           "Used confidence scoring so users could understand when estimates were reliable, instead of hiding uncertainty behind a single number.",
       },
     ],
+    solutionIntro: {
+      title: "We improved the model by improving its inputs.",
+      paragraphs: [
+        "Rather than tuning salary predictions directly, we rebuilt the training pipeline using verified salary data, structured taxonomy and continuous experimentation. Better inputs produced more reliable salary estimates and increased user trust.",
+      ],
+    },
+    solutionDiagram: {
+      src: "/__l5e/assets-v1/5bd9e9f2-ec56-48a6-b1cf-f66362b408f8/salary-pipeline.png",
+      alt: "Before and after diagram of the salary prediction pipeline, showing outdated ground truth being replaced by company-reported salaries, standardized taxonomy, feature engineering and continuous experimentation.",
+      label: "Salary prediction pipeline",
+      caption:
+        "How verified salary data, standardized taxonomy and structured features became the foundation of the salary prediction model.",
+    },
     solutionItems: [
       {
         title: "Unified job taxonomy",
         description:
-          "Mapped titles, seniority and locations into canonical values so postings could be compared on the same terms.",
+          "Mapped job titles, seniority, locations and employment types into canonical values so similar jobs could be compared consistently across employers.",
       },
       {
-        title: "Improve data quality at ingestion",
+        title: "Improve model inputs",
         description:
-          "Caught gaps and inconsistencies as postings entered the system, so the salary model worked from cleaner inputs.",
+          "Introduced structured rules and validated new attributes against verified salary data to improve the quality of the model's training dataset.",
       },
       {
-        title: "Show users how confident the estimate is",
+        title: "Make confidence visible",
         description:
-          "Displayed data quality alongside salary estimates so people could weigh the answer instead of accepting it blindly.",
+          "Displayed confidence indicators alongside salary estimates so users could better judge when an estimate was reliable.",
       },
     ],
     resultsLead:
