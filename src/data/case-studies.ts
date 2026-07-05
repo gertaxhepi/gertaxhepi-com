@@ -21,6 +21,10 @@ export type CaseStudy = {
   keyDecisions: DecisionItem[];
   /** Solution shipped, numbered. */
   solutionItems: DecisionItem[];
+  /** Optional intro heading + paragraphs shown above the solution items. */
+  solutionIntro?: { title: string; paragraphs: string[] };
+  /** Optional inline diagram rendered between the intro and the solution items. */
+  solutionDiagram?: { src: string; alt: string; label: string; caption: string };
   /** Short paragraph framing the results before the metric grid. */
   resultsLead: string;
   metrics: { label: string; value: string }[];
