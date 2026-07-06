@@ -22,8 +22,8 @@ const selectedWork = [
     slug: "salary-transparency",
     title: "Salary Transparency & Structured Job Data",
     description: [
-      "Behind every salary estimate was a data quality problem.",
-      "This case study explores how improving structured job data made salary predictions significantly more reliable, increasing accuracy, user trust and marketplace quality.",
+      "Salary estimates are only as reliable as the data behind them.",
+      "I rebuilt the structured data pipeline powering millions of salary predictions, improving model quality and increasing user trust.",
     ],
     role: "Product Manager",
     domain: "Marketplace · Data Products",
@@ -55,10 +55,7 @@ function Work() {
   return (
     <Section className="pt-16 md:pt-28" spacing="tight">
       <Reveal>
-        <div
-          data-reveal-item
-          className="text-[11px] font-mono uppercase tracking-[0.22em] text-muted-foreground mb-10"
-        >
+        <div data-reveal-item className="text-[11px] font-mono uppercase tracking-[0.22em] text-muted-foreground mb-10">
           Selected Work
         </div>
         <h1
@@ -84,7 +81,7 @@ function Work() {
               </div>
               <div className="max-w-2xl">
                 {c.slug === "salary-transparency" && (
-                  <div className="text-[11px] font-mono uppercase tracking-[0.22em] mb-3" style={{ color: '#8A5A5A' }}>
+                  <div className="text-[11px] font-mono uppercase tracking-[0.22em] mb-3" style={{ color: "#8A5A5A" }}>
                     Featured Project
                   </div>
                 )}
