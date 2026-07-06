@@ -21,8 +21,10 @@ const selectedWork = [
   {
     slug: "salary-transparency",
     title: "Salary Transparency & Structured Job Data",
-    description:
-      "Improving salary transparency through higher-quality structured job data. Salary ranges shown to job seekers depended on the quality of employer-provided job data. My work focused on improving taxonomy, structured attributes and data quality so salary estimates became more reliable.",
+    description: [
+      "Behind every salary estimate was a data quality problem.",
+      "This case study explores how improving structured job data made salary predictions significantly more reliable, increasing accuracy, user trust and marketplace quality.",
+    ],
     role: "Product Manager",
     domain: "Marketplace · Data Products",
     outcome: "Reduced salary estimation error by 28%",
@@ -30,8 +32,9 @@ const selectedWork = [
   {
     slug: "electronic-signature",
     title: "Electronic Signature MVP",
-    description:
+    description: [
       "Built and launched an MVP that digitized document signing for HR teams, reducing manual workflows and enabling faster hiring.",
+    ],
     role: "Product Manager",
     domain: "HR SaaS",
     outcome: "MVP shipped in 7 weeks · 200+ companies adopted",
@@ -39,8 +42,9 @@ const selectedWork = [
   {
     slug: "peakprofile",
     title: "PeakProfile",
-    description:
+    description: [
       "Building an AI-powered product that helps mountaineers make better decisions through structured experience data.",
+    ],
     role: "Founder • AI Product",
     domain: "AI Product",
     outcome: "20 early users · 30+ discovery interviews · AI readiness scoring MVP",
