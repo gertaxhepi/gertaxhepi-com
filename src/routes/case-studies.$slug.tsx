@@ -179,6 +179,22 @@ function CaseStudyPage() {
                 {s.discoveryLead}
               </p>
               <Bullets items={s.discovery} />
+              {s.discoveryDiagram && (
+                <figure className="pt-4 md:pt-6 pb-6">
+                  <figcaption className="text-[11px] font-mono uppercase tracking-[0.18em] text-muted-foreground mb-4">
+                    {s.discoveryDiagram.label}
+                  </figcaption>
+                  <img
+                    src={s.discoveryDiagram.src}
+                    alt={s.discoveryDiagram.alt}
+                    loading="lazy"
+                    className="block w-full h-auto rounded-md"
+                  />
+                  <figcaption className="mt-4 text-sm text-muted-foreground leading-relaxed max-w-2xl">
+                    {s.discoveryDiagram.caption}
+                  </figcaption>
+                </figure>
+              )}
             </div>
           </Block>
 

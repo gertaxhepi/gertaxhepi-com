@@ -16,6 +16,8 @@ export type CaseStudy = {
   /** Intro sentence for the discovery block. */
   discoveryLead: string;
   discovery: string[];
+  /** Optional inline diagram rendered below the discovery bullets. */
+  discoveryDiagram?: { src: string; alt: string; label: string; caption: string };
   constraints: string[];
   /** Decisions with title + supporting copy. */
   keyDecisions: DecisionItem[];
@@ -58,6 +60,13 @@ export const caseStudies: CaseStudy[] = [
       "Audited employer posting flows to identify where structured data was being lost",
       "Traced data lineage from ingestion through to the salary estimation model",
     ],
+    discoveryDiagram: {
+      src: "/__l5e/assets-v1/2d1e54c1-5917-455c-907f-75d888c3c159/discovery-map.png",
+      alt: "Discovery map showing how user journey, model behavior and data inputs interact across the salary estimation system, with normalize and standardize attributes highlighted as the focus area.",
+      label: "Discovery map",
+      caption:
+        "Mapping the end-to-end salary estimation system revealed how user actions, model behavior and data inputs interacted — and where inconsistent structured data was breaking user trust.",
+    },
     constraints: [
       "Three legacy ingestion systems",
       "No additional engineering headcount",
@@ -87,11 +96,11 @@ export const caseStudies: CaseStudy[] = [
       ],
     },
     solutionDiagram: {
-      src: "/__l5e/assets-v1/5bd9e9f2-ec56-48a6-b1cf-f66362b408f8/salary-pipeline.png",
-      alt: "Before and after diagram of the salary prediction pipeline, showing outdated ground truth being replaced by company-reported salaries, standardized taxonomy, feature engineering and continuous experimentation.",
-      label: "Salary prediction pipeline",
+      src: "/__l5e/assets-v1/15abb748-cc0c-4f4b-a820-03b2100f9096/salary-pipeline-before-after.png",
+      alt: "Before and after diagram of the salary prediction pipeline: outdated purchased data and taxonomy producing poor estimates, replaced by company-reported salaries, taxonomy and classification, feature engineering, high-quality training dataset and continuous experimentation producing reliable estimates.",
+      label: "Salary prediction pipeline — before and after",
       caption:
-        "How verified salary data, standardized taxonomy and structured features became the foundation of the salary prediction model.",
+        "Before: outdated ground truth and taxonomy led to noisy predictions and low trust. After: verified company-reported salaries, standardized taxonomy, feature engineering and continuous experimentation produced reliable salary estimates.",
     },
     solutionItems: [
       {
