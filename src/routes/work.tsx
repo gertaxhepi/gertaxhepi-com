@@ -71,64 +71,63 @@ function Work() {
 
       <Reveal className="mt-20 divide-y divide-border">
         {selectedWork.map((c, i) => (
-          <div
+          <Link
             key={c.slug}
+            to="/case-studies/$slug"
+            params={{ slug: c.slug }}
             data-reveal-item
-            className="grid md:grid-cols-[auto_1fr_auto] gap-6 md:gap-16 py-14 md:py-16"
+            className="group block cursor-pointer"
           >
-            <div className="text-[11px] font-mono uppercase tracking-[0.18em] text-muted-foreground md:pt-3">
-              0{i + 1}
-            </div>
-            <div className="max-w-2xl">
-              {c.slug === "salary-transparency" && (
-                <div className="text-[11px] font-mono uppercase tracking-[0.22em] mb-3" style={{ color: '#8A5A5A' }}>
-                  Featured Project
+            <div className="grid md:grid-cols-[auto_1fr_auto] gap-6 md:gap-16 py-14 md:py-16">
+              <div className="text-[11px] font-mono uppercase tracking-[0.18em] text-muted-foreground md:pt-3">
+                0{i + 1}
+              </div>
+              <div className="max-w-2xl">
+                {c.slug === "salary-transparency" && (
+                  <div className="text-[11px] font-mono uppercase tracking-[0.22em] mb-3" style={{ color: '#8A5A5A' }}>
+                    Featured Project
+                  </div>
+                )}
+                <h2 className="text-2xl md:text-3xl font-semibold tracking-tight transition-opacity group-hover:opacity-60">
+                  {c.title}
+                </h2>
+                <div className="mt-5 space-y-4">
+                  {c.description.map((p) => (
+                    <p key={p} className="text-base md:text-lg text-muted-foreground leading-relaxed">
+                      {p}
+                    </p>
+                  ))}
                 </div>
-              )}
-              <h2 className="text-2xl md:text-3xl font-semibold tracking-tight">
-                {c.title}
-              </h2>
-              <p className="mt-5 text-base md:text-lg text-muted-foreground leading-relaxed">
-                {c.description}
-              </p>
 
-              <dl className="mt-8 grid sm:grid-cols-2 gap-x-12 gap-y-6">
-                <div>
-                  <dt className="text-[11px] font-mono uppercase tracking-[0.18em] text-muted-foreground mb-2">
-                    Role / Domain
-                  </dt>
-                  <dd className="text-sm md:text-[15px] font-medium">
-                    {c.domain ? `${c.role} · ${c.domain}` : c.role}
-                  </dd>
-                </div>
-                <div>
-                  <dt className="text-[11px] font-mono uppercase tracking-[0.18em] text-muted-foreground mb-2">
-                    Outcome
-                  </dt>
-                  <dd className="text-sm md:text-[15px] font-medium">{c.outcome}</dd>
-                </div>
-              </dl>
+                <dl className="mt-8 grid sm:grid-cols-2 gap-x-12 gap-y-6">
+                  <div>
+                    <dt className="text-[11px] font-mono uppercase tracking-[0.18em] text-muted-foreground mb-2">
+                      Role / Domain
+                    </dt>
+                    <dd className="text-sm md:text-[15px] font-medium">
+                      {c.domain ? `${c.role} · ${c.domain}` : c.role}
+                    </dd>
+                  </div>
+                  <div>
+                    <dt className="text-[11px] font-mono uppercase tracking-[0.18em] text-muted-foreground mb-2">
+                      Outcome
+                    </dt>
+                    <dd className="text-sm md:text-[15px] font-medium">{c.outcome}</dd>
+                  </div>
+                </dl>
 
-              <Link
-                to="/case-studies/$slug"
-                params={{ slug: c.slug }}
-                className="group mt-10 inline-flex items-center gap-2 text-sm font-medium border-b border-foreground pb-1 transition-opacity hover:opacity-60"
-              >
-                Read case study
-                <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-1" />
-              </Link>
+                <span className="mt-10 inline-flex items-center gap-2 text-sm font-medium border-b border-foreground pb-1">
+                  Read case study
+                  <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-1" />
+                </span>
+              </div>
+              <div className="hidden md:block md:pt-3">
+                <span aria-label={`Read case study: ${c.title}`} className="inline-flex">
+                  <ArrowUpRight className="size-5 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
+                </span>
+              </div>
             </div>
-            <div className="hidden md:block md:pt-3">
-              <Link
-                to="/case-studies/$slug"
-                params={{ slug: c.slug }}
-                aria-label={`Read case study: ${c.title}`}
-                className="group inline-flex transition-opacity hover:opacity-60"
-              >
-                <ArrowUpRight className="size-5 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
-              </Link>
-            </div>
-          </div>
+          </Link>
         ))}
       </Reveal>
     </Section>
