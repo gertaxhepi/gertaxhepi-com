@@ -157,23 +157,70 @@ function About() {
         </div>
       </Section>
 
-      {/* OUTSIDE OF WORK */}
-      <Section>
-        <SectionHeading eyebrow="Outside of Work" title="The person behind the product." />
-        <Reveal className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-16 max-w-4xl">
-          {outsideWork.map((item) => (
-            <div data-reveal-item key={item.number}>
-              <div className="text-[11px] font-mono uppercase tracking-[0.18em] text-muted-foreground mb-4">
-                {item.number}
-              </div>
-              <div className="text-base md:text-[17px] font-medium text-foreground leading-snug text-balance">
-                {item.title}
-              </div>
-              <div className="mt-2 text-sm text-muted-foreground">{item.subtitle}</div>
-            </div>
-          ))}
+      {/* OUTSIDE WORK — editorial story */}
+      <Section spacing="tight">
+        <Reveal>
+          <div
+            data-reveal-item
+            className="text-[11px] font-mono uppercase tracking-[0.22em] text-muted-foreground mb-10"
+          >
+            Outside Work
+          </div>
+          <h2
+            data-reveal-item
+            className="text-4xl md:text-6xl lg:text-[72px] font-semibold tracking-tight leading-[1.02] text-balance max-w-4xl"
+          >
+            The experiences that shape how I work.
+          </h2>
+          <p data-reveal-item className="mt-10 text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed">
+            Work and life are rarely separate. Building communities, navigating uncertainty, solving problems, and
+            staying committed to long-term goals are experiences I've found both in product management and beyond.
+          </p>
         </Reveal>
+
+        <div className="mt-24 space-y-20 md:space-y-24">
+          {outsideStories.map((s, i) => {
+            const imageRight = i % 2 === 0;
+            return (
+              <Reveal
+                key={s.number}
+                className="grid grid-cols-1 md:grid-cols-[42fr_52fr] gap-8 md:gap-10 items-start"
+              >
+                <div
+                  data-reveal-item
+                  className={imageRight ? "md:order-1" : "md:order-2"}
+                >
+                  <div className="text-[11px] font-mono uppercase tracking-[0.22em] text-muted-foreground/60 mb-6">
+                    {s.number}
+                  </div>
+                  <h3 className="text-3xl md:text-4xl font-semibold tracking-tight leading-[1.05]">
+                    {s.category}
+                  </h3>
+                  <div className="mt-3 text-sm md:text-base text-muted-foreground">{s.theme}</div>
+                  <p className="mt-8 text-lg md:text-xl font-semibold text-foreground leading-snug text-balance">
+                    {s.lesson}
+                  </p>
+                  <p className="mt-6 text-base md:text-[17px] text-muted-foreground leading-[1.75]">
+                    {s.body}
+                  </p>
+                </div>
+                <div
+                  data-reveal-item
+                  className={imageRight ? "md:order-2" : "md:order-1"}
+                >
+                  <img
+                    src={s.image}
+                    alt={s.alt}
+                    loading="lazy"
+                    className="w-full h-[380px] md:h-[420px] object-cover rounded-[30px]"
+                  />
+                </div>
+              </Reveal>
+            );
+          })}
+        </div>
       </Section>
+
 
       {/* CONTACT */}
       <Section spacing="tight">
