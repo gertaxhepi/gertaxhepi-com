@@ -3,6 +3,10 @@ import { Section, SectionHeading } from "@/components/Primitives";
 import { Reveal } from "@/components/Reveal";
 import { ArrowUpRight } from "lucide-react";
 import profileAsset from "@/assets/profile.png.asset.json";
+import yogaAsset from "@/assets/yoga.png.asset.json";
+import climbingAsset from "@/assets/climbing.png.asset.json";
+import mountaineeringAsset from "@/assets/mountenaring.png.asset.json";
+import marathonAsset from "@/assets/marathon.png.asset.json";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
