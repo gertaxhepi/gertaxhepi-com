@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Section, SectionHeading } from "@/components/Primitives";
 import { Reveal } from "@/components/Reveal";
+import { cn } from "@/lib/utils";
 import { ArrowUpRight } from "lucide-react";
 import profileAsset from "@/assets/profile.png.asset.json";
 import yogaAsset from "@/assets/yoga.png.asset.json";
@@ -212,7 +213,10 @@ function About() {
                     src={s.image}
                     alt={s.alt}
                     loading="lazy"
-                    className="w-full h-[380px] md:h-[420px] object-cover rounded-[30px]"
+                    className={cn(
+                      "w-full h-[380px] md:h-[420px] rounded-[30px]",
+                      s.number === "04" ? "object-contain" : "object-cover"
+                    )}
                   />
                 </div>
               </Reveal>
