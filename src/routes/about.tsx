@@ -3,6 +3,10 @@ import { Section, SectionHeading } from "@/components/Primitives";
 import { Reveal } from "@/components/Reveal";
 import { ArrowUpRight } from "lucide-react";
 import profileAsset from "@/assets/profile.png.asset.json";
+import yogaAsset from "@/assets/yoga.png.asset.json";
+import climbingAsset from "@/assets/climbing.png.asset.json";
+import mountaineeringAsset from "@/assets/mountenaring.png.asset.json";
+import marathonAsset from "@/assets/marathon.png.asset.json";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -34,10 +38,43 @@ const howIThink = [
   "Books that shaped my thinking",
 ];
 
-const outsideWork = [
-  { number: "01", title: "Traditional Hatha Yoga Teacher", subtitle: "Founder \u00b7 Hima Yoga" },
-  { number: "02", title: "Outdoor Sports", subtitle: "Marathon Running \u00b7 Mountaineering \u00b7 Rock Climbing" },
-  { number: "03", title: "Culture", subtitle: "Philosophy \u00b7 Art \u00b7 Music" },
+const outsideStories = [
+  {
+    number: "01",
+    category: "Yoga",
+    theme: "Building communities",
+    lesson: "Community taught me that trust is built through consistency.",
+    body: "Teaching yoga inspired me to create Hima Yoga, a community built around movement and nature. As it grew, I found myself applying many of the same principles I use in product management: understanding people's needs, experimenting with new ideas, and continuously refining the experience based on what I learned.",
+    image: yogaAsset.url,
+    alt: "Gerta teaching a yoga class",
+  },
+  {
+    number: "02",
+    category: "Rock Climbing",
+    theme: "Trust & teamwork",
+    lesson: "Trusting the team starts with trusting each other.",
+    body: "Rock climbing reminded me that progress isn't just about strength. Every climb depends on trust, encouragement, and supporting one another through difficult moves. The strongest teams aren't built by individuals\u2014they grow by helping each other succeed.",
+    image: climbingAsset.url,
+    alt: "Rock climbing on a limestone wall",
+  },
+  {
+    number: "03",
+    category: "Mountaineering",
+    theme: "Humility & perspective",
+    lesson: "The mountains taught me that confidence should never replace respect.",
+    body: "Every expedition reminds me that nature is always bigger than us. No matter how much we prepare, there are risks we can't control. Reaching the summit never feels like a victory over the mountain, but a privilege. Every climb leaves me a little more humble, a little more grateful, and with a deeper respect for the people who shared the journey.",
+    image: mountaineeringAsset.url,
+    alt: "Mountaineering on a snowy alpine ridge",
+  },
+  {
+    number: "04",
+    category: "Marathon",
+    theme: "Consistency & discipline",
+    lesson: "Progress comes from consistency.",
+    body: "Marathon running has taught me that sustainable progress isn't built through intensity but through consistency. Every training run is a reminder that meaningful results come from showing up, trusting the process, and continuing even when progress isn't immediately visible.",
+    image: marathonAsset.url,
+    alt: "Running the Amsterdam marathon",
+  },
 ];
 
 type Channel = {
@@ -120,23 +157,70 @@ function About() {
         </div>
       </Section>
 
-      {/* OUTSIDE OF WORK */}
-      <Section>
-        <SectionHeading eyebrow="Outside of Work" title="The person behind the product." />
-        <Reveal className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-16 max-w-4xl">
-          {outsideWork.map((item) => (
-            <div data-reveal-item key={item.number}>
-              <div className="text-[11px] font-mono uppercase tracking-[0.18em] text-muted-foreground mb-4">
-                {item.number}
-              </div>
-              <div className="text-base md:text-[17px] font-medium text-foreground leading-snug text-balance">
-                {item.title}
-              </div>
-              <div className="mt-2 text-sm text-muted-foreground">{item.subtitle}</div>
-            </div>
-          ))}
+      {/* OUTSIDE WORK — editorial story */}
+      <Section spacing="tight">
+        <Reveal>
+          <div
+            data-reveal-item
+            className="text-[11px] font-mono uppercase tracking-[0.22em] text-muted-foreground mb-10"
+          >
+            Outside Work
+          </div>
+          <h2
+            data-reveal-item
+            className="text-4xl md:text-6xl lg:text-[72px] font-semibold tracking-tight leading-[1.02] text-balance max-w-4xl"
+          >
+            The experiences that shape how I work.
+          </h2>
+          <p data-reveal-item className="mt-10 text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed">
+            Work and life are rarely separate. Building communities, navigating uncertainty, solving problems, and
+            staying committed to long-term goals are experiences I've found both in product management and beyond.
+          </p>
         </Reveal>
+
+        <div className="mt-24 space-y-20 md:space-y-24">
+          {outsideStories.map((s, i) => {
+            const imageRight = i % 2 === 0;
+            return (
+              <Reveal
+                key={s.number}
+                className="grid grid-cols-1 md:grid-cols-[42fr_52fr] gap-8 md:gap-10 items-start"
+              >
+                <div
+                  data-reveal-item
+                  className={imageRight ? "md:order-1" : "md:order-2"}
+                >
+                  <div className="text-[11px] font-mono uppercase tracking-[0.22em] text-muted-foreground/60 mb-6">
+                    {s.number}
+                  </div>
+                  <h3 className="text-3xl md:text-4xl font-semibold tracking-tight leading-[1.05]">
+                    {s.category}
+                  </h3>
+                  <div className="mt-3 text-sm md:text-base text-muted-foreground">{s.theme}</div>
+                  <p className="mt-8 text-lg md:text-xl font-semibold text-foreground leading-snug text-balance">
+                    {s.lesson}
+                  </p>
+                  <p className="mt-6 text-base md:text-[17px] text-muted-foreground leading-[1.75]">
+                    {s.body}
+                  </p>
+                </div>
+                <div
+                  data-reveal-item
+                  className={imageRight ? "md:order-2" : "md:order-1"}
+                >
+                  <img
+                    src={s.image}
+                    alt={s.alt}
+                    loading="lazy"
+                    className="w-full h-[380px] md:h-[420px] object-cover rounded-[30px]"
+                  />
+                </div>
+              </Reveal>
+            );
+          })}
+        </div>
       </Section>
+
 
       {/* CONTACT */}
       <Section spacing="tight">
