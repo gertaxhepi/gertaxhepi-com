@@ -38,10 +38,43 @@ const howIThink = [
   "Books that shaped my thinking",
 ];
 
-const outsideWork = [
-  { number: "01", title: "Traditional Hatha Yoga Teacher", subtitle: "Founder \u00b7 Hima Yoga" },
-  { number: "02", title: "Outdoor Sports", subtitle: "Marathon Running \u00b7 Mountaineering \u00b7 Rock Climbing" },
-  { number: "03", title: "Culture", subtitle: "Philosophy \u00b7 Art \u00b7 Music" },
+const outsideStories = [
+  {
+    number: "01",
+    category: "Yoga",
+    theme: "Building communities",
+    lesson: "Community taught me that trust is built through consistency.",
+    body: "Teaching yoga inspired me to create Hima Yoga, a community built around movement and nature. As it grew, I found myself applying many of the same principles I use in product management: understanding people's needs, experimenting with new ideas, and continuously refining the experience based on what I learned.",
+    image: yogaAsset.url,
+    alt: "Gerta teaching a yoga class",
+  },
+  {
+    number: "02",
+    category: "Rock Climbing",
+    theme: "Trust & teamwork",
+    lesson: "Trusting the team starts with trusting each other.",
+    body: "Rock climbing reminded me that progress isn't just about strength. Every climb depends on trust, encouragement, and supporting one another through difficult moves. The strongest teams aren't built by individuals\u2014they grow by helping each other succeed.",
+    image: climbingAsset.url,
+    alt: "Rock climbing on a limestone wall",
+  },
+  {
+    number: "03",
+    category: "Mountaineering",
+    theme: "Humility & perspective",
+    lesson: "The mountains taught me that confidence should never replace respect.",
+    body: "Every expedition reminds me that nature is always bigger than us. No matter how much we prepare, there are risks we can't control. Reaching the summit never feels like a victory over the mountain, but a privilege. Every climb leaves me a little more humble, a little more grateful, and with a deeper respect for the people who shared the journey.",
+    image: mountaineeringAsset.url,
+    alt: "Mountaineering on a snowy alpine ridge",
+  },
+  {
+    number: "04",
+    category: "Marathon",
+    theme: "Consistency & discipline",
+    lesson: "Progress comes from consistency.",
+    body: "Marathon running has taught me that sustainable progress isn't built through intensity but through consistency. Every training run is a reminder that meaningful results come from showing up, trusting the process, and continuing even when progress isn't immediately visible.",
+    image: marathonAsset.url,
+    alt: "Running the Amsterdam marathon",
+  },
 ];
 
 type Channel = {
