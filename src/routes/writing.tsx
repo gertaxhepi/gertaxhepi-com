@@ -41,49 +41,46 @@ function Writing() {
       </Reveal>
 
       <Reveal className="mt-20 divide-y divide-border">
-        <div data-reveal-item className="grid md:grid-cols-[auto_1fr_auto] gap-6 md:gap-16 py-14 md:py-16">
-          <div className="text-[11px] font-mono uppercase tracking-[0.18em] text-muted-foreground md:pt-3">01</div>
-          <div className="max-w-2xl">
-            <h2 className="text-2xl md:text-3xl font-semibold tracking-tight">
-              <Link to="/essays/ai-problems" className="transition-opacity hover:opacity-60">
+        <Link
+          to="/essays/ai-problems"
+          data-reveal-item
+          className="group block cursor-pointer"
+        >
+          <div className="grid md:grid-cols-[auto_1fr_auto] gap-6 md:gap-16 py-14 md:py-16">
+            <div className="text-[11px] font-mono uppercase tracking-[0.18em] text-muted-foreground md:pt-3">01</div>
+            <div className="max-w-2xl">
+              <h2 className="text-2xl md:text-3xl font-semibold tracking-tight transition-opacity group-hover:opacity-60">
                 Understanding Before Solving
-              </Link>
-            </h2>
-            <p className="mt-5 text-base md:text-lg text-muted-foreground leading-relaxed">
-              A reflection on mentorship, AI and why understanding a problem matters more than writing better prompts.
-            </p>
+              </h2>
+              <p className="mt-5 text-base md:text-lg text-muted-foreground leading-relaxed">
+                A reflection on mentorship, AI and why understanding a problem matters more than writing better prompts.
+              </p>
 
-            <dl className="mt-8 grid sm:grid-cols-2 gap-x-12 gap-y-6">
-              <div>
-                <dt className="text-[11px] font-mono uppercase tracking-[0.18em] text-muted-foreground mb-2">Type</dt>
-                <dd className="text-sm md:text-[15px] font-medium">Reflection</dd>
-              </div>
-              <div>
-                <dt className="text-[11px] font-mono uppercase tracking-[0.18em] text-muted-foreground mb-2">
-                  Read time
-                </dt>
-                <dd className="text-sm md:text-[15px] font-medium">7 min</dd>
-              </div>
-            </dl>
+              <dl className="mt-8 grid sm:grid-cols-2 gap-x-12 gap-y-6">
+                <div>
+                  <dt className="text-[11px] font-mono uppercase tracking-[0.18em] text-muted-foreground mb-2">Type</dt>
+                  <dd className="text-sm md:text-[15px] font-medium">Reflection</dd>
+                </div>
+                <div>
+                  <dt className="text-[11px] font-mono uppercase tracking-[0.18em] text-muted-foreground mb-2">
+                    Read time
+                  </dt>
+                  <dd className="text-sm md:text-[15px] font-medium">7 min</dd>
+                </div>
+              </dl>
 
-            <Link
-              to="/essays/ai-problems"
-              className="group mt-10 inline-flex items-center gap-2 text-sm font-medium border-b border-foreground pb-1 transition-opacity hover:opacity-60"
-            >
-              Read essay
-              <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-1" />
-            </Link>
+              <span className="mt-10 inline-flex items-center gap-2 text-sm font-medium border-b border-foreground pb-1">
+                Read essay
+                <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-1" />
+              </span>
+            </div>
+            <div className="hidden md:block md:pt-3">
+              <span aria-label="Read essay: Working with AI Is Teaching Me to Understand Problems More Deeply" className="inline-flex">
+                <ArrowUpRight className="size-5 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
+              </span>
+            </div>
           </div>
-          <div className="hidden md:block md:pt-3">
-            <Link
-              to="/essays/ai-problems"
-              aria-label="Read essay: Working with AI Is Teaching Me to Understand Problems More Deeply"
-              className="group inline-flex transition-opacity hover:opacity-60"
-            >
-              <ArrowUpRight className="size-5 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
-            </Link>
-          </div>
-        </div>
+        </Link>
       </Reveal>
 
       <Reveal>
