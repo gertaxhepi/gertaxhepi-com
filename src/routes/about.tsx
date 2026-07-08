@@ -207,16 +207,16 @@ function About() {
                 </div>
                 <div
                   data-reveal-item
-                  className={imageRight ? "md:order-2" : "md:order-1"}
+                  className={cn(
+                    "overflow-hidden rounded-[30px]",
+                    imageRight ? "md:order-2" : "md:order-1"
+                  )}
                 >
                   <img
                     src={s.image}
                     alt={s.alt}
                     loading="lazy"
-                    className={cn(
-                      "w-full h-[380px] md:h-[420px] rounded-[30px]",
-                      s.number === "04" ? "object-contain" : "object-cover"
-                    )}
+                    className="w-full h-[380px] md:h-[420px] object-cover"
                   />
                 </div>
               </Reveal>
