@@ -35,7 +35,6 @@ export const Route = createFileRoute("/")({
   component: Home,
 });
 
-
 function Home() {
   return (
     <section className="container-page pt-16 md:pt-28 2xl:pt-24 pb-20 md:pb-28">
@@ -65,7 +64,10 @@ function Home() {
           I build products where technology, data and customer needs come together.
         </p>
 
-        <p data-reveal-item className="mt-6 text-lg md:text-xl 2xl:text-[21px] text-muted-foreground max-w-2xl 2xl:max-w-[40rem] leading-relaxed">
+        <p
+          data-reveal-item
+          className="mt-6 text-lg md:text-xl 2xl:text-[21px] text-muted-foreground max-w-2xl 2xl:max-w-[40rem] leading-relaxed"
+        >
           This is a collection of my work, my journey into Product Management, and a few ideas that continue to shape
           how I think.
         </p>
@@ -75,7 +77,7 @@ function Home() {
             to="/work"
             className="group inline-flex items-center gap-2 text-sm font-medium border-b border-foreground pb-1 transition-opacity hover:opacity-60"
           >
-            Browse product case studies
+            Explore my work
             <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-1" />
           </Link>
           <Link
@@ -88,6 +90,5 @@ function Home() {
         </div>
       </Reveal>
     </section>
-
   );
 }
