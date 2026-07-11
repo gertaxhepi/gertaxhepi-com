@@ -34,6 +34,7 @@ export type CaseStudy = {
   heroMetrics?: { label: string; value: string }[];
   lessons: string[];
   reflection: string;
+  recommendations?: { quote: string; name: string; role: string }[];
 };
 
 export const caseStudies: CaseStudy[] = [
