@@ -242,6 +242,14 @@ export const caseStudies: CaseStudy[] = [
     ],
     reflection:
       "This project reminded me that great product work isn't always about adding something new. Sometimes the biggest impact comes from removing friction people have quietly accepted as part of their everyday work.",
+    recommendations: [
+      {
+        quote:
+          "Gerta has a rare ability to make even the most complex tasks feel manageable. She balances strategic thinking with a genuine commitment to customer needs and business goals, and always knows how to keep things moving forward smoothly.",
+        name: "Leonardo Vides",
+        role: "Product Manager at Jacando",
+      },
+    ],
   },
   {
     slug: "peakprofile",
