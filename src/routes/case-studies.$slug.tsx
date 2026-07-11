@@ -294,6 +294,43 @@ function CaseStudyPage() {
               &ldquo;{s.reflection}&rdquo;
             </p>
           </Block>
+
+          {s.recommendations && s.recommendations.length > 0 && (
+            <Block title="Building it together">
+              <div className="space-y-14">
+                <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-2xl">
+                  The best products are built by teams. Here's how a few of my colleagues described working with me.
+                </p>
+                <div>
+                  {s.recommendations.map((rec, i) => (
+                    <div
+                      key={rec.name}
+                      className="py-10 md:py-14 border-t border-border/30 first:border-t-0 first:pt-0"
+                    >
+                      <div className="grid grid-cols-[auto_1fr] gap-6">
+                        <span className="text-[11px] font-mono uppercase tracking-[0.18em] text-muted-foreground pt-1.5">
+                          0{i + 1}
+                        </span>
+                        <div>
+                          <p className="text-2xl md:text-3xl font-medium leading-[1.25] tracking-tight text-foreground text-balance">
+                            &ldquo;{rec.quote}&rdquo;
+                          </p>
+                          <div className="mt-6">
+                            <div className="text-base font-semibold text-foreground">
+                              {rec.name}
+                            </div>
+                            <div className="text-sm text-muted-foreground">
+                              {rec.role}
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </Block>
+          )}
         </Reveal>
       </Section>
 
