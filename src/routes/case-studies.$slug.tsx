@@ -289,37 +289,39 @@ function CaseStudyPage() {
             </div>
           </Block>
 
-          <Block title="Reflection">
-            <p className="text-2xl md:text-3xl font-medium leading-[1.25] tracking-tight text-foreground text-balance">
-              &ldquo;{s.reflection}&rdquo;
-            </p>
-          </Block>
+          {(!s.recommendations || s.recommendations.length === 0) && s.reflection && (
+            <Block title={s.slug === "peakprofile" ? "What I learned" : "Reflection"}>
+              <p className="text-2xl md:text-3xl font-medium leading-[1.25] tracking-tight text-foreground text-balance">
+                &ldquo;{s.reflection}&rdquo;
+              </p>
+            </Block>
+          )}
 
           {s.recommendations && s.recommendations.length > 0 && (
             <Block title="Building it together">
-              <div className="space-y-14">
-                <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-2xl">
+              <div className="space-y-16">
+                <p className="text-base md:text-lg text-muted-foreground leading-relaxed max-w-2xl">
                   The best products are built by teams. Here's how a few of my colleagues described working with me.
                 </p>
                 <div>
                   {s.recommendations.map((rec, i) => (
                     <div
                       key={rec.name}
-                      className="py-10 md:py-14 border-t border-border/30 first:border-t-0 first:pt-0"
+                      className="py-12 md:py-16 border-t border-border/40 first:border-t-0 first:pt-0 last:pb-0"
                     >
-                      <div className="grid grid-cols-[auto_1fr] gap-6">
-                        <span className="text-[11px] font-mono uppercase tracking-[0.18em] text-muted-foreground pt-1.5">
+                      <div className="grid grid-cols-[auto_1fr] gap-8 md:gap-10">
+                        <span className="text-[11px] font-mono uppercase tracking-[0.18em] text-muted-foreground pt-2">
                           0{i + 1}
                         </span>
-                        <div>
-                          <p className="text-2xl md:text-3xl font-medium leading-[1.25] tracking-tight text-foreground text-balance">
+                        <div className="border-l-2 border-border pl-6 md:pl-8">
+                          <p className="text-lg md:text-xl font-normal leading-[1.55] text-foreground/90 text-balance max-w-2xl">
                             &ldquo;{rec.quote}&rdquo;
                           </p>
-                          <div className="mt-6">
-                            <div className="text-base font-semibold text-foreground">
+                          <div className="mt-8">
+                            <div className="text-sm font-semibold text-foreground">
                               {rec.name}
                             </div>
-                            <div className="text-sm text-muted-foreground">
+                            <div className="text-sm text-muted-foreground mt-0.5">
                               {rec.role}
                             </div>
                           </div>
