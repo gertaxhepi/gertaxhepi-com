@@ -34,6 +34,7 @@ export type CaseStudy = {
   heroMetrics?: { label: string; value: string }[];
   lessons: string[];
   reflection: string;
+  recommendations?: { quote: string; name: string; role: string }[];
 };
 
 export const caseStudies: CaseStudy[] = [
@@ -138,6 +139,26 @@ export const caseStudies: CaseStudy[] = [
     ],
     reflection:
       "Better products start long before the algorithm. Better decisions come from better data, thoughtful product design and helping users understand where answers come from. That lesson has shaped nearly every product I've built since.",
+    recommendations: [
+      {
+        quote:
+          "Gerta consistently guided our data-driven projects with a keen eye for outcomes. Her ability to analyze and apply data insights was a key contributor to our team's achievements.",
+        name: "Mike Czech",
+        role: "Senior Machine Learning Engineer",
+      },
+      {
+        quote:
+          "Her technical background, coupled with a keen understanding of the product landscape, brought a unique perspective to our team. Gerta consistently leveraged this dual skill set to drive innovative solutions and make informed decisions.",
+        name: "Tom Raab",
+        role: "Senior Product Manager",
+      },
+      {
+        quote:
+          "Gerta brings clarity, asks thoughtful questions, and keeps everyone aligned around product goals and user needs. Working with her was truly a pleasure.",
+        name: "Pedro Almeida",
+        role: "Agile Coach",
+      },
+    ],
   },
   {
     slug: "electronic-signature",
@@ -221,6 +242,14 @@ export const caseStudies: CaseStudy[] = [
     ],
     reflection:
       "This project reminded me that great product work isn't always about adding something new. Sometimes the biggest impact comes from removing friction people have quietly accepted as part of their everyday work.",
+    recommendations: [
+      {
+        quote:
+          "Gerta has a rare ability to make even the most complex tasks feel manageable. She balances strategic thinking with a genuine commitment to customer needs and business goals, and always knows how to keep things moving forward smoothly.",
+        name: "Leonardo Vides",
+        role: "Product Manager at Jacando",
+      },
+    ],
   },
   {
     slug: "peakprofile",
