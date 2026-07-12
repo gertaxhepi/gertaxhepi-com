@@ -78,25 +78,6 @@ const outsideStories = [
   },
 ];
 
-type Channel = {
-  label: string;
-  value: string;
-  href?: string;
-  external?: boolean;
-  internal?: boolean;
-};
-
-const channels: Channel[] = [
-  { label: "Email", value: "xhepigerta@gmail.com", href: "mailto:xhepigerta@gmail.com" },
-  {
-    label: "LinkedIn",
-    value: "linkedin.com/in/gerta-xhepi",
-    href: "https://www.linkedin.com/in/gerta-xhepi-94853289/",
-    external: true,
-  },
-  { label: "Resume", value: "View resume", href: "/resume", internal: true },
-  { label: "Location", value: "Germany" },
-];
 
 function About() {
   return (
