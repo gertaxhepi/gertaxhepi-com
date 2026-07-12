@@ -19,7 +19,6 @@ const channels: Channel[] = [
     external: true,
   },
   { label: "Resume", value: "View resume", href: "/resume", internal: true },
-  { label: "Location", value: "Germany" },
 ];
 
 export function ContactBlock() {
