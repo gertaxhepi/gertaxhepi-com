@@ -103,7 +103,7 @@ function About() {
                 params={{ slug: "peakprofile" }}
                 className="underline underline-offset-4 decoration-foreground/30 hover:decoration-foreground transition-colors"
               >
-                PeakProfile
+                PeakProfile.
               </Link>
               Building it has reinforced how much I enjoy product management—not only exploring new ideas independently,
               but also collaborating with cross-functional teams to turn ideas into products that create real impact.
