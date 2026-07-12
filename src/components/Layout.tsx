@@ -115,7 +115,7 @@ export function SiteHeader() {
 
 export function SiteFooter() {
   return (
-    <footer className="mt-8 md:mt-10">
+    <footer>
       <div className="container-page">
         <div className="border-t border-border/40" />
         <div className="flex items-center justify-between py-8 md:py-10 text-[11px] font-mono uppercase tracking-[0.18em] text-muted-foreground">
