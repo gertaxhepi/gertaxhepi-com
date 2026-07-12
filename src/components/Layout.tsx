@@ -3,6 +3,7 @@ import type { ReactNode } from "react";
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { ThemeToggle } from "./ThemeToggle";
+import { ContactBlock } from "./ContactBlock";
 
 type NavItem = { label: string; to: string };
 
