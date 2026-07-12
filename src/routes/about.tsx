@@ -105,8 +105,11 @@ function About() {
               >
                 PeakProfile.
               </Link>
-              Building it has reinforced how much I enjoy product management—not only exploring new ideas independently,
-              but also collaborating with cross-functional teams to turn ideas into products that create real impact.
+            </p>
+            <p data-reveal-item>
+              Building PeakProfile has reinforced how much I enjoy product management. While I love exploring ideas
+              independently, what motivates me most is collaborating with talented teams to solve complex problems and
+              build products that make a real difference.
             </p>
             <p data-reveal-item className="pt-4">
               I'm fascinated by products that help people make better decisions. Whether through better data, thoughtful
