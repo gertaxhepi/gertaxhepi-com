@@ -78,7 +78,6 @@ const outsideStories = [
   },
 ];
 
-
 function About() {
   return (
     <>
@@ -106,6 +105,8 @@ function About() {
               >
                 PeakProfile
               </Link>
+              Building it has reinforced how much I enjoy product management—not only exploring new ideas independently,
+              but also collaborating with cross-functional teams to turn ideas into products that create real impact.
             </p>
             <p data-reveal-item className="pt-4">
               I'm fascinated by products that help people make better decisions. Whether through better data, thoughtful
@@ -164,34 +165,21 @@ function About() {
           {outsideStories.map((s, i) => {
             const imageRight = i % 2 === 0;
             return (
-              <Reveal
-                key={s.number}
-                className="grid grid-cols-1 md:grid-cols-[42fr_52fr] gap-8 md:gap-10 items-start"
-              >
-                <div
-                  data-reveal-item
-                  className={imageRight ? "md:order-1" : "md:order-2"}
-                >
+              <Reveal key={s.number} className="grid grid-cols-1 md:grid-cols-[42fr_52fr] gap-8 md:gap-10 items-start">
+                <div data-reveal-item className={imageRight ? "md:order-1" : "md:order-2"}>
                   <div className="text-[11px] font-mono uppercase tracking-[0.22em] text-muted-foreground/60 mb-6">
                     {s.number}
                   </div>
-                  <h3 className="text-3xl md:text-4xl font-semibold tracking-tight leading-[1.05]">
-                    {s.category}
-                  </h3>
+                  <h3 className="text-3xl md:text-4xl font-semibold tracking-tight leading-[1.05]">{s.category}</h3>
                   <div className="mt-3 text-sm md:text-base text-muted-foreground">{s.theme}</div>
                   <p className="mt-8 text-lg md:text-xl font-semibold text-foreground leading-snug text-balance">
                     {s.lesson}
                   </p>
-                  <p className="mt-6 text-base md:text-[17px] text-muted-foreground leading-[1.75]">
-                    {s.body}
-                  </p>
+                  <p className="mt-6 text-base md:text-[17px] text-muted-foreground leading-[1.75]">{s.body}</p>
                 </div>
                 <div
                   data-reveal-item
-                  className={cn(
-                    "overflow-hidden rounded-[30px]",
-                    imageRight ? "md:order-2" : "md:order-1"
-                  )}
+                  className={cn("overflow-hidden rounded-[30px]", imageRight ? "md:order-2" : "md:order-1")}
                 >
                   <img
                     src={s.image}
