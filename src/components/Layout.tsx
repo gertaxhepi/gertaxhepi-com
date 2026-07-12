@@ -115,37 +115,31 @@ export function SiteHeader() {
 
 export function SiteFooter() {
   return (
-    <footer className="mt-40">
-      <div className="container-page pb-12 grid grid-cols-2 sm:grid-cols-3 items-center gap-4 text-xs font-mono uppercase tracking-[0.14em] text-muted-foreground">
-        <span className="justify-self-start">© {new Date().getFullYear()} Gerta Xhepi</span>
-        <div className="hidden sm:flex justify-self-center items-center gap-8">
-          <Link
-            to={RESUME_URL}
-            className="inline-flex items-center gap-1.5 transition-colors hover:text-foreground"
-          >
-            View Resume <span aria-hidden>↗</span>
-          </Link>
-          <a
-            href={LINKEDIN_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 transition-colors hover:text-foreground"
-          >
-            LinkedIn <span aria-hidden>↗</span>
-          </a>
+    <footer className="mt-8 md:mt-10">
+      <div className="container-page">
+        <div className="border-t border-border/40" />
+        <div className="flex items-center justify-between py-8 md:py-10 text-[11px] font-mono uppercase tracking-[0.18em] text-muted-foreground">
+          <span>© {new Date().getFullYear()} Gerta Xhepi</span>
+          <span>All rights reserved</span>
         </div>
-        <span className="justify-self-end">Based in Germany</span>
       </div>
     </footer>
   );
 }
 
 export function PageShell({ children }: { children: ReactNode }) {
+  const location = useLocation();
+  const isHome = location.pathname === "/";
   return (
     <div className="flex min-h-screen flex-col">
       <SiteHeader />
       <main className="flex-1 pt-[72px]">{children}</main>
-      <SiteFooter />
+      {!isHome && (
+        <>
+          <ContactBlock />
+          <SiteFooter />
+        </>
+      )}
     </div>
   );
 }
