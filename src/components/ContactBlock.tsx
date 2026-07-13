@@ -16,31 +16,31 @@ const channels: Channel[] = [
     href: "https://www.linkedin.com/in/gerta-xhepi-94853289/",
     external: true,
   },
-  { label: "View resume", href: "/resume", internal: true },
+  { label: "Resume", href: "/resume", internal: true },
 ];
 
 export function ContactBlock() {
   return (
     <section className="container-page pt-20 md:pt-28 pb-6 md:pb-8">
-      <Reveal className="grid grid-cols-1 md:grid-cols-[1.6fr_1fr] gap-10 md:gap-16 items-start">
+      <Reveal className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-start">
         <h2
           data-reveal-item
           className="text-4xl md:text-6xl lg:text-[72px] font-semibold tracking-tight leading-[1.02] text-balance"
         >
           Let's get in touch.
         </h2>
-        <div data-reveal-item className="md:pt-3">
-          <div className="flex items-center gap-2 text-sm md:text-base font-medium text-foreground">
+        <div data-reveal-item className="md:pt-4 md:text-right md:justify-self-end">
+          <div className="flex items-center gap-2 md:justify-end text-sm md:text-base font-medium text-foreground">
             <MapPin className="size-4" strokeWidth={1.75} />
             Based in Germany
           </div>
-          <p className="mt-3 text-sm md:text-base text-muted-foreground leading-relaxed">
+          <p className="mt-3 text-sm md:text-base text-muted-foreground leading-relaxed max-w-xs md:ml-auto">
             Open to remote opportunities across Germany &amp; Europe.
           </p>
         </div>
       </Reveal>
 
-      <Reveal className="mt-14 md:mt-20 flex flex-wrap items-center gap-x-12 md:gap-x-20 gap-y-4">
+      <Reveal className="mt-14 md:mt-20 flex flex-col items-start gap-4">
         {channels.map((c) => {
           const className =
             "group inline-flex items-center gap-2 text-lg md:text-xl font-medium text-foreground transition-opacity hover:opacity-60";
