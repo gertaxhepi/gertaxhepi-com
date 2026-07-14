@@ -79,8 +79,8 @@ export function ThemeToggle() {
             style={{
               position: "absolute",
               inset: 0,
-              opacity: theme === "dark" ? 0 : 1,
-              transform: `rotate(${theme === "dark" ? -90 : 0}deg) scale(${flip ? 0.85 : 1})`,
+              opacity: theme === "dark" ? 1 : 0,
+              transform: `rotate(${theme === "dark" ? 0 : 90}deg) scale(${flip ? 0.85 : 1})`,
               transition:
                 "opacity 250ms cubic-bezier(0.22, 1, 0.36, 1), transform 300ms cubic-bezier(0.22, 1, 0.36, 1)",
             }}
@@ -91,8 +91,8 @@ export function ThemeToggle() {
             style={{
               position: "absolute",
               inset: 0,
-              opacity: theme === "dark" ? 1 : 0,
-              transform: `rotate(${theme === "dark" ? 0 : 90}deg) scale(${flip ? 0.85 : 1})`,
+              opacity: theme === "dark" ? 0 : 1,
+              transform: `rotate(${theme === "dark" ? -90 : 0}deg) scale(${flip ? 0.85 : 1})`,
               transition:
                 "opacity 250ms cubic-bezier(0.22, 1, 0.36, 1), transform 300ms cubic-bezier(0.22, 1, 0.36, 1)",
             }}
