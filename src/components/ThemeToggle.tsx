@@ -1,4 +1,7 @@
 import { useEffect, useState } from "react";
+import { Sun, Moon } from "lucide-react";
+
+
 
 const STORAGE_KEY = "theme";
 const ACCENT = "#8A5A5A";
@@ -56,26 +59,46 @@ export function ThemeToggle() {
         aria-pressed={theme === "dark"}
         className="inline-flex cursor-pointer items-center justify-center leading-none"
         style={{
-          fontSize: "19px",
           width: "22px",
           height: "22px",
-          perspective: "600px",
           color: hover ? ACCENT : "var(--color-foreground)",
           transition: "color 250ms cubic-bezier(0.22, 1, 0.36, 1)",
         }}
       >
         <span
           style={{
+            position: "relative",
             display: "inline-block",
-            lineHeight: 1,
-            transform: `rotateY(${flip ? 180 : 0}deg)`,
-            transition: "transform 550ms cubic-bezier(0.22, 1, 0.36, 1)",
-            transformStyle: "preserve-3d",
-            willChange: "transform",
+            width: "20px",
+            height: "20px",
           }}
         >
-          ◐
+          <Sun
+            size={20}
+            strokeWidth={1.5}
+            style={{
+              position: "absolute",
+              inset: 0,
+              opacity: theme === "dark" ? 0 : 1,
+              transform: `rotate(${theme === "dark" ? -90 : 0}deg) scale(${flip ? 0.85 : 1})`,
+              transition:
+                "opacity 250ms cubic-bezier(0.22, 1, 0.36, 1), transform 300ms cubic-bezier(0.22, 1, 0.36, 1)",
+            }}
+          />
+          <Moon
+            size={20}
+            strokeWidth={1.5}
+            style={{
+              position: "absolute",
+              inset: 0,
+              opacity: theme === "dark" ? 1 : 0,
+              transform: `rotate(${theme === "dark" ? 0 : 90}deg) scale(${flip ? 0.85 : 1})`,
+              transition:
+                "opacity 250ms cubic-bezier(0.22, 1, 0.36, 1), transform 300ms cubic-bezier(0.22, 1, 0.36, 1)",
+            }}
+          />
         </span>
+
       </button>
       <span
         aria-hidden="true"
