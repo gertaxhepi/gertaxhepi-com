@@ -1,4 +1,7 @@
 import { useEffect, useState } from "react";
+import { Sun, Moon } from "lucide-react";
+
+
 
 const STORAGE_KEY = "theme";
 const ACCENT = "#8A5A5A";
