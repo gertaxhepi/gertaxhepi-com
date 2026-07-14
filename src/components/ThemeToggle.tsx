@@ -59,8 +59,8 @@ export function ThemeToggle() {
         aria-pressed={theme === "dark"}
         className="inline-flex cursor-pointer items-center justify-center leading-none"
         style={{
-          width: "22px",
-          height: "22px",
+          width: "40px",
+          height: "40px",
           color: hover ? ACCENT : "var(--color-foreground)",
           transition: "color 250ms cubic-bezier(0.22, 1, 0.36, 1)",
         }}
@@ -71,6 +71,7 @@ export function ThemeToggle() {
             display: "inline-block",
             width: "20px",
             height: "20px",
+            transform: "translateY(-1.5px)",
           }}
         >
           <Sun
