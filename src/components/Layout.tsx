@@ -54,7 +54,7 @@ export function SiteHeader() {
           Gerta Xhepi
         </Link>
 
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden md:flex items-center gap-4">
           <nav className="flex items-center gap-8">
             {navItems.map((item) => {
               const active = isActive(item.to);
@@ -71,7 +71,7 @@ export function SiteHeader() {
               );
             })}
           </nav>
-          <div className="pl-1">
+          <div>
             <ThemeToggle />
           </div>
         </div>
