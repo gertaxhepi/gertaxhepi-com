@@ -71,7 +71,7 @@ export function SiteHeader() {
               );
             })}
           </nav>
-          <div style={{ marginLeft: "2px" }}>
+          <div className="pl-1">
             <ThemeToggle />
           </div>
         </div>
