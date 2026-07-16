@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Section } from "@/components/Primitives";
 import { Reveal } from "@/components/Reveal";
 import { Breadcrumb } from "@/components/Breadcrumb";
-import { Download, Linkedin, Mail, Phone, MapPin, ArrowUpRight } from "lucide-react";
+import { Download, Linkedin, Mail, MapPin } from "lucide-react";
 
 export const Route = createFileRoute("/resume")({
   head: () => ({
