@@ -135,14 +135,8 @@ function Resume() {
     <>
       <Section className="pt-16 md:pt-28" spacing="tight">
         <Reveal>
-          <div data-reveal-item className="mb-8">
-            <Breadcrumb items={[{ label: "Home", to: "/" }]} />
-          </div>
-          <div
-            data-reveal-item
-            className="text-[11px] font-mono uppercase tracking-[0.22em] text-muted-foreground mb-10"
-          >
-            Resume
+          <div data-reveal-item className="mb-10">
+            <Breadcrumb items={[{ label: "Home", to: "/" }, { label: "Resume" }]} />
           </div>
           <h1
             data-reveal-item
@@ -155,29 +149,19 @@ function Resume() {
             className="mt-10 flex flex-wrap gap-x-8 gap-y-3"
           >
             <MetaLink href="mailto:xhepigerta@gmail.com" icon={Mail}>xhepigerta@gmail.com</MetaLink>
-            <MetaLink href="tel:+4915210223821" icon={Phone}>+49 152 1022 3821</MetaLink>
             <span className="inline-flex items-center gap-2 text-sm text-muted-foreground">
               <MapPin className="size-3.5" /> Germany
             </span>
             <MetaLink href="https://www.linkedin.com/in/gerta-xhepi-94853289/" icon={Linkedin} external>LinkedIn</MetaLink>
           </div>
 
-          <div data-reveal-item className="mt-10 flex flex-wrap gap-x-8 gap-y-3">
+          <div data-reveal-item className="mt-10">
             <a
               href="/resume.pdf"
-              download
+              download="Gerta_Xhepi_Product_Manager_Resume.pdf"
               className="group inline-flex items-center gap-2 text-sm font-medium border-b border-foreground pb-1 transition-opacity hover:opacity-60"
             >
               <Download className="size-4" /> Download PDF
-            </a>
-            <a
-              href="https://www.linkedin.com/in/gerta-xhepi-94853289/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group inline-flex items-center gap-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
-            >
-              View on LinkedIn
-              <ArrowUpRight className="size-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </a>
           </div>
         </Reveal>
