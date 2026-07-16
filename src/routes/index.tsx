@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, ArrowUpRight } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Download } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
+import resumePdf from "@/assets/gerta_xhepi-resume.pdf.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
