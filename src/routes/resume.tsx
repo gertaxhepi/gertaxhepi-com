@@ -3,6 +3,7 @@ import { Section } from "@/components/Primitives";
 import { Reveal } from "@/components/Reveal";
 import { Breadcrumb } from "@/components/Breadcrumb";
 import { Download, Linkedin, Mail, MapPin } from "lucide-react";
+import resumePdf from "@/assets/gerta_xhepi-resume.pdf.asset.json";
 
 export const Route = createFileRoute("/resume")({
   head: () => ({
