@@ -3,6 +3,7 @@ import { Section } from "@/components/Primitives";
 import { Reveal } from "@/components/Reveal";
 import { Breadcrumb } from "@/components/Breadcrumb";
 import { Download, Linkedin, Mail, MapPin } from "lucide-react";
+import resumePdf from "@/assets/gerta_xhepi-resume.pdf.asset.json";
 
 export const Route = createFileRoute("/resume")({
   head: () => ({
@@ -157,8 +158,8 @@ function Resume() {
 
           <div data-reveal-item className="mt-10">
             <a
-              href="/resume.pdf"
-              download="Gerta_Xhepi_Product_Manager_Resume.pdf"
+              href={resumePdf.url}
+              download="gerta_xhepi-resume.pdf"
               className="group inline-flex items-center gap-2 text-sm font-medium border-b border-foreground pb-1 transition-opacity hover:opacity-60"
             >
               <Download className="size-4" /> Download PDF
