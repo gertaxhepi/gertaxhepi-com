@@ -35,6 +35,7 @@ export type CaseStudy = {
   lessons: string[];
   reflection: string;
   recommendations?: { quote: string; name: string; role: string }[];
+  learnings?: { title: string; description: string }[];
 };
 
 export const caseStudies: CaseStudy[] = [
