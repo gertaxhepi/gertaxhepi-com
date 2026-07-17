@@ -289,8 +289,40 @@ function CaseStudyPage() {
             </div>
           </Block>
 
-          {(!s.recommendations || s.recommendations.length === 0) && s.reflection && (
-            <Block title={s.slug === "peakprofile" ? "What I learned" : "Reflection"}>
+          {s.learnings && s.learnings.length > 0 && (
+            <Block title="What I learned">
+              <div className="space-y-16">
+                <p className="text-base md:text-lg text-muted-foreground leading-relaxed max-w-2xl">
+                  Building PeakProfile changed how I think about AI products, trust, and decision-making in high-stakes environments.
+                </p>
+                <div>
+                  {s.learnings.map((learning, i) => (
+                    <div
+                      key={learning.title}
+                      className="py-12 md:py-16 border-t border-border/40 first:border-t-0 first:pt-0 last:pb-0"
+                    >
+                      <div className="grid grid-cols-[auto_1fr] gap-8 md:gap-10">
+                        <span className="text-[11px] font-mono uppercase tracking-[0.18em] text-muted-foreground pt-2">
+                          0{i + 1}
+                        </span>
+                        <div className="border-l-2 border-border pl-6 md:pl-8">
+                          <h3 className="text-lg md:text-xl font-semibold tracking-tight mb-3 text-balance">
+                            {learning.title}
+                          </h3>
+                          <p className="text-base md:text-lg text-foreground/90 leading-relaxed max-w-2xl text-balance">
+                            {learning.description}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </Block>
+          )}
+
+          {(!s.recommendations || s.recommendations.length === 0) && s.reflection && !s.learnings && (
+            <Block title="Reflection">
               <p className="text-2xl md:text-3xl font-medium leading-[1.25] tracking-tight text-foreground text-balance">
                 &ldquo;{s.reflection}&rdquo;
               </p>

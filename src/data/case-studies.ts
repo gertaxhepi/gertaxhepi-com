@@ -35,6 +35,7 @@ export type CaseStudy = {
   lessons: string[];
   reflection: string;
   recommendations?: { quote: string; name: string; role: string }[];
+  learnings?: { title: string; description: string }[];
 };
 
 export const caseStudies: CaseStudy[] = [
@@ -354,6 +355,23 @@ export const caseStudies: CaseStudy[] = [
 
     reflection:
       "Building PeakProfile has changed how I think about AI products. In high-stakes environments, the goal is not to replace human judgement with confident answers, but to help people make better decisions by bringing together the right information at the right moment.",
+    learnings: [
+      {
+        title: "AI should support judgement, not replace it.",
+        description:
+          "In high-stakes environments, the goal is not to produce confident answers. It is to bring together the right information at the right moment so people can make better decisions.",
+      },
+      {
+        title: "Trust depends on showing the reasoning.",
+        description:
+          "A recommendation becomes more useful when people can understand what information shaped it, where uncertainty remains, and when human judgement is still required.",
+      },
+      {
+        title: "Better data matters more than more intelligence.",
+        description:
+          "The quality of an AI product depends heavily on the structure, reliability, and relevance of the information behind it. A sophisticated model cannot compensate for weak inputs.",
+      },
+    ],
   },
 ];
 
