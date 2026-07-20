@@ -5,16 +5,34 @@ import { Breadcrumb } from "@/components/Breadcrumb";
 import { Download, Linkedin, Mail, MapPin } from "lucide-react";
 import resumePdf from "@/assets/gerta_xhepi-resume.pdf.asset.json";
 
+const OG_IMAGE = "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/5e5a77b8-fdcf-4df7-92f9-1cada506e97a";
+
 export const Route = createFileRoute("/resume")({
   head: () => ({
     meta: [
-      { title: "Resume — Gerta Xhepi" },
-      { name: "description", content: "Resume of Gerta Xhepi: Product Manager with 5+ years of experience, MBA, and software engineering background." },
-      { property: "og:title", content: "Resume — Gerta Xhepi" },
-      { property: "og:description", content: "Experience, education, skills and certifications of Gerta Xhepi." },
-      { property: "og:url", content: "/resume" },
+      { title: "Resume | Product Manager" },
+      { name: "description", content: "View and download my Product Manager resume." },
+      { property: "og:title", content: "Resume | Product Manager" },
+      { property: "og:description", content: "View and download my Product Manager resume." },
+      { property: "og:url", content: "https://gertaproduct.com/resume" },
+      { property: "og:image", content: OG_IMAGE },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:image", content: OG_IMAGE },
     ],
-    links: [{ rel: "canonical", href: "/resume" }],
+    links: [{ rel: "canonical", href: "https://gertaproduct.com/resume" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            { "@type": "ListItem", position: 1, name: "Home", item: "https://gertaproduct.com/" },
+            { "@type": "ListItem", position: 2, name: "Resume", item: "https://gertaproduct.com/resume" },
+          ],
+        }),
+      },
+    ],
   }),
   component: Resume,
 });

@@ -3,20 +3,25 @@ import { ArrowRight, ArrowUpRight, Download } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
 import resumePdf from "@/assets/gerta_xhepi-resume.pdf.asset.json";
 
+const OG_IMAGE = "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/5e5a77b8-fdcf-4df7-92f9-1cada506e97a";
+
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Gerta Xhepi — PM Portfolio & Product Case Studies" },
+      { title: "Product Manager Portfolio | AI, Marketplace & SaaS" },
       {
         name: "description",
-        content: "Product Manager building thoughtful digital products across B2B, B2C, SaaS, AI and marketplaces.",
+        content: "Senior Product Manager with experience building AI, marketplace and workflow products. Product case studies, writing and resume.",
       },
-      { property: "og:title", content: "Gerta Xhepi — Product Manager Portfolio" },
+      { property: "og:title", content: "Product Manager Portfolio | AI, Marketplace & SaaS" },
       {
         property: "og:description",
-        content: "Product Manager building thoughtful digital products across B2B, B2C, SaaS, AI and marketplaces.",
+        content: "Senior Product Manager with experience building AI, marketplace and workflow products. Product case studies, writing and resume.",
       },
       { property: "og:url", content: "https://gertaproduct.com/" },
+      { property: "og:image", content: OG_IMAGE },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:image", content: OG_IMAGE },
     ],
     links: [{ rel: "canonical", href: "https://gertaproduct.com/" }],
     scripts: [
@@ -27,8 +32,30 @@ export const Route = createFileRoute("/")({
           "@type": "Person",
           name: "Gerta Xhepi",
           jobTitle: "Product Manager",
-          url: "https://gertaproduct.com/",
+          description: "Product Manager specializing in AI, marketplaces and workflow products.",
+          url: "https://gertaproduct.com",
+          address: { "@type": "PostalAddress", addressCountry: "DE" },
           sameAs: ["https://www.linkedin.com/in/gerta-xhepi-94853289/"],
+        }),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          name: "Gerta Xhepi — Product Manager",
+          url: "https://gertaproduct.com",
+          description: "Portfolio of Gerta Xhepi, Product Manager specializing in AI, marketplaces and workflow products.",
+        }),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            { "@type": "ListItem", position: 1, name: "Home", item: "https://gertaproduct.com/" },
+          ],
         }),
       },
     ],
@@ -48,7 +75,7 @@ function Home() {
             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-foreground opacity-50" />
             <span className="relative inline-flex size-1.5 rounded-full bg-foreground" />
           </span>
-          Based in Germany · Open to Remote Product Opportunities Across Europe
+          AI Product Manager • Based in Germany • Open to remote opportunities across Europe
         </div>
 
         <h1

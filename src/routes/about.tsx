@@ -9,24 +9,40 @@ import climbingAsset from "@/assets/climbing.png.asset.json";
 import mountaineeringAsset from "@/assets/mountenaring.png.asset.json";
 import marathonAsset from "@/assets/marathon.png.asset.json";
 
+const OG_IMAGE = "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/5e5a77b8-fdcf-4df7-92f9-1cada506e97a";
+
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About Me — Gerta Xhepi" },
+      { title: "About | Product Manager" },
       {
         name: "description",
-        content:
-          "Product Manager with 5+ years building B2B, B2C, SaaS, AI and marketplace products. Software engineering background.",
+        content: "Learn more about my journey from Software Engineer to Product Manager and the products I've built.",
       },
-
-      { property: "og:title", content: "About Me — Gerta Xhepi" },
+      { property: "og:title", content: "About | Product Manager" },
       {
         property: "og:description",
-        content: "Product Manager working at the intersection of customer needs, data, business and engineering.",
+        content: "Learn more about my journey from Software Engineer to Product Manager and the products I've built.",
       },
-      { property: "og:url", content: "/about" },
+      { property: "og:url", content: "https://gertaproduct.com/about" },
+      { property: "og:image", content: OG_IMAGE },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:image", content: OG_IMAGE },
     ],
-    links: [{ rel: "canonical", href: "/about" }],
+    links: [{ rel: "canonical", href: "https://gertaproduct.com/about" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            { "@type": "ListItem", position: 1, name: "Home", item: "https://gertaproduct.com/" },
+            { "@type": "ListItem", position: 2, name: "About", item: "https://gertaproduct.com/about" },
+          ],
+        }),
+      },
+    ],
   }),
   component: About,
 });

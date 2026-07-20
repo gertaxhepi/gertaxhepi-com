@@ -49,9 +49,14 @@ export function SiteHeader() {
       <div className="container-page flex h-[72px] items-center justify-between">
         <Link
           to="/"
-          className="text-sm font-bold uppercase tracking-[0.2em] text-foreground transition-opacity duration-300 hover:opacity-70"
+          className="flex flex-col leading-none transition-opacity duration-300 hover:opacity-70"
         >
-          Gerta Xhepi
+          <span className="text-sm font-bold uppercase tracking-[0.2em] text-foreground">
+            Gerta Xhepi
+          </span>
+          <span className="mt-1 text-[10px] font-mono uppercase tracking-[0.22em] text-muted-foreground">
+            Product Manager
+          </span>
         </Link>
 
         <div className="hidden md:flex items-center gap-4">

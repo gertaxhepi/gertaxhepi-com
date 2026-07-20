@@ -3,16 +3,34 @@ import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { Section } from "@/components/Primitives";
 import { Reveal } from "@/components/Reveal";
 
+const OG_IMAGE = "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/5e5a77b8-fdcf-4df7-92f9-1cada506e97a";
+
 export const Route = createFileRoute("/work")({
   head: () => ({
     meta: [
-      { title: "Work — Gerta Xhepi" },
-      { name: "description", content: "Selected product work across marketplaces, HR SaaS and AI products." },
-      { property: "og:title", content: "Work — Gerta Xhepi" },
-      { property: "og:description", content: "Selected product work across marketplaces, HR SaaS and AI products." },
-      { property: "og:url", content: "/work" },
+      { title: "Product Case Studies | AI, Marketplace & SaaS" },
+      { name: "description", content: "Case studies covering AI products, marketplaces, workflow tools and data-driven product development." },
+      { property: "og:title", content: "Product Case Studies | AI, Marketplace & SaaS" },
+      { property: "og:description", content: "Case studies covering AI products, marketplaces, workflow tools and data-driven product development." },
+      { property: "og:url", content: "https://gertaproduct.com/work" },
+      { property: "og:image", content: OG_IMAGE },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:image", content: OG_IMAGE },
     ],
-    links: [{ rel: "canonical", href: "/work" }],
+    links: [{ rel: "canonical", href: "https://gertaproduct.com/work" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            { "@type": "ListItem", position: 1, name: "Home", item: "https://gertaproduct.com/" },
+            { "@type": "ListItem", position: 2, name: "Work", item: "https://gertaproduct.com/work" },
+          ],
+        }),
+      },
+    ],
   }),
   component: Work,
 });

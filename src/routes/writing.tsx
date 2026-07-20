@@ -3,16 +3,34 @@ import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { Section } from "@/components/Primitives";
 import { Reveal } from "@/components/Reveal";
 
+const OG_IMAGE = "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/5e5a77b8-fdcf-4df7-92f9-1cada506e97a";
+
 export const Route = createFileRoute("/writing")({
   head: () => ({
     meta: [
-      { title: "Writing — Gerta Xhepi" },
-      { name: "description", content: "Essays and reflections on product, AI and decision-making." },
-      { property: "og:title", content: "Writing — Gerta Xhepi" },
-      { property: "og:description", content: "Essays and reflections on product, AI and decision-making." },
-      { property: "og:url", content: "/writing" },
+      { title: "Product Essays | AI, Product Strategy & Discovery" },
+      { name: "description", content: "Essays about AI product management, discovery, strategy and building thoughtful products." },
+      { property: "og:title", content: "Product Essays | AI, Product Strategy & Discovery" },
+      { property: "og:description", content: "Essays about AI product management, discovery, strategy and building thoughtful products." },
+      { property: "og:url", content: "https://gertaproduct.com/writing" },
+      { property: "og:image", content: OG_IMAGE },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:image", content: OG_IMAGE },
     ],
-    links: [{ rel: "canonical", href: "/writing" }],
+    links: [{ rel: "canonical", href: "https://gertaproduct.com/writing" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            { "@type": "ListItem", position: 1, name: "Home", item: "https://gertaproduct.com/" },
+            { "@type": "ListItem", position: 2, name: "Writing", item: "https://gertaproduct.com/writing" },
+          ],
+        }),
+      },
+    ],
   }),
   component: Writing,
 });
