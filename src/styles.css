@@ -221,8 +221,8 @@ html[data-reveal-ready="true"] [data-reveal-root][data-revealed="false"] [data-r
   display: inline-flex;
   width: 1em;
   height: 1em;
-  margin-left: 0.03em;
-  transform: translateY(0.06em) scale(1.15);
+  margin-left: 0.02em;
+  transform: translateY(0.09em) scale(1.15);
   flex-shrink: 0;
   color: currentColor;
 }

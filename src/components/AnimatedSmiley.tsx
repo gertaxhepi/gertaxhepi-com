@@ -8,24 +8,26 @@ export function AnimatedSmiley() {
           cy="80"
           r="52"
         />
-        <circle
-          className="smiley-eye smiley-eye-left"
-          cx="62"
-          cy="66"
-          r="5.5"
-        />
-        <circle
-          className="smiley-eye smiley-eye-right"
-          cx="98"
-          cy="66"
-          r="5.5"
-        />
-        <path
-          className="smiley-draw smiley-mouth"
-          d="M56 94 Q80 114 104 94"
-        />
-        <path className="smiley-draw smiley-corner" d="M54 94 L58 92" />
-        <path className="smiley-draw smiley-corner" d="M106 94 L102 92" />
+        <g transform="translate(80,80) scale(1.09) translate(-80,-80)">
+          <circle
+            className="smiley-eye smiley-eye-left"
+            cx="62"
+            cy="66"
+            r="5.5"
+          />
+          <circle
+            className="smiley-eye smiley-eye-right"
+            cx="98"
+            cy="66"
+            r="5.5"
+          />
+          <path
+            className="smiley-draw smiley-mouth"
+            d="M56 94 Q80 114 104 94"
+          />
+          <path className="smiley-draw smiley-corner" d="M54 94 L58 92" />
+          <path className="smiley-draw smiley-corner" d="M106 94 L102 92" />
+        </g>
       </svg>
     </span>
   );
