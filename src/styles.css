@@ -219,10 +219,11 @@ html[data-reveal-ready="true"] [data-reveal-root][data-revealed="false"] [data-r
 /* Animated smiley (hero) */
 .animated-smiley {
   display: inline-flex;
-  width: 0.82em;
-  height: 0.82em;
-  margin-left: 0.1em;
-  vertical-align: 0.02em;
+  width: 1em;
+  height: 1em;
+  margin-left: 0.03em;
+  transform: translateY(0.06em) scale(1.15);
+  flex-shrink: 0;
   color: currentColor;
 }
 
