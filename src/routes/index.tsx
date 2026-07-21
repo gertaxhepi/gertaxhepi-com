@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, ArrowUpRight, Download } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
+import { AnimatedSmiley } from "@/components/AnimatedSmiley";
 import resumePdf from "@/assets/gerta_xhepi-resume.pdf.asset.json";
 
 const OG_IMAGE = "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/5e5a77b8-fdcf-4df7-92f9-1cada506e97a";
@@ -82,46 +83,8 @@ function Home() {
           data-reveal-item
           className="text-[44px] sm:text-6xl md:text-7xl lg:text-[112px] 2xl:text-[124px] font-bold tracking-[-0.04em] leading-[0.95] text-balance"
         >
-          Hi, I'm Gerta{" "}
-          <svg
-            className="hero-smiley inline-block align-baseline"
-            viewBox="0 0 160 160"
-            role="img"
-            aria-label="Smiling face"
-            xmlns="http://www.w3.org/2000/svg"
-            style={{ width: "0.85em", height: "0.85em" }}
-          >
-            <circle
-              cx="80"
-              cy="80"
-              r="66"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="12"
-            />
-            <circle
-              className="hero-smiley-eye"
-              cx="58"
-              cy="60"
-              r="11"
-              fill="currentColor"
-            />
-            <circle
-              className="hero-smiley-eye"
-              cx="102"
-              cy="60"
-              r="11"
-              fill="currentColor"
-            />
-            <path
-              d="M44 88 C44 116 62 130 80 130 C98 130 116 116 116 88"
-              fill="currentColor"
-            />
-            <path
-              d="M59 88 C60 101 68 107 80 107 C92 107 100 101 101 88"
-              fill="var(--background)"
-            />
-          </svg>
+          Hi, I'm Gerta <AnimatedSmiley />
+
         </h1>
 
         <p
