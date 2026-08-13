@@ -63,8 +63,7 @@ function EssayPage() {
           </h1>
 
           <p data-reveal-item className="mt-5 text-base md:text-[17px] text-muted-foreground max-w-2xl leading-relaxed">
-            Moving from software engineering to product management didn't teach me new discovery frameworks. It changed
-            how I think about uncertainty.
+            Every customer interview answered one question. It also uncovered three more.
           </p>
 
           <div data-reveal-item className="mt-8 h-px bg-foreground/[0.06] max-w-[45rem]" />
