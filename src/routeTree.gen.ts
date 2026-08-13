@@ -18,6 +18,7 @@ import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as WritingIndexRouteImport } from './routes/writing.index'
 import { Route as CaseStudiesIndexRouteImport } from './routes/case-studies.index'
+import { Route as WritingProductDiscoverySoftwareEngineeringRouteImport } from './routes/writing.product-discovery-software-engineering'
 import { Route as EssaysAiProblemsRouteImport } from './routes/essays.ai-problems'
 import { Route as CaseStudiesSlugRouteImport } from './routes/case-studies.$slug'
 import { Route as ApiPublicContactSubmitRouteImport } from './routes/api/public/contact-submit'
@@ -67,6 +68,12 @@ const CaseStudiesIndexRoute = CaseStudiesIndexRouteImport.update({
   path: '/',
   getParentRoute: () => CaseStudiesRoute,
 } as any)
+const WritingProductDiscoverySoftwareEngineeringRoute =
+  WritingProductDiscoverySoftwareEngineeringRouteImport.update({
+    id: '/writing/product-discovery-software-engineering',
+    path: '/writing/product-discovery-software-engineering',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const EssaysAiProblemsRoute = EssaysAiProblemsRouteImport.update({
   id: '/essays/ai-problems',
   path: '/essays/ai-problems',
@@ -93,6 +100,7 @@ export interface FileRoutesByFullPath {
   '/work': typeof WorkRoute
   '/case-studies/$slug': typeof CaseStudiesSlugRoute
   '/essays/ai-problems': typeof EssaysAiProblemsRoute
+  '/writing/product-discovery-software-engineering': typeof WritingProductDiscoverySoftwareEngineeringRoute
   '/case-studies/': typeof CaseStudiesIndexRoute
   '/writing/': typeof WritingIndexRoute
   '/api/public/contact-submit': typeof ApiPublicContactSubmitRoute
@@ -106,6 +114,7 @@ export interface FileRoutesByTo {
   '/work': typeof WorkRoute
   '/case-studies/$slug': typeof CaseStudiesSlugRoute
   '/essays/ai-problems': typeof EssaysAiProblemsRoute
+  '/writing/product-discovery-software-engineering': typeof WritingProductDiscoverySoftwareEngineeringRoute
   '/case-studies': typeof CaseStudiesIndexRoute
   '/writing': typeof WritingIndexRoute
   '/api/public/contact-submit': typeof ApiPublicContactSubmitRoute
@@ -121,6 +130,7 @@ export interface FileRoutesById {
   '/work': typeof WorkRoute
   '/case-studies/$slug': typeof CaseStudiesSlugRoute
   '/essays/ai-problems': typeof EssaysAiProblemsRoute
+  '/writing/product-discovery-software-engineering': typeof WritingProductDiscoverySoftwareEngineeringRoute
   '/case-studies/': typeof CaseStudiesIndexRoute
   '/writing/': typeof WritingIndexRoute
   '/api/public/contact-submit': typeof ApiPublicContactSubmitRoute
@@ -137,6 +147,7 @@ export interface FileRouteTypes {
     | '/work'
     | '/case-studies/$slug'
     | '/essays/ai-problems'
+    | '/writing/product-discovery-software-engineering'
     | '/case-studies/'
     | '/writing/'
     | '/api/public/contact-submit'
@@ -150,6 +161,7 @@ export interface FileRouteTypes {
     | '/work'
     | '/case-studies/$slug'
     | '/essays/ai-problems'
+    | '/writing/product-discovery-software-engineering'
     | '/case-studies'
     | '/writing'
     | '/api/public/contact-submit'
@@ -164,6 +176,7 @@ export interface FileRouteTypes {
     | '/work'
     | '/case-studies/$slug'
     | '/essays/ai-problems'
+    | '/writing/product-discovery-software-engineering'
     | '/case-studies/'
     | '/writing/'
     | '/api/public/contact-submit'
@@ -178,6 +191,7 @@ export interface RootRouteChildren {
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   WorkRoute: typeof WorkRoute
   EssaysAiProblemsRoute: typeof EssaysAiProblemsRoute
+  WritingProductDiscoverySoftwareEngineeringRoute: typeof WritingProductDiscoverySoftwareEngineeringRoute
   WritingIndexRoute: typeof WritingIndexRoute
   ApiPublicContactSubmitRoute: typeof ApiPublicContactSubmitRoute
 }
@@ -247,6 +261,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CaseStudiesIndexRouteImport
       parentRoute: typeof CaseStudiesRoute
     }
+    '/writing/product-discovery-software-engineering': {
+      id: '/writing/product-discovery-software-engineering'
+      path: '/writing/product-discovery-software-engineering'
+      fullPath: '/writing/product-discovery-software-engineering'
+      preLoaderRoute: typeof WritingProductDiscoverySoftwareEngineeringRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/essays/ai-problems': {
       id: '/essays/ai-problems'
       path: '/essays/ai-problems'
@@ -294,6 +315,8 @@ const rootRouteChildren: RootRouteChildren = {
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   WorkRoute: WorkRoute,
   EssaysAiProblemsRoute: EssaysAiProblemsRoute,
+  WritingProductDiscoverySoftwareEngineeringRoute:
+    WritingProductDiscoverySoftwareEngineeringRoute,
   WritingIndexRoute: WritingIndexRoute,
   ApiPublicContactSubmitRoute: ApiPublicContactSubmitRoute,
 }
