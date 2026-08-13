@@ -102,29 +102,21 @@ function EssayPage() {
               unlike software engineering, there isn't a compiler waiting to tell you whether your thinking is correct.
             </p>
 
-            <p>That uncertainty was new to me.</p>
-
-            <p>
-              The frameworks themselves weren't difficult to learn. Talking to users, analyzing behavior, and running
-              experiments are all skills that improve with practice.
-            </p>
-
-            <p>The difficult part was deciding what to believe when every piece of evidence seemed to tell a slightly different story.</p>
-
             <PullQuote>
               The frameworks were the easy part.
               <br />
               The difficult part was deciding what to believe when every piece of evidence seemed to tell a slightly different story.
             </PullQuote>
 
-            <p>I experienced this most clearly while working on Salary Transparency.</p>
+            <p>While working on Salary Transparency at XING, I experienced this firsthand.</p>
 
             <p>
-              Our goal was simple: help job seekers make better informed decisions by showing salary information on job
-              advertisements.
+              We were building a feature that displayed salary information on job postings to help job seekers make better informed decisions.
             </p>
 
-            <p>The questions, however, weren't simple.</p>
+            <p>The goal sounded simple.</p>
+
+            <p>The questions weren't.</p>
 
             <p>Should we show a predicted salary range?</p>
 
@@ -162,8 +154,7 @@ function EssayPage() {
             <p>Better questions.</p>
 
             <p>
-              Looking back, I don't think that instinct was wrong. Learning how to collect reliable evidence is one of
-              the most important parts of product discovery. Better evidence leads to better conversations, better
+              Looking back, I don't think that instinct was wrong. Better evidence leads to better conversations, better
               insights, and ultimately better decisions.
             </p>
 
@@ -177,7 +168,7 @@ function EssayPage() {
 
             <p>I had been treating research as a way to uncover the right answer.</p>
 
-            <p>Instead, I realized its purpose was to reduce uncertainty.</p>
+            <p>Then I realized what I was really searching for.</p>
 
             <PullQuote>
               I wasn't looking for better evidence.
@@ -226,8 +217,6 @@ function EssayPage() {
               <br />
               It's to reduce it enough to make a thoughtful decision.
             </PullQuote>
-
-            <p>That, more than any framework, is what has shaped my approach to product discovery.</p>
           </article>
         </Reveal>
       </Section>
