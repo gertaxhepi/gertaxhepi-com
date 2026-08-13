@@ -79,27 +79,27 @@ function Writing() {
         </p>
       </Reveal>
 
-      <Reveal className="mt-20 grid gap-y-4 md:grid-cols-2 md:gap-x-16 border-t border-border">
+      <Reveal className="mt-20 border-t border-border">
         {essays.map((essay) => (
           <Link
             key={essay.number}
             to={essay.to}
             data-reveal-item
-            className="group block cursor-pointer border-b border-border md:border-b-0"
+            className="group block cursor-pointer border-b border-border"
           >
-            <div className="grid grid-cols-[auto_1fr_auto] gap-6 md:gap-8 py-14 md:py-16">
-              <div className="text-[11px] font-mono uppercase tracking-[0.18em] text-muted-foreground md:pt-3">
+            <div className="grid grid-cols-[40px_1fr_40px] gap-x-4 md:gap-x-6 py-14 md:py-20 items-start">
+              <div className="text-[11px] font-mono uppercase tracking-[0.18em] text-muted-foreground pt-1">
                 {essay.number}
               </div>
-              <div className="max-w-2xl">
+              <div>
                 <h2 className="text-2xl md:text-3xl font-semibold tracking-tight transition-opacity group-hover:opacity-60">
                   {essay.title}
                 </h2>
-                <p className="mt-5 text-base md:text-lg text-muted-foreground leading-relaxed">
+                <p className="mt-5 text-base md:text-lg text-muted-foreground leading-relaxed max-w-3xl">
                   {essay.description}
                 </p>
 
-                <dl className="mt-8 grid sm:grid-cols-2 gap-x-12 gap-y-6">
+                <dl className="mt-8 grid grid-cols-2 gap-x-12 gap-y-6 max-w-xs sm:max-w-sm">
                   <div>
                     <dt className="text-[11px] font-mono uppercase tracking-[0.18em] text-muted-foreground mb-2">Type</dt>
                     <dd className="text-sm md:text-[15px] font-medium">{essay.type}</dd>
@@ -117,7 +117,7 @@ function Writing() {
                   <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-1" />
                 </span>
               </div>
-              <div className="hidden md:block md:pt-3">
+              <div className="pt-1">
                 <span aria-label={`Read essay: ${essay.title}`} className="inline-flex">
                   <ArrowUpRight className="size-5 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
                 </span>
