@@ -52,7 +52,7 @@ const essays = [
     description:
       "A reflection on how moving from software engineering to product management changed the way I think about product discovery and decision making.",
     type: "Reflection",
-    readTime: "8 min",
+    readTime: "6 min",
   },
 ] as const;
 

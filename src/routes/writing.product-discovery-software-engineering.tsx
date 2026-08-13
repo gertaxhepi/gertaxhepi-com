@@ -52,7 +52,7 @@ function EssayPage() {
           </nav>
 
           <div data-reveal-item className="text-[11px] font-mono uppercase tracking-[0.22em] text-muted-foreground">
-            Essay 02 · August 2026 · 8 min read
+            Essay 02 · August 2026 · 6 min read
           </div>
 
           <h1
@@ -76,83 +76,72 @@ function EssayPage() {
           <article className="space-y-8 text-base md:text-[17px] text-foreground/90 leading-[1.75]">
             <p>
               When I moved from software engineering into product management, I expected product discovery to be about
-              learning new frameworks and techniques.
-            </p>
-
-            <p>
-              Looking back, the frameworks were the easy part. What really shaped my approach was learning how to make
-              decisions when there was never enough information to be completely certain.
+              learning new frameworks and techniques. Looking back, the frameworks were the easy part. What really shaped
+              my approach was learning how to make decisions when there was never enough information to be completely
+              certain.
             </p>
 
             <p>
               One thing that made the transition feel natural was that I had always enjoyed challenging solutions. Even
-              as a software engineer, I was rarely the person who simply implemented what landed in my backlog.
+              as a software engineer, I was rarely the person who simply implemented what landed in my backlog. I wanted
+              to understand why we were building something before thinking about how to build it. That curiosity was one
+              of the reasons I moved into product management.
             </p>
 
+            <p>What surprised me was how different it feels when the problem belongs to your users instead of your colleagues.</p>
+
             <p>
-              I wanted to understand why we were building something before thinking about how to build it. I enjoyed
-              discussing trade-offs, questioning assumptions, and understanding the problem behind the feature.
+              As an engineer, most of my stakeholders were internal. Even when I worked on our Design System, our users
+              were developers who shared similar context and whose needs were easier to validate.
             </p>
 
-            <p>That curiosity was one of the reasons I moved into product management in the first place.</p>
+            <p>Product discovery felt different.</p>
 
             <p>
-              What I underestimated was how different it feels when the problem you're trying to understand belongs to
-              your users instead of your colleagues.
-            </p>
-
-            <p>
-              As an engineer, most of my stakeholders were internal: Product Managers, designers, and other engineers.
-              Later, working on our Design System, our users were developers across the company. They had real problems,
-              but they also spoke the same language, shared similar context, and success was often easier to measure.
-            </p>
-
-            <p>Product discovery introduced a different kind of stakeholder.</p>
-
-            <p>
-              Users don't always describe their problems clearly. They have habits, workarounds, competing priorities,
-              and alternatives to your product. Sometimes what they say doesn't match what they do.
-            </p>
-
-            <p>
-              Unlike software engineering, there isn't a compiler or a test suite waiting to tell you whether your
-              thinking is correct.
+              Users don't always describe their problems clearly. What they say doesn't always match what they do, and
+              unlike software engineering, there isn't a compiler waiting to tell you whether your thinking is correct.
             </p>
 
             <p>That uncertainty was new to me.</p>
 
             <p>
-              The discovery frameworks themselves weren't difficult to learn. Talking to users, analyzing behavior, and
-              running experiments are all skills that improve with practice.
+              The frameworks themselves weren't difficult to learn. Talking to users, analyzing behavior, and running
+              experiments are all skills that improve with practice.
             </p>
+
+            <p>The difficult part was deciding what to believe when every piece of evidence seemed to tell a slightly different story.</p>
 
             <PullQuote>
-              The frameworks were the easy part. The difficult part was deciding what to believe when every piece of
-              evidence seemed to tell a slightly different story.
+              The frameworks were the easy part.
+              <br />
+              The difficult part was deciding what to believe when every piece of evidence seemed to tell a slightly different story.
             </PullQuote>
 
-            <p>I remember experiencing this most clearly while working on Salary Transparency.</p>
+            <p>I experienced this most clearly while working on Salary Transparency.</p>
 
             <p>
-              Our goal sounded simple: help job seekers make better informed decisions by showing salary information on
-              job advertisements.
+              Our goal was simple: help job seekers make better informed decisions by showing salary information on job
+              advertisements.
             </p>
 
-            <p>But what information should we actually show?</p>
+            <p>The questions, however, weren't simple.</p>
 
-            <p>
-              Should we display a predicted salary range? Should we communicate how confident the prediction was? Would
-              users trust an estimate? Would they rather see an estimated range than no salary information at all?
-            </p>
+            <p>Should we show a predicted salary range?</p>
 
-            <p>None of those questions had obvious answers.</p>
+            <p>Should we communicate how confident the prediction was?</p>
+
+            <p>Would users trust an estimate?</p>
+
+            <p>Was an estimated range better than showing nothing at all?</p>
+
+            <p>There were no obvious answers.</p>
 
             <p>So we started learning.</p>
 
             <p>
-              We interviewed job seekers to understand what information actually influenced their decision to apply. We
-              worked closely with our Data Scientists to understand how reliable our salary predictions were. We
-              analyzed user behavior, looked at competitors, and discussed different approaches across the team.
+              We interviewed job seekers. We worked closely with our Data Scientists to understand the reliability of our
+              salary predictions. We analyzed user behavior, looked at competitors, and challenged different ideas across
+              the team.
             </p>
 
             <p>I found myself constantly moving between customer interviews and dashboards.</p>
@@ -166,46 +155,52 @@ function EssayPage() {
 
             <p>If the answer wasn't obvious, maybe the evidence wasn't good enough.</p>
 
-            <p>Maybe we hadn't interviewed enough users. Maybe we weren't tracking the right events.</p>
+            <p>Maybe we needed better interviews.</p>
 
-            <p>Maybe I had asked leading questions during interviews and introduced bias.</p>
+            <p>Better analytics.</p>
+
+            <p>Better questions.</p>
 
             <p>
-              Looking back, I don't think that instinct was wrong. Better interview questions lead to better
-              conversations. Better instrumentation leads to better analytics. The quality of our decisions depends on
-              the quality of the evidence behind them.
+              Looking back, I don't think that instinct was wrong. Learning how to collect reliable evidence is one of
+              the most important parts of product discovery. Better evidence leads to better conversations, better
+              insights, and ultimately better decisions.
             </p>
 
             <PullQuote>
               Learning how to collect reliable evidence is one of the most important parts of product discovery.
             </PullQuote>
 
-            <p>What eventually changed wasn't my focus on evidence.</p>
+            <p>What changed wasn't my focus on evidence.</p>
 
             <p>It was my expectation of what that evidence could do.</p>
 
             <p>I had been treating research as a way to uncover the right answer.</p>
 
-            <p>Instead, I realized its real purpose was to reduce uncertainty.</p>
+            <p>Instead, I realized its purpose was to reduce uncertainty.</p>
 
-            <PullQuote>I wasn't looking for better evidence. I was looking for certainty.</PullQuote>
+            <PullQuote>
+              I wasn't looking for better evidence.
+              <br />
+              I was looking for certainty.
+            </PullQuote>
 
-            <p>That shift changed the questions I started asking.</p>
+            <p>That shift completely changed how I approached discovery.</p>
 
             <p>
-              Instead of wondering whether we had found the right solution, I started asking what uncertainty we were
+              Instead of asking whether we had found the right solution, I started asking what uncertainty we were
               actually trying to reduce.
             </p>
 
             <p>Sometimes the uncertainty was about whether users really had the problem.</p>
 
-            <p>Sometimes it was about whether our data was reliable enough to support a decision.</p>
+            <p>Sometimes it was about whether our data was reliable enough.</p>
 
-            <p>Sometimes it was about whether we understood the trade-offs well enough to move forward.</p>
+            <p>Sometimes it was about understanding the trade-offs between different solutions.</p>
 
             <p>
-              And sometimes, after reducing the uncertainty as much as we reasonably could, the only thing left was to
-              make a decision and continue learning once the product was in users' hands.
+              Once we had reduced the biggest uncertainty, the next step wasn't more research. It was making a decision
+              and continuing to learn after shipping.
             </p>
 
             <p>Looking back, I don't think my software engineering background made product discovery harder.</p>
@@ -227,8 +222,9 @@ function EssayPage() {
             </p>
 
             <PullQuote>
-              The goal of product discovery isn't to eliminate uncertainty. It's to reduce it enough to make a
-              thoughtful decision.
+              The goal of product discovery isn't to eliminate uncertainty.
+              <br />
+              It's to reduce it enough to make a thoughtful decision.
             </PullQuote>
 
             <p>That, more than any framework, is what has shaped my approach to product discovery.</p>
