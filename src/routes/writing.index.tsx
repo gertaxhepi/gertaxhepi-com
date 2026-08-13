@@ -5,7 +5,7 @@ import { Reveal } from "@/components/Reveal";
 
 const OG_IMAGE = "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/5e5a77b8-fdcf-4df7-92f9-1cada506e97a";
 
-export const Route = createFileRoute("/writing")({
+export const Route = createFileRoute("/writing/")({
   head: () => ({
     meta: [
       { title: "Product Essays | AI, Product Strategy & Discovery" },
@@ -35,6 +35,27 @@ export const Route = createFileRoute("/writing")({
   component: Writing,
 });
 
+const essays = [
+  {
+    number: "01",
+    to: "/essays/ai-problems",
+    title: "Understanding Before Solving",
+    description:
+      "A reflection on mentorship, AI and why understanding a problem matters more than writing better prompts.",
+    type: "Reflection",
+    readTime: "7 min",
+  },
+  {
+    number: "02",
+    to: "/writing/product-discovery-software-engineering",
+    title: "How My Software Engineering Background Shaped My Approach to Product Discovery",
+    description:
+      "A reflection on how moving from software engineering to product management changed the way I think about product discovery and decision making.",
+    type: "Reflection",
+    readTime: "8 min",
+  },
+] as const;
+
 function Writing() {
   return (
     <Section className="pt-16 md:pt-28" spacing="tight">
@@ -58,47 +79,52 @@ function Writing() {
         </p>
       </Reveal>
 
-      <Reveal className="mt-20 divide-y divide-border">
-        <Link
-          to="/essays/ai-problems"
-          data-reveal-item
-          className="group block cursor-pointer"
-        >
-          <div className="grid md:grid-cols-[auto_1fr_auto] gap-6 md:gap-16 py-14 md:py-16">
-            <div className="text-[11px] font-mono uppercase tracking-[0.18em] text-muted-foreground md:pt-3">01</div>
-            <div className="max-w-2xl">
-              <h2 className="text-2xl md:text-3xl font-semibold tracking-tight transition-opacity group-hover:opacity-60">
-                Understanding Before Solving
-              </h2>
-              <p className="mt-5 text-base md:text-lg text-muted-foreground leading-relaxed">
-                A reflection on mentorship, AI and why understanding a problem matters more than writing better prompts.
-              </p>
+      <Reveal className="mt-20 grid gap-y-4 md:grid-cols-2 md:gap-x-16 border-t border-border">
+        {essays.map((essay) => (
+          <Link
+            key={essay.number}
+            to={essay.to}
+            data-reveal-item
+            className="group block cursor-pointer border-b border-border md:border-b-0"
+          >
+            <div className="grid grid-cols-[auto_1fr_auto] gap-6 md:gap-8 py-14 md:py-16">
+              <div className="text-[11px] font-mono uppercase tracking-[0.18em] text-muted-foreground md:pt-3">
+                {essay.number}
+              </div>
+              <div className="max-w-2xl">
+                <h2 className="text-2xl md:text-3xl font-semibold tracking-tight transition-opacity group-hover:opacity-60">
+                  {essay.title}
+                </h2>
+                <p className="mt-5 text-base md:text-lg text-muted-foreground leading-relaxed">
+                  {essay.description}
+                </p>
 
-              <dl className="mt-8 grid sm:grid-cols-2 gap-x-12 gap-y-6">
-                <div>
-                  <dt className="text-[11px] font-mono uppercase tracking-[0.18em] text-muted-foreground mb-2">Type</dt>
-                  <dd className="text-sm md:text-[15px] font-medium">Reflection</dd>
-                </div>
-                <div>
-                  <dt className="text-[11px] font-mono uppercase tracking-[0.18em] text-muted-foreground mb-2">
-                    Read time
-                  </dt>
-                  <dd className="text-sm md:text-[15px] font-medium">7 min</dd>
-                </div>
-              </dl>
+                <dl className="mt-8 grid sm:grid-cols-2 gap-x-12 gap-y-6">
+                  <div>
+                    <dt className="text-[11px] font-mono uppercase tracking-[0.18em] text-muted-foreground mb-2">Type</dt>
+                    <dd className="text-sm md:text-[15px] font-medium">{essay.type}</dd>
+                  </div>
+                  <div>
+                    <dt className="text-[11px] font-mono uppercase tracking-[0.18em] text-muted-foreground mb-2">
+                      Read time
+                    </dt>
+                    <dd className="text-sm md:text-[15px] font-medium">{essay.readTime}</dd>
+                  </div>
+                </dl>
 
-              <span className="mt-10 inline-flex items-center gap-2 text-sm font-medium border-b border-foreground pb-1">
-                Read essay
-                <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-1" />
-              </span>
+                <span className="mt-10 inline-flex items-center gap-2 text-sm font-medium border-b border-foreground pb-1">
+                  Read essay
+                  <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-1" />
+                </span>
+              </div>
+              <div className="hidden md:block md:pt-3">
+                <span aria-label={`Read essay: ${essay.title}`} className="inline-flex">
+                  <ArrowUpRight className="size-5 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
+                </span>
+              </div>
             </div>
-            <div className="hidden md:block md:pt-3">
-              <span aria-label="Read essay: Working with AI Is Teaching Me to Understand Problems More Deeply" className="inline-flex">
-                <ArrowUpRight className="size-5 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
-              </span>
-            </div>
-          </div>
-        </Link>
+          </Link>
+        ))}
       </Reveal>
 
       <Reveal>
