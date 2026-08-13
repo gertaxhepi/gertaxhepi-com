@@ -91,8 +91,8 @@ function EssayPage() {
             <p>What surprised me was how different it feels when the problem belongs to your users instead of your colleagues.</p>
 
             <p>
-              As an engineer, most of my stakeholders were internal. Even when I worked on our Design System, our users
-              were developers who shared similar context and whose needs were easier to validate.
+              As an engineer, most of my stakeholders were internal. Even when I worked on the XING Design System, our users
+              were developers across the company who shared similar context and whose needs were easier to validate.
             </p>
 
             <p>Product discovery felt different.</p>
@@ -108,7 +108,7 @@ function EssayPage() {
               The difficult part was deciding what to believe when every piece of evidence seemed to tell a slightly different story.
             </PullQuote>
 
-            <p>While working on Salary Transparency at XING, I experienced this firsthand.</p>
+            <p>While working on XING's Salary Transparency initiative, this mindset was really tested.</p>
 
             <p>
               We were building a feature that displayed salary information on job postings to help job seekers make better informed decisions.
