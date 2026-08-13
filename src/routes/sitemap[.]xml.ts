@@ -6,6 +6,7 @@ const BASE_URL = "https://gertaproduct.com";
 const paths = [
   "/", "/work", "/writing", "/about", "/resume", "/product-thinking",
   "/essays/ai-problems",
+  "/writing/product-discovery-software-engineering",
   "/case-studies", "/case-studies/salary-transparency",
   "/case-studies/electronic-signature",
   "/case-studies/peakprofile",
