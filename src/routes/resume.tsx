@@ -93,6 +93,136 @@ const careerTimeline: (CareerStage | TransitionMarker)[] = [
   },
 ];
 
+function CareerTimeline() {
+  const totalRows = careerTimeline.length;
+
+  return (
+    <>
+      {/* Desktop: year-led three-column timeline */}
+      <div className="relative hidden md:grid md:grid-cols-[220px_80px_1fr] md:gap-x-12">
+        {/* Continuous vertical line in the timeline column */}
+        <div
+          className="col-start-2 col-end-3 relative z-0"
+          style={{ gridRow: `1 / span ${totalRows}` }}
+        >
+          <div className="absolute top-0 bottom-0 left-1/2 -translate-x-1/2 w-px bg-border" />
+        </div>
+
+        {careerTimeline.map((item, i) => {
+          const key = item.type === "transition" ? item.label : item.yearRange;
+
+          return (
+            <div
+              key={key}
+              data-reveal-item
+              className="col-span-3 relative z-10 py-10 md:py-16 border-t border-border first:border-t-0"
+              style={{ gridRowStart: i + 1 }}
+            >
+              <div className="md:grid md:grid-cols-[220px_80px_1fr] md:gap-x-12">
+                {item.type === "transition" ? (
+                  <>
+                    <div /> {/* year column empty */}
+                    <div className="flex justify-center items-center">
+                      <div className="size-3 rounded-full bg-primary ring-4 ring-background" />
+                    </div>
+                    <div>
+                      <span className="inline-flex items-center text-[11px] font-mono uppercase tracking-[0.18em] text-primary bg-secondary px-3 py-1.5 rounded-full">
+                        {item.label}
+                      </span>
+                    </div>
+                  </>
+                ) : (
+                  <>
+                    <div className="text-5xl lg:text-[56px] xl:text-[64px] font-bold tracking-tight text-foreground leading-none">
+                      {item.yearRange}
+                    </div>
+                    <div className="flex justify-center pt-3">
+                      <div
+                        className={cn(
+                          "rounded-full border-2 border-background bg-foreground transition-all",
+                          item.highlight ? "size-4" : "size-2.5"
+                        )}
+                      />
+                    </div>
+                    <div>
+                      <h3 className="text-2xl lg:text-[28px] font-semibold tracking-tight text-foreground">
+                        {item.role}
+                      </h3>
+                      {item.org && (
+                        <div className="mt-1 text-lg text-muted-foreground">
+                          {item.org}
+                        </div>
+                      )}
+                      <p className="mt-4 text-lg text-foreground/80 leading-relaxed max-w-2xl">
+                        {item.description}
+                      </p>
+                    </div>
+                  </>
+                )}
+              </div>
+            </div>
+          );
+        })}
+      </div>
+
+      {/* Mobile: stacked timeline with line on the left edge */}
+      <div className="md:hidden relative">
+        <div className="absolute top-0 bottom-0 left-[15px] w-px bg-border" />
+
+        {careerTimeline.map((item, i) => {
+          const key = item.type === "transition" ? item.label : item.yearRange;
+
+          if (item.type === "transition") {
+            return (
+              <div
+                key={key}
+                data-reveal-item
+                className="relative py-5 pl-10"
+              >
+                <div className="absolute left-[15px] top-1/2 -translate-x-1/2 -translate-y-1/2 size-3 rounded-full bg-primary ring-4 ring-background" />
+                <span className="inline-flex items-center text-[11px] font-mono uppercase tracking-[0.18em] text-primary bg-secondary px-3 py-1.5 rounded-full">
+                  {item.label}
+                </span>
+              </div>
+            );
+          }
+
+          return (
+            <div
+              key={key}
+              data-reveal-item
+              className="relative py-10 border-t border-border first:border-t-0"
+            >
+              <div className="text-4xl font-bold tracking-tight text-foreground leading-none mb-5">
+                {item.yearRange}
+              </div>
+              <div className="relative pl-10">
+                <div
+                  className={cn(
+                    "absolute left-[15px] top-1.5 -translate-x-1/2 rounded-full border-2 border-background bg-foreground",
+                    item.highlight ? "size-4" : "size-2.5"
+                  )}
+                />
+                <h3 className="text-xl font-semibold tracking-tight text-foreground">
+                  {item.role}
+                </h3>
+                {item.org && (
+                  <div className="mt-1 text-base text-muted-foreground">
+                    {item.org}
+                  </div>
+                )}
+                <p className="mt-4 text-base text-foreground/80 leading-relaxed">
+                  {item.description}
+                </p>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </>
+  );
+}
+
 const education = [
   { title: "Master of Business Administration (MBA)", org: "ThePowerMBA" },
   { title: "Bachelor of Computer Science", org: "University Polytechnic of Bucharest" },
