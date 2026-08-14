@@ -55,32 +55,11 @@ type TransitionMarker = {
 const careerTimeline: (CareerStage | TransitionMarker)[] = [
   {
     type: "stage",
-    yearRange: "2013 — 2017",
-    role: "Software Engineering",
-    org: "",
+    yearRange: "2025 — NOW",
+    role: "Founder / Product Builder",
+    org: "PeakProfile",
     description:
-      "Worked across established companies and early-stage products, including Microsoft and my own consumer product.",
-  },
-  {
-    type: "stage",
-    yearRange: "2017 — 2021",
-    role: "Software Engineer",
-    org: "XING · New Work SE",
-    description:
-      "Built platform and frontend products, including the design system used by more than 150 engineers.",
-  },
-  {
-    type: "transition",
-    label: "ENGINEERING → PRODUCT",
-  },
-  {
-    type: "stage",
-    yearRange: "2021 — 2024",
-    role: "Product Manager",
-    org: "XING / onlyfy · New Work SE",
-    description:
-      "Transitioned internally from software engineering into product management.",
-    highlight: true,
+      "Building an AI-native decision-support product for mountaineers and guides.",
   },
   {
     type: "stage",
@@ -91,11 +70,32 @@ const careerTimeline: (CareerStage | TransitionMarker)[] = [
   },
   {
     type: "stage",
-    yearRange: "2025 — NOW",
-    role: "Founder / Product Builder",
-    org: "PeakProfile",
+    yearRange: "2021 — 2024",
+    role: "Product Manager",
+    org: "XING / onlyfy · New Work SE",
     description:
-      "Building an AI-native decision-support product for mountaineers and guides.",
+      "Owned products across marketplaces, structured data, salary transparency, and ML-powered experiences.",
+    highlight: true,
+  },
+  {
+    type: "transition",
+    label: "Internal transition to Product Management",
+  },
+  {
+    type: "stage",
+    yearRange: "2017 — 2021",
+    role: "Software Engineer",
+    org: "XING · New Work SE",
+    description:
+      "Built platform and frontend products, including the design system used by more than 150 engineers.",
+  },
+  {
+    type: "stage",
+    yearRange: "2013 — 2017",
+    role: "Software Engineering & Early Product Building",
+    org: "",
+    description:
+      "Worked across established companies and early-stage products, including Microsoft and my own consumer product.",
   },
 ];
 
