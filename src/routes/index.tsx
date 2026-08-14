@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, ArrowUpRight, Download } from "lucide-react";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
 import { AnimatedSmiley } from "@/components/AnimatedSmiley";
 import resumePdf from "@/assets/gerta_xhepi-resume.pdf.asset.json";
