@@ -319,7 +319,7 @@ function Resume() {
       </Section>
 
       <Section spacing="tight">
-        <Reveal className="grid md:grid-cols-[1fr_2.4fr] gap-8 md:gap-16">
+        <Reveal className="grid md:grid-cols-[180px_1fr] gap-8 md:gap-16">
           <div
             data-reveal-item
             className="text-[11px] font-mono uppercase tracking-[0.18em] text-muted-foreground md:sticky md:top-28 md:self-start"
