@@ -304,7 +304,7 @@ function Resume() {
           </div>
           <div data-reveal-item className="max-w-4xl">
             <p className="text-base md:text-lg font-medium text-foreground/90 leading-relaxed">
-              Over the past decade, I’ve moved from building software to shaping products. Today, I work across B2B SaaS, marketplaces, workflow automation, structured data, and AI.
+              Over the past decade, I’ve moved from building software to shaping products. I’ve worked across B2C products, B2B SaaS, marketplaces, workflow automation, structured data, and AI.
             </p>
             <div className="mt-6 md:mt-8">
               <div className="text-[11px] font-mono uppercase tracking-[0.18em] text-muted-foreground mb-3">
