@@ -3,6 +3,7 @@ import { Section } from "@/components/Primitives";
 import { Reveal } from "@/components/Reveal";
 import { Breadcrumb } from "@/components/Breadcrumb";
 import { Download, Linkedin, Mail, MapPin } from "lucide-react";
+import { cn } from "@/lib/utils";
 import resumePdf from "@/assets/gerta_xhepi-resume.pdf.asset.json";
 
 const OG_IMAGE = "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/5e5a77b8-fdcf-4df7-92f9-1cada506e97a";
@@ -37,76 +38,189 @@ export const Route = createFileRoute("/resume")({
   component: Resume,
 });
 
-const experience = [
+type CareerStage = {
+  type: "stage";
+  yearRange: string;
+  role: string;
+  org: string;
+  description: string;
+  highlight?: boolean;
+};
+
+type TransitionMarker = {
+  type: "transition";
+  label: string;
+};
+
+const careerTimeline: (CareerStage | TransitionMarker)[] = [
   {
-    role: "Founder / Product Builder",
-    org: "Building PeakProfile",
-    dates: "Jan 2025 — Present",
-    bullets: [
-      "Building early-stage product addressing trust, risk, and decision-making in high-stakes environments (mountaineering expeditions)",
-      "Designed structured profile system to transform fragmented self-reported experience into standardized, comparable data models",
-      "Exploring AI-driven scoring systems to assess readiness and improve matching between guides and participants",
-      "Focused on improving decision quality by reducing reliance on unstructured or unreliable data inputs",
-    ],
+    type: "stage",
+    yearRange: "2013 — 2017",
+    role: "Software Engineering",
+    org: "",
+    description:
+      "Worked across established companies and early-stage products, including Microsoft and my own consumer product.",
   },
   {
+    type: "stage",
+    yearRange: "2017 — 2021",
+    role: "Software Engineer",
+    org: "XING · New Work SE",
+    description:
+      "Built platform and frontend products, including the design system used by more than 150 engineers.",
+  },
+  {
+    type: "transition",
+    label: "ENGINEERING → PRODUCT",
+  },
+  {
+    type: "stage",
+    yearRange: "2021 — 2024",
+    role: "Product Manager",
+    org: "XING / onlyfy · New Work SE",
+    description:
+      "Transitioned internally from software engineering into product management.",
+    highlight: true,
+  },
+  {
+    type: "stage",
+    yearRange: "2024 — 2025",
     role: "Product Manager",
     org: "jacando AG",
-    dates: "Aug 2024 — Jan 2025",
-    bullets: [
-      "Led product discovery for secure e-signature workflows in enterprise HR SaaS through user interviews, process mapping, and competitor analysis",
-      "Designed and shipped end-to-end e-signature product integrated into HR workflows, reducing process execution time by 20%",
-      "Iterated on MVP based on customer feedback and usage insights, increasing product adoption by 20%",
-      "Mapped and optimized complex multi-step HR workflows with engineering and customers, improving user satisfaction by 30%",
-      "Prioritized roadmap based on user value, business impact, and technical feasibility",
-    ],
+    description: "Led enterprise workflow products from discovery through launch.",
   },
   {
-    role: "Product Manager",
-    org: "New Work SE (XING / onlyfy Marketplace)",
-    dates: "Jul 2021 — Jul 2024",
-    bullets: [
-      "Led product discovery for job listing creation and structured data workflows using user research, behavioral analysis, and continuous feedback loops",
-      "Improved taxonomy and structured job data quality, increasing consistency, discoverability, and marketplace efficiency by 30%",
-      "Defined and owned product OKRs across listing quality, compliance, and monetization, aligning engineering, data science, and legal teams",
-      "Led regulatory-driven initiative on salary transparency, improving model accuracy by 60% and expanding salary coverage by 80%, protecting ~€50M+ revenue",
-      "Built data-driven decision-making frameworks using Adobe Analytics and Tableau to validate hypotheses and guide roadmap prioritization",
-      "Translated complex regulatory, legal, and business constraints into scalable product and data solutions under tight deadlines",
-    ],
-  },
-  {
-    role: "Software Engineer",
-    org: "New Work SE",
-    dates: "Jul 2017 — Jul 2021",
-    bullets: [
-      "Built and scaled XING design system used by 150+ engineers, enabling consistent UI and faster product delivery",
-      "Collaborated with product managers and designers to translate user needs into scalable frontend architecture (React, GraphQL)",
-      "Improved system consistency and development efficiency through reusable component architecture",
-      "Contributed to engineering standards and cross-team technical alignment",
-    ],
-  },
-  {
-    role: "Co-Founder",
-    org: "TechFabric Creative (Buletin Buletin)",
-    dates: "Dec 2014 — Apr 2017",
-    bullets: [
-      "Co-founded Buletin Buletin, a personalized news aggregation product built on structured data, taxonomy, and ranking logic",
-      "Designed content categorization and personalization mechanisms to improve relevance and engagement",
-      "Led product discovery, feature development, and growth experiments, increasing user satisfaction by 50%",
-      "Owned product and technical strategy for a scalable content platform",
-    ],
-  },
-  {
-    role: "Software Developer Intern",
-    org: "Microsoft",
-    dates: "Jun 2013 — Sep 2013",
-    bullets: [
-      "Delivered features for internal HR systems, improving workflow efficiency by 30%",
-      "Collaborated cross-functionally with engineering, data, and operations teams to translate requirements into product improvements",
-      "Supported deployment and iteration of internal tools, improving user satisfaction by 20%",
-    ],
+    type: "stage",
+    yearRange: "2025 — NOW",
+    role: "Founder / Product Builder",
+    org: "PeakProfile",
+    description:
+      "Building an AI-native decision-support product for mountaineers and guides.",
   },
 ];
+
+function CareerTimeline() {
+  return (
+    <>
+      {/* Desktop: year-led three-column timeline */}
+      <div className="hidden md:block">
+        {careerTimeline.map((item) => {
+          const key = item.type === "transition" ? item.label : item.yearRange;
+
+          if (item.type === "transition") {
+            return (
+              <div
+                key={key}
+                data-reveal-item
+                className="flex gap-12 py-4"
+              >
+                <div className="w-[300px] shrink-0" />
+                <div className="w-[80px] shrink-0 flex justify-center relative">
+                  <div className="absolute top-0 bottom-0 left-1/2 -translate-x-1/2 w-px bg-border" />
+                  <div className="size-3 rounded-full bg-primary ring-4 ring-background" />
+                </div>
+                <div className="flex-1 min-w-0">
+                  <span className="inline-flex items-center text-[11px] font-mono uppercase tracking-[0.18em] text-primary bg-secondary px-3 py-1.5 rounded-full">
+                    {item.label}
+                  </span>
+                </div>
+              </div>
+            );
+          }
+
+          return (
+            <div
+              key={key}
+              data-reveal-item
+              className="flex gap-12 py-16 border-t border-border first:border-t-0"
+            >
+              <div className="w-[300px] shrink-0 text-5xl lg:text-[52px] xl:text-[56px] font-bold tracking-tight text-foreground leading-none whitespace-nowrap">
+                {item.yearRange}
+              </div>
+              <div className="w-[80px] shrink-0 flex justify-center relative pt-3">
+                <div className="absolute top-0 bottom-0 left-1/2 -translate-x-1/2 w-px bg-border" />
+                <div
+                  className={cn(
+                    "rounded-full border-2 border-background bg-foreground transition-all",
+                    item.highlight ? "size-4" : "size-2.5"
+                  )}
+                />
+              </div>
+              <div className="flex-1 min-w-0">
+                <h3 className="text-2xl lg:text-[28px] font-semibold tracking-tight text-foreground">
+                  {item.role}
+                </h3>
+                {item.org && (
+                  <div className="mt-1 text-lg text-muted-foreground">
+                    {item.org}
+                  </div>
+                )}
+                <p className="mt-4 text-lg text-foreground/80 leading-relaxed max-w-2xl">
+                  {item.description}
+                </p>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+
+      {/* Mobile: stacked timeline with line on the left edge */}
+      <div className="md:hidden relative">
+        <div className="absolute top-0 bottom-0 left-[15px] w-px bg-border" />
+
+        {careerTimeline.map((item) => {
+          const key = item.type === "transition" ? item.label : item.yearRange;
+
+          if (item.type === "transition") {
+            return (
+              <div
+                key={key}
+                data-reveal-item
+                className="relative py-5 pl-10"
+              >
+                <div className="absolute left-[15px] top-1/2 -translate-x-1/2 -translate-y-1/2 size-3 rounded-full bg-primary ring-4 ring-background" />
+                <span className="inline-flex items-center text-[11px] font-mono uppercase tracking-[0.18em] text-primary bg-secondary px-3 py-1.5 rounded-full">
+                  {item.label}
+                </span>
+              </div>
+            );
+          }
+
+          return (
+            <div
+              key={key}
+              data-reveal-item
+              className="relative py-10 border-t border-border first:border-t-0"
+            >
+              <div className="text-4xl font-bold tracking-tight text-foreground leading-none mb-5">
+                {item.yearRange}
+              </div>
+              <div className="relative pl-10">
+                <div
+                  className={cn(
+                    "absolute left-[15px] top-1.5 -translate-x-1/2 rounded-full border-2 border-background bg-foreground",
+                    item.highlight ? "size-4" : "size-2.5"
+                  )}
+                />
+                <h3 className="text-xl font-semibold tracking-tight text-foreground">
+                  {item.role}
+                </h3>
+                {item.org && (
+                  <div className="mt-1 text-base text-muted-foreground">
+                    {item.org}
+                  </div>
+                )}
+                <p className="mt-4 text-base text-foreground/80 leading-relaxed">
+                  {item.description}
+                </p>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </>
+  );
+}
 
 const education = [
   { title: "Master of Business Administration (MBA)", org: "ThePowerMBA" },
@@ -198,28 +312,15 @@ function Resume() {
       </Section>
 
       <Section spacing="tight">
-        <Reveal className="grid md:grid-cols-[1fr_2.4fr] gap-8 md:gap-16">
-          <div data-reveal-item className="text-[11px] font-mono uppercase tracking-[0.18em] text-muted-foreground md:sticky md:top-28 md:self-start">
-            Experience
+        <Reveal className="grid md:grid-cols-[180px_1fr] gap-8 md:gap-16">
+          <div
+            data-reveal-item
+            className="text-[11px] font-mono uppercase tracking-[0.18em] text-muted-foreground md:sticky md:top-28 md:self-start"
+          >
+            Career Path
           </div>
-          <div className="space-y-16 md:space-y-20">
-            {experience.map((e) => (
-              <article data-reveal-item key={e.role + e.org}>
-                <div className="text-[11px] font-mono uppercase tracking-[0.18em] text-muted-foreground mb-3">
-                  {e.dates}
-                </div>
-                <h3 className="text-2xl md:text-3xl font-semibold tracking-tight">{e.role}</h3>
-                <div className="text-base text-muted-foreground mt-1">{e.org}</div>
-                <ul className="mt-6 space-y-3 text-[15px] md:text-base text-foreground/85 leading-relaxed max-w-3xl">
-                  {e.bullets.map((b, i) => (
-                    <li key={i} className="grid grid-cols-[auto_1fr] gap-4">
-                      <span className="text-muted-foreground font-mono text-xs pt-1.5">—</span>
-                      <span>{b}</span>
-                    </li>
-                  ))}
-                </ul>
-              </article>
-            ))}
+          <div data-reveal-item className="min-w-0">
+            <CareerTimeline />
           </div>
         </Reveal>
       </Section>
