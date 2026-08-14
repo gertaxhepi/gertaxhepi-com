@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, ArrowUpRight } from "lucide-react";
+import { ArrowRight, ArrowUpRight, MapPin } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
 import { AnimatedSmiley } from "@/components/AnimatedSmiley";
 
