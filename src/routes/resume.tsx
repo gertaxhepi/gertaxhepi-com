@@ -343,50 +343,32 @@ function Resume() {
           <div data-reveal-item className="text-[11px] font-mono uppercase tracking-[0.18em] text-muted-foreground">
             Education
           </div>
-          <div className="space-y-10">
+          <div className="space-y-8">
             {education.map((e) => (
-              <div data-reveal-item key={e.title}>
-                <h3 className="text-xl md:text-2xl font-semibold tracking-tight">{e.title}</h3>
-                <div className="text-sm text-muted-foreground mt-1">{e.org}</div>
+              <div data-reveal-item key={e.title} className="grid md:grid-cols-[180px_1fr] gap-3 md:gap-8">
+                <div className="text-2xl md:text-3xl font-bold tracking-tight text-foreground leading-none">
+                  {e.yearRange}
+                </div>
+                <div>
+                  <h3 className="text-lg md:text-xl font-semibold tracking-tight">{e.title}</h3>
+                  <div className="text-sm text-muted-foreground mt-0.5">{e.org}</div>
+                </div>
               </div>
             ))}
+            <div data-reveal-item className="pt-6 border-t border-border">
+              <div className="text-[11px] font-mono uppercase tracking-[0.18em] text-muted-foreground mb-5">
+                Certifications
+              </div>
+              <ul className="space-y-3 text-[15px] md:text-base text-foreground/90">
+                {certificates.map((c) => (
+                  <li key={c.title} className="grid grid-cols-[64px_1fr] md:grid-cols-[80px_1fr] gap-4 md:gap-6">
+                    <span className="text-sm text-muted-foreground tabular-nums">{c.year}</span>
+                    <span>{c.title}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
-        </Reveal>
-      </Section>
-
-      <Section spacing="tight">
-        <Reveal className="grid md:grid-cols-[1fr_2.4fr] gap-8 md:gap-16">
-          <div data-reveal-item className="text-[11px] font-mono uppercase tracking-[0.18em] text-muted-foreground">
-            Skills
-          </div>
-          <div data-reveal-item className="flex flex-wrap gap-x-8 gap-y-3 max-w-3xl text-base md:text-lg">
-            {skills.map((s, i) => (
-              <span key={s} className="text-foreground/90">
-                {s}
-                {i < skills.length - 1 && (
-                  <span className="text-muted-foreground/50 ml-8 font-mono">·</span>
-                )}
-              </span>
-            ))}
-          </div>
-        </Reveal>
-      </Section>
-
-      <Section spacing="tight">
-        <Reveal className="grid md:grid-cols-[1fr_2.4fr] gap-8 md:gap-16">
-          <div data-reveal-item className="text-[11px] font-mono uppercase tracking-[0.18em] text-muted-foreground">
-            Licenses & Certifications
-          </div>
-          <ul className="space-y-4 text-[15px] md:text-base text-foreground/90">
-            {certificates.map((c, i) => (
-              <li data-reveal-item key={i} className="grid grid-cols-[auto_1fr] gap-6">
-                <span className="text-[11px] font-mono uppercase tracking-[0.18em] text-muted-foreground pt-1">
-                  0{i + 1}
-                </span>
-                <span>{c}</span>
-              </li>
-            ))}
-          </ul>
         </Reveal>
       </Section>
     </>
