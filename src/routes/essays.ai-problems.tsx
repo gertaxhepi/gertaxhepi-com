@@ -123,9 +123,7 @@ function EssayPage() {
 
             <p>But after a while, I found myself asking a different question.</p>
 
-            <p className="text-center italic text-foreground/80 my-4">
-              Is this really the skill I'm trying to develop?
-            </p>
+            <PullQuote>Is this really the skill I'm trying to develop?</PullQuote>
 
             <p>
               The more I worked with AI, the more I noticed a pattern. Whenever I wasn't happy with the output, I rarely
@@ -167,9 +165,9 @@ function EssayPage() {
 
             <p>That's when something clicked.</p>
 
-            <p className="text-xl md:text-2xl font-medium leading-snug text-foreground tracking-tight my-4">
+            <PullQuote>
               I realised I wasn't giving AI better prompts. I was giving it better understanding.
-            </p>
+            </PullQuote>
 
             <p>Looking back, I realised I'd seen this pattern before.</p>
 
@@ -203,9 +201,7 @@ function EssayPage() {
               But beneath all of that, I've found myself relying on the same lessons my mentors taught me years ago.
             </p>
 
-            <p className="mt-16 md:mt-20 text-xl md:text-2xl font-semibold tracking-tight text-foreground leading-snug">
-              Understanding before solving.
-            </p>
+            <PullQuote>Understanding before solving.</PullQuote>
 
             <p>Asking better questions.</p>
 
