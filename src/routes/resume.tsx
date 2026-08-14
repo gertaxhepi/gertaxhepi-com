@@ -132,7 +132,7 @@ function CareerTimeline() {
             <div
               key={key}
               data-reveal-item
-              className="flex gap-12 py-16 border-t border-border first:border-t-0"
+              className="flex gap-12 py-10 md:py-12 border-t border-border first:border-t-0"
             >
               <div className="w-[300px] shrink-0 text-5xl lg:text-[52px] xl:text-[56px] font-bold tracking-tight text-foreground leading-none whitespace-nowrap">
                 {item.yearRange}
