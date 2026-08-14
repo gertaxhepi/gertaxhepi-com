@@ -124,14 +124,13 @@ function Home() {
             Read my writing
             <ArrowUpRight className="size-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
           </Link>
-          <a
-            href={resumePdf.url}
-            download="Gerta_Xhepi_Product_Manager_Resume.pdf"
+          <Link
+            to="/resume"
             className="group inline-flex items-center gap-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
           >
-            Resume
-            <Download className="size-4 transition-transform duration-300 group-hover:translate-y-0.5" />
-          </a>
+            View my resume
+            <ArrowUpRight className="size-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+          </Link>
         </div>
       </Reveal>
     </section>
