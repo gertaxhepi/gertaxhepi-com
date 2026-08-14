@@ -112,7 +112,7 @@ function CareerTimeline() {
               <div
                 key={key}
                 data-reveal-item
-                className="flex gap-12 py-4"
+                className="flex gap-12 py-3"
               >
                 <div className="w-[300px] shrink-0" />
                 <div className="w-[80px] shrink-0 flex justify-center relative">
