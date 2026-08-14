@@ -105,7 +105,7 @@ function CareerTimeline() {
   return (
     <>
       {/* Desktop: year-led three-column timeline */}
-      <div className="relative hidden md:grid md:grid-cols-[220px_80px_1fr] md:gap-x-12">
+      <div className="relative hidden md:grid md:grid-cols-[300px_80px_1fr] md:gap-x-12">
         {/* Continuous vertical line in the timeline column */}
         <div
           className="col-start-2 col-end-3 relative z-0"
