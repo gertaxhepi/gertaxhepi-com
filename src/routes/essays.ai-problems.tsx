@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Section } from "@/components/Primitives";
+import { PullQuote } from "@/components/PullQuote";
 import { Reveal } from "@/components/Reveal";
 
 export const Route = createFileRoute("/essays/ai-problems")({

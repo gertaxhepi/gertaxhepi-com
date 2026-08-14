@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Section } from "@/components/Primitives";
+import { PullQuote } from "@/components/PullQuote";
 import { Reveal } from "@/components/Reveal";
 
 const TITLE = "How My Software Engineering Background Shaped My Approach to Product Discovery";
