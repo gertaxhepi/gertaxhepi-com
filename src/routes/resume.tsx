@@ -266,7 +266,7 @@ function MetaLink({ href, icon: Icon, children, external }: { href: string; icon
 function Resume() {
   return (
     <>
-      <Section className="pt-12 md:pt-16 pb-4 md:pb-6" spacing="tight">
+      <Section className="pt-12 md:pt-16 pb-4 md:pb-6" spacing="none">
         <Reveal>
           <div data-reveal-item className="mb-6">
             <Breadcrumb items={[{ label: "Home", to: "/" }, { label: "Resume" }]} />
