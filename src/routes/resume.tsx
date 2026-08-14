@@ -223,30 +223,26 @@ function CareerTimeline() {
 }
 
 const education = [
-  { title: "Master of Business Administration (MBA)", org: "ThePowerMBA" },
-  { title: "Bachelor of Computer Science", org: "University Polytechnic of Bucharest" },
-];
-
-const skills = [
-  "Effective Communication",
-  "Collaboration",
-  "Data-driven Decision Making",
-  "Product Visioning",
-  "User-Centric Mindset",
-  "Stakeholder Management",
-  "User Research",
-  "Market Analysis",
-  "Product Strategy",
-  "Analytical Skills",
-  "Leadership and Team",
+  { yearRange: "2020 — 2021", title: "Master of Business Administration (MBA)", org: "ThePowerMBA" },
+  { yearRange: "2011 — 2014", title: "Bachelor of Computer Science", org: "University POLITEHNICA of Bucharest" },
 ];
 
 const certificates = [
-  "Artificial Intelligence — Product School",
-  "Product Analytics — Product School",
-  "Product Strategy — Product School",
-  "Product Launches — Product School",
-  "Project Manager — Google",
+  { year: "2024", title: "Artificial Intelligence — Product School" },
+  { year: "2024", title: "Product Analytics — Product School" },
+  { year: "2024", title: "Product Strategy — Product School" },
+  { year: "2024", title: "Product Launches — Product School" },
+  { year: "2023", title: "Product Roadmapping — Product School" },
+  { year: "2021", title: "Google Project Management Certificate — Google" },
+];
+
+const focusAreas = [
+  "Product Discovery",
+  "B2B SaaS",
+  "AI/ML Products",
+  "Workflow Automation",
+  "Structured Data",
+  "Product Analytics",
 ];
 
 function MetaLink({ href, icon: Icon, children, external }: { href: string; icon: React.ComponentType<{ className?: string }>; children: React.ReactNode; external?: boolean }) {
