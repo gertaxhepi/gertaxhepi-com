@@ -38,74 +38,58 @@ export const Route = createFileRoute("/resume")({
   component: Resume,
 });
 
-const experience = [
+type CareerStage = {
+  yearRange: string;
+  role: string;
+  org: string;
+  description: string;
+  highlight?: boolean;
+};
+
+type TransitionMarker = {
+  type: "transition";
+  label: string;
+};
+
+const careerTimeline: (CareerStage | TransitionMarker)[] = [
   {
-    role: "Founder / Product Builder",
-    org: "Building PeakProfile",
-    dates: "Jan 2025 — Present",
-    bullets: [
-      "Building early-stage product addressing trust, risk, and decision-making in high-stakes environments (mountaineering expeditions)",
-      "Designed structured profile system to transform fragmented self-reported experience into standardized, comparable data models",
-      "Exploring AI-driven scoring systems to assess readiness and improve matching between guides and participants",
-      "Focused on improving decision quality by reducing reliance on unstructured or unreliable data inputs",
-    ],
+    yearRange: "2013 — 2017",
+    role: "Software Engineering",
+    org: "",
+    description:
+      "Worked across established companies and early-stage products, including Microsoft and my own consumer product.",
   },
   {
+    yearRange: "2017 — 2021",
+    role: "Software Engineer",
+    org: "XING · New Work SE",
+    description:
+      "Built platform and frontend products, including the design system used by more than 150 engineers.",
+  },
+  {
+    type: "transition",
+    label: "ENGINEERING → PRODUCT",
+  },
+  {
+    yearRange: "2021 — 2024",
+    role: "Product Manager",
+    org: "XING / onlyfy · New Work SE",
+    description:
+      "Transitioned internally from software engineering into product management.",
+    highlight: true,
+  },
+  {
+    yearRange: "2024 — 2025",
     role: "Product Manager",
     org: "jacando AG",
-    dates: "Aug 2024 — Jan 2025",
-    bullets: [
-      "Led product discovery for secure e-signature workflows in enterprise HR SaaS through user interviews, process mapping, and competitor analysis",
-      "Designed and shipped end-to-end e-signature product integrated into HR workflows, reducing process execution time by 20%",
-      "Iterated on MVP based on customer feedback and usage insights, increasing product adoption by 20%",
-      "Mapped and optimized complex multi-step HR workflows with engineering and customers, improving user satisfaction by 30%",
-      "Prioritized roadmap based on user value, business impact, and technical feasibility",
-    ],
+    description: "Led enterprise workflow products from discovery through launch.",
   },
   {
-    role: "Product Manager",
-    org: "New Work SE (XING / onlyfy Marketplace)",
-    dates: "Jul 2021 — Jul 2024",
-    bullets: [
-      "Led product discovery for job listing creation and structured data workflows using user research, behavioral analysis, and continuous feedback loops",
-      "Improved taxonomy and structured job data quality, increasing consistency, discoverability, and marketplace efficiency by 30%",
-      "Defined and owned product OKRs across listing quality, compliance, and monetization, aligning engineering, data science, and legal teams",
-      "Led regulatory-driven initiative on salary transparency, improving model accuracy by 60% and expanding salary coverage by 80%, protecting ~€50M+ revenue",
-      "Built data-driven decision-making frameworks using Adobe Analytics and Tableau to validate hypotheses and guide roadmap prioritization",
-      "Translated complex regulatory, legal, and business constraints into scalable product and data solutions under tight deadlines",
-    ],
-  },
-  {
-    role: "Software Engineer",
-    org: "New Work SE",
-    dates: "Jul 2017 — Jul 2021",
-    bullets: [
-      "Built and scaled XING design system used by 150+ engineers, enabling consistent UI and faster product delivery",
-      "Collaborated with product managers and designers to translate user needs into scalable frontend architecture (React, GraphQL)",
-      "Improved system consistency and development efficiency through reusable component architecture",
-      "Contributed to engineering standards and cross-team technical alignment",
-    ],
-  },
-  {
-    role: "Co-Founder",
-    org: "TechFabric Creative (Buletin Buletin)",
-    dates: "Dec 2014 — Apr 2017",
-    bullets: [
-      "Co-founded Buletin Buletin, a personalized news aggregation product built on structured data, taxonomy, and ranking logic",
-      "Designed content categorization and personalization mechanisms to improve relevance and engagement",
-      "Led product discovery, feature development, and growth experiments, increasing user satisfaction by 50%",
-      "Owned product and technical strategy for a scalable content platform",
-    ],
-  },
-  {
-    role: "Software Developer Intern",
-    org: "Microsoft",
-    dates: "Jun 2013 — Sep 2013",
-    bullets: [
-      "Delivered features for internal HR systems, improving workflow efficiency by 30%",
-      "Collaborated cross-functionally with engineering, data, and operations teams to translate requirements into product improvements",
-      "Supported deployment and iteration of internal tools, improving user satisfaction by 20%",
-    ],
+    yearRange: "2025 — NOW",
+    role: "Founder / Product Builder",
+    org: "PeakProfile",
+    description:
+      "Building an AI-native decision-support product for mountaineers and guides.",
   },
 ];
 
