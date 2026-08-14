@@ -100,71 +100,64 @@ const careerTimeline: (CareerStage | TransitionMarker)[] = [
 ];
 
 function CareerTimeline() {
-  const totalRows = careerTimeline.length;
-
   return (
     <>
       {/* Desktop: year-led three-column timeline */}
-      <div className="relative hidden md:grid md:grid-cols-[300px_80px_1fr] md:gap-x-12">
-        {/* Continuous vertical line in the timeline column */}
-        <div
-          className="col-start-2 col-end-3 relative z-0"
-          style={{ gridRow: `1 / span ${totalRows}` }}
-        >
-          <div className="absolute top-0 bottom-0 left-1/2 -translate-x-1/2 w-px bg-border" />
-        </div>
-
-        {careerTimeline.map((item, i) => {
+      <div className="hidden md:block">
+        {careerTimeline.map((item) => {
           const key = item.type === "transition" ? item.label : item.yearRange;
+
+          if (item.type === "transition") {
+            return (
+              <div
+                key={key}
+                data-reveal-item
+                className="flex gap-12 py-4"
+              >
+                <div className="w-[300px] shrink-0" />
+                <div className="w-[80px] shrink-0 flex justify-center relative">
+                  <div className="absolute top-0 bottom-0 left-1/2 -translate-x-1/2 w-px bg-border" />
+                  <div className="size-3 rounded-full bg-primary ring-4 ring-background" />
+                </div>
+                <div className="flex-1 min-w-0">
+                  <span className="inline-flex items-center text-[11px] font-mono uppercase tracking-[0.18em] text-primary bg-secondary px-3 py-1.5 rounded-full">
+                    {item.label}
+                  </span>
+                </div>
+              </div>
+            );
+          }
 
           return (
             <div
               key={key}
               data-reveal-item
-              className="col-span-3 relative z-10 py-10 md:py-16 border-t border-border first:border-t-0"
-              style={{ gridRowStart: i + 1 }}
+              className="flex gap-12 py-16 border-t border-border first:border-t-0"
             >
-              <div className="md:grid md:grid-cols-[300px_80px_1fr] md:gap-x-12">
-                {item.type === "transition" ? (
-                  <>
-                    <div /> {/* year column empty */}
-                    <div className="flex justify-center items-center">
-                      <div className="size-3 rounded-full bg-primary ring-4 ring-background" />
-                    </div>
-                    <div>
-                      <span className="inline-flex items-center text-[11px] font-mono uppercase tracking-[0.18em] text-primary bg-secondary px-3 py-1.5 rounded-full">
-                        {item.label}
-                      </span>
-                    </div>
-                  </>
-                ) : (
-                  <>
-                    <div className="text-5xl lg:text-[52px] xl:text-[56px] font-bold tracking-tight text-foreground leading-none whitespace-nowrap">
-                      {item.yearRange}
-                    </div>
-                    <div className="flex justify-center pt-3">
-                      <div
-                        className={cn(
-                          "rounded-full border-2 border-background bg-foreground transition-all",
-                          item.highlight ? "size-4" : "size-2.5"
-                        )}
-                      />
-                    </div>
-                    <div>
-                      <h3 className="text-2xl lg:text-[28px] font-semibold tracking-tight text-foreground">
-                        {item.role}
-                      </h3>
-                      {item.org && (
-                        <div className="mt-1 text-lg text-muted-foreground">
-                          {item.org}
-                        </div>
-                      )}
-                      <p className="mt-4 text-lg text-foreground/80 leading-relaxed max-w-2xl">
-                        {item.description}
-                      </p>
-                    </div>
-                  </>
+              <div className="w-[300px] shrink-0 text-5xl lg:text-[52px] xl:text-[56px] font-bold tracking-tight text-foreground leading-none whitespace-nowrap">
+                {item.yearRange}
+              </div>
+              <div className="w-[80px] shrink-0 flex justify-center relative pt-3">
+                <div className="absolute top-0 bottom-0 left-1/2 -translate-x-1/2 w-px bg-border" />
+                <div
+                  className={cn(
+                    "rounded-full border-2 border-background bg-foreground transition-all",
+                    item.highlight ? "size-4" : "size-2.5"
+                  )}
+                />
+              </div>
+              <div className="flex-1 min-w-0">
+                <h3 className="text-2xl lg:text-[28px] font-semibold tracking-tight text-foreground">
+                  {item.role}
+                </h3>
+                {item.org && (
+                  <div className="mt-1 text-lg text-muted-foreground">
+                    {item.org}
+                  </div>
                 )}
+                <p className="mt-4 text-lg text-foreground/80 leading-relaxed max-w-2xl">
+                  {item.description}
+                </p>
               </div>
             </div>
           );
@@ -175,7 +168,7 @@ function CareerTimeline() {
       <div className="md:hidden relative">
         <div className="absolute top-0 bottom-0 left-[15px] w-px bg-border" />
 
-        {careerTimeline.map((item, i) => {
+        {careerTimeline.map((item) => {
           const key = item.type === "transition" ? item.label : item.yearRange;
 
           if (item.type === "transition") {
