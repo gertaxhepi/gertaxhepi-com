@@ -55,32 +55,11 @@ type TransitionMarker = {
 const careerTimeline: (CareerStage | TransitionMarker)[] = [
   {
     type: "stage",
-    yearRange: "2013 — 2017",
-    role: "Software Engineering",
-    org: "",
+    yearRange: "2025 — NOW",
+    role: "Founder / Product Builder",
+    org: "PeakProfile",
     description:
-      "Worked across established companies and early-stage products, including Microsoft and my own consumer product.",
-  },
-  {
-    type: "stage",
-    yearRange: "2017 — 2021",
-    role: "Software Engineer",
-    org: "XING · New Work SE",
-    description:
-      "Built platform and frontend products, including the design system used by more than 150 engineers.",
-  },
-  {
-    type: "transition",
-    label: "ENGINEERING → PRODUCT",
-  },
-  {
-    type: "stage",
-    yearRange: "2021 — 2024",
-    role: "Product Manager",
-    org: "XING / onlyfy · New Work SE",
-    description:
-      "Transitioned internally from software engineering into product management.",
-    highlight: true,
+      "Building an AI-native decision-support product for mountaineers and guides.",
   },
   {
     type: "stage",
@@ -91,11 +70,32 @@ const careerTimeline: (CareerStage | TransitionMarker)[] = [
   },
   {
     type: "stage",
-    yearRange: "2025 — NOW",
-    role: "Founder / Product Builder",
-    org: "PeakProfile",
+    yearRange: "2021 — 2024",
+    role: "Product Manager",
+    org: "XING / onlyfy · New Work SE",
     description:
-      "Building an AI-native decision-support product for mountaineers and guides.",
+      "Owned products across marketplaces, structured data, salary transparency, and ML-powered experiences.",
+    highlight: true,
+  },
+  {
+    type: "transition",
+    label: "Internal transition to Product Management",
+  },
+  {
+    type: "stage",
+    yearRange: "2017 — 2021",
+    role: "Software Engineer",
+    org: "XING · New Work SE",
+    description:
+      "Built platform and frontend products, including the design system used by more than 150 engineers.",
+  },
+  {
+    type: "stage",
+    yearRange: "2013 — 2017",
+    role: "Software Engineering & Early Product Building",
+    org: "",
+    description:
+      "Worked across established companies and early-stage products, including Microsoft and my own consumer product.",
   },
 ];
 
@@ -112,7 +112,7 @@ function CareerTimeline() {
               <div
                 key={key}
                 data-reveal-item
-                className="flex gap-12 py-4"
+                className="flex gap-12 py-3"
               >
                 <div className="w-[300px] shrink-0" />
                 <div className="w-[80px] shrink-0 flex justify-center relative">
@@ -132,7 +132,7 @@ function CareerTimeline() {
             <div
               key={key}
               data-reveal-item
-              className="flex gap-12 py-16 border-t border-border first:border-t-0"
+              className="flex gap-12 py-10 md:py-12 border-t border-border first:border-t-0"
             >
               <div className="w-[300px] shrink-0 text-5xl lg:text-[52px] xl:text-[56px] font-bold tracking-tight text-foreground leading-none whitespace-nowrap">
                 {item.yearRange}
@@ -190,7 +190,7 @@ function CareerTimeline() {
             <div
               key={key}
               data-reveal-item
-              className="relative py-10 border-t border-border first:border-t-0"
+              className="relative py-8 border-t border-border first:border-t-0"
             >
               <div className="text-4xl font-bold tracking-tight text-foreground leading-none mb-5">
                 {item.yearRange}
@@ -266,9 +266,9 @@ function MetaLink({ href, icon: Icon, children, external }: { href: string; icon
 function Resume() {
   return (
     <>
-      <Section className="pt-16 md:pt-28" spacing="tight">
+      <Section className="pt-10 md:pt-12 pb-3 md:pb-4" spacing="none">
         <Reveal>
-          <div data-reveal-item className="mb-10">
+          <div data-reveal-item className="mb-4">
             <Breadcrumb items={[{ label: "Home", to: "/" }, { label: "Resume" }]} />
           </div>
           <h1
@@ -279,7 +279,7 @@ function Resume() {
           </h1>
           <div
             data-reveal-item
-            className="mt-10 flex flex-wrap gap-x-8 gap-y-3"
+            className="mt-4 flex flex-wrap gap-x-8 gap-y-3"
           >
             <MetaLink href="mailto:xhepigerta@gmail.com" icon={Mail}>xhepigerta@gmail.com</MetaLink>
             <span className="inline-flex items-center gap-2 text-sm text-muted-foreground">
@@ -288,7 +288,7 @@ function Resume() {
             <MetaLink href="https://www.linkedin.com/in/gerta-xhepi-94853289/" icon={Linkedin} external>LinkedIn</MetaLink>
           </div>
 
-          <div data-reveal-item className="mt-10">
+          <div data-reveal-item className="mt-4">
             <a
               href={resumePdf.url}
               download="gerta_xhepi-resume.pdf"
@@ -300,18 +300,18 @@ function Resume() {
         </Reveal>
       </Section>
 
-      <Section spacing="tight">
+      <Section className="py-3 md:py-4" spacing="none">
         <Reveal className="grid md:grid-cols-[1fr_2.4fr] gap-8 md:gap-16">
           <div data-reveal-item className="text-[11px] font-mono uppercase tracking-[0.18em] text-muted-foreground">
             Summary
           </div>
-          <p data-reveal-item className="text-lg md:text-xl text-foreground/90 leading-relaxed max-w-3xl">
-            Product Manager with 5+ years of experience and an MBA, building data-intensive SaaS products across marketplace and workflow-driven environments. Strong focus on product discovery, OKR execution, and structured data systems that improve decision-making, compliance, and operational efficiency. Experienced in translating complex user needs and regulatory constraints into scalable product solutions. Proven ability to align engineering, data science, legal, and business stakeholders around measurable outcomes in high-complexity environments. Strong software engineering background with hands-on product ownership in product-led organizations.
+          <p data-reveal-item className="text-base md:text-lg font-medium text-foreground/90 leading-relaxed max-w-4xl">
+            Over the past decade, I’ve moved from building software to shaping products. Today, I work across B2B SaaS, marketplaces, workflow automation, structured data, and AI.
           </p>
         </Reveal>
       </Section>
 
-      <Section spacing="tight">
+      <Section className="py-3 md:py-4" spacing="none">
         <Reveal className="grid md:grid-cols-[180px_1fr] gap-8 md:gap-16">
           <div
             data-reveal-item
