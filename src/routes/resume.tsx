@@ -301,9 +301,26 @@ function Resume() {
           <div data-reveal-item className="text-[11px] font-mono uppercase tracking-[0.18em] text-muted-foreground">
             Summary
           </div>
-          <p data-reveal-item className="text-base md:text-lg font-medium text-foreground/90 leading-relaxed max-w-4xl">
-            Over the past decade, I’ve moved from building software to shaping products. Today, I work across B2B SaaS, marketplaces, workflow automation, structured data, and AI.
-          </p>
+          <div data-reveal-item className="max-w-4xl">
+            <p className="text-base md:text-lg font-medium text-foreground/90 leading-relaxed">
+              Over the past decade, I’ve moved from building software to shaping products. Today, I work across B2B SaaS, marketplaces, workflow automation, structured data, and AI.
+            </p>
+            <div className="mt-6 md:mt-8">
+              <div className="text-[11px] font-mono uppercase tracking-[0.18em] text-muted-foreground mb-3">
+                Focus Areas
+              </div>
+              <div className="flex flex-wrap gap-2 text-sm">
+                {focusAreas.map((area, i) => (
+                  <span key={area} className="inline-flex items-center text-foreground/80">
+                    <span className="border border-border/70 rounded-full px-3 py-1">{area}</span>
+                    {i < focusAreas.length - 1 && (
+                      <span className="text-muted-foreground/40 mx-2 hidden sm:inline">·</span>
+                    )}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
         </Reveal>
       </Section>
 
