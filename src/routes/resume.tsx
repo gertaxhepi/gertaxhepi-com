@@ -62,6 +62,7 @@ const careerTimeline: (CareerStage | TransitionMarker)[] = [
       "Worked across established companies and early-stage products, including Microsoft and my own consumer product.",
   },
   {
+    type: "stage",
     yearRange: "2017 — 2021",
     role: "Software Engineer",
     org: "XING · New Work SE",
@@ -73,6 +74,7 @@ const careerTimeline: (CareerStage | TransitionMarker)[] = [
     label: "ENGINEERING → PRODUCT",
   },
   {
+    type: "stage",
     yearRange: "2021 — 2024",
     role: "Product Manager",
     org: "XING / onlyfy · New Work SE",
@@ -81,12 +83,14 @@ const careerTimeline: (CareerStage | TransitionMarker)[] = [
     highlight: true,
   },
   {
+    type: "stage",
     yearRange: "2024 — 2025",
     role: "Product Manager",
     org: "jacando AG",
     description: "Led enterprise workflow products from discovery through launch.",
   },
   {
+    type: "stage",
     yearRange: "2025 — NOW",
     role: "Founder / Product Builder",
     org: "PeakProfile",
