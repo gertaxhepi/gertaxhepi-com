@@ -184,27 +184,14 @@ function Resume() {
 
       <Section spacing="tight">
         <Reveal className="grid md:grid-cols-[1fr_2.4fr] gap-8 md:gap-16">
-          <div data-reveal-item className="text-[11px] font-mono uppercase tracking-[0.18em] text-muted-foreground md:sticky md:top-28 md:self-start">
-            Experience
+          <div
+            data-reveal-item
+            className="text-[11px] font-mono uppercase tracking-[0.18em] text-muted-foreground md:sticky md:top-28 md:self-start"
+          >
+            Career Path
           </div>
-          <div className="space-y-16 md:space-y-20">
-            {experience.map((e) => (
-              <article data-reveal-item key={e.role + e.org}>
-                <div className="text-[11px] font-mono uppercase tracking-[0.18em] text-muted-foreground mb-3">
-                  {e.dates}
-                </div>
-                <h3 className="text-2xl md:text-3xl font-semibold tracking-tight">{e.role}</h3>
-                <div className="text-base text-muted-foreground mt-1">{e.org}</div>
-                <ul className="mt-6 space-y-3 text-[15px] md:text-base text-foreground/85 leading-relaxed max-w-3xl">
-                  {e.bullets.map((b, i) => (
-                    <li key={i} className="grid grid-cols-[auto_1fr] gap-4">
-                      <span className="text-muted-foreground font-mono text-xs pt-1.5">—</span>
-                      <span>{b}</span>
-                    </li>
-                  ))}
-                </ul>
-              </article>
-            ))}
+          <div data-reveal-item className="min-w-0">
+            <CareerTimeline />
           </div>
         </Reveal>
       </Section>
