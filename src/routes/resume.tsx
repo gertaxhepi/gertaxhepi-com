@@ -124,7 +124,7 @@ function CareerTimeline() {
               className="col-span-3 relative z-10 py-10 md:py-16 border-t border-border first:border-t-0"
               style={{ gridRowStart: i + 1 }}
             >
-              <div className="md:grid md:grid-cols-[220px_80px_1fr] md:gap-x-12">
+              <div className="md:grid md:grid-cols-[300px_80px_1fr] md:gap-x-12">
                 {item.type === "transition" ? (
                   <>
                     <div /> {/* year column empty */}
