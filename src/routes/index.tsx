@@ -1,8 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, ArrowUpRight, Download } from "lucide-react";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
 import { AnimatedSmiley } from "@/components/AnimatedSmiley";
-import resumePdf from "@/assets/gerta_xhepi-resume.pdf.asset.json";
+
 
 const OG_IMAGE = "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/5e5a77b8-fdcf-4df7-92f9-1cada506e97a";
 
@@ -124,14 +124,13 @@ function Home() {
             Read my writing
             <ArrowUpRight className="size-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
           </Link>
-          <a
-            href={resumePdf.url}
-            download="Gerta_Xhepi_Product_Manager_Resume.pdf"
+          <Link
+            to="/resume"
             className="group inline-flex items-center gap-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
           >
-            Resume
-            <Download className="size-4 transition-transform duration-300 group-hover:translate-y-0.5" />
-          </a>
+            View my resume
+            <ArrowUpRight className="size-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+          </Link>
         </div>
       </Reveal>
     </section>
