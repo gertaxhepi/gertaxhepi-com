@@ -139,7 +139,7 @@ function CareerTimeline() {
                   </>
                 ) : (
                   <>
-                    <div className="text-5xl lg:text-[56px] xl:text-[64px] font-bold tracking-tight text-foreground leading-none">
+                    <div className="text-5xl lg:text-[52px] xl:text-[56px] font-bold tracking-tight text-foreground leading-none whitespace-nowrap">
                       {item.yearRange}
                     </div>
                     <div className="flex justify-center pt-3">
