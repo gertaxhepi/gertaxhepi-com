@@ -223,7 +223,7 @@ function CareerTimeline() {
 }
 
 const education = [
-  { yearRange: "2020 — 2021", title: "Master of Business Administration (MBA)", org: "ThePowerMBA" },
+  { yearRange: "2020 — 2022", title: "Master of Business Administration (MBA)", org: "ThePowerMBA" },
   { yearRange: "2011 — 2014", title: "Bachelor of Computer Science", org: "University POLITEHNICA of Bucharest" },
 ];
 
@@ -237,8 +237,9 @@ const certificates = [
 ];
 
 const focusAreas = [
-  "Product Discovery",
+  "B2C Products",
   "B2B SaaS",
+  "Product Discovery",
   "AI/ML Products",
   "Workflow Automation",
   "Structured Data",
@@ -287,10 +288,10 @@ function Resume() {
           <div data-reveal-item className="mt-4">
             <a
               href={resumePdf.url}
-              download="gerta_xhepi-resume.pdf"
+              download="Gerta_Xhepi_Resume.pdf"
               className="group inline-flex items-center gap-2 text-sm font-medium border-b border-foreground pb-1 transition-opacity hover:opacity-60"
             >
-              <Download className="size-4" /> Download PDF
+              <Download className="size-4" /> Download Resume
             </a>
           </div>
         </Reveal>
