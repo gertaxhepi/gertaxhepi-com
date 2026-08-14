@@ -300,7 +300,7 @@ function Resume() {
         </Reveal>
       </Section>
 
-      <Section className="py-10 md:py-14" spacing="tight">
+      <Section className="py-6 md:py-8" spacing="tight">
         <Reveal className="grid md:grid-cols-[1fr_2.4fr] gap-8 md:gap-16">
           <div data-reveal-item className="text-[11px] font-mono uppercase tracking-[0.18em] text-muted-foreground">
             Summary
