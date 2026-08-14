@@ -72,11 +72,8 @@ function Home() {
           data-reveal-item
           className="text-[11px] font-mono uppercase tracking-[0.22em] text-muted-foreground mb-8 flex items-center gap-3"
         >
-          <span className="relative flex size-1.5">
-            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-foreground opacity-50" />
-            <span className="relative inline-flex size-1.5 rounded-full bg-foreground" />
-          </span>
-          AI Product Manager • Based in Germany • Open to remote opportunities across Europe
+          <MapPin className="size-3" strokeWidth={1.5} />
+          Based in Germany · Open to remote opportunities across Europe
         </div>
 
         <h1
