@@ -70,14 +70,13 @@ function EssayPage() {
           <article className="space-y-8 text-base md:text-[17px] text-foreground/90 leading-[1.75]">
             <p>
               When I moved from software engineering into product management, I expected product discovery to be about
-              learning new frameworks and techniques. Looking back, the frameworks were the easy part. What really shaped
-              my approach was learning how to make decisions when there was never enough information to be completely
-              certain.
+              learning new frameworks and techniques. Looking back, the frameworks were the easy part. What shaped my
+              approach was learning how to make decisions when there was never enough information to be certain.
             </p>
 
             <p>
               One thing that made the transition feel natural was that I had always enjoyed challenging solutions. Even
-              as a software engineer, I was rarely the person who simply implemented what landed in my backlog. I wanted
+              as a software engineer, I was rarely the person who implemented what landed in my backlog. I wanted
               to understand why we were building something before thinking about how to build it. That curiosity was one
               of the reasons I moved into product management.
             </p>
@@ -110,7 +109,7 @@ function EssayPage() {
 
             <p>The goal sounded simple.</p>
 
-            <p>The questions weren't.</p>
+            <p>The questions weren't simple.</p>
 
             <p>Should we show a predicted salary range?</p>
 
@@ -130,7 +129,7 @@ function EssayPage() {
               the team.
             </p>
 
-            <p>I found myself constantly moving between customer interviews and dashboards.</p>
+            <p>I often found myself moving between customer interviews and dashboards.</p>
 
             <p>
               When users told us salary transparency mattered, I wanted to know whether their behavior reflected what
@@ -149,7 +148,7 @@ function EssayPage() {
 
             <p>
               Looking back, I don't think that instinct was wrong. Better evidence leads to better conversations, better
-              insights, and ultimately better decisions.
+              insights, and better decisions.
             </p>
 
             <PullQuote>
@@ -162,7 +161,7 @@ function EssayPage() {
 
             <p>I had been treating research as a way to uncover the right answer.</p>
 
-            <p>Then I realized what I was really searching for.</p>
+            <p>Then I realized what I was searching for.</p>
 
             <PullQuote>
               I wasn't looking for better evidence.
@@ -170,14 +169,14 @@ function EssayPage() {
               I was looking for certainty.
             </PullQuote>
 
-            <p>That shift completely changed how I approached discovery.</p>
+            <p>That shift changed how I approached discovery.</p>
 
             <p>
               Instead of asking whether we had found the right solution, I started asking what uncertainty we were
-              actually trying to reduce.
+              trying to reduce.
             </p>
 
-            <p>Sometimes the uncertainty was about whether users really had the problem.</p>
+            <p>Sometimes the uncertainty was about whether users had the problem.</p>
 
             <p>Sometimes it was about whether our data was reliable enough.</p>
 
@@ -202,7 +201,7 @@ function EssayPage() {
             <p>It doesn't.</p>
 
             <p>
-              Today, I still care deeply about collecting good evidence. The difference is that I no longer expect it to
+              Today, I still care about collecting good evidence. The difference is that I no longer expect it to
               eliminate uncertainty. I expect it to help me make a better decision.
             </p>
 
