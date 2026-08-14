@@ -300,13 +300,13 @@ function Resume() {
         </Reveal>
       </Section>
 
-      <Section spacing="tight">
+      <Section className="py-10 md:py-14" spacing="tight">
         <Reveal className="grid md:grid-cols-[1fr_2.4fr] gap-8 md:gap-16">
           <div data-reveal-item className="text-[11px] font-mono uppercase tracking-[0.18em] text-muted-foreground">
             Summary
           </div>
-          <p data-reveal-item className="text-lg md:text-xl text-foreground/90 leading-relaxed max-w-3xl">
-            Product Manager with 5+ years of experience and an MBA, building data-intensive SaaS products across marketplace and workflow-driven environments. Strong focus on product discovery, OKR execution, and structured data systems that improve decision-making, compliance, and operational efficiency. Experienced in translating complex user needs and regulatory constraints into scalable product solutions. Proven ability to align engineering, data science, legal, and business stakeholders around measurable outcomes in high-complexity environments. Strong software engineering background with hands-on product ownership in product-led organizations.
+          <p data-reveal-item className="text-base md:text-lg font-medium text-foreground/90 leading-relaxed max-w-4xl">
+            Over the past decade, I’ve moved from building software to shaping products. Today, I work across B2B SaaS, marketplaces, workflow automation, structured data, and AI.
           </p>
         </Reveal>
       </Section>
