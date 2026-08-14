@@ -223,30 +223,26 @@ function CareerTimeline() {
 }
 
 const education = [
-  { title: "Master of Business Administration (MBA)", org: "ThePowerMBA" },
-  { title: "Bachelor of Computer Science", org: "University Polytechnic of Bucharest" },
-];
-
-const skills = [
-  "Effective Communication",
-  "Collaboration",
-  "Data-driven Decision Making",
-  "Product Visioning",
-  "User-Centric Mindset",
-  "Stakeholder Management",
-  "User Research",
-  "Market Analysis",
-  "Product Strategy",
-  "Analytical Skills",
-  "Leadership and Team",
+  { yearRange: "2020 — 2021", title: "Master of Business Administration (MBA)", org: "ThePowerMBA" },
+  { yearRange: "2011 — 2014", title: "Bachelor of Computer Science", org: "University POLITEHNICA of Bucharest" },
 ];
 
 const certificates = [
-  "Artificial Intelligence — Product School",
-  "Product Analytics — Product School",
-  "Product Strategy — Product School",
-  "Product Launches — Product School",
-  "Project Manager — Google",
+  { year: "2024", title: "Artificial Intelligence — Product School" },
+  { year: "2024", title: "Product Analytics — Product School" },
+  { year: "2024", title: "Product Strategy — Product School" },
+  { year: "2024", title: "Product Launches — Product School" },
+  { year: "2023", title: "Product Roadmapping — Product School" },
+  { year: "2021", title: "Google Project Management Certificate — Google" },
+];
+
+const focusAreas = [
+  "Product Discovery",
+  "B2B SaaS",
+  "AI/ML Products",
+  "Workflow Automation",
+  "Structured Data",
+  "Product Analytics",
 ];
 
 function MetaLink({ href, icon: Icon, children, external }: { href: string; icon: React.ComponentType<{ className?: string }>; children: React.ReactNode; external?: boolean }) {
@@ -305,9 +301,26 @@ function Resume() {
           <div data-reveal-item className="text-[11px] font-mono uppercase tracking-[0.18em] text-muted-foreground">
             Summary
           </div>
-          <p data-reveal-item className="text-base md:text-lg font-medium text-foreground/90 leading-relaxed max-w-4xl">
-            Over the past decade, I’ve moved from building software to shaping products. Today, I work across B2B SaaS, marketplaces, workflow automation, structured data, and AI.
-          </p>
+          <div data-reveal-item className="max-w-4xl">
+            <p className="text-base md:text-lg font-medium text-foreground/90 leading-relaxed">
+              Over the past decade, I’ve moved from building software to shaping products. Today, I work across B2B SaaS, marketplaces, workflow automation, structured data, and AI.
+            </p>
+            <div className="mt-6 md:mt-8">
+              <div className="text-[11px] font-mono uppercase tracking-[0.18em] text-muted-foreground mb-3">
+                Focus Areas
+              </div>
+              <div className="flex flex-wrap gap-2 text-sm">
+                {focusAreas.map((area, i) => (
+                  <span key={area} className="inline-flex items-center text-foreground/80">
+                    <span className="border border-border/70 rounded-full px-3 py-1">{area}</span>
+                    {i < focusAreas.length - 1 && (
+                      <span className="text-muted-foreground/40 mx-2 hidden sm:inline">·</span>
+                    )}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
         </Reveal>
       </Section>
 
@@ -330,50 +343,32 @@ function Resume() {
           <div data-reveal-item className="text-[11px] font-mono uppercase tracking-[0.18em] text-muted-foreground">
             Education
           </div>
-          <div className="space-y-10">
+          <div className="space-y-8">
             {education.map((e) => (
-              <div data-reveal-item key={e.title}>
-                <h3 className="text-xl md:text-2xl font-semibold tracking-tight">{e.title}</h3>
-                <div className="text-sm text-muted-foreground mt-1">{e.org}</div>
+              <div data-reveal-item key={e.title} className="grid md:grid-cols-[180px_1fr] gap-3 md:gap-8">
+                <div className="text-2xl md:text-3xl font-bold tracking-tight text-foreground leading-none">
+                  {e.yearRange}
+                </div>
+                <div>
+                  <h3 className="text-lg md:text-xl font-semibold tracking-tight">{e.title}</h3>
+                  <div className="text-sm text-muted-foreground mt-0.5">{e.org}</div>
+                </div>
               </div>
             ))}
+            <div data-reveal-item className="pt-6 border-t border-border">
+              <div className="text-[11px] font-mono uppercase tracking-[0.18em] text-muted-foreground mb-5">
+                Certifications
+              </div>
+              <ul className="space-y-3 text-[15px] md:text-base text-foreground/90">
+                {certificates.map((c) => (
+                  <li key={c.title} className="grid grid-cols-[64px_1fr] md:grid-cols-[80px_1fr] gap-4 md:gap-6">
+                    <span className="text-sm text-muted-foreground tabular-nums">{c.year}</span>
+                    <span>{c.title}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
-        </Reveal>
-      </Section>
-
-      <Section spacing="tight">
-        <Reveal className="grid md:grid-cols-[1fr_2.4fr] gap-8 md:gap-16">
-          <div data-reveal-item className="text-[11px] font-mono uppercase tracking-[0.18em] text-muted-foreground">
-            Skills
-          </div>
-          <div data-reveal-item className="flex flex-wrap gap-x-8 gap-y-3 max-w-3xl text-base md:text-lg">
-            {skills.map((s, i) => (
-              <span key={s} className="text-foreground/90">
-                {s}
-                {i < skills.length - 1 && (
-                  <span className="text-muted-foreground/50 ml-8 font-mono">·</span>
-                )}
-              </span>
-            ))}
-          </div>
-        </Reveal>
-      </Section>
-
-      <Section spacing="tight">
-        <Reveal className="grid md:grid-cols-[1fr_2.4fr] gap-8 md:gap-16">
-          <div data-reveal-item className="text-[11px] font-mono uppercase tracking-[0.18em] text-muted-foreground">
-            Licenses & Certifications
-          </div>
-          <ul className="space-y-4 text-[15px] md:text-base text-foreground/90">
-            {certificates.map((c, i) => (
-              <li data-reveal-item key={i} className="grid grid-cols-[auto_1fr] gap-6">
-                <span className="text-[11px] font-mono uppercase tracking-[0.18em] text-muted-foreground pt-1">
-                  0{i + 1}
-                </span>
-                <span>{c}</span>
-              </li>
-            ))}
-          </ul>
         </Reveal>
       </Section>
     </>
