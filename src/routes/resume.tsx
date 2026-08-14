@@ -39,6 +39,7 @@ export const Route = createFileRoute("/resume")({
 });
 
 type CareerStage = {
+  type: "stage";
   yearRange: string;
   role: string;
   org: string;
@@ -53,6 +54,7 @@ type TransitionMarker = {
 
 const careerTimeline: (CareerStage | TransitionMarker)[] = [
   {
+    type: "stage",
     yearRange: "2013 — 2017",
     role: "Software Engineering",
     org: "",
