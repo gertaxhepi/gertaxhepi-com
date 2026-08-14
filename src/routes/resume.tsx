@@ -266,9 +266,9 @@ function MetaLink({ href, icon: Icon, children, external }: { href: string; icon
 function Resume() {
   return (
     <>
-      <Section className="pt-16 md:pt-28" spacing="tight">
+      <Section className="pt-16 md:pt-20 pb-10 md:pb-14" spacing="tight">
         <Reveal>
-          <div data-reveal-item className="mb-10">
+          <div data-reveal-item className="mb-8">
             <Breadcrumb items={[{ label: "Home", to: "/" }, { label: "Resume" }]} />
           </div>
           <h1
@@ -279,7 +279,7 @@ function Resume() {
           </h1>
           <div
             data-reveal-item
-            className="mt-10 flex flex-wrap gap-x-8 gap-y-3"
+            className="mt-8 flex flex-wrap gap-x-8 gap-y-3"
           >
             <MetaLink href="mailto:xhepigerta@gmail.com" icon={Mail}>xhepigerta@gmail.com</MetaLink>
             <span className="inline-flex items-center gap-2 text-sm text-muted-foreground">
@@ -288,7 +288,7 @@ function Resume() {
             <MetaLink href="https://www.linkedin.com/in/gerta-xhepi-94853289/" icon={Linkedin} external>LinkedIn</MetaLink>
           </div>
 
-          <div data-reveal-item className="mt-10">
+          <div data-reveal-item className="mt-8">
             <a
               href={resumePdf.url}
               download="gerta_xhepi-resume.pdf"
