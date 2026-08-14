@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Section } from "@/components/Primitives";
+import { PullQuote } from "@/components/PullQuote";
 import { Reveal } from "@/components/Reveal";
 
 const TITLE = "How My Software Engineering Background Shaped My Approach to Product Discovery";
@@ -23,13 +24,6 @@ export const Route = createFileRoute("/writing/product-discovery-software-engine
   component: EssayPage,
 });
 
-function PullQuote({ children }: { children: React.ReactNode }) {
-  return (
-    <p className="my-16 md:my-20 border-l-2 border-foreground/20 pl-6 md:pl-8 text-xl md:text-2xl font-medium leading-snug tracking-tight text-foreground">
-      {children}
-    </p>
-  );
-}
 
 function EssayPage() {
   return (
