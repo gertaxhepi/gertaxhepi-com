@@ -190,7 +190,7 @@ function CareerTimeline() {
             <div
               key={key}
               data-reveal-item
-              className="relative py-10 border-t border-border first:border-t-0"
+              className="relative py-8 border-t border-border first:border-t-0"
             >
               <div className="text-4xl font-bold tracking-tight text-foreground leading-none mb-5">
                 {item.yearRange}
