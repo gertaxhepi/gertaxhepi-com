@@ -103,7 +103,7 @@ function NavSection({ number, title, description, supportingText, cta, to }: Nav
             className="relative inline-block text-[11px] font-mono uppercase tracking-[0.18em] text-terracotta pb-0.5 pt-1 transition-colors duration-300 group-hover:text-foreground"
           >
             {cta}
-            <span className="absolute left-0 bottom-0 h-px w-full bg-foreground origin-left scale-x-0 transition-transform duration-300 group-hover:scale-x-100" />
+            <span className="absolute left-0 bottom-0 h-px bg-foreground w-0 transition-all duration-300 group-hover:w-full" />
           </span>
         </div>
       </div>
