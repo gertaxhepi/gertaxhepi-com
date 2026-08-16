@@ -75,7 +75,7 @@ function NavSection({ number, title, description, supportingText, cta, to }: Nav
   return (
     <Link
       to={to}
-      className="group block border-t border-border/60 first:border-t-0 py-8 md:py-10 lg:py-11 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded-sm"
+      className="group block border-t border-border/60 first:border-t-0 py-8 md:py-10 lg:py-[clamp(0.6rem,2.6vh,2.5rem)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded-sm"
     >
       <div className="grid grid-cols-[auto_1fr_auto] lg:grid-cols-[auto_1fr_1.5fr_auto] items-start gap-x-4 lg:gap-x-6">
         <span className="row-start-1 col-start-1 text-[11px] font-mono uppercase tracking-[0.18em] text-terracotta pt-2 lg:pt-3">
@@ -83,7 +83,7 @@ function NavSection({ number, title, description, supportingText, cta, to }: Nav
         </span>
         <h2
           data-reveal-item
-          className="row-start-1 col-start-2 text-3xl md:text-4xl lg:text-[44px] xl:text-[52px] font-semibold tracking-tight leading-[0.95]"
+          className="row-start-1 col-start-2 text-3xl md:text-4xl lg:text-[clamp(1.75rem,4.6vh,3.25rem)] font-semibold tracking-tight leading-[0.95]"
         >
           {title}
         </h2>
@@ -92,7 +92,7 @@ function NavSection({ number, title, description, supportingText, cta, to }: Nav
           strokeWidth={1.5}
         />
         <div className="col-start-1 col-span-3 lg:col-start-3 lg:col-span-1 lg:row-start-1 mt-5 lg:mt-0 space-y-2">
-          <p data-reveal-item className="text-base md:text-lg text-foreground leading-snug">
+          <p data-reveal-item className="text-base md:text-lg lg:text-[clamp(0.875rem,1.9vh,1.125rem)] text-foreground leading-snug">
             {description}
           </p>
           <p data-reveal-item className="text-sm text-muted-foreground">
