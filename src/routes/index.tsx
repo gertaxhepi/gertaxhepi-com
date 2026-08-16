@@ -3,7 +3,6 @@ import { ArrowUpRight } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
 
 const OG_IMAGE = "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/5e5a77b8-fdcf-4df7-92f9-1cada506e97a";
-const ACCENT = "#8A5A5A";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -79,7 +78,7 @@ function NavSection({ number, title, description, supportingText, cta, to }: Nav
       className="group block border-t border-border/60 first:border-t-0 py-8 md:py-10 lg:py-11 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded-sm"
     >
       <div className="grid grid-cols-[auto_1fr_auto] lg:grid-cols-[auto_1fr_1.5fr_auto] items-start gap-x-4 lg:gap-x-6">
-        <span className="row-start-1 col-start-1 text-[11px] font-mono uppercase tracking-[0.18em] text-muted-foreground pt-2 lg:pt-3">
+        <span className="row-start-1 col-start-1 text-[11px] font-mono uppercase tracking-[0.18em] text-terracotta pt-2 lg:pt-3">
           {number}
         </span>
         <h2
@@ -101,7 +100,7 @@ function NavSection({ number, title, description, supportingText, cta, to }: Nav
           </p>
           <span
             data-reveal-item
-            className="inline-block text-[11px] font-mono uppercase tracking-[0.18em] text-muted-foreground border-b border-foreground pb-0.5 pt-1 transition-colors group-hover:text-foreground"
+            className="inline-block text-[11px] font-mono uppercase tracking-[0.18em] text-terracotta border-b border-foreground pb-0.5 pt-1 transition-colors group-hover:text-foreground"
           >
             {cta}
           </span>
@@ -142,7 +141,7 @@ function Home() {
             <Link
               data-reveal-item
               to="/about"
-              className="group inline-flex items-center gap-2 text-[11px] font-mono uppercase tracking-[0.18em] text-muted-foreground border-b border-foreground pb-1 transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded-sm"
+              className="group inline-flex items-center gap-2 text-[11px] font-mono uppercase tracking-[0.18em] text-terracotta border-b border-foreground pb-1 transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded-sm"
             >
               Read more about me
               <ArrowUpRight
@@ -154,7 +153,7 @@ function Home() {
 
           <div
             data-reveal-item
-            className="hidden lg:block text-[11px] font-mono uppercase tracking-[0.18em] text-muted-foreground mt-10"
+            className="hidden lg:block text-[11px] font-mono uppercase tracking-[0.18em] text-terracotta mt-10"
           >
             Based in Germany
           </div>
@@ -191,7 +190,7 @@ function Home() {
 
           <div
             data-reveal-item
-            className="text-[11px] font-mono uppercase tracking-[0.18em] text-muted-foreground text-left lg:text-right mt-10"
+            className="text-[11px] font-mono uppercase tracking-[0.18em] text-terracotta text-left lg:text-right mt-10"
           >
             Open to remote opportunities across Europe
           </div>
@@ -199,7 +198,7 @@ function Home() {
       </Reveal>
 
       {/* Mobile bottom labels */}
-      <div className="lg:hidden flex items-center justify-between pb-8 text-[11px] font-mono uppercase tracking-[0.18em] text-muted-foreground">
+      <div className="lg:hidden flex items-center justify-between pb-8 text-[11px] font-mono uppercase tracking-[0.18em] text-terracotta">
         <span>Based in Germany</span>
         <span className="text-right">Open to remote opportunities across Europe</span>
       </div>
