@@ -75,7 +75,7 @@ function NavSection({ number, title, description, supportingText, cta, to }: Nav
   return (
     <Link
       to={to}
-      className="group block border-t border-border/60 first:border-t-0 py-8 md:py-10 lg:py-[clamp(0.6rem,2.6vh,2.5rem)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded-sm"
+      className="group block border-t border-border/60 first:border-t-0 py-8 md:py-10 lg:py-[clamp(0.6rem,2.6vh,2.5rem)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded-sm transition-colors duration-300 hover:bg-subtle/50 dark:hover:bg-subtle/40"
     >
       <div className="grid grid-cols-[auto_1fr_auto] lg:grid-cols-[auto_1fr_1.5fr_auto] items-start gap-x-4 lg:gap-x-6">
         <span className="row-start-1 col-start-1 text-[11px] font-mono uppercase tracking-[0.18em] text-terracotta pt-2 lg:pt-3">
@@ -88,7 +88,7 @@ function NavSection({ number, title, description, supportingText, cta, to }: Nav
           {title}
         </h2>
         <ArrowUpRight
-          className="row-start-1 col-start-3 lg:col-start-4 size-5 text-foreground mt-2 lg:mt-3 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+          className="row-start-1 col-start-3 lg:col-start-4 size-5 text-foreground mt-2 lg:mt-3 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1"
           strokeWidth={1.5}
         />
         <div className="col-start-1 col-span-3 lg:col-start-3 lg:col-span-1 lg:row-start-1 mt-5 lg:mt-0 space-y-2">
@@ -100,9 +100,10 @@ function NavSection({ number, title, description, supportingText, cta, to }: Nav
           </p>
           <span
             data-reveal-item
-            className="inline-block text-[11px] font-mono uppercase tracking-[0.18em] text-terracotta border-b border-foreground pb-0.5 pt-1 transition-colors group-hover:text-foreground"
+            className="relative inline-block text-[11px] font-mono uppercase tracking-[0.18em] text-terracotta pb-0.5 pt-1 transition-colors duration-300 group-hover:text-foreground"
           >
             {cta}
+            <span className="absolute left-0 bottom-0 h-px w-full bg-foreground origin-left scale-x-0 transition-transform duration-300 group-hover:scale-x-100" />
           </span>
         </div>
       </div>
