@@ -112,14 +112,14 @@ function NavSection({ number, title, description, supportingText, cta, to }: Nav
 
 function Home() {
   return (
-    <section className="container-page min-h-[calc(100vh-72px)] flex flex-col">
-      <Reveal className="flex-1 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-10 xl:gap-16 py-12 md:py-16 lg:py-14">
+    <section className="container-page flex flex-col lg:h-[calc(100dvh-72px)] lg:overflow-hidden">
+      <Reveal className="flex-1 min-h-0 grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-12 lg:gap-10 xl:gap-16 py-10 md:py-14 lg:py-[clamp(0.75rem,3.5vh,3rem)]">
         {/* Left column */}
-        <div className="flex flex-col justify-between min-w-0">
-          <div className="space-y-8 md:space-y-10">
+        <div className="flex flex-col justify-center min-w-0">
+          <div className="space-y-7 md:space-y-9 lg:space-y-[clamp(1rem,3.2vh,2.5rem)]">
             <h1
               data-reveal-item
-              className="text-5xl sm:text-6xl md:text-7xl lg:text-[80px] xl:text-[96px] 2xl:text-[112px] font-bold tracking-[-0.04em] leading-[0.92] text-balance"
+              className="text-5xl sm:text-6xl md:text-7xl lg:text-[clamp(3rem,8.4vh,7rem)] font-bold tracking-[-0.04em] leading-[0.92] text-balance"
             >
               From building
               <br />
@@ -132,7 +132,7 @@ function Home() {
 
             <p
               data-reveal-item
-              className="text-lg md:text-xl text-muted-foreground max-w-xl leading-relaxed"
+              className="text-lg md:text-xl lg:text-[clamp(0.95rem,2.1vh,1.25rem)] text-muted-foreground max-w-xl leading-relaxed"
             >
               I’m Gerta, a Product Manager with an engineering background. I work across B2C and
               B2B SaaS, marketplaces, structured data and AI.
@@ -150,58 +150,45 @@ function Home() {
               />
             </Link>
           </div>
-
-          <div
-            data-reveal-item
-            className="hidden lg:block text-[11px] font-mono uppercase tracking-[0.18em] text-terracotta mt-10"
-          >
-            Based in Germany
-          </div>
         </div>
 
         {/* Right column */}
-        <div className="flex flex-col justify-between min-w-0">
-          <div className="flex flex-col justify-center flex-1">
-            <NavSection
-              number="01"
-              title="Projects"
-              description="Product Manager since 2021"
-              supportingText="2021–2024 XING · 2024–2025 Jacando · Now PeakProfile founder"
-              cta="View my work"
-              to="/work"
-            />
-            <NavSection
-              number="02"
-              title="Resume"
-              description="Learn more about my career history"
-              supportingText="Experience · Education · Certificates"
-              cta="View my resume"
-              to="/resume"
-            />
-            <NavSection
-              number="03"
-              title="Writing"
-              description="Thoughts that shape my thinking"
-              supportingText="Product discovery · Data · AI"
-              cta="Read my writing"
-              to="/writing"
-            />
-          </div>
-
-          <div
-            data-reveal-item
-            className="text-[11px] font-mono uppercase tracking-[0.18em] text-terracotta text-left lg:text-right mt-10"
-          >
-            Open to remote opportunities across Europe
-          </div>
+        <div className="flex flex-col justify-center min-w-0">
+          <NavSection
+            number="01"
+            title="Projects"
+            description="Product Manager since 2021"
+            supportingText="2021–2024 XING · 2024–2025 Jacando · Now PeakProfile founder"
+            cta="View my work"
+            to="/work"
+          />
+          <NavSection
+            number="02"
+            title="Resume"
+            description="Learn more about my career history"
+            supportingText="Experience · Education · Certificates"
+            cta="View my resume"
+            to="/resume"
+          />
+          <NavSection
+            number="03"
+            title="Writing"
+            description="Thoughts that shape my thinking"
+            supportingText="Product discovery · Data · AI"
+            cta="Read my writing"
+            to="/writing"
+          />
         </div>
       </Reveal>
 
-      {/* Mobile bottom labels */}
-      <div className="lg:hidden flex items-center justify-between pb-8 text-[11px] font-mono uppercase tracking-[0.18em] text-terracotta">
-        <span>Based in Germany</span>
-        <span className="text-right">Open to remote opportunities across Europe</span>
-      </div>
+      {/* Homepage footer — neutral, integrated with the page */}
+      <footer className="bg-background border-t border-border/40">
+        <div className="flex items-center justify-between gap-4 py-5 lg:py-[clamp(0.5rem,2vh,1.25rem)] text-[11px] font-mono uppercase tracking-[0.18em] text-muted-foreground">
+          <span className="min-w-0">Based in Germany</span>
+          <span className="min-w-0 text-right">Open to remote opportunities across Europe</span>
+        </div>
+      </footer>
     </section>
   );
 }
+
