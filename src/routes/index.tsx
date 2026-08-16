@@ -1,8 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, ArrowUpRight, MapPin } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
-import { AnimatedSmiley } from "@/components/AnimatedSmiley";
-
 
 const OG_IMAGE = "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/5e5a77b8-fdcf-4df7-92f9-1cada506e97a";
 
@@ -64,72 +62,146 @@ export const Route = createFileRoute("/")({
   component: Home,
 });
 
+type NavSectionProps = {
+  number: string;
+  title: string;
+  description: string;
+  supportingText: string;
+  cta: string;
+  to: "/work" | "/resume" | "/writing";
+};
+
+function NavSection({ number, title, description, supportingText, cta, to }: NavSectionProps) {
+  return (
+    <Link
+      to={to}
+      className="group block border-t border-border/60 first:border-t-0 py-8 md:py-10 lg:py-11 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded-sm"
+    >
+      <div className="grid grid-cols-[auto_1fr_auto] lg:grid-cols-[auto_1fr_1.5fr_auto] items-start gap-x-4 lg:gap-x-6">
+        <span className="row-start-1 col-start-1 text-[11px] font-mono uppercase tracking-[0.18em] text-muted-foreground pt-2 lg:pt-3">
+          {number}
+        </span>
+        <h2
+          data-reveal-item
+          className="row-start-1 col-start-2 text-3xl md:text-4xl lg:text-[44px] xl:text-[52px] font-semibold tracking-tight leading-[0.95]"
+        >
+          {title}
+        </h2>
+        <ArrowUpRight
+          className="row-start-1 col-start-3 lg:col-start-4 size-5 text-foreground mt-2 lg:mt-3 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+          strokeWidth={1.5}
+        />
+        <div className="col-start-1 col-span-3 lg:col-start-3 lg:col-span-1 lg:row-start-1 mt-5 lg:mt-0 space-y-2">
+          <p data-reveal-item className="text-base md:text-lg text-foreground leading-snug">
+            {description}
+          </p>
+          <p data-reveal-item className="text-sm text-muted-foreground">
+            {supportingText}
+          </p>
+          <span
+            data-reveal-item
+            className="inline-block text-[11px] font-mono uppercase tracking-[0.18em] text-muted-foreground border-b border-foreground pb-0.5 pt-1 transition-colors group-hover:text-foreground"
+          >
+            {cta}
+          </span>
+        </div>
+      </div>
+    </Link>
+  );
+}
+
 function Home() {
   return (
-    <section className="container-page pt-16 md:pt-28 2xl:pt-24 pb-20 md:pb-28">
-      <Reveal>
-        <div
-          data-reveal-item
-          className="text-[11px] font-mono uppercase tracking-[0.22em] text-muted-foreground mb-8 flex items-center gap-3"
-        >
-          <MapPin className="size-3" strokeWidth={1.5} />
-          Based in Germany · Open to remote opportunities across Europe
+    <section className="container-page min-h-[calc(100vh-72px)] flex flex-col">
+      <Reveal className="flex-1 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-10 xl:gap-16 py-12 md:py-16 lg:py-14">
+        {/* Left column */}
+        <div className="flex flex-col justify-between min-w-0">
+          <div className="space-y-8 md:space-y-10">
+            <h1
+              data-reveal-item
+              className="text-5xl sm:text-6xl md:text-7xl lg:text-[80px] xl:text-[96px] 2xl:text-[112px] font-bold tracking-[-0.04em] leading-[0.92] text-balance"
+            >
+              From building
+              <br />
+              software
+              <br />
+              to shaping
+              <br />
+              products.
+            </h1>
+
+            <p
+              data-reveal-item
+              className="text-lg md:text-xl text-muted-foreground max-w-xl leading-relaxed"
+            >
+              I’m Gerta, a Product Manager with an engineering background. I work across B2C and
+              B2B SaaS, marketplaces, structured data and AI.
+            </p>
+
+            <Link
+              data-reveal-item
+              to="/about"
+              className="group inline-flex items-center gap-2 text-[11px] font-mono uppercase tracking-[0.18em] text-muted-foreground border-b border-foreground pb-1 transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded-sm"
+            >
+              Read more about me
+              <ArrowUpRight
+                className="size-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                strokeWidth={1.5}
+              />
+            </Link>
+          </div>
+
+          <div
+            data-reveal-item
+            className="hidden lg:block text-[11px] font-mono uppercase tracking-[0.18em] text-muted-foreground mt-10"
+          >
+            Based in Germany
+          </div>
         </div>
 
-        <h1
-          data-reveal-item
-          className="text-[44px] sm:text-6xl md:text-7xl lg:text-[112px] 2xl:text-[124px] font-bold tracking-[-0.04em] leading-[0.95] text-balance"
-        >
-          Hi, I'm Gerta <AnimatedSmiley />
+        {/* Right column */}
+        <div className="flex flex-col justify-between min-w-0">
+          <div className="flex flex-col justify-center flex-1">
+            <NavSection
+              number="01"
+              title="Projects"
+              description="Product Manager since 2021"
+              supportingText="2021–2024 XING · 2024–2025 Jacando · Now PeakProfile founder"
+              cta="View my work"
+              to="/work"
+            />
+            <NavSection
+              number="02"
+              title="Resume"
+              description="Learn more about my career history"
+              supportingText="Experience · Education · Certificates"
+              cta="View my resume"
+              to="/resume"
+            />
+            <NavSection
+              number="03"
+              title="Writing"
+              description="Thoughts that shape my thinking"
+              supportingText="Product discovery · Data · AI"
+              cta="Read my writing"
+              to="/writing"
+            />
+          </div>
 
-        </h1>
-
-        <p
-          data-reveal-item
-          className="mt-8 text-2xl md:text-3xl lg:text-[34px] 2xl:text-[38px] font-medium tracking-tight text-foreground leading-[1.2] max-w-4xl 2xl:max-w-[56rem] text-balance"
-        >
-          I build products where technology, data and customer needs come together.
-        </p>
-
-        <p
-          data-reveal-item
-          className="mt-6 text-lg md:text-xl 2xl:text-[21px] text-muted-foreground max-w-2xl 2xl:max-w-[40rem] leading-relaxed"
-        >
-          This is a collection of my work, my journey into Product Management, and a few ideas that continue to shape
-          how I think.
-        </p>
-
-        <div data-reveal-item className="mt-10 2xl:mt-8 flex flex-wrap items-center gap-x-10 gap-y-4">
-          <Link
-            to="/work"
-            className="group inline-flex items-center gap-2 text-sm font-medium border-b border-foreground pb-1 transition-opacity hover:opacity-60"
+          <div
+            data-reveal-item
+            className="text-[11px] font-mono uppercase tracking-[0.18em] text-muted-foreground text-left lg:text-right mt-10"
           >
-            Explore my work
-            <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-1" />
-          </Link>
-          <Link
-            to="/about"
-            className="group inline-flex items-center gap-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
-          >
-            About Me
-            <ArrowUpRight className="size-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-          </Link>
-          <Link
-            to="/writing"
-            className="group inline-flex items-center gap-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
-          >
-            Read my writing
-            <ArrowUpRight className="size-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-          </Link>
-          <Link
-            to="/resume"
-            className="group inline-flex items-center gap-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
-          >
-            View my resume
-            <ArrowUpRight className="size-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-          </Link>
+            Open to remote opportunities across Europe
+          </div>
         </div>
       </Reveal>
+
+      {/* Mobile bottom labels */}
+      <div className="lg:hidden flex items-center justify-between pb-8 text-[11px] font-mono uppercase tracking-[0.18em] text-muted-foreground">
+        <span>Based in Germany</span>
+        <span className="text-right">Open to remote opportunities across Europe</span>
+      </div>
     </section>
   );
 }
