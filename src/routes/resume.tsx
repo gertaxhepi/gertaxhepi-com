@@ -3,7 +3,6 @@ import { Section } from "@/components/Primitives";
 import { Reveal } from "@/components/Reveal";
 import { Breadcrumb } from "@/components/Breadcrumb";
 import { Download, Linkedin, Mail, MapPin } from "lucide-react";
-import { cn } from "@/lib/utils";
 import resumePdf from "@/assets/gerta_xhepi-resume.pdf.asset.json";
 
 const OG_IMAGE = "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/5e5a77b8-fdcf-4df7-92f9-1cada506e97a";
