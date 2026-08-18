@@ -39,7 +39,8 @@ const workGroups = [
   {
     number: "01",
     company: "XING / onlyfy · New Work SE",
-    period: "2021 — 2024",
+    role: "Product Manager",
+    period: "2021–2024",
     projects: [
       {
         slug: "salary-transparency",
@@ -48,12 +49,27 @@ const workGroups = [
           "Salary estimates are only as reliable as the data behind them. I rebuilt the structured data pipeline powering millions of salary predictions, improving model quality and increasing user trust.",
         featured: true,
       },
+      {
+        slug: "notifications",
+        title: "Notifications",
+        description:
+          "Improved targeting, segmentation and content relevance, increasing notification open rates by 40%.",
+        featured: false,
+      },
+      {
+        slug: "onlyfy-talent-pool",
+        title: "onlyfy Talent Pool",
+        description:
+          "Supported the migration into the XING Talent Pool and helped roughly 40% of contacted users join.",
+        featured: false,
+      },
     ],
   },
   {
     number: "02",
-    company: "jacando AG",
-    period: "2024 — 2025",
+    company: "Jacando",
+    role: "Product Manager",
+    period: "2024–2025",
     projects: [
       {
         slug: "electronic-signature",
@@ -66,8 +82,9 @@ const workGroups = [
   },
   {
     number: "03",
-    company: "PeakProfile",
-    period: "2025 — NOW",
+    company: "Founder Project",
+    role: "Product Builder",
+    period: "Currently",
     projects: [
       {
         slug: "peakprofile",
@@ -95,17 +112,20 @@ function Work() {
 
       <div data-reveal-item className="mt-20 md:mt-28 space-y-20 md:space-y-28">
         {workGroups.map((group) => (
-          <article key={group.number}>
-            <div className="grid md:grid-cols-[auto_1fr] gap-6 md:gap-12 items-baseline mb-12 md:mb-16">
-              <span className="text-6xl md:text-7xl lg:text-8xl font-semibold tracking-tight text-[var(--terracotta)]/30 leading-none">
+          <article
+            key={group.number}
+            className="grid items-start gap-10 lg:grid-cols-[minmax(0,38%)_minmax(0,1fr)] lg:gap-16"
+          >
+            <div className="flex flex-col gap-4 sm:flex-row sm:items-baseline lg:flex-col lg:items-start">
+              <span className="text-5xl font-semibold leading-none tracking-tight text-[var(--terracotta)]/30 md:text-6xl lg:text-8xl">
                 {group.number}
               </span>
-              <div>
-                <h2 className="text-2xl md:text-3xl font-semibold tracking-tight text-foreground">
+              <div className="min-w-0">
+                <h2 className="text-2xl font-semibold tracking-tight text-foreground md:text-3xl">
                   {group.company}
                 </h2>
-                <p className="mt-1 text-sm md:text-base font-mono uppercase tracking-[0.18em] text-muted-foreground">
-                  {group.period}
+                <p className="mt-1 text-sm font-mono uppercase tracking-[0.18em] text-muted-foreground md:text-base">
+                  {group.role} · {group.period}
                 </p>
               </div>
             </div>
@@ -116,23 +136,28 @@ function Work() {
                   key={project.slug}
                   to="/case-studies/$slug"
                   params={{ slug: project.slug }}
-                  className="group block cursor-pointer rounded-2xl transition-colors duration-300 hover:bg-[var(--terracotta)]/5"
+                  className={cn(
+                    "group relative block cursor-pointer rounded-2xl transition-colors duration-300",
+                    project.featured
+                      ? "bg-[var(--terracotta)]/[0.06]"
+                      : "hover:bg-[var(--terracotta)]/5"
+                  )}
                 >
-                  <div className="grid md:grid-cols-[1fr_auto] gap-6 md:gap-12 items-start py-8 md:py-10 transition-transform duration-300 group-hover:translate-x-1">
-                    <div className="max-w-2xl">
+                  <div className="grid grid-cols-1 items-start gap-4 px-4 py-6 transition-transform duration-300 group-hover:translate-x-1 md:px-6 md:py-8 lg:grid-cols-[minmax(0,40%)_minmax(0,1fr)_auto]">
+                    <div className="min-w-0 pr-8 lg:pr-0">
                       {project.featured && (
-                        <div className="text-[11px] font-mono uppercase tracking-[0.22em] mb-3 text-[var(--terracotta)]">
+                        <div className="mb-2 text-[11px] font-mono uppercase tracking-[0.22em] text-[var(--terracotta)]">
                           Featured Project
                         </div>
                       )}
-                      <h3 className="text-xl md:text-2xl font-semibold tracking-tight text-foreground">
+                      <h3 className="text-xl font-semibold tracking-tight text-foreground md:text-2xl">
                         {project.title}
                       </h3>
-                      <p className="mt-2 text-base text-muted-foreground leading-relaxed">
-                        {project.description}
-                      </p>
                     </div>
-                    <div className="pt-1">
+                    <p className="min-w-0 text-base leading-relaxed text-muted-foreground">
+                      {project.description}
+                    </p>
+                    <div className="absolute top-6 right-4 lg:static lg:top-auto lg:right-auto lg:pt-1">
                       <ArrowUpRight
                         className="size-5 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1"
                         style={{ color: project.featured ? "var(--terracotta)" : undefined }}
