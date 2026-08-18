@@ -132,7 +132,7 @@ function Work() {
                   {group.company}
                 </h2>
                 <p className="mt-1 text-sm font-mono uppercase tracking-[0.18em] text-muted-foreground md:text-base">
-                  {group.role} · {group.period}
+                  {group.period}
                 </p>
               </div>
             </div>
