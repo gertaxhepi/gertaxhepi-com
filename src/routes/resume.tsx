@@ -38,187 +38,125 @@ export const Route = createFileRoute("/resume")({
   component: Resume,
 });
 
-type CareerStage = {
-  type: "stage";
-  yearRange: string;
+type ExperienceRole = {
   role: string;
-  org: string;
+  period: string;
   description: string;
-  highlight?: boolean;
 };
 
-type TransitionMarker = {
-  type: "transition";
-  label: string;
+type ExperienceGroup = {
+  number: string;
+  company: string;
+  roles: ExperienceRole[];
 };
 
-const careerTimeline: (CareerStage | TransitionMarker)[] = [
+const careerGroups: ExperienceGroup[] = [
   {
-    type: "stage",
-    yearRange: "2025 — NOW",
-    role: "Founder / Product Builder",
-    org: "PeakProfile",
-    description:
-      "Building an AI-native decision-support product for mountaineers and guides.",
+    number: "01",
+    company: "PeakProfile",
+    roles: [
+      {
+        role: "Founder / Product Builder",
+        period: "2025 — NOW",
+        description:
+          "Building an AI-native decision-support product for mountaineers and guides.",
+      },
+    ],
   },
   {
-    type: "stage",
-    yearRange: "2024 — 2025",
-    role: "Product Manager",
-    org: "jacando AG",
-    description: "Led enterprise workflow products from discovery through launch.",
+    number: "02",
+    company: "jacando AG",
+    roles: [
+      {
+        role: "Product Manager",
+        period: "2024 — 2025",
+        description: "Led enterprise workflow products from discovery through launch.",
+      },
+    ],
   },
   {
-    type: "stage",
-    yearRange: "2021 — 2024",
-    role: "Product Manager",
-    org: "XING / onlyfy · New Work SE",
-    description:
-      "Owned products across marketplaces, structured data, salary transparency, and ML-powered experiences.",
-    highlight: true,
+    number: "03",
+    company: "New Work SE · XING / onlyfy",
+    roles: [
+      {
+        role: "Product Manager",
+        period: "2021 — 2024",
+        description:
+          "Owned products across marketplaces, structured data, salary transparency, and ML-powered experiences.",
+      },
+      {
+        role: "Software Engineer",
+        period: "2017 — 2021",
+        description:
+          "Built platform and frontend products, including the design system used by more than 150 engineers.",
+      },
+    ],
   },
   {
-    type: "transition",
-    label: "Internal transition to Product Management",
-  },
-  {
-    type: "stage",
-    yearRange: "2017 — 2021",
-    role: "Software Engineer",
-    org: "XING · New Work SE",
-    description:
-      "Built platform and frontend products, including the design system used by more than 150 engineers.",
-  },
-  {
-    type: "stage",
-    yearRange: "2013 — 2017",
-    role: "Software Engineering & Early Product Building",
-    org: "",
-    description:
-      "Worked across established companies and early-stage products, including Microsoft and my own consumer product.",
+    number: "04",
+    company: "Software Engineering & Early Product Building",
+    roles: [
+      {
+        role: "Software Engineer & Founder",
+        period: "2013 — 2017",
+        description:
+          "Worked across established companies and early-stage products, including Microsoft and my own consumer product.",
+      },
+    ],
   },
 ];
 
 function CareerTimeline() {
   return (
-    <>
-      {/* Desktop: year-led three-column timeline */}
-      <div className="hidden md:block">
-        {careerTimeline.map((item) => {
-          const key = item.type === "transition" ? item.label : item.yearRange;
+    <div className="space-y-14 md:space-y-20">
+      {careerGroups.map((group) => (
+        <div
+          key={group.number}
+          data-reveal-item
+          className="grid grid-cols-1 gap-4 md:grid-cols-[88px_minmax(0,1fr)_140px] md:gap-10 lg:gap-16"
+        >
+          {/* Number */}
+          <div className="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight leading-none text-[var(--terracotta)]/30 tabular-nums">
+            {group.number}
+          </div>
 
-          if (item.type === "transition") {
-            return (
-              <div
-                key={key}
-                data-reveal-item
-                className="flex gap-12 py-3"
-              >
-                <div className="w-[300px] shrink-0" />
-                <div className="w-[80px] shrink-0 flex justify-center relative">
-                  <div className="absolute top-0 bottom-0 left-1/2 -translate-x-1/2 w-px bg-border" />
-                  <div className="size-3 rounded-full bg-primary ring-4 ring-background" />
-                </div>
-                <div className="flex-1 min-w-0">
-                  <span className="inline-flex items-center text-[11px] font-mono uppercase tracking-[0.18em] text-primary bg-secondary px-3 py-1.5 rounded-full">
-                    {item.label}
-                  </span>
-                </div>
-              </div>
-            );
-          }
-
-          return (
-            <div
-              key={key}
-              data-reveal-item
-              className="flex gap-12 py-10 md:py-12 border-t border-border first:border-t-0"
-            >
-              <div className="w-[300px] shrink-0 text-5xl lg:text-[52px] xl:text-[56px] font-bold tracking-tight text-foreground leading-none whitespace-nowrap">
-                {item.yearRange}
-              </div>
-              <div className="w-[80px] shrink-0 flex justify-center relative pt-3">
-                <div className="absolute top-0 bottom-0 left-1/2 -translate-x-1/2 w-px bg-border" />
-                <div
-                  className={cn(
-                    "rounded-full border-2 border-background bg-foreground transition-all",
-                    item.highlight ? "size-4" : "size-2.5"
-                  )}
-                />
-              </div>
-              <div className="flex-1 min-w-0">
-                <h3 className="text-2xl lg:text-[28px] font-semibold tracking-tight text-foreground">
-                  {item.role}
-                </h3>
-                {item.org && (
-                  <div className="mt-1 text-lg text-muted-foreground">
-                    {item.org}
+          {/* Content */}
+          <div className="min-w-0">
+            <h3 className="text-lg md:text-xl font-mono uppercase tracking-[0.14em] text-muted-foreground">
+              {group.company}
+            </h3>
+            <div className="mt-5 md:mt-6 space-y-8 md:space-y-10">
+              {group.roles.map((role) => (
+                <div key={role.role + role.period}>
+                  <div className="flex flex-col md:flex-row md:items-baseline md:justify-between gap-1 md:gap-4">
+                    <h4 className="text-xl md:text-2xl font-semibold tracking-tight text-foreground">
+                      {role.role}
+                    </h4>
+                    <span className="text-sm md:text-base text-muted-foreground tabular-nums shrink-0 md:hidden lg:block">
+                      {role.period}
+                    </span>
                   </div>
-                )}
-                <p className="mt-4 text-lg text-foreground/80 leading-relaxed max-w-2xl">
-                  {item.description}
-                </p>
-              </div>
+                  <p className="mt-3 md:mt-4 text-base md:text-lg text-foreground/80 leading-relaxed max-w-2xl">
+                    {role.description}
+                  </p>
+                </div>
+              ))}
             </div>
-          );
-        })}
-      </div>
+          </div>
 
-      {/* Mobile: stacked timeline with line on the left edge */}
-      <div className="md:hidden relative">
-        <div className="absolute top-0 bottom-0 left-[15px] w-px bg-border" />
-
-        {careerTimeline.map((item) => {
-          const key = item.type === "transition" ? item.label : item.yearRange;
-
-          if (item.type === "transition") {
-            return (
-              <div
-                key={key}
-                data-reveal-item
-                className="relative py-5 pl-10"
-              >
-                <div className="absolute left-[15px] top-1/2 -translate-x-1/2 -translate-y-1/2 size-3 rounded-full bg-primary ring-4 ring-background" />
-                <span className="inline-flex items-center text-[11px] font-mono uppercase tracking-[0.18em] text-primary bg-secondary px-3 py-1.5 rounded-full">
-                  {item.label}
+          {/* Desktop period */}
+          <div className="hidden md:flex flex-col gap-8 md:gap-10 pt-8 md:pt-9 lg:pt-10">
+            {group.roles.map((role) => (
+              <div key={role.period + role.role} className="min-h-0">
+                <span className="text-sm lg:text-base text-muted-foreground tabular-nums leading-relaxed block">
+                  {role.period}
                 </span>
               </div>
-            );
-          }
-
-          return (
-            <div
-              key={key}
-              data-reveal-item
-              className="relative py-8 border-t border-border first:border-t-0"
-            >
-              <div className="text-4xl font-bold tracking-tight text-foreground leading-none mb-5">
-                {item.yearRange}
-              </div>
-              <div className="relative pl-10">
-                <div
-                  className={cn(
-                    "absolute left-[15px] top-1.5 -translate-x-1/2 rounded-full border-2 border-background bg-foreground",
-                    item.highlight ? "size-4" : "size-2.5"
-                  )}
-                />
-                <h3 className="text-xl font-semibold tracking-tight text-foreground">
-                  {item.role}
-                </h3>
-                {item.org && (
-                  <div className="mt-1 text-base text-muted-foreground">
-                    {item.org}
-                  </div>
-                )}
-                <p className="mt-4 text-base text-foreground/80 leading-relaxed">
-                  {item.description}
-                </p>
-              </div>
-            </div>
-          );
-        })}
-      </div>
-    </>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
   );
 }
 
