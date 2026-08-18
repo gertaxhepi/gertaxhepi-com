@@ -45,7 +45,7 @@ const workGroups = [
         slug: "salary-transparency",
         title: "Salary Transparency & Structured Job Data",
         description:
-          "Salary estimates are only as reliable as the data behind them. I rebuilt the structured data pipeline powering millions of salary predictions, improving model quality and increasing user trust.",
+          "Led salary transparency from regulatory requirement to launch, improving prediction accuracy by 60% and coverage by 80%.",
         featured: true,
       },
       {
