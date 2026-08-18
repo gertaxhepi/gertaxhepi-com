@@ -46,7 +46,7 @@ export const caseStudies: CaseStudy[] = [
       "Improving salary transparency for millions of job seekers by transforming inconsistent job data into reliable salary estimates.",
     role: "XING • Product Manager",
     technologies: ["Structured Data", "Taxonomy", "Ground Truth", "Marketplace", "Data Quality"],
-    outcomes: ["Reduced estimation error by 28%", "Increased salary coverage to 94% of job postings"],
+    outcomes: ["60% improvement in prediction accuracy", "80% improvement in prediction coverage", "Approximately €50M in annual marketplace revenue protected", "30% improvement in marketplace efficiency"],
     context: "B2B Marketplace · Data Products",
     overview: "Salary ranges shown to job seekers depended on the quality of employer-provided job data.",
     challengeLead: "Job seekers were making career decisions based on salary estimates they couldn't fully trust.",
@@ -124,14 +124,15 @@ export const caseStudies: CaseStudy[] = [
     resultsLead:
       "Improving structured data increased both the accuracy and coverage of salary estimates, making salary information more trustworthy for millions of job seekers while increasing marketplace engagement.",
     metrics: [
-      { label: "Lower salary estimation error", value: "28%" },
-      { label: "Jobs with salary estimates", value: "94%" },
-      { label: "Job applications", value: "+11%" },
+      { label: "Improvement in prediction accuracy", value: "60%" },
+      { label: "Improvement in prediction coverage", value: "80%" },
+      { label: "Annual marketplace revenue protected", value: "~€50M" },
+      { label: "Improvement in marketplace efficiency", value: "30%" },
     ],
     heroMetrics: [
-      { label: "Lower salary estimation error", value: "28%" },
-      { label: "Jobs with salary estimates", value: "94%" },
-      { label: "Job applications", value: "+11%" },
+      { label: "Improvement in prediction accuracy", value: "60%" },
+      { label: "Improvement in prediction coverage", value: "80%" },
+      { label: "Annual marketplace revenue protected", value: "~€50M" },
     ],
     lessons: [
       "Better products start with better ground truth, not better algorithms",
