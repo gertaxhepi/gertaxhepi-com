@@ -352,28 +352,8 @@ function CaseStudyPage() {
         </Reveal>
       </Section>
 
-      <Section spacing="tight">
-        <Link
-          to="/case-studies/$slug"
-          params={{ slug: next.slug }}
-          className="group block py-12 md:py-16"
-        >
-          <div className="text-[11px] font-mono uppercase tracking-[0.22em] text-muted-foreground">
-            Next case study
-          </div>
-          <div className="mt-6 flex items-start justify-between gap-8">
-            <div>
-              <div className="text-3xl md:text-5xl font-semibold tracking-tight transition-opacity group-hover:opacity-60">
-                {next.title}
-              </div>
-              <p className="mt-4 text-muted-foreground max-w-xl text-base md:text-lg leading-relaxed">
-                {next.summary}
-              </p>
-            </div>
-            <ArrowUpRight className="size-6 shrink-0 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
-          </div>
-        </Link>
-      </Section>
+      <AllProjectsCTA />
     </>
   );
 }
+
