@@ -119,10 +119,26 @@ function NotificationsPage() {
               <CaseText>Notification open rates increased by 40%.</CaseText>
             </CaseSection>
             <CaseSection number="06" title="Working together">
-              <CaseText>
-                I reported to Tom Raab and worked closely with engineering, analytics and CRM
-                stakeholders to connect the product strategy with delivery and measurement.
-              </CaseText>
+              <div className="border-l border-foreground/10 pl-6 md:pl-8 max-w-2xl">
+                <div className="space-y-4 text-base md:text-lg leading-relaxed text-foreground/90">
+                  <p>
+                    I had the pleasure of helping Gerta's transition from a developer to a product manager position. Her deep technical background, coupled with a keen understanding of the product landscape, has brought a unique perspective to our team. Gerta consistently leverages this dual skill set to drive innovative solutions and make informed decisions.
+                  </p>
+                  <p>
+                    One of Gerta's standout qualities is her eagerness to take on responsibility. From the outset, Gerta demonstrated a proactive approach to ownership, consistently going above and beyond.
+                  </p>
+                  <p>
+                    Her proactive communication style ensures that all team members are well-informed, aligned, and can contribute effectively. Gerta's collaborative spirit is particularly noteworthy. She works seamlessly with both designers and developers.
+                  </p>
+                  <p>
+                    I am also impressed by Gerta's learner mentality. Her curiosity and commitment to personal and professional growth are evident in her continuous pursuit of knowledge. Gerta not only embraces challenges but actively seeks them out, demonstrating a genuine desire to push boundaries and explore new opportunities.
+                  </p>
+                </div>
+                <div className="mt-8">
+                  <p className="font-semibold text-foreground">Tom Raab</p>
+                  <p className="text-sm md:text-base text-muted-foreground">Senior Product Manager at XING</p>
+                </div>
+              </div>
             </CaseSection>
           </div>
         </Reveal>
