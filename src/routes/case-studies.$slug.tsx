@@ -1,9 +1,9 @@
-import { createFileRoute, Link, notFound } from "@tanstack/react-router";
+import { createFileRoute, notFound } from "@tanstack/react-router";
 import { Section } from "@/components/Primitives";
 import { Reveal } from "@/components/Reveal";
 import { Breadcrumb } from "@/components/Breadcrumb";
-import { caseStudies, getCaseStudy, type CaseStudy } from "@/data/case-studies";
-import { ArrowUpRight } from "lucide-react";
+import { AllProjectsCTA } from "@/components/AllProjectsCTA";
+import { getCaseStudy, type CaseStudy } from "@/data/case-studies";
 
 export const Route = createFileRoute("/case-studies/$slug")({
   loader: ({ params }) => {
@@ -145,8 +145,6 @@ function Diagram({
 
 function CaseStudyPage() {
   const { study: s } = Route.useLoaderData() as { study: CaseStudy };
-  const idx = caseStudies.findIndex((c) => c.slug === s.slug);
-  const next = caseStudies[(idx + 1) % caseStudies.length];
 
   /** Long-form XING-style studies keep the six-part structure. */
   const isLongForm = s.slug === "salary-transparency" || s.slug === "notifications";
