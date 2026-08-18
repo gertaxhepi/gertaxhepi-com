@@ -1,7 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, ArrowUpRight } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { Section } from "@/components/Primitives";
 import { Reveal } from "@/components/Reveal";
+import { cn } from "@/lib/utils";
 
 const OG_IMAGE = "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/5e5a77b8-fdcf-4df7-92f9-1cada506e97a";
 
@@ -41,86 +42,97 @@ const essays = [
     to: "/essays/ai-problems",
     title: "Understanding Before Solving",
     description:
-      "A reflection on mentorship, AI and why understanding a problem matters more than writing better prompts.",
+      "A reflection on mentorship, AI and why understanding the problem matters more than writing better prompts.",
     type: "Reflection",
     readTime: "7 min",
+    featured: true,
   },
   {
     number: "02",
     to: "/writing/product-discovery-software-engineering",
     title: "How My Software Engineering Background Shaped My Approach to Product Discovery",
     description:
-      "A reflection on how moving from software engineering to product management changed the way I think about product discovery and decision making.",
-    type: "Reflection",
+      "How moving from software engineering into product management changed the way I approach discovery.",
+    type: "Essay",
     readTime: "6 min",
+    featured: false,
   },
 ] as const;
 
 function Writing() {
   return (
-    <Section className="pt-16 md:pt-28" spacing="tight">
-      <Reveal>
-        <div
-          data-reveal-item
-          className="text-[11px] font-mono uppercase tracking-[0.22em] mb-10"
-          style={{ color: "#8A5A5A" }}
-        >
-          WRITING
+    <Section className="pt-16 md:pt-24 pb-4" spacing="tight">
+      {/* Hero */}
+      <div className="grid grid-cols-1 gap-8 md:gap-10 lg:grid-cols-12 lg:items-start">
+        <div data-reveal-item className="lg:col-span-2">
+          <div className="text-[11px] font-mono uppercase tracking-[0.22em] text-[var(--terracotta)]">
+            Selected Writing
+          </div>
         </div>
-        <h1
-          data-reveal-item
-          className="text-4xl md:text-6xl font-semibold tracking-tight leading-[1.02] max-w-3xl text-balance"
-        >
-          How I Think
-        </h1>
-        <p data-reveal-item className="mt-8 text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed">
-          Products are only part of the story. The other part is how our thinking evolves while building them. This is
-          where I collect the ideas, questions and experiences that continue to shape mine.
-        </p>
-      </Reveal>
+        <div data-reveal-item className="lg:col-span-5">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight leading-[1.02] text-foreground max-w-[14ch]">
+            <span className="block">Thoughts that</span>
+            <span className="block">shape my thinking.</span>
+          </h1>
+        </div>
+        <div data-reveal-item className="lg:col-span-5 lg:self-end">
+          <p className="text-base leading-relaxed text-muted-foreground max-w-sm">
+            Notes on product, technology, discovery and building software.
+          </p>
+        </div>
+      </div>
 
-      <Reveal className="mt-20 border-t border-border">
+      {/* Article list */}
+      <Reveal className="mt-12 md:mt-16 space-y-2">
         {essays.map((essay) => (
           <Link
             key={essay.number}
             to={essay.to}
             data-reveal-item
-            className="group block cursor-pointer border-b border-border"
+            className={cn(
+              "group relative block cursor-pointer rounded-2xl transition-colors duration-300",
+              essay.featured
+                ? "bg-[var(--terracotta)]/[0.06]"
+                : "hover:bg-[var(--terracotta)]/5"
+            )}
           >
-            <div className="grid grid-cols-[40px_1fr_40px] gap-x-4 md:gap-x-6 py-14 md:py-20 items-start">
-              <div className="text-[11px] font-mono uppercase tracking-[0.18em] text-muted-foreground pt-1">
+            {/* Mobile layout */}
+            <div className="grid grid-cols-[auto_1fr_auto] gap-3 px-4 py-6 md:px-6 md:py-8 lg:hidden transition-transform duration-300 group-hover:translate-x-1">
+              <span className="text-[11px] font-mono uppercase tracking-[0.18em] text-[var(--terracotta)]/70 pt-1.5">
                 {essay.number}
+              </span>
+              <h2 className="text-lg md:text-xl font-semibold tracking-tight">
+                {essay.title}
+              </h2>
+              <div className="pt-1.5">
+                <ArrowUpRight className="size-5 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
               </div>
-              <div>
-                <h2 className="text-2xl md:text-3xl font-semibold tracking-tight transition-opacity group-hover:opacity-60">
-                  {essay.title}
-                </h2>
-                <p className="mt-5 text-base md:text-lg text-muted-foreground leading-relaxed max-w-3xl">
+              <div className="col-span-3">
+                <p className="mt-1 text-base leading-relaxed text-muted-foreground">
                   {essay.description}
                 </p>
-
-                <dl className="mt-8 grid grid-cols-2 gap-x-12 gap-y-6 max-w-xs sm:max-w-sm">
-                  <div>
-                    <dt className="text-[11px] font-mono uppercase tracking-[0.18em] text-muted-foreground mb-2">Type</dt>
-                    <dd className="text-sm md:text-[15px] font-medium">{essay.type}</dd>
-                  </div>
-                  <div>
-                    <dt className="text-[11px] font-mono uppercase tracking-[0.18em] text-muted-foreground mb-2">
-                      Read time
-                    </dt>
-                    <dd className="text-sm md:text-[15px] font-medium">{essay.readTime}</dd>
-                  </div>
-                </dl>
-
-                <span className="mt-10 inline-flex items-center gap-2 text-sm font-medium border-b border-foreground pb-1">
-                  Read essay
-                  <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-1" />
-                </span>
+                <p className="mt-3 text-[11px] font-mono uppercase tracking-[0.14em] text-muted-foreground">
+                  {essay.type} · {essay.readTime}
+                </p>
               </div>
-              <div className="pt-1">
-                <span aria-label={`Read essay: ${essay.title}`} className="inline-flex">
-                  <ArrowUpRight className="size-5 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
-                </span>
+            </div>
+
+            {/* Desktop layout */}
+            <div className="hidden lg:grid lg:grid-cols-[auto_minmax(0,30%)_minmax(0,1fr)_auto_auto] lg:items-start lg:gap-6 lg:px-6 lg:py-8 transition-transform duration-300 group-hover:translate-x-1">
+              <span className="text-[11px] font-mono uppercase tracking-[0.18em] text-[var(--terracotta)]/70 pt-1.5 w-8">
+                {essay.number}
+              </span>
+              <h2 className="text-xl md:text-2xl font-semibold tracking-tight pr-4">
+                {essay.title}
+              </h2>
+              <p className="text-base leading-relaxed text-muted-foreground">
+                {essay.description}
+              </p>
+              <span className="text-[11px] font-mono uppercase tracking-[0.14em] text-muted-foreground pt-2 whitespace-nowrap">
+                {essay.type} · {essay.readTime}
+              </span>
+              <div className="pt-1.5">
+                <ArrowUpRight className="size-5 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
               </div>
             </div>
           </Link>
