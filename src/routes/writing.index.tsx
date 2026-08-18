@@ -118,7 +118,7 @@ function Writing() {
             </div>
 
             {/* Desktop layout */}
-            <div className="hidden lg:grid lg:grid-cols-[auto_minmax(0,30%)_minmax(0,1fr)_auto_auto] lg:items-start lg:gap-6 lg:px-6 lg:py-8 transition-transform duration-300 group-hover:translate-x-1">
+            <div className="hidden lg:grid lg:grid-cols-[auto_minmax(0,1fr)_minmax(0,35%)_auto_auto] lg:items-start lg:gap-6 lg:px-6 lg:py-8 transition-transform duration-300 group-hover:translate-x-1">
               <span className="text-[11px] font-mono uppercase tracking-[0.18em] text-[var(--terracotta)]/70 pt-1.5 w-8">
                 {essay.number}
               </span>
