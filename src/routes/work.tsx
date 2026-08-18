@@ -39,7 +39,6 @@ const workGroups = [
   {
     number: "01",
     company: "XING / onlyfy · New Work SE",
-    role: "Product Manager",
     period: "2021–2024",
     projects: [
       {
@@ -68,7 +67,6 @@ const workGroups = [
   {
     number: "02",
     company: "Jacando",
-    role: "Product Manager",
     period: "2024–2025",
     projects: [
       {
@@ -83,7 +81,6 @@ const workGroups = [
   {
     number: "03",
     company: "Founder Project",
-    role: "Product Builder",
     period: "Currently",
     projects: [
       {
