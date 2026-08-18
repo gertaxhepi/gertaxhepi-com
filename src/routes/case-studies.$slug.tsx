@@ -64,18 +64,6 @@ export const Route = createFileRoute("/case-studies/$slug")({
   component: CaseStudyPage,
 });
 
-function Block({ title, children }: { title: string; children: React.ReactNode }) {
-  return (
-    <div data-reveal-item className="grid md:grid-cols-[1fr_2.4fr] gap-6 md:gap-16 py-10 md:py-14">
-      <div className="text-[11px] font-mono uppercase tracking-[0.18em] text-muted-foreground md:pt-2">
-        {title}
-      </div>
-      <div className="text-[15px] md:text-base text-foreground/90 leading-relaxed max-w-3xl">
-        {children}
-      </div>
-    </div>
-  );
-}
 
 function Bullets({ items }: { items: string[] }) {
   return (
@@ -90,15 +78,232 @@ function Bullets({ items }: { items: string[] }) {
   );
 }
 
+function NumberedSection({
+  number,
+  title,
+  children,
+  soft = false,
+}: {
+  number: string;
+  title: string;
+  children: React.ReactNode;
+  soft?: boolean;
+}) {
+  return (
+    <section
+      data-reveal-item
+      className={
+        soft
+          ? "rounded-[28px] bg-[var(--terracotta)]/[0.06] px-6 py-12 md:px-14 md:py-16"
+          : "py-12 md:py-20"
+      }
+    >
+      <div className="grid gap-5 md:grid-cols-[minmax(0,120px)_minmax(0,1fr)] md:gap-16">
+        <div className="text-3xl md:text-6xl font-semibold tracking-tight leading-none text-[var(--terracotta)]/30 tabular-nums">
+          {number}
+        </div>
+        <div className="min-w-0">
+          <h2 className="text-2xl md:text-3xl font-semibold tracking-tight text-balance">
+            {title}
+          </h2>
+          <div className="mt-6 md:mt-8 max-w-2xl">{children}</div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Paragraphs({ items }: { items: string[] }) {
+  return (
+    <>
+      {items.map((p) => (
+        <p key={p} className="text-base md:text-lg text-foreground/90 leading-relaxed">
+          {p}
+        </p>
+      ))}
+    </>
+  );
+}
+
+function Diagram({
+  d,
+}: {
+  d: { src: string; alt: string; label: string; caption: string };
+}) {
+  return (
+    <figure className="pt-2">
+      <figcaption className="text-[11px] font-mono uppercase tracking-[0.18em] text-muted-foreground mb-4">
+        {d.label}
+      </figcaption>
+      <img src={d.src} alt={d.alt} loading="lazy" className="block w-full h-auto rounded-md" />
+      <figcaption className="mt-4 text-sm text-muted-foreground leading-relaxed">
+        {d.caption}
+      </figcaption>
+    </figure>
+  );
+}
+
 function CaseStudyPage() {
   const { study: s } = Route.useLoaderData() as { study: CaseStudy };
   const idx = caseStudies.findIndex((c) => c.slug === s.slug);
   const next = caseStudies[(idx + 1) % caseStudies.length];
-  const heroMetrics = s.heroMetrics ?? s.metrics.slice(0, 3);
+
+  /** Long-form XING-style studies keep the six-part structure. */
+  const isLongForm = s.slug === "salary-transparency" || s.slug === "notifications";
+
+  const challenge = (
+    <div className="space-y-6">
+      <p className="text-base md:text-lg text-foreground/90 leading-relaxed">{s.challengeLead}</p>
+      <Paragraphs items={s.challengeBody} />
+      <div className="pt-2">
+        <div className="text-[11px] font-mono uppercase tracking-[0.18em] text-muted-foreground mb-4">
+          Constraints
+        </div>
+        <Bullets items={s.constraints} />
+      </div>
+    </div>
+  );
+
+  const discovery = (
+    <div className="space-y-6">
+      <p className="text-base md:text-lg text-foreground/90 leading-relaxed">{s.discoveryLead}</p>
+      <Bullets items={s.discovery} />
+      {s.discoveryDiagram && <Diagram d={s.discoveryDiagram} />}
+    </div>
+  );
+
+  const decisions = (
+    <div className="space-y-10">
+      {s.keyDecisions.map((d) => (
+        <div key={d.title}>
+          <h3 className="text-xl md:text-2xl font-semibold tracking-tight mb-3 text-balance">
+            {d.title}
+          </h3>
+          <p className="text-base md:text-lg text-foreground/90 leading-relaxed">{d.description}</p>
+        </div>
+      ))}
+    </div>
+  );
+
+  const solution = (
+    <div className="space-y-10">
+      {s.solutionIntro && (
+        <div className="space-y-5">
+          <h3 className="text-xl md:text-2xl font-semibold tracking-tight text-balance leading-[1.2]">
+            {s.solutionIntro.title}
+          </h3>
+          <Paragraphs items={s.solutionIntro.paragraphs} />
+        </div>
+      )}
+      {s.solutionDiagram && <Diagram d={s.solutionDiagram} />}
+      <div className="space-y-8">
+        {s.solutionItems.map((item, i) => (
+          <div key={item.title} className="grid grid-cols-[auto_1fr] gap-5 md:gap-6">
+            <span className="text-[11px] font-mono uppercase tracking-[0.18em] text-[var(--terracotta)]/70 pt-1.5">
+              {String(i + 1).padStart(2, "0")}
+            </span>
+            <div>
+              <h3 className="text-lg md:text-xl font-semibold tracking-tight mb-2">{item.title}</h3>
+              <p className="text-base md:text-lg text-foreground/90 leading-relaxed">
+                {item.description}
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+
+  const results = (
+    <div className="space-y-10">
+      <p className="text-base md:text-lg text-foreground/90 leading-relaxed">{s.resultsLead}</p>
+      <div className="grid grid-cols-2 gap-8 md:gap-12 md:grid-cols-3">
+        {s.metrics.map((m) => (
+          <div key={m.label}>
+            <div className="text-3xl md:text-4xl font-semibold tracking-tight tabular-nums">
+              {m.value}
+            </div>
+            <div className="mt-3 text-[11px] font-mono uppercase tracking-[0.18em] text-muted-foreground">
+              {m.label}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+
+  const sections: { title: string; content: React.ReactNode; soft?: boolean }[] = isLongForm
+    ? [
+        { title: "The challenge", content: challenge },
+        { title: "Discovery", content: discovery },
+        { title: "Key decisions", content: decisions },
+        { title: "Solution", content: solution },
+        { title: "Results", content: results, soft: true },
+      ]
+    : [
+        {
+          title: "Discovery",
+          content: (
+            <div className="space-y-12">
+              {challenge}
+              {discovery}
+            </div>
+          ),
+        },
+        {
+          title: "Actions",
+          content: (
+            <div className="space-y-12">
+              {decisions}
+              {solution}
+            </div>
+          ),
+        },
+        { title: "Results", content: results, soft: true },
+      ];
+
+  if (s.learnings && s.learnings.length > 0) {
+    sections.push({
+      title: "What I learned",
+      content: (
+        <div className="space-y-10">
+          {s.learnings.map((learning) => (
+            <div key={learning.title} className="border-l-2 border-[var(--terracotta)]/25 pl-6">
+              <h3 className="text-lg md:text-xl font-semibold tracking-tight mb-3 text-balance">
+                {learning.title}
+              </h3>
+              <p className="text-base md:text-lg text-foreground/90 leading-relaxed">
+                {learning.description}
+              </p>
+            </div>
+          ))}
+        </div>
+      ),
+    });
+  }
+
+  if (s.recommendations && s.recommendations.length > 0) {
+    sections.push({
+      title: "Working together",
+      content: (
+        <div className="space-y-12">
+          {s.recommendations.map((rec) => (
+            <div key={rec.name} className="border-l-2 border-[var(--terracotta)]/25 pl-6">
+              <p className="text-base md:text-lg leading-[1.6] text-foreground/90">{rec.quote}</p>
+              <div className="mt-6">
+                <div className="text-sm font-semibold text-foreground">{rec.name}</div>
+                <div className="text-sm text-muted-foreground mt-0.5">{rec.role}</div>
+              </div>
+            </div>
+          ))}
+        </div>
+      ),
+    });
+  }
 
   return (
     <>
-      {/* Hero + Impact */}
+      {/* Hero */}
       <Section className="pt-12 md:pt-20" spacing="tight">
         <Reveal>
           <div data-reveal-item className="mb-8">
@@ -127,244 +332,23 @@ function CaseStudyPage() {
           >
             {s.summary}
           </p>
-
-          <div data-reveal-item className="mt-10 md:mt-14">
-            <div className="text-[11px] font-mono uppercase tracking-[0.22em] text-muted-foreground mb-8 md:mb-10">
-              Impact
-            </div>
-            <div
-              className={`grid grid-cols-1 gap-16 md:gap-20 ${
-                heroMetrics.length >= 4 ? "md:grid-cols-4" : "md:grid-cols-3"
-              }`}
-            >
-              {heroMetrics.map((m) => (
-                <div key={m.label}>
-                  <div className="text-[2.75rem] md:text-[3.25rem] font-semibold tracking-tight tabular-nums leading-none">
-                    {m.value}
-                  </div>
-                  <div className="mt-4 text-[11px] font-mono uppercase tracking-[0.18em] text-muted-foreground">
-                    {m.label}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
         </Reveal>
       </Section>
 
-      <Section spacing="tight">
+      <Section className="pt-6 md:pt-12" spacing="tight">
         <Reveal>
-          <Block title="The Challenge">
-            <div className="space-y-6">
-              <p className="text-base md:text-lg text-foreground/90 leading-relaxed">
-                {s.challengeLead}
-              </p>
-              {s.challengeBody.map((p) => (
-                <p key={p} className="text-base md:text-lg text-foreground/90 leading-relaxed">
-                  {p}
-                </p>
-              ))}
-              <div className="pt-2">
-                <div className="text-[11px] font-mono uppercase tracking-[0.18em] text-muted-foreground mb-4">
-                  Constraints
-                </div>
-                <Bullets items={s.constraints} />
-              </div>
-            </div>
-          </Block>
-
-          <Block title="Discovery">
-            <div className="space-y-6">
-              <p className="text-base md:text-lg text-foreground/90 leading-relaxed">
-                {s.discoveryLead}
-              </p>
-              <Bullets items={s.discovery} />
-              {s.discoveryDiagram && (
-                <figure className="pt-4 md:pt-6 pb-6">
-                  <figcaption className="text-[11px] font-mono uppercase tracking-[0.18em] text-muted-foreground mb-4">
-                    {s.discoveryDiagram.label}
-                  </figcaption>
-                  <img
-                    src={s.discoveryDiagram.src}
-                    alt={s.discoveryDiagram.alt}
-                    loading="lazy"
-                    className="block w-full h-auto rounded-md"
-                  />
-                  <figcaption className="mt-4 text-sm text-muted-foreground leading-relaxed max-w-2xl">
-                    {s.discoveryDiagram.caption}
-                  </figcaption>
-                </figure>
-              )}
-            </div>
-          </Block>
-
-          <Block title="Key Decisions">
-            <div className="space-y-10">
-              {s.keyDecisions.map((d) => (
-                <div key={d.title}>
-                  <h3 className="text-2xl md:text-3xl font-semibold tracking-tight mb-3 text-balance">
-                    {d.title}
-                  </h3>
-                  <p className="text-base md:text-lg text-foreground/90 leading-relaxed">
-                    {d.description}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </Block>
-
-          <Block title="Solution">
-            <div className="space-y-8">
-              {s.solutionIntro && (
-                <div className="space-y-5 max-w-3xl">
-                  <h3 className="text-2xl md:text-3xl font-semibold tracking-tight text-balance leading-[1.15]">
-                    {s.solutionIntro.title}
-                  </h3>
-                  {s.solutionIntro.paragraphs.map((p) => (
-                    <p key={p} className="text-base md:text-lg text-foreground/90 leading-relaxed">
-                      {p}
-                    </p>
-                  ))}
-                </div>
-              )}
-
-              {s.solutionDiagram && (
-                <figure className="pt-2 pb-1">
-                  <figcaption className="text-[11px] font-mono uppercase tracking-[0.18em] text-muted-foreground mb-4">
-                    {s.solutionDiagram.label}
-                  </figcaption>
-                  <img
-                    src={s.solutionDiagram.src}
-                    alt={s.solutionDiagram.alt}
-                    loading="lazy"
-                    className="block w-full h-auto rounded-md"
-                  />
-                  <figcaption className="mt-4 text-sm text-muted-foreground leading-relaxed max-w-2xl">
-                    {s.solutionDiagram.caption}
-                  </figcaption>
-                </figure>
-              )}
-
-              <div className="space-y-8 pt-2">
-                {s.solutionItems.map((item, i) => (
-                  <div key={item.title} className="grid grid-cols-[auto_1fr] gap-6">
-                    <span className="text-[11px] font-mono uppercase tracking-[0.18em] text-muted-foreground pt-1.5">
-                      0{i + 1}
-                    </span>
-                    <div>
-                      <h3 className="text-lg md:text-xl font-semibold tracking-tight mb-2">
-                        {item.title}
-                      </h3>
-                      <p className="text-base md:text-lg text-foreground/90 leading-relaxed">
-                        {item.description}
-                      </p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </Block>
-
-          <Block title="Results">
-            <div className="space-y-10">
-              <p className="text-base md:text-lg text-foreground/90 leading-relaxed">
-                {s.resultsLead}
-              </p>
-              <div
-                className={`grid grid-cols-2 gap-10 md:gap-12 ${
-                  s.metrics.length >= 4 ? "md:grid-cols-4" : "md:grid-cols-3"
-                }`}
+          <div className="space-y-4 md:space-y-10">
+            {sections.map((sec, i) => (
+              <NumberedSection
+                key={sec.title}
+                number={String(i + 1).padStart(2, "0")}
+                title={sec.title}
+                soft={sec.soft}
               >
-                {s.metrics.map((m) => (
-                  <div key={m.label}>
-                    <div className="text-3xl md:text-4xl font-semibold tracking-tight tabular-nums">
-                      {m.value}
-                    </div>
-                    <div className="mt-3 text-[11px] font-mono uppercase tracking-[0.18em] text-muted-foreground">
-                      {m.label}
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </Block>
-
-          {s.learnings && s.learnings.length > 0 && (
-            <Block title="What I learned">
-              <div className="space-y-16">
-                <p className="text-base md:text-lg text-muted-foreground leading-relaxed max-w-2xl">
-                  Building PeakProfile changed how I think about AI products, trust, and decision-making in high-stakes environments.
-                </p>
-                <div>
-                  {s.learnings.map((learning, i) => (
-                    <div
-                      key={learning.title}
-                      className="py-12 md:py-16 border-t border-border/40 first:border-t-0 first:pt-0 last:pb-0"
-                    >
-                      <div className="grid grid-cols-[auto_1fr] gap-8 md:gap-10">
-                        <span className="text-[11px] font-mono uppercase tracking-[0.18em] text-muted-foreground pt-2">
-                          0{i + 1}
-                        </span>
-                        <div className="border-l-2 border-border pl-6 md:pl-8">
-                          <h3 className="text-lg md:text-xl font-semibold tracking-tight mb-3 text-balance">
-                            {learning.title}
-                          </h3>
-                          <p className="text-base md:text-lg text-foreground/90 leading-relaxed max-w-2xl text-balance">
-                            {learning.description}
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </Block>
-          )}
-
-          {(!s.recommendations || s.recommendations.length === 0) && s.reflection && !s.learnings && (
-            <Block title="Reflection">
-              <p className="text-2xl md:text-3xl font-medium leading-[1.25] tracking-tight text-foreground text-balance">
-                &ldquo;{s.reflection}&rdquo;
-              </p>
-            </Block>
-          )}
-
-          {s.recommendations && s.recommendations.length > 0 && (
-            <Block title="Building it together">
-              <div className="space-y-16">
-                <p className="text-base md:text-lg text-muted-foreground leading-relaxed max-w-2xl">
-                  The best products are built by teams. Here's how a few of my colleagues described working with me.
-                </p>
-                <div>
-                  {s.recommendations.map((rec, i) => (
-                    <div
-                      key={rec.name}
-                      className="py-12 md:py-16 border-t border-border/40 first:border-t-0 first:pt-0 last:pb-0"
-                    >
-                      <div className="grid grid-cols-[auto_1fr] gap-8 md:gap-10">
-                        <span className="text-[11px] font-mono uppercase tracking-[0.18em] text-muted-foreground pt-2">
-                          0{i + 1}
-                        </span>
-                        <div className="border-l-2 border-border pl-6 md:pl-8">
-                          <p className="text-lg md:text-xl font-normal leading-[1.55] text-foreground/90 text-balance max-w-2xl">
-                            &ldquo;{rec.quote}&rdquo;
-                          </p>
-                          <div className="mt-8">
-                            <div className="text-sm font-semibold text-foreground">
-                              {rec.name}
-                            </div>
-                            <div className="text-sm text-muted-foreground mt-0.5">
-                              {rec.role}
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </Block>
-          )}
+                {sec.content}
+              </NumberedSection>
+            ))}
+          </div>
         </Reveal>
       </Section>
 
