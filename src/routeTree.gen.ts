@@ -20,6 +20,8 @@ import { Route as WritingIndexRouteImport } from './routes/writing.index'
 import { Route as CaseStudiesIndexRouteImport } from './routes/case-studies.index'
 import { Route as WritingProductDiscoverySoftwareEngineeringRouteImport } from './routes/writing.product-discovery-software-engineering'
 import { Route as EssaysAiProblemsRouteImport } from './routes/essays.ai-problems'
+import { Route as CaseStudiesOnlyfyTalentPoolRouteImport } from './routes/case-studies.onlyfy-talent-pool'
+import { Route as CaseStudiesNotificationsRouteImport } from './routes/case-studies.notifications'
 import { Route as CaseStudiesSlugRouteImport } from './routes/case-studies.$slug'
 import { Route as ApiPublicContactSubmitRouteImport } from './routes/api/public/contact-submit'
 
@@ -79,6 +81,18 @@ const EssaysAiProblemsRoute = EssaysAiProblemsRouteImport.update({
   path: '/essays/ai-problems',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CaseStudiesOnlyfyTalentPoolRoute =
+  CaseStudiesOnlyfyTalentPoolRouteImport.update({
+    id: '/onlyfy-talent-pool',
+    path: '/onlyfy-talent-pool',
+    getParentRoute: () => CaseStudiesRoute,
+  } as any)
+const CaseStudiesNotificationsRoute =
+  CaseStudiesNotificationsRouteImport.update({
+    id: '/notifications',
+    path: '/notifications',
+    getParentRoute: () => CaseStudiesRoute,
+  } as any)
 const CaseStudiesSlugRoute = CaseStudiesSlugRouteImport.update({
   id: '/$slug',
   path: '/$slug',
@@ -99,6 +113,8 @@ export interface FileRoutesByFullPath {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/work': typeof WorkRoute
   '/case-studies/$slug': typeof CaseStudiesSlugRoute
+  '/case-studies/notifications': typeof CaseStudiesNotificationsRoute
+  '/case-studies/onlyfy-talent-pool': typeof CaseStudiesOnlyfyTalentPoolRoute
   '/essays/ai-problems': typeof EssaysAiProblemsRoute
   '/writing/product-discovery-software-engineering': typeof WritingProductDiscoverySoftwareEngineeringRoute
   '/case-studies/': typeof CaseStudiesIndexRoute
@@ -113,6 +129,8 @@ export interface FileRoutesByTo {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/work': typeof WorkRoute
   '/case-studies/$slug': typeof CaseStudiesSlugRoute
+  '/case-studies/notifications': typeof CaseStudiesNotificationsRoute
+  '/case-studies/onlyfy-talent-pool': typeof CaseStudiesOnlyfyTalentPoolRoute
   '/essays/ai-problems': typeof EssaysAiProblemsRoute
   '/writing/product-discovery-software-engineering': typeof WritingProductDiscoverySoftwareEngineeringRoute
   '/case-studies': typeof CaseStudiesIndexRoute
@@ -129,6 +147,8 @@ export interface FileRoutesById {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/work': typeof WorkRoute
   '/case-studies/$slug': typeof CaseStudiesSlugRoute
+  '/case-studies/notifications': typeof CaseStudiesNotificationsRoute
+  '/case-studies/onlyfy-talent-pool': typeof CaseStudiesOnlyfyTalentPoolRoute
   '/essays/ai-problems': typeof EssaysAiProblemsRoute
   '/writing/product-discovery-software-engineering': typeof WritingProductDiscoverySoftwareEngineeringRoute
   '/case-studies/': typeof CaseStudiesIndexRoute
@@ -146,6 +166,8 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/work'
     | '/case-studies/$slug'
+    | '/case-studies/notifications'
+    | '/case-studies/onlyfy-talent-pool'
     | '/essays/ai-problems'
     | '/writing/product-discovery-software-engineering'
     | '/case-studies/'
@@ -160,6 +182,8 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/work'
     | '/case-studies/$slug'
+    | '/case-studies/notifications'
+    | '/case-studies/onlyfy-talent-pool'
     | '/essays/ai-problems'
     | '/writing/product-discovery-software-engineering'
     | '/case-studies'
@@ -175,6 +199,8 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/work'
     | '/case-studies/$slug'
+    | '/case-studies/notifications'
+    | '/case-studies/onlyfy-talent-pool'
     | '/essays/ai-problems'
     | '/writing/product-discovery-software-engineering'
     | '/case-studies/'
@@ -275,6 +301,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof EssaysAiProblemsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/case-studies/onlyfy-talent-pool': {
+      id: '/case-studies/onlyfy-talent-pool'
+      path: '/onlyfy-talent-pool'
+      fullPath: '/case-studies/onlyfy-talent-pool'
+      preLoaderRoute: typeof CaseStudiesOnlyfyTalentPoolRouteImport
+      parentRoute: typeof CaseStudiesRoute
+    }
+    '/case-studies/notifications': {
+      id: '/case-studies/notifications'
+      path: '/notifications'
+      fullPath: '/case-studies/notifications'
+      preLoaderRoute: typeof CaseStudiesNotificationsRouteImport
+      parentRoute: typeof CaseStudiesRoute
+    }
     '/case-studies/$slug': {
       id: '/case-studies/$slug'
       path: '/$slug'
@@ -294,11 +334,15 @@ declare module '@tanstack/react-router' {
 
 interface CaseStudiesRouteChildren {
   CaseStudiesSlugRoute: typeof CaseStudiesSlugRoute
+  CaseStudiesNotificationsRoute: typeof CaseStudiesNotificationsRoute
+  CaseStudiesOnlyfyTalentPoolRoute: typeof CaseStudiesOnlyfyTalentPoolRoute
   CaseStudiesIndexRoute: typeof CaseStudiesIndexRoute
 }
 
 const CaseStudiesRouteChildren: CaseStudiesRouteChildren = {
   CaseStudiesSlugRoute: CaseStudiesSlugRoute,
+  CaseStudiesNotificationsRoute: CaseStudiesNotificationsRoute,
+  CaseStudiesOnlyfyTalentPoolRoute: CaseStudiesOnlyfyTalentPoolRoute,
   CaseStudiesIndexRoute: CaseStudiesIndexRoute,
 }
 
