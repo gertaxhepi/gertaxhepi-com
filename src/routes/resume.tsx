@@ -112,7 +112,7 @@ function CareerTimeline() {
         <div
           key={group.number}
           data-reveal-item
-          className="grid grid-cols-1 gap-4 md:grid-cols-[88px_minmax(0,1fr)_140px] md:gap-10 lg:gap-16"
+          className="grid grid-cols-1 gap-5 md:grid-cols-[88px_minmax(0,1fr)] md:gap-10 lg:gap-16"
         >
           {/* Number */}
           <div className="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight leading-none text-[var(--terracotta)]/30 tabular-nums">
@@ -131,7 +131,7 @@ function CareerTimeline() {
                     <h4 className="text-xl md:text-2xl font-semibold tracking-tight text-foreground">
                       {role.role}
                     </h4>
-                    <span className="text-sm md:text-base text-muted-foreground tabular-nums shrink-0 md:hidden">
+                    <span className="text-sm md:text-base text-muted-foreground tabular-nums shrink-0">
                       {role.period}
                     </span>
                   </div>
@@ -141,17 +141,6 @@ function CareerTimeline() {
                 </div>
               ))}
             </div>
-          </div>
-
-          {/* Desktop period */}
-          <div className="hidden md:flex flex-col gap-8 md:gap-10 pt-8 md:pt-9 lg:pt-10">
-            {group.roles.map((role) => (
-              <div key={role.period + role.role} className="min-h-0">
-                <span className="text-sm lg:text-base text-muted-foreground tabular-nums leading-relaxed block">
-                  {role.period}
-                </span>
-              </div>
-            ))}
           </div>
         </div>
       ))}
@@ -277,24 +266,34 @@ function Resume() {
       </Section>
 
       <Section spacing="tight">
-        <Reveal className="grid md:grid-cols-[1fr_2.4fr] gap-8 md:gap-16">
-          <div data-reveal-item className="text-[11px] font-mono uppercase tracking-[0.18em] text-muted-foreground">
+        <Reveal className="grid md:grid-cols-[180px_1fr] gap-8 md:gap-16">
+          <div
+            data-reveal-item
+            className="text-[11px] font-mono uppercase tracking-[0.18em] text-muted-foreground md:sticky md:top-28 md:self-start"
+          >
             Education
           </div>
-          <div className="space-y-8">
-            {education.map((e) => (
-              <div data-reveal-item key={e.title} className="grid md:grid-cols-[180px_1fr] gap-3 md:gap-8">
-                <div className="text-2xl md:text-3xl font-bold tracking-tight text-foreground leading-none">
-                  {e.yearRange}
+          <div data-reveal-item className="space-y-10 md:space-y-14">
+            {education.map((e, i) => (
+              <div
+                key={e.title}
+                className="grid grid-cols-1 gap-3 md:grid-cols-[88px_minmax(0,1fr)_140px] md:gap-10 lg:gap-16"
+              >
+                <div className="text-3xl md:text-5xl lg:text-6xl font-semibold tracking-tight leading-none text-[var(--terracotta)]/30 tabular-nums">
+                  {String(i + 1).padStart(2, "0")}
                 </div>
-                <div>
+                <div className="min-w-0">
                   <h3 className="text-lg md:text-xl font-semibold tracking-tight">{e.title}</h3>
-                  <div className="text-sm text-muted-foreground mt-0.5">{e.org}</div>
+                  <div className="text-sm md:text-base text-muted-foreground mt-0.5">{e.org}</div>
+                </div>
+                <div className="text-sm md:text-base text-muted-foreground tabular-nums md:text-right">
+                  {e.yearRange}
                 </div>
               </div>
             ))}
-            <div data-reveal-item className="pt-6 border-t border-border">
-              <div className="text-[11px] font-mono uppercase tracking-[0.18em] text-muted-foreground mb-5">
+
+            <div className="pt-10 md:pt-14">
+              <div className="text-[11px] font-mono uppercase tracking-[0.18em] text-muted-foreground mb-6">
                 Certifications
               </div>
               <ul className="space-y-3 text-[15px] md:text-base text-foreground/90">
