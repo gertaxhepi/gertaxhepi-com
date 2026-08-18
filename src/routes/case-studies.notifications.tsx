@@ -1,8 +1,9 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowUpRight } from "lucide-react";
+import { createFileRoute } from "@tanstack/react-router";
 import { Section } from "@/components/Primitives";
 import { Reveal } from "@/components/Reveal";
 import { Breadcrumb } from "@/components/Breadcrumb";
+import { CaseSection, CaseText } from "@/components/CaseSection";
+import { AllProjectsCTA } from "@/components/AllProjectsCTA";
 
 export const Route = createFileRoute("/case-studies/notifications")({
   head: () => {
@@ -84,19 +85,50 @@ function NotificationsPage() {
         </Reveal>
       </Section>
 
-      <Section spacing="tight">
-        <Link to="/work" className="group block py-12 md:py-16">
-          <div className="text-[11px] font-mono uppercase tracking-[0.22em] text-muted-foreground">
-            Back to Work
+      <Section className="pt-6 md:pt-12" spacing="tight">
+        <Reveal>
+          <div className="space-y-4 md:space-y-10">
+            <CaseSection number="01" title="The challenge">
+              <CaseText>
+                Generic notifications reached broad audiences but often failed to reflect what
+                users needed at that moment. Messages were easy to ignore because targeting and
+                content did not account for user intent or recent activity.
+              </CaseText>
+            </CaseSection>
+            <CaseSection number="02" title="Discovery">
+              <CaseText>
+                I reviewed engagement data and mapped the main notification journeys. The data
+                showed clear differences between active job seekers, passive candidates and people
+                primarily using XING to maintain their professional network.
+              </CaseText>
+            </CaseSection>
+            <CaseSection number="03" title="Key decisions">
+              <CaseText>
+                We prioritized relevance over notification volume. Audiences were segmented
+                according to intent and recent activity, and each journey received more focused
+                timing and content.
+              </CaseText>
+            </CaseSection>
+            <CaseSection number="04" title="Solution">
+              <CaseText>
+                We improved targeting, timing and messaging across job recommendations, network
+                activity and other important notification journeys.
+              </CaseText>
+            </CaseSection>
+            <CaseSection number="05" title="Results" soft>
+              <CaseText>Notification open rates increased by 40%.</CaseText>
+            </CaseSection>
+            <CaseSection number="06" title="Working together">
+              <CaseText>
+                I reported to Tom Raab and worked closely with engineering, analytics and CRM
+                stakeholders to connect the product strategy with delivery and measurement.
+              </CaseText>
+            </CaseSection>
           </div>
-          <div className="mt-6 flex items-start justify-between gap-8">
-            <div className="text-3xl md:text-5xl font-semibold tracking-tight transition-opacity group-hover:opacity-60">
-              All projects
-            </div>
-            <ArrowUpRight className="size-6 shrink-0 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
-          </div>
-        </Link>
+        </Reveal>
       </Section>
+
+      <AllProjectsCTA />
     </>
   );
 }

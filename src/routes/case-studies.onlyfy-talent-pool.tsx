@@ -1,8 +1,9 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowUpRight } from "lucide-react";
+import { createFileRoute } from "@tanstack/react-router";
 import { Section } from "@/components/Primitives";
 import { Reveal } from "@/components/Reveal";
 import { Breadcrumb } from "@/components/Breadcrumb";
+import { CaseSection, CaseText } from "@/components/CaseSection";
+import { AllProjectsCTA } from "@/components/AllProjectsCTA";
 
 export const Route = createFileRoute("/case-studies/onlyfy-talent-pool")({
   head: () => {
@@ -84,19 +85,37 @@ function OnlyfyTalentPoolPage() {
         </Reveal>
       </Section>
 
-      <Section spacing="tight">
-        <Link to="/work" className="group block py-12 md:py-16">
-          <div className="text-[11px] font-mono uppercase tracking-[0.22em] text-muted-foreground">
-            Back to Work
+      <Section className="pt-6 md:pt-12" spacing="tight">
+        <Reveal>
+          <div className="space-y-4 md:space-y-10">
+            <CaseSection number="01" title="Discovery">
+              <CaseText>
+                The migration from onlyfy into the XING Talent Pool required a clear opt-in
+                journey. Candidates needed to understand the value of joining without introducing
+                unnecessary friction into their job-search experience.
+              </CaseText>
+            </CaseSection>
+            <CaseSection number="02" title="Actions">
+              <CaseText>
+                We combined email communication with in-product prompts and tested different
+                moments in the journey. We later introduced the opt-in opportunity after job
+                applications, when the value of joining the Talent Pool was more relevant.
+              </CaseText>
+            </CaseSection>
+            <CaseSection number="03" title="Results" soft>
+              <CaseText>Around 40% of contacted users joined the XING Talent Pool.</CaseText>
+            </CaseSection>
+            <CaseSection number="04" title="Working together">
+              <CaseText>
+                I worked with engineering, design, CRM and marketplace stakeholders to coordinate
+                the migration journey and ensure the communication remained clear across channels.
+              </CaseText>
+            </CaseSection>
           </div>
-          <div className="mt-6 flex items-start justify-between gap-8">
-            <div className="text-3xl md:text-5xl font-semibold tracking-tight transition-opacity group-hover:opacity-60">
-              All projects
-            </div>
-            <ArrowUpRight className="size-6 shrink-0 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
-          </div>
-        </Link>
+        </Reveal>
       </Section>
+
+      <AllProjectsCTA />
     </>
   );
 }
