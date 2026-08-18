@@ -131,7 +131,7 @@ function CareerTimeline() {
                     <h4 className="text-xl md:text-2xl font-semibold tracking-tight text-foreground">
                       {role.role}
                     </h4>
-                    <span className="text-sm md:text-base text-muted-foreground tabular-nums shrink-0 md:hidden lg:block">
+                    <span className="text-sm md:text-base text-muted-foreground tabular-nums shrink-0 md:hidden">
                       {role.period}
                     </span>
                   </div>
