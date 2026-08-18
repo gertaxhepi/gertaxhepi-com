@@ -71,8 +71,8 @@ function Writing() {
         </div>
         <div data-reveal-item className="lg:col-span-6">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight leading-[1.02] text-foreground max-w-[20ch]">
-            <span className="block">Thoughts that</span>
-            <span className="block">shape my thinking.</span>
+            <span className="block">Thoughts that shape</span>
+            <span className="block">my thinking.</span>
           </h1>
         </div>
         <div data-reveal-item className="lg:col-span-4 lg:self-end">
