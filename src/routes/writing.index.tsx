@@ -41,21 +41,13 @@ const essays = [
     number: "01",
     to: "/essays/ai-problems",
     title: "Understanding Before Solving",
-    description:
-      "A reflection on mentorship, AI and why understanding the problem matters more than writing better prompts.",
-    type: "Reflection",
     readTime: "7 min",
-    featured: true,
   },
   {
     number: "02",
     to: "/writing/product-discovery-software-engineering",
     title: "How My Software Engineering Background Shaped My Approach to Product Discovery",
-    description:
-      "How moving from software engineering into product management changed the way I approach discovery.",
-    type: "Essay",
     readTime: "6 min",
-    featured: false,
   },
 ] as const;
 
