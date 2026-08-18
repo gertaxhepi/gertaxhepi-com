@@ -69,13 +69,13 @@ function Writing() {
             Selected Writing
           </div>
         </div>
-        <div data-reveal-item className="lg:col-span-6">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight leading-[1.02] text-foreground max-w-[20ch]">
+        <div data-reveal-item className="lg:col-span-7">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight leading-[1.02] text-foreground max-w-[24ch]">
             <span className="block">Thoughts that shape</span>
             <span className="block">my thinking.</span>
           </h1>
         </div>
-        <div data-reveal-item className="lg:col-span-4 lg:self-end">
+        <div data-reveal-item className="lg:col-span-3 lg:self-end">
           <p className="text-base leading-relaxed text-muted-foreground max-w-sm">
             Notes on product, technology, discovery and building software.
           </p>
