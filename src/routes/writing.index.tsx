@@ -70,7 +70,7 @@ function Writing() {
           </div>
         </div>
         <div data-reveal-item className="lg:col-span-7">
-          <h1 className="text-4xl md:text-5xl lg:text-5xl font-semibold tracking-tight leading-[1.02] text-foreground">
+          <h1 className="text-4xl md:text-5xl lg:text-[2.75rem] font-semibold tracking-tight leading-[1.02] text-foreground">
             <span className="block">Thoughts that</span>
             <span className="block">shape my thinking.</span>
           </h1>
