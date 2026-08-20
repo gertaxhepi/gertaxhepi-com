@@ -55,21 +55,12 @@ function Writing() {
     <Section className="pt-16 md:pt-24 pb-4" spacing="tight">
       {/* Hero */}
       <div className="grid grid-cols-1 gap-8 md:gap-10 lg:grid-cols-12 lg:items-start">
-        <div data-reveal-item className="lg:col-span-2">
-          <div className="text-[11px] font-mono uppercase tracking-[0.22em] text-[var(--terracotta)]">
-            Selected Writing
-          </div>
-        </div>
-        <div data-reveal-item className="lg:col-span-7">
-          <h1 className="text-4xl md:text-5xl lg:text-5xl font-semibold tracking-tight leading-[1.02] text-foreground">
-            <span className="block">Thoughts that</span>
-            <span className="block">shape my thinking.</span>
+        <div data-reveal-item className="lg:col-start-3 lg:col-span-5">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight leading-[1.02] text-foreground max-w-[12ch]">
+            <span className="block">Thoughts</span>
+            <span className="block">that shape</span>
+            <span className="block">my thinking.</span>
           </h1>
-        </div>
-        <div data-reveal-item className="lg:col-span-3 lg:self-end">
-          <p className="text-base leading-relaxed text-muted-foreground max-w-sm">
-            Notes on product, technology, discovery and building software.
-          </p>
         </div>
       </div>
 
@@ -83,12 +74,12 @@ function Writing() {
             className="group relative block cursor-pointer rounded-2xl transition-colors duration-300 hover:bg-[var(--terracotta)]/5"
           >
             {/* Mobile layout */}
-            <div className="grid grid-cols-[auto_1fr_auto] gap-x-3 gap-y-2 px-4 py-6 md:px-6 md:py-8 lg:hidden transition-transform duration-300 group-hover:translate-x-1">
-              <span className="text-lg font-light text-[var(--terracotta)]/40 pt-0.5">
+            <div className="grid grid-cols-[auto_1fr_auto] items-start gap-x-3 gap-y-2 px-4 py-6 md:px-6 md:py-8 lg:hidden transition-transform duration-300 group-hover:translate-x-1">
+              <span className="text-5xl md:text-6xl lg:text-8xl font-semibold leading-none tracking-tight text-[var(--terracotta)]/30">
                 {essay.number}
               </span>
               <div />
-              <div>
+              <div className="pt-2">
                 <ArrowUpRight className="size-5 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
               </div>
               <h2 className="col-span-3 text-lg md:text-xl font-semibold tracking-tight">
@@ -101,7 +92,7 @@ function Writing() {
 
             {/* Desktop layout */}
             <div className="hidden lg:grid lg:grid-cols-[auto_minmax(0,1fr)_auto_auto] lg:items-center lg:gap-6 lg:px-6 lg:py-8 transition-transform duration-300 group-hover:translate-x-1">
-              <span className="text-2xl md:text-3xl font-light text-[var(--terracotta)]/40 w-10">
+              <span className="text-5xl md:text-6xl lg:text-8xl font-semibold leading-none tracking-tight text-[var(--terracotta)]/30">
                 {essay.number}
               </span>
               <h2 className="text-xl md:text-2xl font-semibold tracking-tight pr-4">
