@@ -54,8 +54,8 @@ function Writing() {
   return (
     <Section className="pt-16 md:pt-24 pb-4" spacing="tight">
       {/* Hero */}
-      <div className="grid grid-cols-1 gap-8 md:gap-10 lg:grid-cols-12 lg:items-start">
-        <div data-reveal-item className="lg:col-start-3 lg:col-span-5">
+      <div className="grid grid-cols-1 lg:grid-cols-[minmax(120px,auto)_minmax(0,1fr)] gap-8 md:gap-10 lg:gap-6 px-4 md:px-6 lg:px-6">
+        <div data-reveal-item className="lg:col-start-2">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight leading-[1.02] text-foreground max-w-[12ch]">
             <span className="block">Thoughts</span>
             <span className="block">that shape</span>
