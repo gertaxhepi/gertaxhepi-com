@@ -52,7 +52,7 @@ const essays = [
 
 function Writing() {
   return (
-    <Section className="pt-16 md:pt-24 pb-4" spacing="tight">
+    <Section className="pb-4" spacing="tight">
       <section className="page-title-hero">
         <h1>Thoughts that shape my thinking.</h1>
       </section>
