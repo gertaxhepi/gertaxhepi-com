@@ -96,26 +96,10 @@ const workGroups = [
 
 function Work() {
   return (
-    <Section className="pt-16 md:pt-24 pb-4" spacing="tight">
-      <div className="grid grid-cols-1 gap-8 md:gap-10 lg:grid-cols-12 lg:items-start">
-        <div data-reveal-item className="lg:col-span-2">
-          <div className="text-[11px] font-mono uppercase tracking-[0.22em] text-[var(--terracotta)]">
-            Selected Work
-          </div>
-        </div>
-        <div data-reveal-item className="lg:col-span-5">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight leading-[1.02] text-foreground max-w-[12ch]">
-            <span className="block">Projects I’ve</span>
-            <span className="block">shaped</span>
-            <span className="block">since 2021.</span>
-          </h1>
-        </div>
-        <div data-reveal-item className="lg:col-span-5 lg:self-end">
-          <p className="text-base leading-relaxed text-muted-foreground max-w-sm">
-            A compact view of the product work I led at XING and Jacando, followed by what I’m building now.
-          </p>
-        </div>
-      </div>
+    <Section className="pb-4" spacing="tight">
+      <section className="page-title-hero">
+        <h1>Selected product work.</h1>
+      </section>
 
       <div data-reveal-item className="mt-12 md:mt-16 space-y-20 md:space-y-28">
         {workGroups.map((group) => (

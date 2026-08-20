@@ -52,17 +52,10 @@ const essays = [
 
 function Writing() {
   return (
-    <Section className="pt-16 md:pt-24 pb-4" spacing="tight">
-      {/* Hero */}
-      <div className="grid grid-cols-1 lg:grid-cols-[minmax(120px,auto)_minmax(0,1fr)] gap-8 md:gap-10 lg:gap-6 px-4 md:px-6 lg:px-6">
-        <div data-reveal-item className="lg:col-start-2">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight leading-[1.02] text-foreground max-w-[12ch]">
-            <span className="block">Thoughts</span>
-            <span className="block">that shape</span>
-            <span className="block">my thinking.</span>
-          </h1>
-        </div>
-      </div>
+    <Section className="pb-4" spacing="tight">
+      <section className="page-title-hero">
+        <h1>Thoughts that shape my thinking.</h1>
+      </section>
 
       {/* Article list */}
       <Reveal className="mt-12 md:mt-16">
