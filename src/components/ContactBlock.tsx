@@ -39,7 +39,8 @@ const channels: Channel[] = [
 export function ContactBlock() {
   return (
     <section className="container-page pt-20 md:pt-28 pb-6 md:pb-8">
-      <Reveal className="grid grid-cols-1 lg:grid-cols-[2.1fr_1fr] gap-x-10 lg:gap-x-16 gap-y-12 lg:gap-y-16 items-start">
+      <div className="border-t border-border/40" />
+      <Reveal className="grid grid-cols-1 lg:grid-cols-[2.1fr_1fr] gap-x-10 lg:gap-x-16 gap-y-12 lg:gap-y-16 items-start pt-16 md:pt-20">
         <h2
           data-reveal-item
           className="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight leading-[1.02] text-balance"
