@@ -8,12 +8,4 @@ The portfolio showcases how I approach product discovery, strategy and delivery 
 
 🌐 [gertaproduct.com](https://gertaproduct.com)
 
-## About me
 
-I’m an engineer-turned-product manager with 7 years of experience in software engineering and 5 years in product management.
-
-My work combines product thinking, technical understanding and data-informed decision-making to turn complex problems into useful products.
-
-## Built with
-
-Lovable · React · TypeScript
