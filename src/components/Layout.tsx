@@ -125,16 +125,32 @@ export function SiteFooter() {
     <footer>
       <div className="container-page">
         <div className="border-t border-border/40" />
-        <div className="flex items-center justify-between py-8 md:py-10 text-[11px] font-mono uppercase tracking-[0.18em] text-muted-foreground">
-          <span>© 2026 ALL RIGHTS RESERVED</span>
-          <a
-            href="https://lovable.dev"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="transition-colors duration-300 hover:text-foreground"
-          >
-            Made with Lovable ↗
-          </a>
+        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 py-8 md:py-10 text-[11px] font-mono uppercase tracking-[0.18em] text-muted-foreground">
+          <span>Based in Germany · Open to remote opportunities</span>
+          <div className="flex items-center gap-6">
+            <a
+              href={LINKEDIN_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Visit Gerta Xhepi on LinkedIn"
+              className="group inline-flex items-center gap-2 transition-colors duration-300 hover:text-foreground"
+            >
+              <Linkedin className="size-[18px] shrink-0 text-foreground" strokeWidth={1.75} aria-hidden="true" />
+              <span>LinkedIn</span>
+              <ExternalLink className="size-3.5 shrink-0 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden="true" />
+            </a>
+            <a
+              href={GITHUB_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Visit Gerta Xhepi on GitHub"
+              className="group inline-flex items-center gap-2 transition-colors duration-300 hover:text-foreground"
+            >
+              <Github className="size-[18px] shrink-0 text-foreground" strokeWidth={1.75} aria-hidden="true" />
+              <span>GitHub</span>
+              <ExternalLink className="size-3.5 shrink-0 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden="true" />
+            </a>
+          </div>
         </div>
       </div>
     </footer>
