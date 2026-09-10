@@ -164,12 +164,7 @@ export function PageShell({ children }: { children: ReactNode }) {
     <div className="flex min-h-screen flex-col">
       <SiteHeader />
       <main className="flex-1 pt-[72px]">{children}</main>
-      {!isHome && (
-        <>
-          <ContactBlock />
-          <SiteFooter />
-        </>
-      )}
+      {!isHome && <ContactBlock />}
     </div>
   );
 }
