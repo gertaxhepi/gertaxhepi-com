@@ -1,22 +1,39 @@
 import { Link } from "@tanstack/react-router";
-import { ArrowUpRight, MapPin } from "lucide-react";
+import { ExternalLink, FileText, Github, Linkedin, Mail, MapPin } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 import { Reveal } from "./Reveal";
 
 type Channel = {
   label: string;
   href: string;
+  icon: LucideIcon;
+  ariaLabel: string;
   external?: boolean;
   internal?: boolean;
 };
 
 const channels: Channel[] = [
-  { label: "xhepigerta@gmail.com", href: "mailto:xhepigerta@gmail.com" },
+  {
+    label: "xhepigerta@gmail.com",
+    href: "mailto:xhepigerta@gmail.com",
+    icon: Mail,
+    ariaLabel: "Email Gerta Xhepi",
+  },
   {
     label: "LinkedIn",
     href: "https://www.linkedin.com/in/gerta-xhepi-94853289/",
+    icon: Linkedin,
+    ariaLabel: "Visit Gerta Xhepi on LinkedIn",
     external: true,
   },
-  { label: "Resume", href: "/resume", internal: true },
+  {
+    label: "GitHub",
+    href: "https://github.com/gertaxhepi",
+    icon: Github,
+    ariaLabel: "Visit Gerta Xhepi on GitHub",
+    external: true,
+  },
+  { label: "Resume", href: "/resume", icon: FileText, ariaLabel: "View Gerta Xhepi's resume", internal: true },
 ];
 
 export function ContactBlock() {
@@ -35,18 +52,20 @@ export function ContactBlock() {
           className="flex flex-col items-start gap-4 lg:row-start-2"
         >
           {channels.map((c) => {
+            const Icon = c.icon;
             const className =
               "group inline-flex items-center gap-2 text-lg md:text-xl font-medium text-foreground transition-opacity hover:opacity-60";
             const inner = (
               <>
+                <Icon className="size-[18px] shrink-0 text-foreground" strokeWidth={1.75} aria-hidden="true" />
                 {c.label}
-                <ArrowUpRight className="size-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                <ExternalLink className="size-4 shrink-0 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden="true" />
               </>
             );
             return (
               <div key={c.label}>
                 {c.internal ? (
-                  <Link to={c.href} className={className}>
+                  <Link to={c.href} className={className} aria-label={c.ariaLabel}>
                     {inner}
                   </Link>
                 ) : (
@@ -55,6 +74,7 @@ export function ContactBlock() {
                     target={c.external ? "_blank" : undefined}
                     rel={c.external ? "noopener noreferrer" : undefined}
                     className={className}
+                    aria-label={c.ariaLabel}
                   >
                     {inner}
                   </a>
@@ -69,7 +89,7 @@ export function ContactBlock() {
           className="lg:col-start-2 lg:row-start-2 lg:text-right lg:justify-self-end"
         >
           <div className="flex items-center gap-2 lg:justify-end text-sm md:text-base font-medium text-foreground">
-            <MapPin className="size-4" strokeWidth={1.75} />
+            <MapPin className="size-[18px] shrink-0 text-foreground" strokeWidth={1.75} aria-hidden="true" />
             Based in Germany
           </div>
           <p className="mt-3 text-sm md:text-base text-muted-foreground leading-relaxed max-w-xs lg:ml-auto">
