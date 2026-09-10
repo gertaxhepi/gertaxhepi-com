@@ -140,17 +140,47 @@ function Home() {
               B2B SaaS, marketplaces, structured data and AI.
             </p>
 
-            <Link
+            <div
               data-reveal-item
-              to="/about"
-              className="group inline-flex items-center gap-2 text-[11px] font-mono uppercase tracking-[0.18em] text-terracotta border-b border-foreground pb-1 transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded-sm"
+              className="flex flex-col md:flex-row md:items-center md:justify-between gap-4"
             >
-              Read more about me
-              <ArrowUpRight
-                className="size-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-                strokeWidth={1.5}
-              />
-            </Link>
+              <Link
+                to="/about"
+                className="group inline-flex items-center gap-2 text-[11px] font-mono uppercase tracking-[0.18em] text-terracotta border-b border-foreground pb-1 transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded-sm"
+              >
+                Read more about me
+                <ArrowUpRight
+                  className="size-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                  strokeWidth={1.5}
+                />
+              </Link>
+
+              <div className="flex flex-col md:flex-row md:items-center gap-4 md:gap-6">
+                <a
+                  href="https://www.linkedin.com/in/gerta-xhepi-94853289/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Visit Gerta Xhepi on LinkedIn"
+                  className="group inline-flex items-center gap-2 text-lg md:text-xl font-medium text-foreground transition-opacity hover:opacity-60"
+                >
+                  <Linkedin className="size-[18px] shrink-0 text-foreground" strokeWidth={1.75} aria-hidden="true" />
+                  LinkedIn
+                  <ExternalLink className="size-4 shrink-0 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden="true" />
+                </a>
+                <a
+                  href="https://github.com/gertaxhepi"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Visit Gerta Xhepi on GitHub"
+                  className="group inline-flex items-center gap-2 text-lg md:text-xl font-medium text-foreground transition-opacity hover:opacity-60"
+                >
+                  <Github className="size-[18px] shrink-0 text-foreground" strokeWidth={1.75} aria-hidden="true" />
+                  GitHub
+                  <ExternalLink className="size-4 shrink-0 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden="true" />
+                </a>
+              </div>
+            </div>
+
           </div>
         </div>
 
