@@ -35,8 +35,12 @@ export const Route = createFileRoute("/")({
           description: "Product Manager specializing in AI, marketplaces and workflow products.",
           url: "https://gertaproduct.com",
           address: { "@type": "PostalAddress", addressCountry: "DE" },
-          sameAs: ["https://www.linkedin.com/in/gerta-xhepi-94853289/"],
+          sameAs: [
+            "https://www.linkedin.com/in/gerta-xhepi-94853289/",
+            "https://github.com/gertaxhepi",
+          ],
         }),
+
       },
       {
         type: "application/ld+json",
