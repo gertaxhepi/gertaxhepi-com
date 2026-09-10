@@ -1,9 +1,12 @@
 import { Outlet, useLocation, Link } from "@tanstack/react-router";
 import type { ReactNode } from "react";
 import { useEffect, useState } from "react";
-import { Menu, X } from "lucide-react";
+import { ExternalLink, Github, Linkedin, Menu, X } from "lucide-react";
 import { ThemeToggle } from "./ThemeToggle";
 import { ContactBlock } from "./ContactBlock";
+
+const GITHUB_URL = "https://github.com/gertaxhepi";
+const LINKEDIN_URL = "https://www.linkedin.com/in/gerta-xhepi-94853289/";
 
 type NavItem = { label: string; to: string };
 
