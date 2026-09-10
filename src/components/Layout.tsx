@@ -18,7 +18,6 @@ const navItems: readonly NavItem[] = [
 
 const ACCENT = "#8A5A5A";
 const RESUME_URL = "/resume";
-const LINKEDIN_URL = "https://www.linkedin.com/in/gerta-xhepi-94853289/";
 
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
