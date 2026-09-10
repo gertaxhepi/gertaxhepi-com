@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Section } from "@/components/Primitives";
 import { Reveal } from "@/components/Reveal";
 import { Breadcrumb } from "@/components/Breadcrumb";
-import { Download, Linkedin, Mail, MapPin } from "lucide-react";
+import { Download, Github, Linkedin, Mail, MapPin } from "lucide-react";
 import resumePdf from "@/assets/gerta_xhepi-resume.pdf.asset.json";
 
 const OG_IMAGE = "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/5e5a77b8-fdcf-4df7-92f9-1cada506e97a";
@@ -172,15 +172,16 @@ const focusAreas = [
   "Product Analytics",
 ];
 
-function MetaLink({ href, icon: Icon, children, external }: { href: string; icon: React.ComponentType<{ className?: string }>; children: React.ReactNode; external?: boolean }) {
+function MetaLink({ href, icon: Icon, children, external, ariaLabel }: { href: string; icon: React.ComponentType<{ className?: string; strokeWidth?: number; "aria-hidden"?: boolean | "true" | "false" }>; children: React.ReactNode; external?: boolean; ariaLabel: string }) {
   return (
     <a
       href={href}
       target={external ? "_blank" : undefined}
       rel={external ? "noopener noreferrer" : undefined}
       className="group inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
+      aria-label={ariaLabel}
     >
-      <Icon className="size-3.5" />
+      <Icon className="size-[18px] shrink-0 text-foreground" strokeWidth={1.75} aria-hidden="true" />
       <span>{children}</span>
     </a>
   );
@@ -204,11 +205,12 @@ function Resume() {
             data-reveal-item
             className="mt-4 flex flex-wrap gap-x-8 gap-y-3"
           >
-            <MetaLink href="mailto:xhepigerta@gmail.com" icon={Mail}>xhepigerta@gmail.com</MetaLink>
+            <MetaLink href="mailto:xhepigerta@gmail.com" icon={Mail} ariaLabel="Email Gerta Xhepi">xhepigerta@gmail.com</MetaLink>
             <span className="inline-flex items-center gap-2 text-sm text-muted-foreground">
-              <MapPin className="size-3.5" /> Germany
+              <MapPin className="size-[18px] shrink-0 text-foreground" strokeWidth={1.75} aria-hidden="true" /> Germany
             </span>
-            <MetaLink href="https://www.linkedin.com/in/gerta-xhepi-94853289/" icon={Linkedin} external>LinkedIn</MetaLink>
+            <MetaLink href="https://www.linkedin.com/in/gerta-xhepi-94853289/" icon={Linkedin} external ariaLabel="Visit Gerta Xhepi on LinkedIn">LinkedIn</MetaLink>
+            <MetaLink href="https://github.com/gertaxhepi" icon={Github} external ariaLabel="Visit Gerta Xhepi on GitHub">GitHub</MetaLink>
           </div>
 
           <div data-reveal-item className="mt-4">

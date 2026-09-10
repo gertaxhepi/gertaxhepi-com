@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { Section, SectionHeading } from "@/components/Primitives";
 import { Reveal } from "@/components/Reveal";
 import { cn } from "@/lib/utils";
-import { ArrowUpRight } from "lucide-react";
+import { ExternalLink, FileText, Github, Linkedin } from "lucide-react";
 import profileAsset from "@/assets/profile.png.asset.json";
 import yogaAsset from "@/assets/yoga.png.asset.json";
 import climbingAsset from "@/assets/climbing.png.asset.json";
@@ -141,18 +141,33 @@ function About() {
               <Link
                 to="/resume"
                 className="group inline-flex items-center gap-2 text-sm font-medium border-b border-foreground pb-1 transition-opacity hover:opacity-60"
+                aria-label="View Gerta Xhepi's resume"
               >
+                <FileText className="size-[18px] shrink-0 text-foreground" strokeWidth={1.75} aria-hidden="true" />
                 View Resume
-                <ArrowUpRight className="size-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                <ExternalLink className="size-4 shrink-0 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden="true" />
               </Link>
               <a
                 href="https://www.linkedin.com/in/gerta-xhepi-94853289/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group inline-flex items-center gap-2 text-sm font-medium border-b border-foreground pb-1 transition-opacity hover:opacity-60"
+                aria-label="Visit Gerta Xhepi on LinkedIn"
               >
+                <Linkedin className="size-[18px] shrink-0 text-foreground" strokeWidth={1.75} aria-hidden="true" />
                 LinkedIn
-                <ArrowUpRight className="size-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                <ExternalLink className="size-4 shrink-0 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden="true" />
+              </a>
+              <a
+                href="https://github.com/gertaxhepi"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group inline-flex items-center gap-2 text-sm font-medium border-b border-foreground pb-1 transition-opacity hover:opacity-60"
+                aria-label="Visit Gerta Xhepi on GitHub"
+              >
+                <Github className="size-[18px] shrink-0 text-foreground" strokeWidth={1.75} aria-hidden="true" />
+                GitHub
+                <ExternalLink className="size-4 shrink-0 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden="true" />
               </a>
             </div>
           </Reveal>
