@@ -146,8 +146,9 @@ function Home() {
 
             <div
               data-reveal-item
-              className="flex flex-col md:flex-row md:items-center md:justify-between gap-4"
+              className="flex flex-col items-start md:flex-row md:items-center md:justify-between gap-4"
             >
+
               <Link
                 to="/about"
                 className="group inline-flex items-center gap-2 text-[11px] font-mono uppercase tracking-[0.18em] text-terracotta border-b border-foreground pb-1 transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded-sm"
