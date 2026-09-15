@@ -157,6 +157,37 @@ html.theme-transition * {
   .container-page { max-width: 96rem; padding-inline: 3rem; }
 }
 
+/* Subtle homepage grid — isolated so Safari composites the mask reliably. */
+.home-grid {
+  position: relative;
+  isolation: isolate;
+}
+
+.home-grid::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  opacity: 1;
+  background-image:
+    linear-gradient(rgba(120, 105, 95, 0.10) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(120, 105, 95, 0.10) 1px, transparent 1px);
+  background-size: 40px 40px;
+  background-position: center top;
+  -webkit-mask-image: linear-gradient(to bottom, black, transparent);
+  mask-image: linear-gradient(to bottom, black, transparent);
+}
+
+.dark .home-grid::before {
+  background-image:
+    linear-gradient(rgba(245, 245, 242, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(245, 245, 242, 0.07) 1px, transparent 1px);
+}
+
 /* Shared title-only hero for Work and Writing pages */
 .page-title-hero {
   width: 100%;
