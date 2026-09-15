@@ -58,7 +58,7 @@ export function SiteHeader() {
           </span>
         </Link>
 
-        <div className="hidden md:flex items-center gap-4">
+        <div className="hidden min-[900px]:flex items-center gap-4">
           <nav className="flex items-center gap-8">
             {navItems.map((item) => {
               const active = isActive(item.to);
@@ -80,7 +80,7 @@ export function SiteHeader() {
           </div>
         </div>
 
-        <div className="md:hidden flex items-center gap-4">
+        <div className="flex items-center gap-4 min-[900px]:hidden">
           <ThemeToggle />
           <button
             className="grid h-10 w-10 place-items-center nav-link transition-colors"
@@ -94,7 +94,7 @@ export function SiteHeader() {
       </div>
 
       {open && (
-        <div className="md:hidden bg-background/85 backdrop-blur-md">
+        <div className="bg-background/85 backdrop-blur-md min-[900px]:hidden">
           <nav className="container-page flex flex-col py-4 gap-1">
             {navItems.map((item) => {
               const active = isActive(item.to);
