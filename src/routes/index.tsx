@@ -115,7 +115,7 @@ function NavSection({ number, title, description, supportingText, cta, to }: Nav
 
 function Home() {
   return (
-    <section className="container-page flex flex-col">
+    <section className="hp-page container-page flex flex-col">
       <Reveal className="hp-shell flex-1 min-h-0">
         {/* Left side — hero framed by intentionally empty cells */}
         <div className="hp-left">
