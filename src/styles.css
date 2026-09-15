@@ -398,7 +398,7 @@ html[data-reveal-ready="true"] [data-reveal-root][data-revealed="false"] [data-r
   background-color: rgba(245, 245, 242, 0.04);
 }
 .hp-cell-num { grid-column: 1; grid-row: 1; }
-.hp-cell-title { grid-column: 2; grid-row: 1; min-width: 0; }
+.hp-cell-title { grid-column: 2; grid-row: 1; min-width: 0; overflow-wrap: break-word; padding-right: 0.5rem; }
 .hp-cell-arrow { grid-column: 3; grid-row: 1; justify-self: end; }
 .hp-cell-body {
   grid-column: 1 / -1;
