@@ -80,88 +80,96 @@ function NavSection({ number, title, description, supportingText, cta, to }: Nav
   return (
     <Link
       to={to}
-      className="group block border-t border-border/60 first:border-t-0 py-8 md:py-10 lg:py-[clamp(0.6rem,2.6vh,2.5rem)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded-sm transition-colors duration-300 hover:bg-subtle/50 dark:hover:bg-subtle/40"
+      className="hp-row group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-inset"
     >
-      <div className="grid grid-cols-[auto_1fr_auto] lg:grid-cols-[auto_1fr_1.5fr_auto] items-start gap-x-4 lg:gap-x-6">
-        <span className="row-start-1 col-start-1 text-[11px] font-mono uppercase tracking-[0.18em] text-terracotta pt-2 lg:pt-3">
-          {number}
-        </span>
-        <h2
+      <span className="hp-cell-num text-[11px] font-mono uppercase tracking-[0.18em] text-terracotta">
+        {number}
+      </span>
+      <h2
+        data-reveal-item
+        className="hp-cell-title text-3xl md:text-4xl lg:text-[clamp(1.5rem,2.1vw,2.25rem)] font-semibold tracking-tight leading-[1.05]"
+      >
+        {title}
+      </h2>
+      <div className="hp-cell-body space-y-2">
+        <p data-reveal-item className="text-base md:text-lg lg:text-[clamp(0.875rem,1.9vh,1.125rem)] text-foreground leading-snug">
+          {description}
+        </p>
+        <p data-reveal-item className="text-sm text-muted-foreground">
+          {supportingText}
+        </p>
+        <span
           data-reveal-item
-          className="row-start-1 col-start-2 text-3xl md:text-4xl lg:text-[clamp(1.75rem,4.6vh,3.25rem)] font-semibold tracking-tight leading-[0.95]"
+          className="relative inline-block text-[11px] font-mono uppercase tracking-[0.18em] text-terracotta pb-0.5 pt-1"
         >
-          {title}
-        </h2>
-        <ArrowUpRight
-          className="row-start-1 col-start-3 lg:col-start-4 size-5 text-foreground mt-2 lg:mt-3 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1"
-          strokeWidth={1.5}
-        />
-        <div className="col-start-1 col-span-3 lg:col-start-3 lg:col-span-1 lg:row-start-1 mt-5 lg:mt-0 space-y-2">
-          <p data-reveal-item className="text-base md:text-lg lg:text-[clamp(0.875rem,1.9vh,1.125rem)] text-foreground leading-snug">
-            {description}
-          </p>
-          <p data-reveal-item className="text-sm text-muted-foreground">
-            {supportingText}
-          </p>
-          <span
-            data-reveal-item
-            className="relative inline-block text-[11px] font-mono uppercase tracking-[0.18em] text-terracotta pb-0.5 pt-1 transition-colors duration-300 group-hover:text-foreground"
-          >
-            {cta}
-            <span className="absolute left-0 bottom-0 h-px bg-foreground w-0 transition-all duration-300 group-hover:w-full" />
-          </span>
-        </div>
+          {cta}
+        </span>
       </div>
+      <ArrowUpRight
+        className="hp-cell-arrow size-5 text-foreground transition-transform duration-200 ease-out group-hover:translate-x-1 group-hover:-translate-y-1"
+        strokeWidth={1.5}
+      />
     </Link>
   );
 }
 
 function Home() {
   return (
-    <section className="home-grid container-page flex flex-col lg:h-[calc(100dvh-72px)] lg:overflow-hidden">
-      <Reveal className="flex-1 min-h-0 grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-12 lg:gap-10 xl:gap-16 py-10 md:py-14 lg:py-[clamp(0.75rem,3.5vh,3rem)]">
-        {/* Left column */}
-        <div className="flex flex-col justify-center min-w-0">
-          <div className="space-y-7 md:space-y-9 lg:space-y-[clamp(1rem,3.2vh,2.5rem)] lg:translate-y-[calc(14.5vh-2.625rem)]">
-            <h1
-              data-reveal-item
-              className="text-5xl sm:text-6xl md:text-7xl lg:text-[clamp(3rem,8.4vh,7rem)] font-bold tracking-[-0.04em] leading-[0.92] text-balance"
-            >
-              From building
-              <br />
-              software
-              <br />
-              to shaping
-              <br />
-              products.
-            </h1>
+    <section className="hp-page container-page flex flex-col">
+      <Reveal className="hp-shell flex-1 min-h-0">
+        {/* Left side — hero framed by intentionally empty cells */}
+        <div className="hp-left">
+          <div className="hp-void" aria-hidden="true">
+            <span />
+            <span />
+          </div>
 
-            <p
-              data-reveal-item
-              className="text-lg md:text-xl lg:text-[clamp(0.95rem,2.1vh,1.25rem)] text-muted-foreground max-w-xl leading-relaxed"
-            >
-              I’m Gerta, a Product Manager with an engineering background. I work across B2C and
-              B2B SaaS, marketplaces, structured data and AI.
-            </p>
-
-            <div data-reveal-item>
-              <Link
-                to="/about"
-                className="group inline-flex items-center gap-2 text-[11px] font-mono uppercase tracking-[0.18em] text-terracotta border-b border-foreground pb-1 transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded-sm"
+          <div className="hp-hero">
+            <div className="space-y-7 md:space-y-9 lg:space-y-[clamp(1rem,3.2vh,2.5rem)]">
+              <h1
+                data-reveal-item
+                className="text-5xl sm:text-6xl md:text-7xl lg:text-[clamp(3rem,8.4vh,7rem)] font-bold tracking-[-0.04em] leading-[0.92] text-balance"
               >
-                Read more about me
-                <ArrowUpRight
-                  className="size-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-                  strokeWidth={1.5}
-                />
-              </Link>
-            </div>
+                From building
+                <br />
+                software
+                <br />
+                to shaping
+                <br />
+                products.
+              </h1>
 
+              <p
+                data-reveal-item
+                className="text-lg md:text-xl lg:text-[clamp(0.95rem,2.1vh,1.25rem)] text-muted-foreground max-w-xl leading-relaxed"
+              >
+                I’m Gerta, a Product Manager with an engineering background. I work across B2C and
+                B2B SaaS, marketplaces, structured data and AI.
+              </p>
+
+              <div data-reveal-item>
+                <Link
+                  to="/about"
+                  className="group inline-flex items-center gap-2 text-[11px] font-mono uppercase tracking-[0.18em] text-terracotta border-b border-foreground pb-1 transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded-sm"
+                >
+                  Read more about me
+                  <ArrowUpRight
+                    className="size-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                    strokeWidth={1.5}
+                  />
+                </Link>
+              </div>
+            </div>
+          </div>
+
+          <div className="hp-void hp-void-bottom" aria-hidden="true">
+            <span />
+            <span />
           </div>
         </div>
 
-        {/* Right column */}
-        <div className="flex flex-col justify-center min-w-0">
+        {/* Right side — three clickable section rows */}
+        <div className="hp-right">
           <NavSection
             number="01"
             title="Projects"
@@ -188,6 +196,7 @@ function Home() {
           />
         </div>
       </Reveal>
+
 
       {/* Homepage footer — neutral, integrated with the page */}
       <footer className="bg-background border-t border-border/40">
