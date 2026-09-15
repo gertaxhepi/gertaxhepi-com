@@ -12,6 +12,7 @@ import { useEffect, type ReactNode } from "react";
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { PageShell } from "../components/Layout";
+import { ViewportDebugPanel } from "../components/ViewportDebugPanel";
 
 function NotFoundComponent() {
   return (
@@ -135,6 +136,7 @@ function RootComponent() {
       <PageShell>
         <Outlet />
       </PageShell>
+      <ViewportDebugPanel />
     </QueryClientProvider>
   );
 }
