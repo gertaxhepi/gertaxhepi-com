@@ -157,35 +157,175 @@ html.theme-transition * {
   .container-page { max-width: 96rem; padding-inline: 3rem; }
 }
 
-/* Subtle homepage grid — isolated so Safari composites the mask reliably. */
-.home-grid {
-  position: relative;
-  isolation: isolate;
+/* Homepage editorial grid — standard CSS Grid for Safari 15 compatibility. */
+.home-editorial-grid {
+  display: grid;
+  min-width: 0;
+  margin-block: 2.5rem;
+  border: 1px solid var(--color-border);
 }
 
-.home-grid::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -1;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  opacity: 1;
-  background-image:
-    linear-gradient(rgba(120, 105, 95, 0.10) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(120, 105, 95, 0.10) 1px, transparent 1px);
-  background-size: 40px 40px;
-  background-position: center top;
-  -webkit-mask-image: linear-gradient(to bottom, black, transparent);
-  mask-image: linear-gradient(to bottom, black, transparent);
+.home-editorial-left,
+.home-editorial-sections {
+  display: grid;
+  min-width: 0;
 }
 
-.dark .home-grid::before {
-  background-image:
-    linear-gradient(rgba(245, 245, 242, 0.07) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(245, 245, 242, 0.07) 1px, transparent 1px);
+.home-editorial-empty {
+  display: none;
+}
+
+.home-editorial-hero {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  padding: 2.5rem 1.5rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.home-editorial-link {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  min-width: 0;
+  border-bottom: 1px solid var(--color-border);
+  transition: background-color 200ms ease;
+}
+
+.home-editorial-link:last-child {
+  border-bottom: 0;
+}
+
+.home-editorial-link:hover {
+  background-color: var(--color-subtle);
+}
+
+.home-editorial-link:hover .home-editorial-arrow svg {
+  transform: translate(4px, -4px);
+}
+
+.home-editorial-number,
+.home-editorial-title-cell,
+.home-editorial-copy,
+.home-editorial-arrow {
+  min-width: 0;
+  padding: 1.5rem;
+}
+
+.home-editorial-number {
+  align-self: start;
+  padding-bottom: 0;
+}
+
+.home-editorial-title-cell {
+  grid-column: 1;
+  grid-row: 2;
+  display: flex;
+  align-items: center;
+  padding-top: 0.5rem;
+}
+
+.home-editorial-copy {
+  grid-column: 1;
+  grid-row: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 0.5rem;
+  padding-top: 0;
+}
+
+.home-editorial-arrow {
+  grid-column: 2;
+  grid-row: 1 / span 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-left: 1px solid var(--color-border);
+}
+
+@media (min-width: 768px) {
+  .home-editorial-hero {
+    padding: 3.5rem 2.5rem;
+  }
+
+  .home-editorial-link {
+    grid-template-columns: 4.5rem minmax(10rem, 0.85fr) minmax(0, 1.45fr) 4.5rem;
+  }
+
+  .home-editorial-number,
+  .home-editorial-title-cell,
+  .home-editorial-copy,
+  .home-editorial-arrow {
+    grid-row: 1;
+    padding: 2rem 1.25rem;
+  }
+
+  .home-editorial-number {
+    grid-column: 1;
+    display: flex;
+    align-self: stretch;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .home-editorial-title-cell {
+    grid-column: 2;
+    border-left: 1px solid var(--color-border);
+  }
+
+  .home-editorial-copy {
+    grid-column: 3;
+    border-left: 1px solid var(--color-border);
+  }
+
+  .home-editorial-arrow {
+    grid-column: 4;
+  }
+}
+
+@media (min-width: 1024px) {
+  .home-editorial-grid {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    margin-block: clamp(0.75rem, 3.5vh, 3rem);
+  }
+
+  .home-editorial-left {
+    grid-template-rows: minmax(2rem, 0.55fr) minmax(0, 3fr) minmax(2rem, 0.8fr);
+    border-right: 1px solid var(--color-border);
+  }
+
+  .home-editorial-empty {
+    display: block;
+  }
+
+  .home-editorial-empty:first-child {
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .home-editorial-empty:last-child {
+    border-top: 1px solid var(--color-border);
+  }
+
+  .home-editorial-hero {
+    padding: clamp(1.5rem, 3.2vw, 3.5rem);
+    border-bottom: 0;
+  }
+
+  .home-editorial-sections {
+    grid-template-rows: repeat(3, minmax(0, 1fr));
+  }
+
+  .home-editorial-link {
+    grid-template-columns: clamp(3rem, 4vw, 4.5rem) minmax(8rem, 0.8fr) minmax(0, 1.35fr) clamp(3rem, 4vw, 4.5rem);
+  }
+
+  .home-editorial-number,
+  .home-editorial-title-cell,
+  .home-editorial-copy,
+  .home-editorial-arrow {
+    padding: clamp(0.75rem, 1.5vw, 1.5rem);
+  }
 }
 
 /* Shared title-only hero for Work and Writing pages */
@@ -382,10 +522,7 @@ html[data-reveal-ready="true"] [data-reveal-root][data-revealed="false"] [data-r
 }
 
 @media (min-width: 1024px) {
-  .home-grid [data-reveal-root].grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
+  .home-editorial-grid { display: grid; }
 }
 
 
