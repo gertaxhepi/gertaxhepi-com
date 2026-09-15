@@ -196,7 +196,7 @@ html.theme-transition * {
 }
 
 .home-editorial-link:hover {
-  background-color: color-mix(in srgb, var(--color-subtle) 45%, transparent);
+  background-color: var(--color-subtle);
 }
 
 .home-editorial-number,
