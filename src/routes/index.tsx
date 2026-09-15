@@ -118,7 +118,7 @@ function NavSection({ number, title, description, supportingText, cta, to }: Nav
 
 function Home() {
   return (
-    <section className="container-page flex flex-col lg:h-[calc(100dvh-72px)] lg:overflow-hidden">
+    <section className="home-grid container-page flex flex-col lg:h-[calc(100dvh-72px)] lg:overflow-hidden">
       <Reveal className="flex-1 min-h-0 grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-12 lg:gap-10 xl:gap-16 py-10 md:py-14 lg:py-[clamp(0.75rem,3.5vh,3rem)]">
         {/* Left column */}
         <div className="flex flex-col justify-center min-w-0">
