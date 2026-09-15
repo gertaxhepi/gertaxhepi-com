@@ -407,11 +407,17 @@ html[data-reveal-ready="true"] [data-reveal-root][data-revealed="false"] [data-r
 }
 
 @media (min-width: 1024px) {
+  .hp-page {
+    height: calc(100vh - 72px);
+    height: calc(100dvh - 72px);
+    overflow: hidden;
+  }
   .hp-shell {
     display: grid;
     grid-template-columns: 1fr 1fr;
     margin-bottom: 0;
   }
+
   .hp-left {
     display: grid;
     grid-template-rows: 12vh 1fr 16vh;
