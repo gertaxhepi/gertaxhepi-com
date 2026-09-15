@@ -199,6 +199,10 @@ html.theme-transition * {
   background-color: var(--color-subtle);
 }
 
+.home-editorial-link:hover .home-editorial-arrow svg {
+  transform: translate(4px, -4px);
+}
+
 .home-editorial-number,
 .home-editorial-title-cell,
 .home-editorial-copy,
