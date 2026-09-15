@@ -80,24 +80,24 @@ function NavSection({ number, title, description, supportingText, cta, to }: Nav
   return (
     <Link
       to={to}
-      className="group block border-t border-border/60 first:border-t-0 py-8 md:py-10 min-[900px]:py-[clamp(0.6rem,2.6vh,2.5rem)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded-sm transition-colors duration-300 hover:bg-subtle/50 dark:hover:bg-subtle/40"
+      className="group block border-t border-border/60 first:border-t-0 py-8 md:py-10 lg:py-[clamp(0.6rem,2.6vh,2.5rem)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded-sm transition-colors duration-300 hover:bg-subtle/50 dark:hover:bg-subtle/40"
     >
-      <div className="grid grid-cols-[auto_1fr_auto] min-[900px]:grid-cols-[auto_1fr_1.5fr_auto] items-start gap-x-4 min-[900px]:gap-x-6">
-        <span className="row-start-1 col-start-1 text-[11px] font-mono uppercase tracking-[0.18em] text-terracotta pt-2 min-[900px]:pt-3">
+      <div className="grid grid-cols-[auto_1fr_auto] lg:grid-cols-[auto_1fr_1.5fr_auto] items-start gap-x-4 lg:gap-x-6">
+        <span className="row-start-1 col-start-1 text-[11px] font-mono uppercase tracking-[0.18em] text-terracotta pt-2 lg:pt-3">
           {number}
         </span>
         <h2
           data-reveal-item
-          className="row-start-1 col-start-2 text-3xl md:text-4xl min-[900px]:text-[clamp(1.75rem,4.6vh,3.25rem)] font-semibold tracking-tight leading-[0.95]"
+          className="row-start-1 col-start-2 text-3xl md:text-4xl lg:text-[clamp(1.75rem,4.6vh,3.25rem)] font-semibold tracking-tight leading-[0.95]"
         >
           {title}
         </h2>
         <ArrowUpRight
-          className="row-start-1 col-start-3 min-[900px]:col-start-4 size-5 text-foreground mt-2 min-[900px]:mt-3 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1"
+          className="row-start-1 col-start-3 lg:col-start-4 size-5 text-foreground mt-2 lg:mt-3 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1"
           strokeWidth={1.5}
         />
-        <div className="col-start-1 col-span-3 min-[900px]:col-start-3 min-[900px]:col-span-1 min-[900px]:row-start-1 mt-5 min-[900px]:mt-0 space-y-2">
-          <p data-reveal-item className="text-base md:text-lg min-[900px]:text-[clamp(0.875rem,1.9vh,1.125rem)] text-foreground leading-snug">
+        <div className="col-start-1 col-span-3 lg:col-start-3 lg:col-span-1 lg:row-start-1 mt-5 lg:mt-0 space-y-2">
+          <p data-reveal-item className="text-base md:text-lg lg:text-[clamp(0.875rem,1.9vh,1.125rem)] text-foreground leading-snug">
             {description}
           </p>
           <p data-reveal-item className="text-sm text-muted-foreground">
@@ -118,14 +118,14 @@ function NavSection({ number, title, description, supportingText, cta, to }: Nav
 
 function Home() {
   return (
-    <section className="home-grid container-page flex flex-col min-[900px]:h-[calc(100dvh-72px)] min-[900px]:overflow-hidden">
-      <Reveal className="flex-1 min-h-0 grid grid-cols-1 min-[900px]:grid-cols-2 gap-10 md:gap-12 min-[900px]:gap-10 xl:gap-16 py-10 md:py-14 min-[900px]:py-[clamp(0.75rem,3.5vh,3rem)]">
+    <section className="home-grid container-page flex flex-col lg:h-[calc(100dvh-72px)] lg:overflow-hidden">
+      <Reveal className="flex-1 min-h-0 grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-12 lg:gap-10 xl:gap-16 py-10 md:py-14 lg:py-[clamp(0.75rem,3.5vh,3rem)]">
         {/* Left column */}
         <div className="flex flex-col justify-center min-w-0">
-          <div className="space-y-7 md:space-y-9 min-[900px]:space-y-[clamp(1rem,3.2vh,2.5rem)] min-[900px]:translate-y-[calc(14.5vh-2.625rem)]">
+          <div className="space-y-7 md:space-y-9 lg:space-y-[clamp(1rem,3.2vh,2.5rem)] lg:translate-y-[calc(14.5vh-2.625rem)]">
             <h1
               data-reveal-item
-              className="text-5xl sm:text-6xl md:text-7xl min-[900px]:text-[clamp(3rem,8.4vh,7rem)] font-bold tracking-[-0.04em] leading-[0.92] text-balance"
+              className="text-5xl sm:text-6xl md:text-7xl lg:text-[clamp(3rem,8.4vh,7rem)] font-bold tracking-[-0.04em] leading-[0.92] text-balance"
             >
               From building
               <br />
@@ -138,7 +138,7 @@ function Home() {
 
             <p
               data-reveal-item
-              className="text-lg md:text-xl min-[900px]:text-[clamp(0.95rem,2.1vh,1.25rem)] text-muted-foreground max-w-xl leading-relaxed"
+              className="text-lg md:text-xl lg:text-[clamp(0.95rem,2.1vh,1.25rem)] text-muted-foreground max-w-xl leading-relaxed"
             >
               I’m Gerta, a Product Manager with an engineering background. I work across B2C and
               B2B SaaS, marketplaces, structured data and AI.
