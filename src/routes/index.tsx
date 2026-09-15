@@ -87,7 +87,7 @@ function NavSection({ number, title, description, supportingText, cta, to }: Nav
       </span>
       <h2
         data-reveal-item
-        className="hp-cell-title text-3xl md:text-4xl lg:text-[clamp(1.5rem,3.4vh,2.5rem)] font-semibold tracking-tight leading-[1.05]"
+        className="hp-cell-title text-3xl md:text-4xl lg:text-[clamp(1.5rem,2.1vw,2.25rem)] font-semibold tracking-tight leading-[1.05]"
       >
         {title}
       </h2>
