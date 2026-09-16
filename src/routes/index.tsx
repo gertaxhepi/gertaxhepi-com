@@ -117,13 +117,8 @@ function Home() {
   return (
     <section className="hp-page container-page flex flex-col">
       <Reveal className="hp-shell flex-1 min-h-0">
-        {/* Left side — hero framed by intentionally empty cells */}
+        {/* Left side — hero */}
         <div className="hp-left">
-          <div className="hp-void" aria-hidden="true">
-            <span />
-            <span />
-          </div>
-
           <div className="hp-hero">
             <div className="space-y-7 md:space-y-9 lg:space-y-[clamp(1rem,3.2vh,2.5rem)]">
               <h1
@@ -160,11 +155,6 @@ function Home() {
                 </Link>
               </div>
             </div>
-          </div>
-
-          <div className="hp-void hp-void-bottom" aria-hidden="true">
-            <span />
-            <span />
           </div>
         </div>
 
