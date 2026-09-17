@@ -441,12 +441,43 @@ html[data-reveal-ready="true"] [data-reveal-root][data-revealed="false"] [data-r
 }
 
 @media (min-width: 1024px) {
+  .home-page-shell {
+    display: grid;
+    min-height: 100vh;
+    height: 100vh;
+    grid-template-rows: auto minmax(0, 1fr);
+    overflow: hidden;
+  }
+  @supports (height: 100dvh) {
+    .home-page-shell {
+      min-height: 100dvh;
+      height: 100dvh;
+    }
+  }
+  .home-page-main {
+    min-height: 0;
+  }
   .home-intro-page {
-    height: calc(100vh - 72px);
-    min-height: 42rem;
+    display: grid;
+    height: 100%;
+    min-height: 0;
+    grid-template-rows: minmax(0, 1fr) auto;
   }
   .home-intro-hero {
-    padding: clamp(4rem, 9vh, 7rem) 0 clamp(3.5rem, 8vh, 6rem);
+    min-height: 0;
+    padding: 1.5rem 0 2rem;
+  }
+  .home-intro-rule {
+    margin-top: 1.25rem;
+  }
+  .home-intro-headline {
+    max-width: 69rem;
+    margin-top: clamp(2.75rem, 6vh, 3.5rem);
+    font-size: clamp(3rem, 4.6vw, 5.25rem);
+    line-height: 1.02;
+  }
+  .home-intro-action {
+    margin-top: clamp(2.25rem, 5vh, 2.75rem);
   }
 }
 
