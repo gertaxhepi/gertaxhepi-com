@@ -193,12 +193,15 @@ function About() {
             })}
           </ol>
 
-          <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-            <Link to="/work" className="inline-flex min-h-12 items-center justify-center gap-2 rounded-[8px] bg-terracotta px-[22px] py-[14px] text-sm font-semibold text-background transition-colors hover:bg-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta focus-visible:ring-offset-2 focus-visible:ring-offset-background" aria-label="View selected work">
-              View selected work <ArrowRight className="size-4" aria-hidden="true" />
-            </Link>
-            <a href={resumePdf.url} download="Gerta_Xhepi_Product_Manager_Resume.pdf" className="inline-flex min-h-12 items-center justify-center gap-2 rounded-[8px] border border-foreground bg-transparent px-[22px] py-[14px] text-sm font-semibold text-foreground transition-colors hover:bg-foreground hover:text-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background" aria-label="Download Gerta Xhepi's resume">
-              Download resume <ArrowRight className="size-4" aria-hidden="true" />
+          <div className="mt-10">
+            <a
+              href={resumePdf.url}
+              download="Gerta_Xhepi_Product_Manager_Resume.pdf"
+              className="inline-flex min-h-[52px] w-full items-center justify-center gap-2 rounded-[8px] bg-terracotta px-[22px] py-[14px] text-sm font-semibold text-background transition-colors hover:bg-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta focus-visible:ring-offset-2 focus-visible:ring-offset-background sm:w-auto"
+              aria-label="Download Gerta Xhepi's resume"
+            >
+              <Download className="size-4 shrink-0" aria-hidden="true" />
+              Download Resume
             </a>
           </div>
         </section>
