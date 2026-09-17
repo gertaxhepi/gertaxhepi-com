@@ -72,7 +72,14 @@ export function SiteHeader({ staticOnHome = false }: { staticOnHome?: boolean })
                   className="nav-link text-sm font-bold transition-colors duration-300"
                   style={{ color: active ? ACCENT : undefined }}
                 >
-                  {item.label}
+                  <span className="nav-roll">
+                    <span className="nav-roll-inner">
+                      <span className="nav-roll-label">{item.label}</span>
+                      <span className="nav-roll-clone" aria-hidden="true">
+                        {item.label}
+                      </span>
+                    </span>
+                  </span>
                 </Link>
               );
             })}

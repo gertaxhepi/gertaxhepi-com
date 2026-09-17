@@ -217,6 +217,44 @@ html.theme-transition * {
   color: #8A5A5A;
 }
 
+/* Desktop navigation rolling-text hover */
+.nav-roll {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
+  line-height: 1.35;
+}
+.nav-roll-inner {
+  position: relative;
+  display: inline-block;
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.nav-roll-label,
+.nav-roll-clone {
+  display: block;
+  white-space: nowrap;
+}
+.nav-roll-clone {
+  position: absolute;
+  top: 100%;
+  left: 0;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .nav-link:hover .nav-roll-inner,
+  .nav-link:focus-visible .nav-roll-inner {
+    transform: translateY(-100%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nav-roll-inner {
+    transition: none !important;
+    transform: none !important;
+  }
+}
+
 @utility shadow-elevated { box-shadow: var(--shadow-md); }
 @utility shadow-floating { box-shadow: var(--shadow-lg); }
 @utility shadow-glow-primary { box-shadow: var(--shadow-glow); }
