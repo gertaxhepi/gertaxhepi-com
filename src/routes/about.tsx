@@ -94,6 +94,39 @@ const outsideStories = [
   },
 ];
 
+const supportingRecommendations = [
+  {
+    initials: "LV",
+    name: "Leonardo Vides",
+    role: "Network Engineer",
+    relationship: "Former colleague at Jacando",
+    quote:
+      "One of her greatest strengths is her ability to balance strategic thinking with a genuine commitment to customer needs and business goals.",
+  },
+  {
+    initials: "MC",
+    name: "Mike Czech",
+    role: "Senior Machine Learning Engineer",
+    relationship: "Former teammate at XING",
+    quote: "Her ability to analyze and apply data insights has been a key contributor to our team’s achievements.",
+  },
+  {
+    initials: "IZ",
+    name: "Inga Zager",
+    role: "Data Strategist & Product Manager",
+    relationship: "Former colleague at XING",
+    quote:
+      "If you are looking for a smart, dedicated and motivated PO with background in data products… Loved working with her very much!",
+  },
+  {
+    initials: "PA",
+    name: "Pedro Almeida",
+    role: "Agile Coach",
+    relationship: "Former teammate at XING",
+    quote: "Working with Gerta was really a pleasure and she brings good value to a product driven organisation!",
+  },
+];
+
 function About() {
   return (
     <>
@@ -225,6 +258,82 @@ function About() {
               </Reveal>
             );
           })}
+        </div>
+      </Section>
+
+      {/* LinkedIn recommendations */}
+      <Section spacing="tight">
+        <div className="text-[11px] font-mono uppercase tracking-[0.18em] text-terracotta mb-7" data-reveal-item>
+          LinkedIn Recommendations
+        </div>
+        <h2
+          className="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight text-balance leading-[1.05]"
+          data-reveal-item
+        >
+          Kind Words
+        </h2>
+
+        <article className="mt-14 md:mt-20 pb-12 md:pb-16" data-reveal-item>
+          <div className="grid grid-cols-[3.5rem_minmax(0,1fr)] gap-x-5 md:grid-cols-[4rem_minmax(0,1fr)] md:gap-x-7">
+            <div className="flex size-14 shrink-0 items-center justify-center rounded-full bg-terracotta/10 text-sm font-semibold text-terracotta md:size-16">
+              TR
+            </div>
+            <div className="min-w-0 self-center">
+              <h3 className="text-lg font-semibold leading-tight text-foreground">Tom Raab</h3>
+              <p className="mt-1 text-sm leading-snug text-foreground/85">Founder, Urban Friends</p>
+              <p className="mt-0.5 text-sm leading-snug text-muted-foreground">Former senior colleague at XING</p>
+            </div>
+          </div>
+          <div className="mt-8 space-y-6 text-base leading-[1.75] text-foreground/85 md:ml-[5.75rem] md:text-[17px]">
+            <p>
+              I had the pleasure of helping Gerta’s transition from a developer to a product manager position. Her deep
+              technical background, coupled with a keen understanding of the product landscape, has brought a unique
+              perspective to our team. Gerta consistently leverages this dual skill set to drive innovative solutions and
+              make informed decisions.
+            </p>
+            <p>
+              One of Gerta’s standout qualities is her eagerness to take on responsibility. From the outset, Gerta
+              demonstrated a proactive approach to ownership, consistently going above and beyond.
+            </p>
+            <p>
+              Her proactive communication style ensures that all team members are well-informed, aligned, and can
+              contribute effectively. Gerta’s collaborative spirit is particularly noteworthy. She works seamlessly with
+              both designers and developers.
+            </p>
+            <p>
+              I am also impressed by Gerta’s learner mentality. Her curiosity and commitment to personal and professional
+              growth are evident in her continuous pursuit of knowledge. Gerta not only embraces challenges but actively
+              seeks them out, demonstrating a genuine desire to push boundaries and explore new opportunities.
+            </p>
+          </div>
+        </article>
+
+        <div className="border-t border-border md:grid md:grid-cols-2" data-reveal-item>
+          {supportingRecommendations.map((recommendation, index) => (
+            <article
+              key={recommendation.name}
+              className={cn(
+                "py-10 md:py-12",
+                index > 0 && "border-t border-border",
+                index === 1 && "md:border-t-0 md:pl-10 lg:pl-14",
+                index === 0 && "md:border-r md:pr-10 lg:pr-14",
+                index === 2 && "md:border-r md:pr-10 lg:pr-14",
+                index === 3 && "md:pl-10 lg:pl-14",
+              )}
+            >
+              <div className="grid grid-cols-[3.25rem_minmax(0,1fr)] gap-x-5 md:grid-cols-[3.5rem_minmax(0,1fr)] md:gap-x-6">
+                <div className="flex size-13 shrink-0 items-center justify-center rounded-full bg-terracotta/10 text-sm font-semibold text-terracotta md:size-14">
+                  {recommendation.initials}
+                </div>
+                <div className="min-w-0 self-center">
+                  <h3 className="text-lg font-semibold leading-tight text-foreground">{recommendation.name}</h3>
+                  <p className="mt-1 text-sm leading-snug text-foreground/85">{recommendation.role}</p>
+                  <p className="mt-0.5 text-sm leading-snug text-muted-foreground">{recommendation.relationship}</p>
+                </div>
+              </div>
+              <p className="mt-7 text-base leading-[1.7] text-foreground/85 md:ml-20">{recommendation.quote}</p>
+            </article>
+          ))}
         </div>
       </Section>
     </>
