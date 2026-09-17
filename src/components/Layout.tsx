@@ -10,6 +10,7 @@ type NavItem = { label: string; to: string };
 const navItems: readonly NavItem[] = [
   { label: "About", to: "/about" },
   { label: "Work", to: "/work" },
+  { label: "Resume", to: "/resume" },
   { label: "Writing", to: "/writing" },
 ] as const;
 
@@ -32,6 +33,7 @@ export function SiteHeader() {
   const isActive = (to: string) => {
     if (to === "/writing") return pathname === "/writing";
     if (to === "/work") return pathname === "/work";
+    if (to === "/resume") return pathname === "/resume";
     if (to === "/about") return pathname === "/about";
     return false;
   };
