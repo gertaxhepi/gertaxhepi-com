@@ -1,8 +1,9 @@
 import { createFileRoute, notFound } from "@tanstack/react-router";
 import { Section } from "@/components/Primitives";
 import { Reveal } from "@/components/Reveal";
-import { Breadcrumb } from "@/components/Breadcrumb";
 import { AllProjectsCTA } from "@/components/AllProjectsCTA";
+import { CaseSection } from "@/components/CaseSection";
+import { CaseStudyHero } from "@/components/CaseStudyHero";
 import { getCaseStudy, type CaseStudy } from "@/data/case-studies";
 
 export const Route = createFileRoute("/case-studies/$slug")({
@@ -75,41 +76,6 @@ function Bullets({ items }: { items: string[] }) {
         </li>
       ))}
     </ul>
-  );
-}
-
-function NumberedSection({
-  number,
-  title,
-  children,
-  soft = false,
-}: {
-  number: string;
-  title: string;
-  children: React.ReactNode;
-  soft?: boolean;
-}) {
-  return (
-    <section
-      data-reveal-item
-      className={
-        soft
-          ? "rounded-[28px] bg-[var(--terracotta)]/[0.06] px-6 py-12 md:px-14 md:py-16"
-          : "py-12 md:py-20"
-      }
-    >
-      <div className="grid gap-5 md:grid-cols-[minmax(0,120px)_minmax(0,1fr)] md:gap-16">
-        <div className="text-3xl md:text-6xl font-semibold tracking-tight leading-none text-[var(--terracotta)]/30 tabular-nums">
-          {number}
-        </div>
-        <div className="min-w-0">
-          <h2 className="text-2xl md:text-3xl font-semibold tracking-tight text-balance">
-            {title}
-          </h2>
-          <div className="mt-6 md:mt-8 max-w-2xl">{children}</div>
-        </div>
-      </div>
-    </section>
   );
 }
 
@@ -301,50 +267,20 @@ function CaseStudyPage() {
 
   return (
     <>
-      {/* Hero */}
-      <Section className="pt-12 md:pt-20" spacing="tight">
-        <Reveal>
-          <div data-reveal-item className="mb-8">
-            <Breadcrumb
-              items={[
-                { label: "Home", to: "/" },
-                { label: "Work", to: "/work" },
-              ]}
-            />
-          </div>
-          <div
-            data-reveal-item
-            className="text-[11px] font-mono uppercase tracking-[0.22em] text-muted-foreground"
-          >
-            {s.role}
-          </div>
-          <h1
-            data-reveal-item
-            className="mt-5 text-5xl md:text-7xl font-semibold tracking-tight text-balance leading-[1.02] max-w-4xl"
-          >
-            {s.title}
-          </h1>
-          <p
-            data-reveal-item
-            className="mt-6 text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed"
-          >
-            {s.summary}
-          </p>
-        </Reveal>
-      </Section>
+      <CaseStudyHero role={s.role} title={s.title} summary={s.summary} />
 
-      <Section className="pt-6 md:pt-12" spacing="tight">
+      <Section className="case-study-content" spacing="none">
         <Reveal>
-          <div className="space-y-4 md:space-y-10">
+          <div className="case-study-sections">
             {sections.map((sec, i) => (
-              <NumberedSection
+              <CaseSection
                 key={sec.title}
                 number={String(i + 1).padStart(2, "0")}
                 title={sec.title}
                 soft={sec.soft}
               >
                 {sec.content}
-              </NumberedSection>
+              </CaseSection>
             ))}
           </div>
         </Reveal>
