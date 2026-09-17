@@ -4,6 +4,10 @@ import { cn } from "@/lib/utils";
 import { ArrowRight, Laptop, Mountain, Network, Users } from "lucide-react";
 import profileAsset from "@/assets/profile.png.asset.json";
 import resumePdf from "@/assets/gerta-xhepi-product-manager-resume.pdf.asset.json";
+import yogaAsset from "@/assets/yoga.png.asset.json";
+import climbingAsset from "@/assets/climbing.png.asset.json";
+import mountaineeringAsset from "@/assets/mountenaring.png.asset.json";
+import marathonAsset from "@/assets/marathon.png.asset.json";
 
 const OG_IMAGE = "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/5e5a77b8-fdcf-4df7-92f9-1cada506e97a";
 
@@ -99,6 +103,44 @@ const supportingRecommendations = [
     role: "Agile Coach",
     relationship: "Former teammate at XING",
     quote: "Working with Gerta was really a pleasure and she brings good value to a product driven organisation!",
+  },
+];
+
+const beyondWorkActivities = [
+  {
+    number: "01",
+    title: "Yoga",
+    theme: "Building communities",
+    description:
+      "Teaching yoga and creating Hima Yoga taught me that trust grows through consistency, listening and continually improving the experience.",
+    image: yogaAsset.url,
+    alt: "Gerta practicing yoga",
+  },
+  {
+    number: "02",
+    title: "Rock Climbing",
+    theme: "Trust & teamwork",
+    description: "Progress depends on trust, encouragement and helping one another through difficult moves.",
+    image: climbingAsset.url,
+    alt: "Gerta rock climbing",
+  },
+  {
+    number: "03",
+    title: "Mountaineering",
+    theme: "Humility & perspective",
+    description:
+      "The mountains remind me that preparation matters, uncertainty is real and confidence should never replace respect.",
+    image: mountaineeringAsset.url,
+    alt: "Gerta mountaineering",
+  },
+  {
+    number: "04",
+    title: "Marathon",
+    theme: "Consistency & discipline",
+    description:
+      "Long-term progress comes from showing up, trusting the process and continuing even when results aren’t immediately visible.",
+    image: marathonAsset.url,
+    alt: "Gerta running a marathon",
   },
 ];
 
@@ -233,6 +275,38 @@ function About() {
                 </div>
               </div>
               <p className="mt-7 text-base leading-[1.7] text-foreground/85 md:ml-20">{recommendation.quote}</p>
+            </article>
+          ))}
+        </div>
+      </Section>
+
+      <Section spacing="tight">
+        <div className="text-[11px] font-mono uppercase tracking-[0.18em] text-terracotta mb-7">
+          Beyond Work
+        </div>
+        <h2 className="max-w-4xl text-4xl font-semibold leading-[1.05] text-balance md:text-5xl lg:text-6xl">
+          The things that keep me grounded.
+        </h2>
+
+        <div className="beyond-work-grid mt-12 md:mt-16">
+          {beyondWorkActivities.map((activity) => (
+            <article key={activity.number} className="beyond-work-item">
+              <img
+                src={activity.image}
+                alt={activity.alt}
+                className="beyond-work-image"
+                loading="lazy"
+              />
+              <div className="mt-6 grid grid-cols-[2.5rem_minmax(0,1fr)] gap-x-4 md:mt-7">
+                <span className="font-mono text-xs text-terracotta" aria-hidden="true">
+                  {activity.number}
+                </span>
+                <div className="min-w-0">
+                  <h3 className="text-xl font-semibold leading-tight text-foreground md:text-2xl">{activity.title}</h3>
+                  <p className="mt-2 text-[11px] font-mono uppercase tracking-[0.14em] text-terracotta">{activity.theme}</p>
+                  <p className="mt-4 text-base leading-relaxed text-muted-foreground">{activity.description}</p>
+                </div>
+              </div>
             </article>
           ))}
         </div>
