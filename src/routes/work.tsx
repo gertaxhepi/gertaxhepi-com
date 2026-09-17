@@ -1,7 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";
 import { Section } from "@/components/Primitives";
-import { cn } from "@/lib/utils";
 
 const OG_IMAGE = "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/5e5a77b8-fdcf-4df7-92f9-1cada506e97a";
 
@@ -12,6 +11,7 @@ export const Route = createFileRoute("/work")({
       { name: "description", content: "Case studies covering AI products, marketplaces, workflow tools and data-driven product development." },
       { property: "og:title", content: "Product Case Studies | AI, Marketplace & SaaS" },
       { property: "og:description", content: "Case studies covering AI products, marketplaces, workflow tools and data-driven product development." },
+      { property: "og:type", content: "website" },
       { property: "og:url", content: "https://gertaproduct.com/work" },
       { property: "og:image", content: OG_IMAGE },
       { name: "twitter:card", content: "summary_large_image" },
@@ -35,130 +35,68 @@ export const Route = createFileRoute("/work")({
   component: Work,
 });
 
-const workGroups = [
+const projects = [
   {
     number: "01",
-    company: "XING / onlyfy · New Work SE",
-    period: "2021–2024",
-    projects: [
-      {
-        slug: "salary-transparency",
-        title: "Salary Transparency & Structured Job Data",
-        description:
-          "Led salary transparency from regulatory requirement to launch, improving prediction accuracy by 60% and coverage by 80%.",
-        featured: true,
-      },
-      {
-        slug: "notifications",
-        title: "Notifications",
-        description:
-          "Improved targeting, segmentation and content relevance, increasing notification open rates by 40%.",
-        featured: false,
-      },
-      {
-        slug: "onlyfy-talent-pool",
-        title: "onlyfy Talent Pool",
-        description:
-          "Supported the migration into the XING Talent Pool and helped roughly 40% of contacted users join.",
-        featured: false,
-      },
-    ],
+    slug: "salary-transparency",
+    title: "Salary Transparency & Structured Job Data",
+    context: "XING · 2021–2024",
+    outcome: "−28% estimation error · 94% coverage · +11% applications",
   },
   {
     number: "02",
-    company: "Jacando",
-    period: "2024–2025",
-    projects: [
-      {
-        slug: "electronic-signature",
-        title: "Electronic Signature MVP",
-        description:
-          "Built and launched an MVP that digitized document signing for HR teams, reducing manual workflows and enabling faster hiring.",
-        featured: false,
-      },
-    ],
+    slug: "notifications",
+    title: "Notifications",
+    context: "XING · B2C",
+    outcome: "+40% notification open rate through better targeting and segmentation",
   },
   {
     number: "03",
-    company: "Founder Project",
-    period: "Currently",
-    projects: [
-      {
-        slug: "peakprofile",
-        title: "PeakProfile",
-        description:
-          "Building an AI-powered product that helps mountaineers make better decisions through structured experience data.",
-        featured: false,
-      },
-    ],
+    slug: "onlyfy-talent-pool",
+    title: "onlyfy Talent Pool",
+    context: "XING · B2B",
+    outcome: "Approximately 40% of contacted users joined the migrated talent pool",
+  },
+  {
+    number: "04",
+    slug: "electronic-signature",
+    title: "Electronic Signature MVP",
+    context: "Jacando · 2024–2025",
+    outcome: "Shipped in under two months · process time −20%",
+  },
+  {
+    number: "05",
+    slug: "peakprofile",
+    title: "PeakProfile",
+    context: "Founder project · Current",
+    outcome: "AI-assisted mountaineering readiness and decision support",
   },
 ];
 
 function Work() {
   return (
-    <Section className="pb-4" spacing="tight">
-      <section className="page-title-hero">
+    <Section className="work-index pb-4" spacing="tight">
+      <section className="page-title-hero work-index-intro">
         <h1>Selected product work.</h1>
       </section>
 
-      <div data-reveal-item className="mt-12 md:mt-16 space-y-20 md:space-y-28">
-        {workGroups.map((group) => (
-          <article
-            key={group.number}
-            className="grid items-start gap-10 lg:grid-cols-[minmax(0,38%)_minmax(0,1fr)] lg:gap-16"
+      <div data-reveal-item className="work-project-list">
+        {projects.map((project) => (
+          <Link
+            key={project.number}
+            to="/case-studies/$slug"
+            params={{ slug: project.slug }}
+            className="work-project-row"
+            aria-label={`View ${project.title} case study`}
           >
-            <div className="flex flex-col gap-4 sm:flex-row sm:items-baseline lg:flex-col lg:items-start">
-              <span className="text-5xl font-semibold leading-none tracking-tight text-[var(--terracotta)]/30 md:text-6xl lg:text-8xl">
-                {group.number}
-              </span>
-              <div className="min-w-0">
-                <h2 className="text-2xl font-semibold tracking-tight text-foreground md:text-3xl">
-                  {group.company}
-                </h2>
-                <p className="mt-1 text-sm font-mono uppercase tracking-[0.18em] text-muted-foreground md:text-base">
-                  {group.period}
-                </p>
-              </div>
+            <span className="work-project-number">{project.number}</span>
+            <div className="work-project-main">
+              <h2 className="work-project-title">{project.title}</h2>
+              <p className="work-project-context">{project.context}</p>
             </div>
-
-            <div className="space-y-2">
-              {group.projects.map((project) => (
-                <Link
-                  key={project.slug}
-                  to="/case-studies/$slug"
-                  params={{ slug: project.slug }}
-                  className={cn(
-                    "group relative block cursor-pointer rounded-2xl transition-colors duration-300",
-                    project.featured
-                      ? "bg-[var(--terracotta)]/[0.06]"
-                      : "hover:bg-[var(--terracotta)]/5"
-                  )}
-                >
-                  <div className="grid grid-cols-1 items-start gap-4 px-4 py-6 transition-transform duration-300 group-hover:translate-x-1 md:px-6 md:py-8 lg:grid-cols-[minmax(0,40%)_minmax(0,1fr)_auto]">
-                    <div className="min-w-0 pr-8 lg:pr-0">
-                      {project.featured && (
-                        <div className="mb-2 text-[11px] font-mono uppercase tracking-[0.22em] text-[var(--terracotta)]">
-                          Featured Project
-                        </div>
-                      )}
-                      <h3 className="text-xl font-semibold tracking-tight text-foreground md:text-2xl">
-                        {project.title}
-                      </h3>
-                    </div>
-                    <p className="min-w-0 text-base leading-relaxed text-muted-foreground">
-                      {project.description}
-                    </p>
-                    <div className="absolute top-6 right-4 lg:static lg:top-auto lg:right-auto lg:pt-1">
-                      <ArrowUpRight
-                        className="size-5 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1"
-                        style={{ color: project.featured ? "var(--terracotta)" : undefined }}
-                      />
-                    </div>
-                  </div>
-                </Link>
-              ))}
-            </div>
-          </article>
+            <p className="work-project-outcome">{project.outcome}</p>
+            <ArrowUpRight className="work-project-arrow" aria-hidden="true" />
+          </Link>
         ))}
       </div>
     </Section>
