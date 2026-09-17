@@ -17,7 +17,7 @@ const navItems: readonly NavItem[] = [
 const ACCENT = "#8A5A5A";
 const RESUME_URL = "/resume";
 
-export function SiteHeader() {
+export function SiteHeader({ staticOnHome = false }: { staticOnHome?: boolean }) {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
@@ -41,7 +41,7 @@ export function SiteHeader() {
   return (
     <header
       className={[
-        "fixed top-0 z-40 w-full transition-[background-color,backdrop-filter] duration-500 ease-out",
+        staticOnHome ? "relative z-40 w-full" : "fixed top-0 z-40 w-full transition-[background-color,backdrop-filter] duration-500 ease-out",
         scrolled
           ? "bg-background/70 backdrop-blur-md supports-[backdrop-filter]:bg-background/55"
           : "bg-transparent",
@@ -123,9 +123,9 @@ export function PageShell({ children }: { children: ReactNode }) {
   const location = useLocation();
   const isHome = location.pathname === "/";
   return (
-    <div className="flex min-h-screen flex-col">
-      <SiteHeader />
-      <main className="flex-1 pt-[72px]">{children}</main>
+    <div className={isHome ? "home-page-shell" : "flex min-h-screen flex-col"}>
+      <SiteHeader staticOnHome={isHome} />
+      <main className={isHome ? "home-page-main" : "flex-1 pt-[72px]"}>{children}</main>
       {!isHome && <ContactBlock />}
     </div>
   );
