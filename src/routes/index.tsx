@@ -72,12 +72,6 @@ function Home() {
   return (
     <section className="home-intro-page container-page">
       <div className="home-intro-hero">
-        <div className="home-intro-eyebrow home-intro-reveal">
-          <p className="text-xs font-mono font-medium uppercase tracking-[0.22em] text-terracotta">
-            Hello, I’m Gerta Xhepi
-          </p>
-          <div className="home-intro-rule" aria-hidden="true" />
-        </div>
         <h1 className="home-intro-headline home-intro-reveal">
           I’m a Product Manager with a software engineering background. I blend technology and product strategy to turn complex systems into products people understand and use.
         </h1>
