@@ -1,13 +1,9 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Section, SectionHeading } from "@/components/Primitives";
-import { Reveal } from "@/components/Reveal";
+import { Section } from "@/components/Primitives";
 import { cn } from "@/lib/utils";
-import { ExternalLink, FileText, Github, Linkedin } from "lucide-react";
+import { ArrowRight, Download, Laptop, Mountain, Network, Users } from "lucide-react";
 import profileAsset from "@/assets/profile.png.asset.json";
-import yogaAsset from "@/assets/yoga.png.asset.json";
-import climbingAsset from "@/assets/climbing.png.asset.json";
-import mountaineeringAsset from "@/assets/mountenaring.png.asset.json";
-import marathonAsset from "@/assets/marathon.png.asset.json";
+import resumePdf from "@/assets/gerta-xhepi-product-manager-resume.pdf.asset.json";
 
 const OG_IMAGE = "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/5e5a77b8-fdcf-4df7-92f9-1cada506e97a";
 
@@ -47,51 +43,30 @@ export const Route = createFileRoute("/about")({
   component: About,
 });
 
-const howIThink = [
-  "How I approach Product Discovery",
-  "Why better data leads to better decisions",
-  "What building an AI product taught me",
-  "Teaching Hatha Yoga changed how I think about Product Management",
-  "Books that shaped my thinking",
+const strengths = [
+  {
+    shape: "circle",
+    title: "Clarify ambiguity",
+    description:
+      "I turn complex problems into clear opportunities by asking the right questions and finding a practical way forward.",
+  },
+  {
+    shape: "triangle",
+    title: "Connect technology and people",
+    description: "I bridge technical depth and human needs, translating between users, business and engineering.",
+  },
+  {
+    shape: "square",
+    title: "Build trusted products",
+    description: "I turn ideas into products people can understand, trust and use—with a focus on real impact.",
+  },
 ];
 
-const outsideStories = [
-  {
-    number: "01",
-    category: "Yoga",
-    theme: "Building communities",
-    lesson: "Community taught me that trust is built through consistency.",
-    body: "Teaching yoga inspired me to create Hima Yoga, a community built around movement and nature. As it grew, I found myself applying many of the same principles I use in product management: understanding people's needs, experimenting with new ideas, and continuously refining the experience based on what I learned.",
-    image: yogaAsset.url,
-    alt: "Gerta teaching a yoga class",
-  },
-  {
-    number: "02",
-    category: "Rock Climbing",
-    theme: "Trust & teamwork",
-    lesson: "Trusting the team starts with trusting each other.",
-    body: "Rock climbing reminded me that progress isn't just about strength. Every climb depends on trust, encouragement, and supporting one another through difficult moves. The strongest teams aren't built by individuals\u2014they grow by helping each other succeed.",
-    image: climbingAsset.url,
-    alt: "Rock climbing on a limestone wall",
-  },
-  {
-    number: "03",
-    category: "Mountaineering",
-    theme: "Humility & perspective",
-    lesson: "The mountains taught me that confidence should never replace respect.",
-    body: "Every expedition reminds me that nature is always bigger than us. No matter how much we prepare, there are risks we can't control. Reaching the summit never feels like a victory over the mountain, but a privilege. Every climb leaves me a little more humble, a little more grateful, and with a deeper respect for the people who shared the journey.",
-    image: mountaineeringAsset.url,
-    alt: "Mountaineering on a snowy alpine ridge",
-  },
-  {
-    number: "04",
-    category: "Marathon",
-    theme: "Consistency & discipline",
-    lesson: "Progress comes from consistency.",
-    body: "Marathon running has taught me that sustainable progress isn't built through intensity but through consistency. Every training run is a reminder that meaningful results come from showing up, trusting the process, and continuing even when progress isn't immediately visible.",
-    image: marathonAsset.url,
-    alt: "Running the Amsterdam marathon",
-  },
+const careerStages = [
+  { title: "Software Engineer", company: "Microsoft + XING", description: "Learned how products and platforms are built at scale.", icon: Laptop },
+  { title: "Product Manager", company: "XING + onlyfy", description: "Built B2C, B2B and data products used by millions.", icon: Users },
+  { title: "Product Manager", company: "Jacando", description: "Shipped workflow automation and e-signature for HR teams.", icon: Network },
+  { title: "Founder / Product Builder", company: "PeakProfile", description: "Building AI-assisted decision support for mountaineers.", icon: Mountain },
 ];
 
 const supportingRecommendations = [
@@ -130,136 +105,62 @@ const supportingRecommendations = [
 function About() {
   return (
     <>
-      {/* About Me */}
-      <Section spacing="tight">
-        <SectionHeading eyebrow="My Story" title="About Me" />
-        <div className="mt-16 grid md:grid-cols-[1.6fr_1fr] gap-16 md:gap-24">
-          <Reveal className="space-y-7 text-lg md:text-xl text-foreground/90 leading-relaxed">
-            <p data-reveal-item>
-              I began my career as a software engineer, where I learned how products are built. Even then, I was always
-              drawn to understanding problems and finding better ways to solve them. That curiosity, alongside building
-              products of my own, eventually led me into Product Management.
+      <div className="about-overview container-page py-16 md:py-20 lg:py-24">
+        <section className="about-hero grid grid-cols-1 items-center gap-12 lg:grid-cols-[minmax(0,1.55fr)_minmax(280px,0.9fr)] lg:gap-16">
+          <div className="min-w-0">
+            <div className="text-[11px] font-mono uppercase tracking-[0.18em] text-terracotta">About</div>
+            <h1 className="mt-7 max-w-3xl text-4xl font-semibold leading-[1.04] text-balance md:text-5xl lg:text-6xl">
+              I turn complex systems into clear, useful products.
+            </h1>
+            <p className="mt-7 max-w-2xl text-lg leading-relaxed text-muted-foreground md:text-xl">
+              I’m an engineer-turned-Product Manager working across B2C, B2B SaaS, marketplaces, structured data and AI.
+              I’m strongest where technical complexity, user needs and business outcomes meet.
             </p>
-            <p data-reveal-item>
-              Since then, I've worked on products used by millions of people, including at XING, building marketplace
-              systems, workflow tools and AI-powered features.
-            </p>
-            <p data-reveal-item>
-              Currently, I'm building a personal AI product for mountaineers, exploring how structured data can help
-              people make better decisions in high-risk environments. I call it{" "}
-              <Link
-                to="/case-studies/$slug"
-                params={{ slug: "peakprofile" }}
-                className="underline underline-offset-4 decoration-foreground/30 hover:decoration-foreground transition-colors"
-              >
-                PeakProfile.
-              </Link>
-            </p>
-            <p data-reveal-item>
-              Building PeakProfile has reinforced how much I enjoy product management. While I love exploring ideas
-              independently, what motivates me most is collaborating with talented teams to solve complex problems and
-              build products that make a real difference.
-            </p>
-            <p data-reveal-item className="pt-4">
-              I'm fascinated by products that help people make better decisions. Whether through better data, thoughtful
-              workflows or AI, that's the thread connecting nearly everything I've built.
-            </p>
-          </Reveal>
-
-          <Reveal className="space-y-10">
-            <div data-reveal-item>
-              <img src={profileAsset.url} alt="Gerta Xhepi" className="w-full grayscale" loading="eager" />
-            </div>
-            <div data-reveal-item className="flex flex-wrap items-center gap-x-8 gap-y-4">
-              <Link
-                to="/resume"
-                className="group inline-flex items-center gap-2 text-sm font-medium border-b border-foreground pb-1 transition-opacity hover:opacity-60"
-                aria-label="View Gerta Xhepi's resume"
-              >
-                <FileText className="size-[18px] shrink-0 text-foreground" strokeWidth={1.75} aria-hidden="true" />
-                View Resume
-                <ExternalLink className="size-4 shrink-0 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden="true" />
-              </Link>
-              <a
-                href="https://www.linkedin.com/in/gerta-xhepi-94853289/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group inline-flex items-center gap-2 text-sm font-medium border-b border-foreground pb-1 transition-opacity hover:opacity-60"
-                aria-label="Visit Gerta Xhepi on LinkedIn"
-              >
-                <Linkedin className="size-[18px] shrink-0 text-foreground" strokeWidth={1.75} aria-hidden="true" />
-                LinkedIn
-                <ExternalLink className="size-4 shrink-0 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden="true" />
-              </a>
-              <a
-                href="https://github.com/gertaxhepi"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group inline-flex items-center gap-2 text-sm font-medium border-b border-foreground pb-1 transition-opacity hover:opacity-60"
-                aria-label="Visit Gerta Xhepi on GitHub"
-              >
-                <Github className="size-[18px] shrink-0 text-foreground" strokeWidth={1.75} aria-hidden="true" />
-                GitHub
-                <ExternalLink className="size-4 shrink-0 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden="true" />
-              </a>
-            </div>
-          </Reveal>
-        </div>
-      </Section>
-
-      {/* OUTSIDE WORK — editorial story */}
-      <Section spacing="tight">
-        <Reveal>
-          <div
-            data-reveal-item
-            className="text-[11px] font-mono uppercase tracking-[0.22em] text-muted-foreground mb-10"
-          >
-            Outside Work
           </div>
-          <h2
-            data-reveal-item
-            className="text-4xl md:text-6xl lg:text-[72px] font-semibold tracking-tight leading-[1.02] text-balance max-w-4xl"
-          >
-            The experiences that shape how I work.
-          </h2>
-          <p data-reveal-item className="mt-10 text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed">
-            Work and life are rarely separate. Building communities, navigating uncertainty, solving problems, and
-            staying committed to long-term goals are experiences I've found both in product management and beyond.
-          </p>
-        </Reveal>
+          <img src={profileAsset.url} alt="Gerta Xhepi" className="about-portrait w-full grayscale" loading="eager" />
+        </section>
 
-        <div className="mt-24 space-y-20 md:space-y-24">
-          {outsideStories.map((s, i) => {
-            const imageRight = i % 2 === 0;
-            return (
-              <Reveal key={s.number} className="grid grid-cols-1 md:grid-cols-[42fr_52fr] gap-8 md:gap-10 items-start">
-                <div data-reveal-item className={imageRight ? "md:order-1" : "md:order-2"}>
-                  <div className="text-[11px] font-mono uppercase tracking-[0.22em] text-muted-foreground/60 mb-6">
-                    {s.number}
+        <section className="mt-24 md:mt-28" aria-labelledby="what-i-do-title">
+          <h2 id="what-i-do-title" className="text-[11px] font-mono uppercase tracking-[0.18em] text-terracotta">What I Do</h2>
+          <div className="about-strengths mt-8 grid grid-cols-1 md:grid-cols-3">
+            {strengths.map((strength) => (
+              <article key={strength.title} className="about-strength py-8 first:pt-0 last:pb-0 md:px-8 md:py-0 md:first:pl-0 md:last:pr-0">
+                <span className={cn("about-shape block bg-terracotta/45", `about-shape-${strength.shape}`)} aria-hidden="true" />
+                <h3 className="mt-6 text-xl font-semibold leading-tight text-foreground md:text-2xl">{strength.title}</h3>
+                <p className="mt-4 text-base leading-relaxed text-muted-foreground md:text-[17px]">{strength.description}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section className="mt-24 md:mt-28" aria-labelledby="career-title">
+          <h2 id="career-title" className="text-[11px] font-mono uppercase tracking-[0.18em] text-terracotta">Career at a Glance</h2>
+          <ol className="about-timeline mt-9 grid grid-cols-1 md:grid-cols-4">
+            {careerStages.map((stage) => {
+              const Icon = stage.icon;
+              return (
+                <li key={stage.company} className="about-stage relative min-w-0 pb-10 pl-16 last:pb-0 md:px-4 md:pb-0 md:first:pl-0 md:last:pr-0">
+                  <div className="about-stage-marker absolute left-0 top-0 z-[1] flex size-12 items-center justify-center rounded-full bg-secondary text-foreground md:relative md:left-auto md:top-auto md:size-14">
+                    <Icon className="size-5 md:size-6" strokeWidth={1.7} aria-hidden="true" />
                   </div>
-                  <h3 className="text-3xl md:text-4xl font-semibold tracking-tight leading-[1.05]">{s.category}</h3>
-                  <div className="mt-3 text-sm md:text-base text-muted-foreground">{s.theme}</div>
-                  <p className="mt-8 text-lg md:text-xl font-semibold text-foreground leading-snug text-balance">
-                    {s.lesson}
-                  </p>
-                  <p className="mt-6 text-base md:text-[17px] text-muted-foreground leading-[1.75]">{s.body}</p>
-                </div>
-                <div
-                  data-reveal-item
-                  className={cn("overflow-hidden rounded-[30px]", imageRight ? "md:order-2" : "md:order-1")}
-                >
-                  <img
-                    src={s.image}
-                    alt={s.alt}
-                    loading="lazy"
-                    className="w-full h-[380px] md:h-[420px] object-cover"
-                  />
-                </div>
-              </Reveal>
-            );
-          })}
-        </div>
-      </Section>
+                  <h3 className="text-lg font-semibold leading-tight text-foreground md:mt-5">{stage.title}</h3>
+                  <p className="mt-1 text-sm text-foreground/80 md:text-base">{stage.company}</p>
+                  <p className="mt-4 text-sm leading-relaxed text-muted-foreground md:pr-4 md:text-base">{stage.description}</p>
+                </li>
+              );
+            })}
+          </ol>
+
+          <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+            <Link to="/work" className="inline-flex min-h-12 items-center justify-center gap-2 rounded-[8px] bg-terracotta px-[22px] py-[14px] text-sm font-semibold text-background transition-colors hover:bg-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta focus-visible:ring-offset-2 focus-visible:ring-offset-background" aria-label="View selected work">
+              View selected work <ArrowRight className="size-4" aria-hidden="true" />
+            </Link>
+            <a href={resumePdf.url} download="Gerta_Xhepi_Product_Manager_Resume.pdf" className="inline-flex min-h-12 items-center justify-center gap-2 rounded-[8px] border border-foreground bg-transparent px-[22px] py-[14px] text-sm font-semibold text-foreground transition-colors hover:bg-foreground hover:text-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background" aria-label="Download Gerta Xhepi's resume">
+              <Download className="size-4" aria-hidden="true" /> Download resume <ArrowRight className="size-4" aria-hidden="true" />
+            </a>
+          </div>
+        </section>
+      </div>
 
       {/* LinkedIn recommendations */}
       <Section spacing="tight">
