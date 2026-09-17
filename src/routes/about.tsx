@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Section } from "@/components/Primitives";
 import { cn } from "@/lib/utils";
-import { ArrowRight, Download, Laptop, Mountain, Network, Users } from "lucide-react";
+import { ArrowRight, Laptop, Mountain, Network, Users } from "lucide-react";
 import profileAsset from "@/assets/profile.png.asset.json";
 import resumePdf from "@/assets/gerta-xhepi-product-manager-resume.pdf.asset.json";
 
@@ -106,7 +106,7 @@ function About() {
   return (
     <>
       <div className="about-overview container-page py-16 md:py-20 lg:py-24">
-        <section className="about-hero grid grid-cols-1 items-center gap-12 lg:grid-cols-[minmax(0,1.55fr)_minmax(280px,0.9fr)] lg:gap-16">
+        <section className="about-hero">
           <div className="min-w-0">
             <div className="text-[11px] font-mono uppercase tracking-[0.18em] text-terracotta">About</div>
             <h1 className="mt-7 max-w-3xl text-4xl font-semibold leading-[1.04] text-balance md:text-5xl lg:text-6xl">
@@ -122,9 +122,9 @@ function About() {
 
         <section className="mt-24 md:mt-28" aria-labelledby="what-i-do-title">
           <h2 id="what-i-do-title" className="text-[11px] font-mono uppercase tracking-[0.18em] text-terracotta">What I Do</h2>
-          <div className="about-strengths mt-8 grid grid-cols-1 md:grid-cols-3">
+          <div className="about-strengths mt-8">
             {strengths.map((strength) => (
-              <article key={strength.title} className="about-strength py-8 first:pt-0 last:pb-0 md:px-8 md:py-0 md:first:pl-0 md:last:pr-0">
+              <article key={strength.title} className="about-strength">
                 <span className={cn("about-shape block bg-terracotta/45", `about-shape-${strength.shape}`)} aria-hidden="true" />
                 <h3 className="mt-6 text-xl font-semibold leading-tight text-foreground md:text-2xl">{strength.title}</h3>
                 <p className="mt-4 text-base leading-relaxed text-muted-foreground md:text-[17px]">{strength.description}</p>
@@ -135,12 +135,12 @@ function About() {
 
         <section className="mt-24 md:mt-28" aria-labelledby="career-title">
           <h2 id="career-title" className="text-[11px] font-mono uppercase tracking-[0.18em] text-terracotta">Career at a Glance</h2>
-          <ol className="about-timeline mt-9 grid grid-cols-1 md:grid-cols-4">
+          <ol className="about-timeline mt-9">
             {careerStages.map((stage) => {
               const Icon = stage.icon;
               return (
-                <li key={stage.company} className="about-stage relative min-w-0 pb-10 pl-16 last:pb-0 md:px-4 md:pb-0 md:first:pl-0 md:last:pr-0">
-                  <div className="about-stage-marker absolute left-0 top-0 z-[1] flex size-12 items-center justify-center rounded-full bg-secondary text-foreground md:relative md:left-auto md:top-auto md:size-14">
+                <li key={stage.company} className="about-stage">
+                  <div className="about-stage-marker flex items-center justify-center rounded-full bg-secondary text-foreground">
                     <Icon className="size-5 md:size-6" strokeWidth={1.7} aria-hidden="true" />
                   </div>
                   <h3 className="text-lg font-semibold leading-tight text-foreground md:mt-5">{stage.title}</h3>
@@ -156,7 +156,7 @@ function About() {
               View selected work <ArrowRight className="size-4" aria-hidden="true" />
             </Link>
             <a href={resumePdf.url} download="Gerta_Xhepi_Product_Manager_Resume.pdf" className="inline-flex min-h-12 items-center justify-center gap-2 rounded-[8px] border border-foreground bg-transparent px-[22px] py-[14px] text-sm font-semibold text-foreground transition-colors hover:bg-foreground hover:text-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background" aria-label="Download Gerta Xhepi's resume">
-              <Download className="size-4" aria-hidden="true" /> Download resume <ArrowRight className="size-4" aria-hidden="true" />
+              Download resume <ArrowRight className="size-4" aria-hidden="true" />
             </a>
           </div>
         </section>
