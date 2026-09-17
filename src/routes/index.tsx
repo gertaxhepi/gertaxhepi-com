@@ -1,6 +1,6 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 import { ArrowUpRight, ExternalLink, Github, Linkedin } from "lucide-react";
-import { Reveal } from "@/components/Reveal";
+import { PrimaryActionButton } from "@/components/PrimaryActionButton";
 
 
 const OG_IMAGE = "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/5e5a77b8-fdcf-4df7-92f9-1cada506e97a";
@@ -20,6 +20,7 @@ export const Route = createFileRoute("/")({
       },
       { property: "og:url", content: "https://gertaproduct.com/" },
       { property: "og:image", content: OG_IMAGE },
+      { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:image", content: OG_IMAGE },
     ],
@@ -67,126 +68,29 @@ export const Route = createFileRoute("/")({
   component: Home,
 });
 
-type NavSectionProps = {
-  number: string;
-  title: string;
-  description: string;
-  supportingText: string;
-  cta: string;
-  to: "/work" | "/resume" | "/writing";
-};
-
-function NavSection({ number, title, description, supportingText, cta, to }: NavSectionProps) {
-  return (
-    <Link
-      to={to}
-      className="hp-row group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-inset"
-    >
-      <span className="hp-cell-num text-[11px] font-mono uppercase tracking-[0.18em] text-terracotta">
-        {number}
-      </span>
-      <h2
-        data-reveal-item
-        className="hp-cell-title text-3xl md:text-4xl lg:text-[clamp(1.5rem,2.1vw,2.25rem)] font-semibold tracking-tight leading-[1.05]"
-      >
-        {title}
-      </h2>
-      <div className="hp-cell-body space-y-2">
-        <p data-reveal-item className="text-base md:text-lg lg:text-[clamp(0.875rem,1.9vh,1.125rem)] text-foreground leading-snug">
-          {description}
-        </p>
-        <p data-reveal-item className="text-sm text-muted-foreground">
-          {supportingText}
-        </p>
-        <span
-          data-reveal-item
-          className="relative inline-block text-[11px] font-mono uppercase tracking-[0.18em] text-terracotta pb-0.5 pt-1"
-        >
-          {cta}
-        </span>
-      </div>
-      <ArrowUpRight
-        className="hp-cell-arrow size-5 text-foreground transition-transform duration-200 ease-out group-hover:translate-x-1 group-hover:-translate-y-1"
-        strokeWidth={1.5}
-      />
-    </Link>
-  );
-}
-
 function Home() {
   return (
-    <section className="hp-page container-page flex flex-col">
-      <Reveal className="hp-shell flex-1 min-h-0">
-        {/* Left side — hero */}
-        <div className="hp-left">
-          <div className="hp-hero">
-            <div className="space-y-7 md:space-y-9 lg:space-y-[clamp(1rem,3.2vh,2.5rem)]">
-              <h1
-                data-reveal-item
-                className="text-5xl sm:text-6xl md:text-7xl lg:text-[clamp(3rem,8.4vh,7rem)] font-bold tracking-[-0.04em] leading-[0.92] text-balance"
-              >
-                From building
-                <br />
-                software
-                <br />
-                to shaping
-                <br />
-                products.
-              </h1>
-
-              <p
-                data-reveal-item
-                className="text-lg md:text-xl lg:text-[clamp(0.95rem,2.1vh,1.25rem)] text-muted-foreground max-w-xl leading-relaxed"
-              >
-                I’m Gerta, a Product Manager with an engineering background. I work across B2C and
-                B2B SaaS, marketplaces, structured data and AI.
-              </p>
-
-              <div data-reveal-item>
-                <Link
-                  to="/about"
-                  className="group inline-flex items-center gap-2 text-[11px] font-mono uppercase tracking-[0.18em] text-terracotta border-b border-foreground pb-1 transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded-sm"
-                >
-                  Read more about me
-                  <ArrowUpRight
-                    className="size-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-                    strokeWidth={1.5}
-                  />
-                </Link>
-              </div>
-            </div>
-          </div>
+    <section className="home-intro-page container-page">
+      <div className="home-intro-hero">
+        <div className="home-intro-eyebrow home-intro-reveal">
+          <p className="text-xs font-mono font-medium uppercase tracking-[0.22em] text-terracotta">
+            Hello, I’m Gerta Xhepi
+          </p>
+          <div className="home-intro-rule" aria-hidden="true" />
         </div>
-
-        {/* Right side — three clickable section rows */}
-        <div className="hp-right">
-          <NavSection
-            number="01"
-            title="Projects"
-            description="Product Manager since 2021"
-            supportingText="2021–2024 XING · 2024–2025 Jacando · Now PeakProfile founder"
-            cta="View my work"
-            to="/work"
-          />
-          <NavSection
-            number="02"
-            title="Resume"
-            description="Learn more about my career history"
-            supportingText="Experience · Education · Certificates"
-            cta="View my resume"
-            to="/resume"
-          />
-          <NavSection
-            number="03"
-            title="Writing"
-            description="Thoughts that shape my thinking"
-            supportingText="Product discovery · Data · AI"
-            cta="Read my writing"
-            to="/writing"
-          />
+        <h1 className="home-intro-headline home-intro-reveal">
+          I’m a Product Manager with a software engineering background. I blend technology and product strategy to turn complex systems into products people understand and use.
+        </h1>
+        <div className="home-intro-action home-intro-reveal">
+          <PrimaryActionButton to="/work" ariaLabel="View selected work">
+            <span>View selected work</span>
+            <ArrowUpRight
+              className="size-5 shrink-0 transition-transform duration-200 ease-out group-hover:translate-x-[3px] group-hover:-translate-y-[3px]"
+              aria-hidden="true"
+            />
+          </PrimaryActionButton>
         </div>
-      </Reveal>
-
+      </div>
 
       {/* Homepage footer — neutral, integrated with the page */}
       <footer className="bg-background border-t border-border/40">
