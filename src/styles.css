@@ -183,6 +183,106 @@ html.theme-transition * {
   .page-title-hero h1 { font-size: 3.75rem; }
 }
 
+/* Shared case-study flow — natural-height introduction and content-led sections */
+.case-study-hero {
+  padding-top: 2.5rem;
+}
+.case-study-breadcrumb {
+  margin-bottom: 2.5rem;
+}
+.case-study-role {
+  color: var(--color-muted-foreground);
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  line-height: 1.5;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+.case-study-title {
+  max-width: 56rem;
+  margin-top: 1.5rem;
+  color: var(--color-foreground);
+  font-size: clamp(2.5rem, 10vw, 3.75rem);
+  font-weight: 600;
+  line-height: 1.03;
+  overflow-wrap: break-word;
+}
+.case-study-summary {
+  max-width: 42rem;
+  margin-top: 2rem;
+  color: var(--color-muted-foreground);
+  font-size: 1.125rem;
+  line-height: 1.625;
+}
+.case-study-content {
+  padding-top: 4.5rem;
+  padding-bottom: 2rem;
+}
+.case-study-sections {
+  display: grid;
+  gap: 0.5rem;
+}
+.case-study-section {
+  padding-top: 2.75rem;
+  padding-bottom: 2.75rem;
+}
+.case-study-section-soft {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+.case-study-section-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1.25rem;
+}
+.case-study-section-number {
+  color: var(--color-terracotta);
+  font-size: 1.875rem;
+  font-weight: 600;
+  line-height: 1;
+  opacity: 0.35;
+  font-variant-numeric: tabular-nums;
+}
+
+@media (min-width: 768px) {
+  .case-study-hero {
+    padding-top: 3rem;
+  }
+  .case-study-breadcrumb {
+    margin-bottom: 3rem;
+  }
+  .case-study-title {
+    margin-top: 1.75rem;
+    font-size: clamp(3.75rem, 6vw, 4.5rem);
+  }
+  .case-study-summary {
+    margin-top: 2.25rem;
+    font-size: 1.25rem;
+  }
+  .case-study-content {
+    padding-top: 5.5rem;
+    padding-bottom: 3rem;
+  }
+  .case-study-sections {
+    gap: 1rem;
+  }
+  .case-study-section {
+    padding-top: 3.5rem;
+    padding-bottom: 3.5rem;
+  }
+  .case-study-section-soft {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+  .case-study-section-grid {
+    grid-template-columns: minmax(0, 7.5rem) minmax(0, 1fr);
+    gap: 4rem;
+  }
+  .case-study-section-number {
+    font-size: 3.75rem;
+  }
+}
+
 /* Work index — compact editorial project list */
 .work-index-intro {
   padding-top: 2rem;

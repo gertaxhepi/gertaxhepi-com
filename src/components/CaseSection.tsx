@@ -20,12 +20,12 @@ export function CaseSection({
       data-reveal-item
       className={
         soft
-          ? "rounded-[28px] bg-[var(--terracotta)]/[0.06] px-6 py-12 md:px-14 md:py-16"
-          : "py-12 md:py-20"
+          ? "case-study-section case-study-section-soft rounded-[28px] bg-[var(--terracotta)]/[0.06] px-6 md:px-14"
+          : "case-study-section"
       }
     >
-      <div className="grid gap-5 md:grid-cols-[minmax(0,120px)_minmax(0,1fr)] md:gap-16">
-        <div className="text-3xl md:text-6xl font-semibold tracking-tight leading-none text-[var(--terracotta)]/30 tabular-nums">
+      <div className="case-study-section-grid">
+        <div className="case-study-section-number">
           {number}
         </div>
         <div className="min-w-0">

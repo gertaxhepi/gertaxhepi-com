@@ -1,8 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Section } from "@/components/Primitives";
 import { Reveal } from "@/components/Reveal";
-import { Breadcrumb } from "@/components/Breadcrumb";
 import { CaseSection, CaseText } from "@/components/CaseSection";
+import { CaseStudyHero } from "@/components/CaseStudyHero";
 import { AllProjectsCTA } from "@/components/AllProjectsCTA";
 
 export const Route = createFileRoute("/case-studies/notifications")({
@@ -54,40 +54,15 @@ export const Route = createFileRoute("/case-studies/notifications")({
 function NotificationsPage() {
   return (
     <>
-      <Section className="pt-12 md:pt-20" spacing="tight">
-        <Reveal>
-          <div data-reveal-item className="mb-8">
-            <Breadcrumb
-              items={[
-                { label: "Home", to: "/" },
-                { label: "Work", to: "/work" },
-              ]}
-            />
-          </div>
-          <div
-            data-reveal-item
-            className="text-[11px] font-mono uppercase tracking-[0.22em] text-muted-foreground"
-          >
-            XING • Product Manager
-          </div>
-          <h1
-            data-reveal-item
-            className="mt-5 text-5xl md:text-7xl font-semibold tracking-tight text-balance leading-[1.02] max-w-4xl"
-          >
-            Notifications
-          </h1>
-          <p
-            data-reveal-item
-            className="mt-6 text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed"
-          >
-            Improved targeting, segmentation and content relevance, increasing notification open rates by 40%.
-          </p>
-        </Reveal>
-      </Section>
+      <CaseStudyHero
+        role="XING • Product Manager"
+        title="Notifications"
+        summary="Improved targeting, segmentation and content relevance, increasing notification open rates by 40%."
+      />
 
-      <Section className="pt-6 md:pt-12" spacing="tight">
+      <Section className="case-study-content" spacing="none">
         <Reveal>
-          <div className="space-y-4 md:space-y-10">
+          <div className="case-study-sections">
             <CaseSection number="01" title="The challenge">
               <CaseText>
                 Generic notifications reached broad audiences but often failed to reflect what
