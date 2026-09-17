@@ -33,6 +33,7 @@ export function SiteHeader() {
   const isActive = (to: string) => {
     if (to === "/writing") return pathname === "/writing";
     if (to === "/work") return pathname === "/work";
+    if (to === "/resume") return pathname === "/resume";
     if (to === "/about") return pathname === "/about";
     return false;
   };
