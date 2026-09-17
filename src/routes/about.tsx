@@ -1,7 +1,7 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 import { Section } from "@/components/Primitives";
 import { cn } from "@/lib/utils";
-import { ArrowRight, Laptop, Mountain, Network, Users } from "lucide-react";
+import { Download, Laptop, Mountain, Network, Users } from "lucide-react";
 import profileAsset from "@/assets/profile.png.asset.json";
 import resumePdf from "@/assets/gerta-xhepi-product-manager-resume.pdf.asset.json";
 import yogaAsset from "@/assets/yoga.png.asset.json";
