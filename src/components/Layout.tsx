@@ -10,6 +10,7 @@ type NavItem = { label: string; to: string };
 const navItems: readonly NavItem[] = [
   { label: "About", to: "/about" },
   { label: "Work", to: "/work" },
+  { label: "Resume", to: "/resume" },
   { label: "Writing", to: "/writing" },
 ] as const;
 
