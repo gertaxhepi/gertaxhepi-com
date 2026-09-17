@@ -412,6 +412,60 @@ html[data-reveal-ready="true"] [data-reveal-root][data-revealed="false"] [data-r
 /* Safari 15 fallback — Tailwind v4 responsive variants require Safari 16.4+.
    These plain-CSS rules mirror md:flex and md:hidden exactly,
    and only apply above the same breakpoint so mobile nav is preserved. */
+/* Resume intro — download button placement */
+.resume-intro {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    "name"
+    "contact"
+    "download";
+  gap: 0;
+}
+.resume-intro-name { grid-area: name; }
+.resume-intro-contact { grid-area: contact; }
+.resume-download-btn {
+  grid-area: download;
+  justify-self: start;
+  margin-top: 1.25rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 8px;
+  padding: 14px 22px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1;
+  background-color: var(--color-foreground);
+  color: var(--color-background);
+  transition: background-color 200ms ease, color 200ms ease;
+}
+.resume-download-btn:hover,
+.resume-download-btn:focus-visible {
+  background-color: var(--color-terracotta);
+  color: var(--color-background);
+}
+.resume-download-btn:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--color-background), 0 0 0 4px var(--color-terracotta);
+}
+
+@media (min-width: 1024px) {
+  .resume-intro {
+    grid-template-columns: 1fr auto;
+    grid-template-areas:
+      "name download"
+      "contact contact";
+    align-items: end;
+  }
+  .resume-intro-name { align-self: start; }
+  .resume-download-btn {
+    justify-self: end;
+    margin-top: 0;
+  }
+}
+
 @media (min-width: 768px) {
   header .hidden.md\:flex {
     display: flex !important;
@@ -420,6 +474,7 @@ html[data-reveal-ready="true"] [data-reveal-root][data-revealed="false"] [data-r
     display: none !important;
   }
 }
+
 
 
 
