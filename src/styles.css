@@ -185,6 +185,7 @@ html.theme-transition * {
 
 /* Work index — compact editorial project list */
 .work-index-intro {
+  padding-top: 2rem;
   padding-bottom: 2.75rem;
 }
 .work-project-list {
@@ -265,6 +266,7 @@ html.theme-transition * {
 
 @media (min-width: 768px) {
   .work-index-intro {
+    padding-top: 2.5rem;
     padding-bottom: 3.25rem;
   }
   .work-project-row {
@@ -284,7 +286,7 @@ html.theme-transition * {
 
 @media (min-width: 1024px) {
   .work-index-intro {
-    padding-top: 4rem;
+    padding-top: 2.75rem;
     padding-bottom: 3rem;
   }
   .work-project-row {
