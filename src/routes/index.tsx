@@ -20,6 +20,7 @@ export const Route = createFileRoute("/")({
       },
       { property: "og:url", content: "https://gertaproduct.com/" },
       { property: "og:image", content: OG_IMAGE },
+      { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:image", content: OG_IMAGE },
     ],

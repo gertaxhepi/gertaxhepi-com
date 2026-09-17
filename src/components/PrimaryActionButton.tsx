@@ -9,14 +9,15 @@ export const primaryActionButtonClassName = cn(
   "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta focus-visible:ring-offset-2 focus-visible:ring-offset-background",
 );
 
-type PrimaryActionButtonProps = {
+type SharedProps = {
   children: ReactNode;
   className?: string;
   ariaLabel: string;
-} & (
-  | { to: "/work"; href?: never; download?: never }
-  | ({ to?: never; href: string } & Pick<AnchorHTMLAttributes<HTMLAnchorElement>, "download">)
-);
+};
+
+type PrimaryActionButtonProps =
+  | (SharedProps & { to: "/work"; href?: never; download?: never })
+  | (SharedProps & { to?: never; href: string } & Omit<AnchorHTMLAttributes<HTMLAnchorElement>, "children" | "className" | "href" | "aria-label">);
 
 export function PrimaryActionButton({
   children,
@@ -34,10 +35,11 @@ export function PrimaryActionButton({
     );
   }
 
+  const { href, ...anchorProps } = destination;
   return (
     <a
-      href={destination.href}
-      download={destination.download}
+      href={href}
+      {...anchorProps}
       className={classes}
       aria-label={ariaLabel}
     >
