@@ -1,13 +1,14 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Section } from "@/components/Primitives";
 import { cn } from "@/lib/utils";
-import { Download, Laptop, Mountain, Network, Users } from "lucide-react";
+import { Laptop, Mountain, Network, Users } from "lucide-react";
+import { DownloadResumeButton } from "@/components/DownloadResumeButton";
 import profileAsset from "@/assets/profile.png.asset.json";
-import resumePdf from "@/assets/gerta-xhepi-product-manager-resume.pdf.asset.json";
 import yogaAsset from "@/assets/yoga.png.asset.json";
 import climbingAsset from "@/assets/climbing.png.asset.json";
 import mountaineeringAsset from "@/assets/mountenaring.png.asset.json";
 import marathonAsset from "@/assets/marathon.png.asset.json";
+
 
 const OG_IMAGE = "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/5e5a77b8-fdcf-4df7-92f9-1cada506e97a";
 
@@ -194,16 +195,9 @@ function About() {
           </ol>
 
           <div className="mt-10">
-            <a
-              href={resumePdf.url}
-              download="Gerta_Xhepi_Product_Manager_Resume.pdf"
-              className="inline-flex min-h-[52px] w-full items-center justify-center gap-2 rounded-[8px] bg-terracotta px-[22px] py-[14px] text-sm font-semibold text-background transition-colors hover:bg-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta focus-visible:ring-offset-2 focus-visible:ring-offset-background sm:w-auto"
-              aria-label="Download Gerta Xhepi's resume"
-            >
-              <Download className="size-4 shrink-0" aria-hidden="true" />
-              Download Resume
-            </a>
+            <DownloadResumeButton />
           </div>
+
         </section>
       </div>
 
