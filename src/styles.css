@@ -185,6 +185,7 @@ html.theme-transition * {
 
 /* Shared case-study flow — natural-height introduction and content-led sections */
 .case-study-hero {
+  overflow-x: hidden;
   padding-top: 2.5rem;
 }
 .case-study-breadcrumb {
@@ -215,6 +216,7 @@ html.theme-transition * {
   line-height: 1.625;
 }
 .case-study-content {
+  overflow-x: hidden;
   padding-top: 1.5rem;
   padding-bottom: 2rem;
 }
