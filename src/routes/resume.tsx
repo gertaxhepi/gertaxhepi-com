@@ -204,16 +204,8 @@ function Resume() {
               Gerta Xhepi
             </h1>
 
-            <a
-              data-reveal-item
-              href={resumePdf.url}
-              download="Gerta_Xhepi_Product_Manager_Resume.pdf"
-              className="resume-download-btn w-full sm:w-auto justify-center sm:justify-start"
-              aria-label="Download Gerta Xhepi's resume"
-            >
-              <Download className="size-4 shrink-0" aria-hidden="true" />
-              Download Resume
-            </a>
+            <DownloadResumeButton data-reveal-item className="resume-download-btn" />
+
 
             <div
               data-reveal-item
