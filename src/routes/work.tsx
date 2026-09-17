@@ -11,6 +11,7 @@ export const Route = createFileRoute("/work")({
       { name: "description", content: "Case studies covering AI products, marketplaces, workflow tools and data-driven product development." },
       { property: "og:title", content: "Product Case Studies | AI, Marketplace & SaaS" },
       { property: "og:description", content: "Case studies covering AI products, marketplaces, workflow tools and data-driven product development." },
+      { property: "og:type", content: "website" },
       { property: "og:url", content: "https://gertaproduct.com/work" },
       { property: "og:image", content: OG_IMAGE },
       { name: "twitter:card", content: "summary_large_image" },
