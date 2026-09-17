@@ -195,32 +195,36 @@ function Resume() {
           <div data-reveal-item className="mb-4">
             <Breadcrumb items={[{ label: "Home", to: "/" }, { label: "Resume" }]} />
           </div>
-          <h1
-            data-reveal-item
-            className="text-5xl md:text-7xl font-semibold tracking-tight"
-          >
-            Gerta Xhepi
-          </h1>
-          <div
-            data-reveal-item
-            className="mt-4 flex flex-wrap gap-x-8 gap-y-3"
-          >
-            <MetaLink href="mailto:xhepigerta@gmail.com" icon={Mail} ariaLabel="Email Gerta Xhepi">xhepigerta@gmail.com</MetaLink>
-            <span className="inline-flex items-center gap-2 text-sm text-muted-foreground">
-              <MapPin className="size-[18px] shrink-0 text-foreground" strokeWidth={1.75} aria-hidden="true" /> Germany
-            </span>
-            <MetaLink href="https://www.linkedin.com/in/gerta-xhepi-94853289/" icon={Linkedin} external ariaLabel="Visit Gerta Xhepi on LinkedIn">LinkedIn</MetaLink>
-            <MetaLink href="https://github.com/gertaxhepi" icon={Github} external ariaLabel="Visit Gerta Xhepi on GitHub">GitHub</MetaLink>
-          </div>
+          <div className="resume-intro">
+            <h1
+              data-reveal-item
+              className="resume-intro-name text-5xl md:text-7xl font-semibold tracking-tight"
+            >
+              Gerta Xhepi
+            </h1>
 
-          <div data-reveal-item className="mt-4">
             <a
+              data-reveal-item
               href={resumePdf.url}
               download="Gerta_Xhepi_Resume.pdf"
-              className="group inline-flex items-center gap-2 text-sm font-medium border-b border-foreground pb-1 transition-opacity hover:opacity-60"
+              className="resume-download-btn w-full sm:w-auto justify-center sm:justify-start"
+              aria-label="Download Gerta Xhepi's resume"
             >
-              <Download className="size-4" /> Download Resume
+              <Download className="size-4 shrink-0" aria-hidden="true" />
+              Download Resume
             </a>
+
+            <div
+              data-reveal-item
+              className="resume-intro-contact mt-4 flex flex-wrap gap-x-8 gap-y-3"
+            >
+              <MetaLink href="mailto:xhepigerta@gmail.com" icon={Mail} ariaLabel="Email Gerta Xhepi">xhepigerta@gmail.com</MetaLink>
+              <span className="inline-flex items-center gap-2 text-sm text-muted-foreground">
+                <MapPin className="size-[18px] shrink-0 text-foreground" strokeWidth={1.75} aria-hidden="true" /> Germany
+              </span>
+              <MetaLink href="https://www.linkedin.com/in/gerta-xhepi-94853289/" icon={Linkedin} external ariaLabel="Visit Gerta Xhepi on LinkedIn">LinkedIn</MetaLink>
+              <MetaLink href="https://github.com/gertaxhepi" icon={Github} external ariaLabel="Visit Gerta Xhepi on GitHub">GitHub</MetaLink>
+            </div>
           </div>
         </Reveal>
       </Section>
