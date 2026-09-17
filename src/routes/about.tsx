@@ -1,13 +1,14 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Section } from "@/components/Primitives";
 import { cn } from "@/lib/utils";
-import { Download, Laptop, Mountain, Network, Users } from "lucide-react";
+import { Laptop, Mountain, Network, Users } from "lucide-react";
+import { DownloadResumeButton } from "@/components/DownloadResumeButton";
 import profileAsset from "@/assets/profile.png.asset.json";
-import resumePdf from "@/assets/gerta-xhepi-product-manager-resume.pdf.asset.json";
 import yogaAsset from "@/assets/yoga.png.asset.json";
 import climbingAsset from "@/assets/climbing.png.asset.json";
 import mountaineeringAsset from "@/assets/mountenaring.png.asset.json";
 import marathonAsset from "@/assets/marathon.png.asset.json";
+
 
 const OG_IMAGE = "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/5e5a77b8-fdcf-4df7-92f9-1cada506e97a";
 
