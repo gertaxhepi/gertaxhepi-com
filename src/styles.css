@@ -97,6 +97,19 @@
   background-color: rgb(245 245 242 / 0.16);
 }
 
+.site-header-smart {
+  transform: translateY(0);
+  transition:
+    transform 280ms ease-out,
+    background-color 500ms ease-out,
+    backdrop-filter 500ms ease-out;
+  will-change: transform;
+}
+
+.site-header-smart.site-header-hidden {
+  transform: translateY(-100%);
+}
+
 /* Smooth theme transition */
 html.theme-transition,
 html.theme-transition body,
