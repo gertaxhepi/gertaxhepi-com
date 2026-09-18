@@ -107,7 +107,7 @@ function Work() {
           <h2 className="work-about-cta-heading">Want to know how I think and work?</h2>
         </div>
         <div data-reveal-item className="work-about-cta-action">
-          <PortfolioButton to="/about" variant="tertiary" ariaLabel="Go to the About page">
+          <PortfolioButton to="/about" variant="primary" ariaLabel="Go to the About page">
             <span>About me</span>
             <ArrowUpRight
               className="size-5 shrink-0 transition-transform duration-200 ease-out group-hover:translate-x-[3px] group-hover:-translate-y-[3px]"
