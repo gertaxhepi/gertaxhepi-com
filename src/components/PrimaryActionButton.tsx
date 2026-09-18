@@ -17,19 +17,24 @@ export function PrimaryActionButton({
   ariaLabel,
   ...destination
 }: PrimaryActionButtonProps) {
-  if ("to" in destination && destination.to) {
+  if ("href" in destination && destination.href) {
+    const { href, ...anchorProps } = destination;
     return (
-      <PortfolioButton to={destination.to} variant="primary" className={className} ariaLabel={ariaLabel}>
+      <PortfolioButton
+        href={href}
+        {...anchorProps}
+        variant="primary"
+        className={className}
+        ariaLabel={ariaLabel}
+      >
         {children}
       </PortfolioButton>
     );
   }
 
-  const { href, ...anchorProps } = destination;
   return (
     <PortfolioButton
-      href={href}
-      {...anchorProps}
+      to={destination.to}
       variant="primary"
       className={className}
       ariaLabel={ariaLabel}
