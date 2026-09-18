@@ -11,7 +11,7 @@ const baseClassName = cn(
 
 const variantClassNames: Record<PortfolioButtonVariant, string> = {
   primary: cn(
-    "min-h-[52px] gap-3 rounded-[14px] border-0 bg-foreground px-6 text-base text-background",
+    "portfolio-button-primary min-h-[52px] gap-3 rounded-[14px] border-0 bg-foreground px-6 text-base text-background",
     "transition-colors duration-200",
   ),
   secondary: cn(
@@ -19,7 +19,7 @@ const variantClassNames: Record<PortfolioButtonVariant, string> = {
     "transition-colors duration-200",
   ),
   tertiary: cn(
-    "gap-2 rounded-none border-0 bg-transparent px-0 py-2 text-base text-foreground",
+    "portfolio-button-tertiary gap-2 rounded-none border-0 bg-transparent px-0 py-2 text-base text-foreground",
   ),
 };
 

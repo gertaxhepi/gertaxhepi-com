@@ -101,6 +101,37 @@
   background-color: var(--color-border);
 }
 
+.portfolio-button-primary svg,
+.portfolio-button-secondary svg,
+.portfolio-button-tertiary svg {
+  transition: transform 200ms ease-out;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .portfolio-button-primary:hover svg,
+  .portfolio-button-tertiary:hover svg {
+    transform: translate(3px, -3px);
+  }
+
+  .portfolio-button-secondary:hover svg {
+    transform: translateY(2px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .portfolio-button-primary svg,
+  .portfolio-button-secondary svg,
+  .portfolio-button-tertiary svg {
+    transition: none;
+  }
+
+  .portfolio-button-primary:hover svg,
+  .portfolio-button-secondary:hover svg,
+  .portfolio-button-tertiary:hover svg {
+    transform: none;
+  }
+}
+
 .site-header-smart {
   transform: translateY(0);
   transition:
