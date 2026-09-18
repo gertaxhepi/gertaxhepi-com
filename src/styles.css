@@ -1080,7 +1080,7 @@ html[data-reveal-ready="true"] [data-reveal-root][data-revealed="false"] [data-r
     grid-template-areas:
       "headline note"
       "action .";
-    column-gap: clamp(1.5rem, 2.5vw, 2.5rem);
+    column-gap: clamp(1.75rem, 2.75vw, 2.5rem);
     justify-content: start;
     align-items: center;
     align-content: center;
