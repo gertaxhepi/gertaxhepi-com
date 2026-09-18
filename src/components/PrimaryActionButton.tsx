@@ -16,7 +16,7 @@ type SharedProps = {
 };
 
 type PrimaryActionButtonProps =
-  | (SharedProps & { to: "/work"; href?: never; download?: never })
+  | (SharedProps & { to: string; href?: never; download?: never })
   | (SharedProps & { to?: never; href: string } & Omit<AnchorHTMLAttributes<HTMLAnchorElement>, "children" | "className" | "href" | "aria-label">);
 
 export function PrimaryActionButton({
