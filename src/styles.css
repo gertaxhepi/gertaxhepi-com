@@ -433,7 +433,7 @@ html.theme-transition * {
 
 @media (min-width: 768px) {
   .case-study-next {
-    padding-bottom: 5rem;
+    padding-bottom: 3rem;
   }
   .case-study-next-row {
     grid-template-columns: minmax(0, 1fr) 2rem;
@@ -452,6 +452,12 @@ html.theme-transition * {
   .case-study-next-arrow {
     width: 2rem;
     height: 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .case-study-next {
+    padding-bottom: 4.5rem;
   }
 }
 
