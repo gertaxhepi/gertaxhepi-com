@@ -39,38 +39,40 @@ export const Route = createFileRoute("/work")({
 const projects = [
   {
     number: "01",
-    slug: "salary-transparency",
-    title: "Salary Transparency & Structured Job Data",
-    context: "XING · 2021–2024",
-    outcome: "−28% estimation error · 94% coverage · +11% applications",
+    slug: "peakprofile",
+    title: "PeakProfile",
+    context: "Founder project · Current",
+    outcome: "AI-assisted mountaineering readiness and decision support",
+    featured: true,
+    label: "Currently building",
   },
   {
     number: "02",
-    slug: "notifications",
-    title: "Notifications",
-    context: "XING · B2C",
-    outcome: "+40% notification open rate through better targeting and segmentation",
-  },
-  {
-    number: "03",
-    slug: "onlyfy-talent-pool",
-    title: "onlyfy Talent Pool",
-    context: "XING · B2B",
-    outcome: "Approximately 40% of contacted users joined the migrated talent pool",
-  },
-  {
-    number: "04",
     slug: "electronic-signature",
     title: "Electronic Signature MVP",
     context: "Jacando · 2024–2025",
     outcome: "Shipped in under two months · process time −20%",
   },
   {
+    number: "03",
+    slug: "salary-transparency",
+    title: "Salary Transparency & Structured Job Data",
+    context: "XING · 2023–2024",
+    outcome: "−28% estimation error · 94% coverage · +11% applications",
+  },
+  {
+    number: "04",
+    slug: "onlyfy-talent-pool",
+    title: "onlyfy Talent Pool",
+    context: "XING · 2022",
+    outcome: "Approximately 40% of contacted users joined the migrated talent pool",
+  },
+  {
     number: "05",
-    slug: "peakprofile",
-    title: "PeakProfile",
-    context: "Founder project · Current",
-    outcome: "AI-assisted mountaineering readiness and decision support",
+    slug: "notifications",
+    title: "Notifications",
+    context: "XING · 2021–2022",
+    outcome: "+40% notification open rate through better targeting and segmentation",
   },
 ];
 
@@ -87,11 +89,14 @@ function Work() {
             key={project.number}
             to="/case-studies/$slug"
             params={{ slug: project.slug }}
-            className="work-project-row"
+            className={`work-project-row${project.featured ? " work-project-row-featured" : ""}`}
             aria-label={`View ${project.title} case study`}
           >
             <span className="work-project-number">{project.number}</span>
             <div className="work-project-main">
+              {project.featured && project.label && (
+                <span className="work-project-label">{project.label}</span>
+              )}
               <h2 className="work-project-title">{project.title}</h2>
               <p className="work-project-context">{project.context}</p>
             </div>
