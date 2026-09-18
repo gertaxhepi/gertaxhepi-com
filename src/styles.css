@@ -339,7 +339,9 @@ html.theme-transition * {
 /* Shared case-study next-project navigation */
 .case-study-next {
   padding-top: 0;
-  padding-bottom: 4rem;
+  padding-bottom: 2.5rem;
+  min-height: 0;
+  height: auto;
 }
 .case-study-next-row {
   position: relative;
