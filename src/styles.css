@@ -339,7 +339,9 @@ html.theme-transition * {
 /* Shared case-study next-project navigation */
 .case-study-next {
   padding-top: 0;
-  padding-bottom: 4rem;
+  padding-bottom: 2.5rem;
+  min-height: 0;
+  height: auto;
 }
 .case-study-next-row {
   position: relative;
@@ -431,7 +433,7 @@ html.theme-transition * {
 
 @media (min-width: 768px) {
   .case-study-next {
-    padding-bottom: 5rem;
+    padding-bottom: 3rem;
   }
   .case-study-next-row {
     grid-template-columns: minmax(0, 1fr) 2rem;
@@ -450,6 +452,12 @@ html.theme-transition * {
   .case-study-next-arrow {
     width: 2rem;
     height: 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .case-study-next {
+    padding-bottom: 4.5rem;
   }
 }
 
