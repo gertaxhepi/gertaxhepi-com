@@ -414,6 +414,22 @@ html.theme-transition * {
   transform: translate(3px, -3px);
 }
 
+.work-project-row-featured {
+  background-color: var(--color-muted);
+}
+
+.work-project-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--color-terracotta);
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  line-height: 1.5;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+
 @media (min-width: 768px) {
   .work-index-intro {
     padding-top: 2.5rem;
