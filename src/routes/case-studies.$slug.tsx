@@ -267,7 +267,7 @@ function CaseStudyPage() {
 
   return (
     <>
-      <CaseStudyHero role={s.role} title={s.title} summary={s.summary} />
+      <CaseStudyHero role={s.role} title={s.title} summary={s.summary} website={s.website} />
 
       <Section className="case-study-content" spacing="none">
         <Reveal>

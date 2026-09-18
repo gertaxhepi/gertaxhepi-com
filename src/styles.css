@@ -263,6 +263,9 @@ html.theme-transition * {
   font-size: 1.125rem;
   line-height: 1.625;
 }
+.case-study-hero-action {
+  margin-top: 2rem;
+}
 .case-study-content {
   overflow-x: hidden;
   padding-top: 1.5rem;

@@ -36,6 +36,8 @@ export type CaseStudy = {
   reflection: string;
   recommendations?: { quote: string; name: string; role: string }[];
   learnings?: { title: string; description: string }[];
+  /** Optional external website link shown in the hero. */
+  website?: { label: string; url: string };
 };
 
 export const caseStudies: CaseStudy[] = [
@@ -260,7 +262,9 @@ export const caseStudies: CaseStudy[] = [
       "Building an AI-powered decision support product that helps mountaineers and guides plan safer expeditions.",
 
     role: "Founder",
+    website: { label: "Visit PeakProfile", url: "https://peakprofile.app/" },
     technologies: ["AI Product", "Trust Systems", "Decision Support", "User Research"],
+
 
     outcomes: ["20 early testers", "30+ discovery interviews", "Trustworthy AI decision support MVP"],
 
