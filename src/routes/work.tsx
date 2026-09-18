@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";
 import { Section } from "@/components/Primitives";
+import { PrimaryActionButton } from "@/components/PrimaryActionButton";
 
 const OG_IMAGE = "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/5e5a77b8-fdcf-4df7-92f9-1cada506e97a";
 
@@ -75,7 +76,7 @@ const projects = [
 
 function Work() {
   return (
-    <Section className="work-index pb-4" spacing="tight">
+    <Section className="work-index !pb-0" spacing="tight">
       <section className="page-title-hero work-index-intro">
         <h1>Selected product work.</h1>
       </section>
@@ -98,6 +99,22 @@ function Work() {
             <ArrowUpRight className="work-project-arrow" aria-hidden="true" />
           </Link>
         ))}
+      </div>
+
+      <div className="work-about-cta">
+        <div data-reveal-item>
+          <div className="work-about-cta-label">BEYOND THE WORK</div>
+          <h2 className="work-about-cta-heading">Want to know how I think and work?</h2>
+        </div>
+        <div data-reveal-item className="work-about-cta-action">
+          <PrimaryActionButton to="/about" ariaLabel="Go to the About page">
+            <span>About me</span>
+            <ArrowUpRight
+              className="size-5 shrink-0 transition-transform duration-200 ease-out group-hover:translate-x-[3px] group-hover:-translate-y-[3px]"
+              aria-hidden="true"
+            />
+          </PrimaryActionButton>
+        </div>
       </div>
     </Section>
   );
