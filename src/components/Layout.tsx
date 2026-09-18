@@ -1,6 +1,6 @@
 import { Outlet, useLocation, Link } from "@tanstack/react-router";
 import type { ReactNode } from "react";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { ThemeToggle } from "./ThemeToggle";
 import { ContactBlock } from "./ContactBlock";
@@ -20,15 +20,64 @@ const RESUME_URL = "/resume";
 export function SiteHeader({ staticOnHome = false }: { staticOnHome?: boolean }) {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [hidden, setHidden] = useState(false);
+  const lastScrollY = useRef(0);
+  const scrollDistance = useRef(0);
   const location = useLocation();
   const pathname = location.pathname;
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 8);
+    const threshold = 10;
+    let frame = 0;
+
+    lastScrollY.current = window.scrollY;
+
+    const updateHeader = () => {
+      const currentScrollY = Math.max(window.scrollY, 0);
+      const delta = currentScrollY - lastScrollY.current;
+
+      setScrolled(currentScrollY > 8);
+
+      if (currentScrollY <= 8) {
+        setHidden(false);
+        scrollDistance.current = 0;
+      } else if (!open && delta !== 0) {
+        const sameDirection =
+          (delta > 0 && scrollDistance.current >= 0) ||
+          (delta < 0 && scrollDistance.current <= 0);
+
+        scrollDistance.current = sameDirection ? scrollDistance.current + delta : delta;
+
+        if (scrollDistance.current >= threshold) {
+          setHidden(true);
+          scrollDistance.current = 0;
+        } else if (scrollDistance.current <= -threshold) {
+          setHidden(false);
+          scrollDistance.current = 0;
+        }
+      }
+
+      lastScrollY.current = currentScrollY;
+      frame = 0;
+    };
+
+    const onScroll = () => {
+      if (frame === 0) frame = window.requestAnimationFrame(updateHeader);
+    };
+
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      if (frame !== 0) window.cancelAnimationFrame(frame);
+    };
+  }, [open]);
+
+  useEffect(() => {
+    setHidden(false);
+    scrollDistance.current = 0;
+    lastScrollY.current = window.scrollY;
+  }, [pathname]);
 
   const isActive = (to: string) => {
     if (to === "/writing") return pathname === "/writing";
@@ -41,7 +90,9 @@ export function SiteHeader({ staticOnHome = false }: { staticOnHome?: boolean })
   return (
     <header
       className={[
-        staticOnHome ? "relative z-40 w-full" : "fixed top-0 z-40 w-full transition-[background-color,backdrop-filter] duration-500 ease-out",
+        "site-header-smart top-0 z-40 w-full",
+        staticOnHome ? "sticky" : "fixed",
+        hidden && !open ? "site-header-hidden" : "",
         scrolled
           ? "bg-background/70 backdrop-blur-md supports-[backdrop-filter]:bg-background/55"
           : "bg-transparent",
