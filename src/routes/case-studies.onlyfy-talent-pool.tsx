@@ -3,7 +3,7 @@ import { Section } from "@/components/Primitives";
 import { Reveal } from "@/components/Reveal";
 import { CaseSection, CaseText } from "@/components/CaseSection";
 import { CaseStudyHero } from "@/components/CaseStudyHero";
-import { AllProjectsCTA } from "@/components/AllProjectsCTA";
+import { NextProjectNavigation } from "@/components/NextProjectNavigation";
 
 export const Route = createFileRoute("/case-studies/onlyfy-talent-pool")({
   head: () => {
@@ -90,7 +90,7 @@ function OnlyfyTalentPoolPage() {
         </Reveal>
       </Section>
 
-      <AllProjectsCTA />
+      <NextProjectNavigation currentSlug="onlyfy-talent-pool" />
     </>
   );
 }
