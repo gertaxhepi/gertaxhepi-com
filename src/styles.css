@@ -440,13 +440,11 @@ html.theme-transition * {
   text-wrap: balance;
 }
 
-/* Navigation link hover — subtle terracotta */
+/* Navigation link — color transition only for active state */
 .nav-link {
   transition: color 250ms cubic-bezier(0.22, 1, 0.36, 1);
 }
-.nav-link:hover {
-  color: #8A5A5A;
-}
+
 
 /* Desktop navigation rolling-text hover */
 .nav-roll {
