@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";
 import { Section } from "@/components/Primitives";
-import { PrimaryActionButton } from "@/components/PrimaryActionButton";
+import { PortfolioButton } from "@/components/PortfolioButton";
 
 const OG_IMAGE = "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/5e5a77b8-fdcf-4df7-92f9-1cada506e97a";
 
@@ -107,13 +107,13 @@ function Work() {
           <h2 className="work-about-cta-heading">Want to know how I think and work?</h2>
         </div>
         <div data-reveal-item className="work-about-cta-action">
-          <PrimaryActionButton to="/about" ariaLabel="Go to the About page">
+          <PortfolioButton to="/about" variant="tertiary" ariaLabel="Go to the About page">
             <span>About me</span>
             <ArrowUpRight
               className="size-5 shrink-0 transition-transform duration-200 ease-out group-hover:translate-x-[3px] group-hover:-translate-y-[3px]"
               aria-hidden="true"
             />
-          </PrimaryActionButton>
+          </PortfolioButton>
         </div>
       </div>
     </Section>

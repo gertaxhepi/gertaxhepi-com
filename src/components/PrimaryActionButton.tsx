@@ -1,13 +1,5 @@
-import { Link } from "@tanstack/react-router";
 import type { AnchorHTMLAttributes, ReactNode } from "react";
-import { cn } from "@/lib/utils";
-
-export const primaryActionButtonClassName = cn(
-  "group inline-flex min-h-[52px] w-fit items-center justify-center gap-3 rounded-[8px]",
-  "border-0 bg-foreground px-6 text-base font-semibold text-background shadow-none",
-  "transition-colors duration-200 hover:bg-terracotta hover:text-background",
-  "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta focus-visible:ring-offset-2 focus-visible:ring-offset-background",
-);
+import { PortfolioButton } from "@/components/PortfolioButton";
 
 type SharedProps = {
   children: ReactNode;
@@ -25,25 +17,24 @@ export function PrimaryActionButton({
   ariaLabel,
   ...destination
 }: PrimaryActionButtonProps) {
-  const classes = cn(primaryActionButtonClassName, className);
-
   if ("to" in destination && destination.to) {
     return (
-      <Link to={destination.to} className={classes} aria-label={ariaLabel}>
+      <PortfolioButton to={destination.to} variant="primary" className={className} ariaLabel={ariaLabel}>
         {children}
-      </Link>
+      </PortfolioButton>
     );
   }
 
   const { href, ...anchorProps } = destination;
   return (
-    <a
+    <PortfolioButton
       href={href}
       {...anchorProps}
-      className={classes}
-      aria-label={ariaLabel}
+      variant="primary"
+      className={className}
+      ariaLabel={ariaLabel}
     >
       {children}
-    </a>
+    </PortfolioButton>
   );
 }
