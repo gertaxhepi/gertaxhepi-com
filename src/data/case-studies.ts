@@ -36,6 +36,8 @@ export type CaseStudy = {
   reflection: string;
   recommendations?: { quote: string; name: string; role: string }[];
   learnings?: { title: string; description: string }[];
+  /** Optional external website link shown in the hero. */
+  website?: { label: string; url: string };
 };
 
 export const caseStudies: CaseStudy[] = [
