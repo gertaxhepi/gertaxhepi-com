@@ -1,7 +1,7 @@
 import { createFileRoute, notFound } from "@tanstack/react-router";
 import { Section } from "@/components/Primitives";
 import { Reveal } from "@/components/Reveal";
-import { AllProjectsCTA } from "@/components/AllProjectsCTA";
+import { NextProjectNavigation, type CaseStudySlug } from "@/components/NextProjectNavigation";
 import { CaseSection } from "@/components/CaseSection";
 import { CaseStudyHero } from "@/components/CaseStudyHero";
 import { getCaseStudy, type CaseStudy } from "@/data/case-studies";
@@ -286,7 +286,7 @@ function CaseStudyPage() {
         </Reveal>
       </Section>
 
-      <AllProjectsCTA />
+      <NextProjectNavigation currentSlug={s.slug as CaseStudySlug} />
     </>
   );
 }
