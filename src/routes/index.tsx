@@ -75,6 +75,15 @@ function Home() {
         <h1 className="home-intro-headline home-intro-reveal">
           I’m a Product Manager who turns complex systems into products people understand and use.
         </h1>
+        <div className="home-intro-action home-intro-reveal">
+          <PrimaryActionButton to="/work" ariaLabel="View selected work">
+            <span>View selected work</span>
+            <ArrowUpRight
+              className="size-5 shrink-0 transition-transform duration-200 ease-out group-hover:translate-x-[3px] group-hover:-translate-y-[3px]"
+              aria-hidden="true"
+            />
+          </PrimaryActionButton>
+        </div>
         <aside className="home-sticky-note home-intro-reveal" aria-label="Looking for my next team">
           <p className="home-sticky-note-title">Looking for my next team</p>
           <p className="home-sticky-note-copy">
@@ -87,15 +96,6 @@ function Home() {
             Let’s talk ↗
           </a>
         </aside>
-        <div className="home-intro-action home-intro-reveal">
-          <PrimaryActionButton to="/work" ariaLabel="View selected work">
-            <span>View selected work</span>
-            <ArrowUpRight
-              className="size-5 shrink-0 transition-transform duration-200 ease-out group-hover:translate-x-[3px] group-hover:-translate-y-[3px]"
-              aria-hidden="true"
-            />
-          </PrimaryActionButton>
-        </div>
       </div>
 
       {/* Homepage footer — neutral, integrated with the page */}
