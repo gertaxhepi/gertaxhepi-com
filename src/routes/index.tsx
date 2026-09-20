@@ -73,7 +73,11 @@ function Home() {
     <section className="home-intro-page container-page">
       <div className="home-intro-hero">
         <h1 className="home-intro-headline home-intro-reveal">
-          I’m a Product Manager who turns complex systems into products people understand and use.
+          I’m a Product<span className="home-desktop-break"><br /></span>{" "}
+          Manager who turns<span className="home-desktop-break"><br /></span>{" "}
+          complex systems<span className="home-desktop-break"><br /></span>{" "}
+          into products people<span className="home-desktop-break"><br /></span>{" "}
+          understand and use.
         </h1>
         <div className="home-intro-action home-intro-reveal">
           <PrimaryActionButton to="/work" ariaLabel="View selected work">
@@ -84,16 +88,18 @@ function Home() {
             />
           </PrimaryActionButton>
         </div>
-        <aside className="home-sticky-note home-intro-reveal" aria-label="Looking for my next team">
-          <p className="home-sticky-note-title">Looking for my next team</p>
+        <aside className="home-sticky-note home-intro-reveal" aria-label="Currently on my desk">
+          <p className="home-sticky-note-title">Currently on my desk</p>
           <p className="home-sticky-note-copy">
-            I like honest conversations, complex problems, and building things together.
+            Building PeakProfile<br />
+            Testing AI-assisted readiness<br />
+            Learning from guides and climbers
           </p>
           <a
-            href="mailto:xhepigerta@gmail.com?subject=Let%27s%20talk"
+            href="/case-studies/peakprofile"
             className="home-sticky-note-link"
           >
-            Let’s talk ↗
+            View project ↗
           </a>
         </aside>
       </div>
