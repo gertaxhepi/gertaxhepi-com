@@ -1074,7 +1074,8 @@ html[data-reveal-ready="true"] [data-reveal-root][data-revealed="false"] [data-r
     position: relative;
     display: block;
     z-index: 1;
-    max-width: 14.2em;
+    width: calc(100% - clamp(21rem, 30vw, 26rem));
+    max-width: 12em;
     margin-top: 0;
     font-size: clamp(3.25rem, 5.15vw, 5rem);
     line-height: 0.98;
@@ -1098,7 +1099,7 @@ html[data-reveal-ready="true"] [data-reveal-root][data-revealed="false"] [data-r
 
 @media (min-width: 1280px) {
   .home-intro-headline {
-    max-width: 13.4em;
+    max-width: 12em;
   }
   .home-sticky-note {
     right: 1.5%;
