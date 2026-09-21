@@ -85,7 +85,7 @@ function Home() {
           </PrimaryActionButton>
         </div>
         <aside className="home-sticky-note home-intro-reveal" aria-label="Looking for my next team">
-          <p className="home-sticky-note-title">Looking for my next team</p>
+          <p className="home-sticky-note-title">LOOKING FOR MY NEXT TEAM</p>
           <p className="home-sticky-note-copy">
             I like honest conversations, complex problems, and building things together.
           </p>
