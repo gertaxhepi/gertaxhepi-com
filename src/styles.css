@@ -1071,6 +1071,7 @@ html[data-reveal-ready="true"] [data-reveal-root][data-revealed="false"] [data-r
   }
   .home-intro-headline {
     position: relative;
+    display: block;
     z-index: 1;
     max-width: 14.2em;
     margin-top: clamp(0.5rem, 4vh, 3rem);
@@ -1079,6 +1080,8 @@ html[data-reveal-ready="true"] [data-reveal-root][data-revealed="false"] [data-r
   }
   .home-intro-action {
     position: relative;
+    display: block;
+    width: fit-content;
     z-index: 3;
     margin-top: clamp(1.75rem, 4vh, 2.5rem);
   }
