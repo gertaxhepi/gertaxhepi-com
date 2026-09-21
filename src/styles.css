@@ -1064,17 +1064,18 @@ html[data-reveal-ready="true"] [data-reveal-root][data-revealed="false"] [data-r
   }
   .home-intro-hero {
     position: relative;
-    display: block;
-    justify-content: start;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     min-height: 0;
-    padding: clamp(1rem, 3vh, 2.5rem) 0 2.5rem;
+    padding: clamp(3.5rem, 8vh, 5.5rem) 0 clamp(0.75rem, 2vh, 1.5rem);
   }
   .home-intro-headline {
     position: relative;
     display: block;
     z-index: 1;
     max-width: 14.2em;
-    margin-top: clamp(0.5rem, 4vh, 3rem);
+    margin-top: 0;
     font-size: clamp(3.25rem, 5.15vw, 5rem);
     line-height: 0.98;
   }
