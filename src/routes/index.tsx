@@ -85,16 +85,24 @@ function Home() {
           </PrimaryActionButton>
         </div>
         <aside className="home-sticky-note home-intro-reveal" aria-label="Looking for my next team">
-          <p className="home-sticky-note-title">LOOKING FOR MY NEXT TEAM</p>
-          <p className="home-sticky-note-copy">
-            I like honest conversations, complex problems, and building things together.
-          </p>
-          <a
-            href="mailto:xhepigerta@gmail.com?subject=Let%27s%20talk"
-            className="home-sticky-note-link"
-          >
-            Let’s talk ↗
-          </a>
+          <img
+            className="home-sticky-note-image"
+            src="/sticky-note.webp"
+            alt=""
+            aria-hidden="true"
+          />
+          <div className="home-sticky-note-content">
+            <p className="home-sticky-note-title">LOOKING FOR MY NEXT TEAM</p>
+            <p className="home-sticky-note-copy">
+              I like honest conversations, complex problems, and building things together.
+            </p>
+            <a
+              href="mailto:xhepigerta@gmail.com?subject=Let%27s%20talk"
+              className="home-sticky-note-link"
+            >
+              Let’s talk ↗
+            </a>
+          </div>
         </aside>
       </div>
 
@@ -131,4 +139,3 @@ function Home() {
     </section>
   );
 }
-
