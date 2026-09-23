@@ -1,21 +1,24 @@
-import { Download } from "lucide-react";
-import resumePdf from "@/assets/gerta-xhepi-product-manager-resume.pdf.asset.json";
+import { ArrowUpRight } from "lucide-react";
 import { PortfolioButton } from "@/components/PortfolioButton";
+
+const RESUME_URL =
+  "https://drive.google.com/file/d/1RmzwnRPgSmUVwWYCW3AcDCTxqlXU82lC/view?usp=sharing";
 
 interface DownloadResumeButtonProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {}
 
 export function DownloadResumeButton({ className, ...props }: DownloadResumeButtonProps) {
   return (
     <PortfolioButton
-      href={resumePdf.url}
-      download="Gerta_Xhepi_Product_Manager_Resume.pdf"
+      href={RESUME_URL}
+      target="_blank"
+      rel="noopener noreferrer"
       variant="secondary"
       className={className}
-      ariaLabel="Download Gerta Xhepi's resume"
+      ariaLabel="View Gerta Xhepi's resume in a new tab"
       {...props}
     >
-      <span>Download Resume</span>
-      <Download className="size-5 shrink-0 transition-transform duration-200 ease-out group-hover:translate-y-[2px]" aria-hidden="true" />
+      <span>View Resume</span>
+      <ArrowUpRight className="size-5 shrink-0" aria-hidden="true" />
     </PortfolioButton>
   );
 }
