@@ -1,309 +1,190 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { ArrowUpRight } from "lucide-react";
 import { Section } from "@/components/Primitives";
 import { Reveal } from "@/components/Reveal";
-import { Breadcrumb } from "@/components/Breadcrumb";
-import { Github, Linkedin, Mail, MapPin } from "lucide-react";
 import { DownloadResumeButton } from "@/components/DownloadResumeButton";
-
+import { PortfolioButton } from "@/components/PortfolioButton";
 
 const OG_IMAGE = "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/5e5a77b8-fdcf-4df7-92f9-1cada506e97a";
 
 export const Route = createFileRoute("/resume")({
   head: () => ({
     meta: [
-      { title: "Resume | Product Manager" },
-      { name: "description", content: "View and download my Product Manager resume." },
-      { property: "og:title", content: "Resume | Product Manager" },
-      { property: "og:description", content: "View and download my Product Manager resume." },
+      { title: "Career | Gerta Xhepi" },
+      { name: "description", content: "Gerta Xhepi’s career journey from software engineer to product manager and founder." },
+      { property: "og:title", content: "Career | Gerta Xhepi" },
+      { property: "og:description", content: "A career journey across software engineering, product management, and AI product building." },
       { property: "og:url", content: "https://gertaproduct.com/resume" },
       { property: "og:image", content: OG_IMAGE },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:image", content: OG_IMAGE },
     ],
     links: [{ rel: "canonical", href: "https://gertaproduct.com/resume" }],
-    scripts: [
-      {
-        type: "application/ld+json",
-        children: JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "BreadcrumbList",
-          itemListElement: [
-            { "@type": "ListItem", position: 1, name: "Home", item: "https://gertaproduct.com/" },
-            { "@type": "ListItem", position: 2, name: "Resume", item: "https://gertaproduct.com/resume" },
-          ],
-        }),
-      },
-    ],
   }),
-  component: Resume,
+  component: Career,
 });
 
-type ExperienceRole = {
-  role: string;
-  period: string;
-  description: string;
-};
+const linkedinUrl = "https://www.linkedin.com/in/gerta-xhepi-94853289/";
+const githubUrl = "https://github.com/gertaxhepi";
 
-type ExperienceGroup = {
-  number: string;
-  company: string;
-  roles: ExperienceRole[];
-};
-
-const careerGroups: ExperienceGroup[] = [
-  {
-    number: "01",
-    company: "PeakProfile",
-    roles: [
-      {
-        role: "Founder / Product Builder",
-        period: "2025 — NOW",
-        description:
-          "Building an AI-native decision-support product for mountaineers and guides.",
-      },
-    ],
-  },
-  {
-    number: "02",
-    company: "jacando AG",
-    roles: [
-      {
-        role: "Product Manager",
-        period: "2024 — 2025",
-        description: "Led enterprise workflow products from discovery through launch.",
-      },
-    ],
-  },
-  {
-    number: "03",
-    company: "New Work SE · XING / onlyfy",
-    roles: [
-      {
-        role: "Product Manager",
-        period: "2021 — 2024",
-        description:
-          "Owned products across marketplaces, structured data, salary transparency, and ML-powered experiences.",
-      },
-      {
-        role: "Software Engineer",
-        period: "2017 — 2021",
-        description:
-          "Built platform and frontend products, including the design system used by more than 150 engineers.",
-      },
-    ],
-  },
-  {
-    number: "04",
-    company: "Software Engineering & Early Product Building",
-    roles: [
-      {
-        role: "Software Engineer & Founder",
-        period: "2013 — 2017",
-        description:
-          "Worked across established companies and early-stage products, including Microsoft and my own consumer product.",
-      },
-    ],
-  },
-];
-
-function CareerTimeline() {
+function ExternalTextLink({ href, children }: { href: string; children: React.ReactNode }) {
   return (
-    <div className="space-y-14 md:space-y-20">
-      {careerGroups.map((group) => (
-        <div
-          key={group.number}
-          data-reveal-item
-          className="grid grid-cols-1 gap-5 md:grid-cols-[88px_minmax(0,1fr)] md:gap-10 lg:gap-16"
-        >
-          {/* Number */}
-          <div className="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight leading-none text-[var(--terracotta)]/30 tabular-nums">
-            {group.number}
-          </div>
-
-          {/* Content */}
-          <div className="min-w-0">
-            <h3 className="text-lg md:text-xl font-mono uppercase tracking-[0.14em] text-muted-foreground">
-              {group.company}
-            </h3>
-            <div className="mt-5 md:mt-6 space-y-8 md:space-y-10">
-              {group.roles.map((role) => (
-                <div key={role.role + role.period}>
-                  <div className="flex flex-col md:flex-row md:items-baseline md:justify-between gap-1 md:gap-4">
-                    <h4 className="text-xl md:text-2xl font-semibold tracking-tight text-foreground">
-                      {role.role}
-                    </h4>
-                    <span className="text-sm md:text-base text-muted-foreground tabular-nums shrink-0">
-                      {role.period}
-                    </span>
-                  </div>
-                  <p className="mt-3 md:mt-4 text-base md:text-lg text-foreground/80 leading-relaxed max-w-2xl">
-                    {role.description}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      ))}
-    </div>
-  );
-}
-
-const education = [
-  { yearRange: "2020 — 2022", title: "Master of Business Administration (MBA)", org: "ThePowerMBA" },
-  { yearRange: "2011 — 2014", title: "Bachelor of Computer Science", org: "University POLITEHNICA of Bucharest" },
-];
-
-const certificates = [
-  { year: "2024", title: "Artificial Intelligence — Product School" },
-  { year: "2024", title: "Product Analytics — Product School" },
-  { year: "2024", title: "Product Strategy — Product School" },
-  { year: "2024", title: "Product Launches — Product School" },
-  { year: "2023", title: "Product Roadmapping — Product School" },
-  { year: "2021", title: "Google Project Management Certificate — Google" },
-];
-
-const focusAreas = [
-  "B2C Products",
-  "B2B SaaS",
-  "Product Discovery",
-  "AI/ML Products",
-  "Workflow Automation",
-  "Structured Data",
-  "Product Analytics",
-];
-
-function MetaLink({ href, icon: Icon, children, external, ariaLabel }: { href: string; icon: React.ComponentType<{ className?: string; strokeWidth?: number; "aria-hidden"?: boolean | "true" | "false" }>; children: React.ReactNode; external?: boolean; ariaLabel: string }) {
-  return (
-    <a
-      href={href}
-      target={external ? "_blank" : undefined}
-      rel={external ? "noopener noreferrer" : undefined}
-      className="group inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
-      aria-label={ariaLabel}
-    >
-      <Icon className="size-[18px] shrink-0 text-foreground" strokeWidth={1.75} aria-hidden="true" />
+    <a href={href} target="_blank" rel="noopener noreferrer" className="group inline-flex items-center gap-2 py-2 font-medium text-foreground outline-none transition-colors hover:text-terracotta focus-visible:text-terracotta">
       <span>{children}</span>
+      <ArrowUpRight className="size-4 transition-transform duration-200 ease-out group-hover:translate-x-[3px] group-hover:-translate-y-[3px]" aria-hidden="true" />
     </a>
   );
 }
 
-function Resume() {
+function TimelineMarker() {
+  return <span className="absolute left-0 top-[0.55rem] hidden size-2 -translate-x-1/2 rounded-full bg-terracotta md:block" aria-hidden="true" />;
+}
+
+function Career() {
   return (
     <>
-      <Section className="pt-10 md:pt-12 pb-3 md:pb-4" spacing="none">
+      <Section className="pb-10 pt-12 md:pb-14 md:pt-20" spacing="none">
         <Reveal>
-          <div data-reveal-item className="mb-4">
-            <Breadcrumb items={[{ label: "Home", to: "/" }, { label: "Resume" }]} />
+          <p data-reveal-item className="font-mono text-[11px] uppercase tracking-[0.22em] text-terracotta">Career</p>
+          <h1 data-reveal-item className="mt-5 max-w-5xl text-[clamp(2.75rem,6vw,5.5rem)] font-semibold leading-[0.98] tracking-[-0.045em] text-foreground">
+            From software engineer to product builder
+          </h1>
+          <p data-reveal-item className="mt-7 max-w-3xl text-lg leading-relaxed text-muted-foreground md:text-xl">
+            I spent seven years building software before moving into product management. Today, I work where technology, product strategy and complex user problems meet.
+          </p>
+          <div data-reveal-item className="mt-8 flex flex-wrap items-center gap-x-7 gap-y-3">
+            <DownloadResumeButton />
+            <ExternalTextLink href={linkedinUrl}>LinkedIn</ExternalTextLink>
+            <ExternalTextLink href={githubUrl}>GitHub</ExternalTextLink>
           </div>
-          <div className="resume-intro">
-            <h1
-              data-reveal-item
-              className="resume-intro-name text-5xl md:text-7xl font-semibold tracking-tight"
-            >
-              Gerta Xhepi
-            </h1>
+        </Reveal>
+      </Section>
 
-            <DownloadResumeButton data-reveal-item className="resume-download-btn" />
+      <Section className="py-0" spacing="none">
+        <Reveal>
+          <div className="border-t border-border">
+            <p data-reveal-item className="pb-5 pt-6 font-mono text-[11px] uppercase tracking-[0.22em] text-muted-foreground">Career journey</p>
 
+            <article data-reveal-item className="grid border-b border-border py-8 md:grid-cols-[150px_minmax(0,1fr)] md:py-10">
+              <div className="pb-4 text-sm tabular-nums text-muted-foreground md:pb-0">2025 — Now</div>
+              <div className="relative md:border-l md:border-border md:pl-12">
+                <TimelineMarker />
+                <h2 className="text-2xl font-semibold tracking-tight">PeakProfile</h2>
+                <p className="mt-1 text-lg text-foreground/85">Founder / Product Builder</p>
+                <p className="mt-4 max-w-3xl leading-relaxed text-muted-foreground">Building an AI-assisted decision-support product for mountaineers and guides.</p>
+                <ul className="mt-4 max-w-3xl list-disc space-y-2 pl-5 leading-relaxed text-foreground/80 marker:text-terracotta">
+                  <li>Designed a hybrid rules-and-LLM readiness model</li>
+                  <li>Validated the concept with climbers and mountain guides</li>
+                  <li>Defined the B2B guide and B2C mountaineer experience</li>
+                </ul>
+                <Link to="/case-studies/peakprofile" className="group mt-4 inline-flex items-center gap-2 font-medium text-terracotta outline-none focus-visible:underline">
+                  View project
+                  <ArrowUpRight className="size-4 transition-transform duration-200 ease-out group-hover:translate-x-[3px] group-hover:-translate-y-[3px]" aria-hidden="true" />
+                </Link>
+              </div>
+            </article>
 
-            <div
-              data-reveal-item
-              className="resume-intro-contact mt-4 flex flex-wrap gap-x-8 gap-y-3"
-            >
-              <MetaLink href="mailto:xhepigerta@gmail.com" icon={Mail} ariaLabel="Email Gerta Xhepi">xhepigerta@gmail.com</MetaLink>
-              <span className="inline-flex items-center gap-2 text-sm text-muted-foreground">
-                <MapPin className="size-[18px] shrink-0 text-foreground" strokeWidth={1.75} aria-hidden="true" /> Germany
-              </span>
-              <MetaLink href="https://www.linkedin.com/in/gerta-xhepi-94853289/" icon={Linkedin} external ariaLabel="Visit Gerta Xhepi on LinkedIn">LinkedIn</MetaLink>
-              <MetaLink href="https://github.com/gertaxhepi" icon={Github} external ariaLabel="Visit Gerta Xhepi on GitHub">GitHub</MetaLink>
+            <article data-reveal-item className="grid border-b border-border py-8 md:grid-cols-[150px_minmax(0,1fr)] md:py-10">
+              <div className="pb-4 text-sm tabular-nums text-muted-foreground md:pb-0">2024 — 2025</div>
+              <div className="relative md:border-l md:border-border md:pl-12">
+                <TimelineMarker />
+                <h2 className="text-2xl font-semibold tracking-tight">jacando AG</h2>
+                <p className="mt-1 text-lg text-foreground/85">Product Manager</p>
+                <p className="mt-4 max-w-3xl leading-relaxed text-muted-foreground">Led enterprise workflow products from discovery through launch.</p>
+                <ul className="mt-4 max-w-3xl list-disc space-y-2 pl-5 leading-relaxed text-foreground/80 marker:text-terracotta">
+                  <li>Shipped an electronic-signature MVP in under two months</li>
+                  <li>Reduced process time by 20%</li>
+                  <li>Supported more than 200 customers</li>
+                </ul>
+              </div>
+            </article>
+
+            <article data-reveal-item className="grid border-b border-border py-8 md:grid-cols-[150px_minmax(0,1fr)] md:py-10">
+              <div className="pb-4 text-sm tabular-nums text-muted-foreground md:pb-0">2017 — 2024</div>
+              <div className="relative md:border-l md:border-border md:pl-12">
+                <TimelineMarker />
+                <h2 className="text-2xl font-semibold tracking-tight">New Work SE · XING / onlyfy</h2>
+                <div className="mt-7 border-l border-border pl-7">
+                  <div className="relative">
+                    <span className="absolute -left-[1.97rem] top-2 size-2 rounded-full border border-terracotta bg-background" aria-hidden="true" />
+                    <div className="flex flex-wrap items-baseline gap-x-4 gap-y-1">
+                      <h3 className="text-lg font-semibold">Product Manager</h3>
+                      <span className="text-sm tabular-nums text-muted-foreground">2021 — 2024</span>
+                    </div>
+                    <ul className="mt-4 list-disc space-y-2 pl-5 leading-relaxed text-foreground/80 marker:text-terracotta">
+                      <li>Salary transparency: −28% estimation error, 94% coverage and +11% applications</li>
+                      <li>Notifications: +40% open rate</li>
+                      <li>Structured job data and B2B talent-pool products</li>
+                    </ul>
+                  </div>
+                  <div className="relative mt-8">
+                    <span className="absolute -left-[1.97rem] top-2 size-2 rounded-full border border-terracotta bg-background" aria-hidden="true" />
+                    <div className="flex flex-wrap items-baseline gap-x-4 gap-y-1">
+                      <h3 className="text-lg font-semibold">Software Engineer</h3>
+                      <span className="text-sm tabular-nums text-muted-foreground">2017 — 2021</span>
+                    </div>
+                    <ul className="mt-4 list-disc space-y-2 pl-5 leading-relaxed text-foreground/80 marker:text-terracotta">
+                      <li>Built platform and frontend products</li>
+                      <li>Contributed to the design system used by more than 150 engineers</li>
+                      <li>Developed the technical foundation that later shaped my PM approach</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article data-reveal-item className="grid border-b border-border py-8 md:grid-cols-[150px_minmax(0,1fr)] md:py-10">
+              <div className="pb-4 text-sm tabular-nums text-muted-foreground md:pb-0">2013 — 2017</div>
+              <div className="relative md:border-l md:border-border md:pl-12">
+                <TimelineMarker />
+                <h2 className="text-xl font-semibold tracking-tight">Microsoft &amp; early-stage products</h2>
+                <p className="mt-1 text-base text-foreground/85">Software Engineer &amp; Founder</p>
+                <p className="mt-4 max-w-3xl leading-relaxed text-muted-foreground">Worked across established companies and early-stage products, including Microsoft and my own consumer product.</p>
+              </div>
+            </article>
+          </div>
+        </Reveal>
+      </Section>
+
+      <Section className="py-0" spacing="none">
+        <Reveal>
+          <div data-reveal-item className="border-b border-border py-9 md:py-12">
+            <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-muted-foreground">Capabilities</p>
+            <div className="mt-6 grid gap-7 md:grid-cols-3 md:gap-0">
+              <div className="md:pr-10"><h2 className="font-semibold">Product strategy</h2><p className="mt-2 leading-relaxed text-muted-foreground">Discovery, prioritisation, roadmaps and launch</p></div>
+              <div className="border-t border-border pt-7 md:border-l md:border-t-0 md:px-10 md:pt-0"><h2 className="font-semibold">Technical products</h2><p className="mt-2 leading-relaxed text-muted-foreground">APIs, platforms, structured data and AI workflows</p></div>
+              <div className="border-t border-border pt-7 md:border-l md:border-t-0 md:pl-10 md:pt-0"><h2 className="font-semibold">Product execution</h2><p className="mt-2 leading-relaxed text-muted-foreground">Analytics, experimentation and cross-functional delivery</p></div>
             </div>
           </div>
         </Reveal>
       </Section>
 
-      <Section className="py-3 md:py-4" spacing="none">
-        <Reveal className="grid md:grid-cols-[1fr_2.4fr] gap-8 md:gap-16">
-          <div data-reveal-item className="text-[11px] font-mono uppercase tracking-[0.18em] text-muted-foreground">
-            Summary
-          </div>
-          <div data-reveal-item className="max-w-4xl">
-            <p className="text-base md:text-lg font-medium text-foreground/90 leading-relaxed">
-              Over the past decade, I’ve moved from building software to shaping products. I’ve worked across B2C products, B2B SaaS, marketplaces, workflow automation, structured data, and AI.
-            </p>
-            <div className="mt-6 md:mt-8">
-              <div className="text-[11px] font-mono uppercase tracking-[0.18em] text-muted-foreground mb-3">
-                Focus Areas
-              </div>
-              <div className="flex flex-wrap gap-2 text-sm">
-                {focusAreas.map((area, i) => (
-                  <span key={area} className="inline-flex items-center text-foreground/80">
-                    <span className="border border-border/70 rounded-full px-3 py-1">{area}</span>
-                    {i < focusAreas.length - 1 && (
-                      <span className="text-muted-foreground/40 mx-2 hidden sm:inline">·</span>
-                    )}
-                  </span>
-                ))}
-              </div>
+      <Section className="py-0" spacing="none">
+        <Reveal>
+          <div data-reveal-item className="border-b border-border py-9 md:py-12">
+            <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-muted-foreground">Education</p>
+            <div className="mt-6 space-y-5">
+              <div className="grid gap-1 md:grid-cols-[150px_220px_1fr] md:gap-8"><span className="text-sm tabular-nums text-muted-foreground">2020 — 2022</span><strong>MBA</strong><span className="text-muted-foreground">ThePowerMBA</span></div>
+              <div className="grid gap-1 md:grid-cols-[150px_220px_1fr] md:gap-8"><span className="text-sm tabular-nums text-muted-foreground">2011 — 2014</span><strong>Computer Science</strong><span className="text-muted-foreground">Politehnica University of Bucharest</span></div>
             </div>
+          </div>
+          <div data-reveal-item className="grid border-b border-border py-7 md:grid-cols-[200px_1fr] md:gap-8">
+            <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-muted-foreground">Selected learning</p>
+            <p className="mt-4 leading-relaxed text-foreground/80 md:mt-0">AI Product Management <span className="mx-2 text-border">·</span> Product Analytics <span className="mx-2 text-border">·</span> Product Strategy <span className="mx-2 text-border">·</span> Google Project Management</p>
           </div>
         </Reveal>
       </Section>
 
-      <Section className="py-3 md:py-4" spacing="none">
-        <Reveal className="grid md:grid-cols-[180px_1fr] gap-8 md:gap-16">
-          <div
-            data-reveal-item
-            className="text-[11px] font-mono uppercase tracking-[0.18em] text-muted-foreground md:sticky md:top-28 md:self-start"
-          >
-            Career Path
-          </div>
-          <div data-reveal-item className="min-w-0">
-            <CareerTimeline />
-          </div>
-        </Reveal>
-      </Section>
-
-      <Section spacing="tight">
-        <Reveal className="grid md:grid-cols-[180px_1fr] gap-8 md:gap-16">
-          <div
-            data-reveal-item
-            className="text-[11px] font-mono uppercase tracking-[0.18em] text-muted-foreground md:sticky md:top-28 md:self-start"
-          >
-            Education
-          </div>
-          <div data-reveal-item className="space-y-10 md:space-y-14">
-            {education.map((e, i) => (
-              <div
-                key={e.title}
-                className="grid grid-cols-1 gap-3 md:grid-cols-[88px_minmax(0,1fr)_140px] md:gap-10 lg:gap-16"
-              >
-                <div className="text-3xl md:text-5xl lg:text-6xl font-semibold tracking-tight leading-none text-[var(--terracotta)]/30 tabular-nums">
-                  {String(i + 1).padStart(2, "0")}
-                </div>
-                <div className="min-w-0">
-                  <h3 className="text-lg md:text-xl font-semibold tracking-tight">{e.title}</h3>
-                  <div className="text-sm md:text-base text-muted-foreground mt-0.5">{e.org}</div>
-                </div>
-                <div className="text-sm md:text-base text-muted-foreground tabular-nums md:text-right">
-                  {e.yearRange}
-                </div>
-              </div>
-            ))}
-
-            <div className="pt-10 md:pt-14">
-              <div className="text-[11px] font-mono uppercase tracking-[0.18em] text-muted-foreground mb-6">
-                Certifications
-              </div>
-              <ul className="space-y-3 text-[15px] md:text-base text-foreground/90">
-                {certificates.map((c) => (
-                  <li key={c.title} className="grid grid-cols-[64px_1fr] md:grid-cols-[80px_1fr] gap-4 md:gap-6">
-                    <span className="text-sm text-muted-foreground tabular-nums">{c.year}</span>
-                    <span>{c.title}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
+      <Section className="pb-16 pt-12 md:pb-24 md:pt-20" spacing="none">
+        <Reveal>
+          <p data-reveal-item className="font-mono text-[11px] uppercase tracking-[0.22em] text-muted-foreground">Next steps</p>
+          <h2 data-reveal-item className="mt-5 text-4xl font-semibold tracking-tight md:text-6xl">Want the complete version?</h2>
+          <p data-reveal-item className="mt-4 text-lg text-muted-foreground">View the full résumé or get in touch.</p>
+          <div data-reveal-item className="mt-7 flex flex-wrap items-center gap-x-7 gap-y-3">
+            <DownloadResumeButton />
+            <PortfolioButton href="mailto:xhepigerta@gmail.com?subject=Let%27s%20talk" variant="tertiary" ariaLabel="Email Gerta Xhepi">
+              <span>Let’s talk</span><ArrowUpRight className="size-4" aria-hidden="true" />
+            </PortfolioButton>
           </div>
         </Reveal>
       </Section>
