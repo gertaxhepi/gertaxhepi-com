@@ -3,15 +3,24 @@ import { ArrowUpRight } from "lucide-react";
 import { Section } from "@/components/Primitives";
 import { Reveal } from "@/components/Reveal";
 
-const OG_IMAGE = "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/5e5a77b8-fdcf-4df7-92f9-1cada506e97a";
+const OG_IMAGE =
+  "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/5e5a77b8-fdcf-4df7-92f9-1cada506e97a";
 
 export const Route = createFileRoute("/writing/")({
   head: () => ({
     meta: [
       { title: "Product Essays | AI, Product Strategy & Discovery" },
-      { name: "description", content: "Essays about AI product management, discovery, strategy and building thoughtful products." },
+      {
+        name: "description",
+        content:
+          "Essays about AI product management, discovery, strategy and building thoughtful products.",
+      },
       { property: "og:title", content: "Product Essays | AI, Product Strategy & Discovery" },
-      { property: "og:description", content: "Essays about AI product management, discovery, strategy and building thoughtful products." },
+      {
+        property: "og:description",
+        content:
+          "Essays about AI product management, discovery, strategy and building thoughtful products.",
+      },
       { property: "og:url", content: "https://gertaproduct.com/writing" },
       { property: "og:image", content: OG_IMAGE },
       { name: "twitter:card", content: "summary_large_image" },
@@ -26,7 +35,12 @@ export const Route = createFileRoute("/writing/")({
           "@type": "BreadcrumbList",
           itemListElement: [
             { "@type": "ListItem", position: 1, name: "Home", item: "https://gertaproduct.com/" },
-            { "@type": "ListItem", position: 2, name: "Writing", item: "https://gertaproduct.com/writing" },
+            {
+              "@type": "ListItem",
+              position: 2,
+              name: "Writing",
+              item: "https://gertaproduct.com/writing",
+            },
           ],
         }),
       },
@@ -37,75 +51,68 @@ export const Route = createFileRoute("/writing/")({
 
 const essays = [
   {
-    number: "01",
     to: "/essays/ai-problems",
+    category: "Product",
     title: "Understanding Before Solving",
+    description:
+      "Why the best product decisions begin with curiosity, context, and the right questions.",
     readTime: "7 min",
+    year: "2026",
   },
   {
-    number: "02",
     to: "/writing/product-discovery-software-engineering",
+    category: "Career",
     title: "How My Software Engineering Background Shaped My Approach to Product Discovery",
+    description:
+      "What building software taught me about constraints, collaboration, and finding the real problem.",
     readTime: "6 min",
+    year: "2026",
   },
 ] as const;
 
 function Writing() {
   return (
-    <Section className="pb-4" spacing="tight">
-      <section className="page-title-hero">
-        <h1>Thoughts that shape my thinking.</h1>
+    <Section className="!pb-4" spacing="tight">
+      <section className="px-4 pb-20 pt-[72px] md:px-6 md:pb-24">
+        <p className="mb-7 font-mono text-[11px] uppercase tracking-[0.2em] text-[var(--terracotta)]">
+          Writing
+        </p>
+        <h1 className="max-w-[900px] text-[2.5rem] font-semibold leading-[1.04] tracking-[-0.04em] text-balance md:text-5xl lg:text-6xl">
+          Notes on product, technology, and the work between them.
+        </h1>
       </section>
 
-      {/* Article list */}
-      <Reveal className="mt-12 md:mt-16">
+      <Reveal className="border-t border-border">
         {essays.map((essay) => (
           <Link
-            key={essay.number}
+            key={essay.to}
             to={essay.to}
             data-reveal-item
-            className="group relative block cursor-pointer rounded-2xl transition-colors duration-300 hover:bg-[var(--terracotta)]/5"
+            className="group grid grid-cols-[minmax(0,1fr)_auto] gap-x-5 gap-y-5 border-b border-border px-4 py-8 transition-colors duration-200 ease-out hover:bg-[var(--terracotta)]/[0.045] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-ring md:px-6 md:py-10 lg:grid-cols-[minmax(0,1fr)_auto_auto] lg:items-center lg:gap-x-8 lg:py-11"
+            aria-label={`Read ${essay.title}`}
           >
-            {/* Mobile layout */}
-            <div className="grid grid-cols-[auto_1fr_auto] items-start gap-x-3 gap-y-2 px-4 py-6 md:px-6 md:py-8 lg:hidden transition-transform duration-300 group-hover:translate-x-1">
-              <span className="text-5xl md:text-6xl lg:text-8xl font-semibold leading-none tracking-tight text-[var(--terracotta)]/30">
-                {essay.number}
-              </span>
-              <div />
-              <div className="pt-2">
-                <ArrowUpRight className="size-5 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
-              </div>
-              <h2 className="col-span-3 text-lg md:text-xl font-semibold tracking-tight">
+            <div className="min-w-0">
+              <p className="mb-4 font-mono text-[11px] uppercase tracking-[0.2em] text-[var(--terracotta)]">
+                {essay.category}
+              </p>
+              <h2 className="max-w-5xl text-xl font-semibold leading-tight tracking-tight md:text-2xl">
                 {essay.title}
               </h2>
-              <span className="col-span-3 text-[11px] font-mono uppercase tracking-[0.14em] text-muted-foreground">
-                ESSAY · {essay.readTime}
-              </span>
+              <p className="mt-3 max-w-3xl text-sm leading-relaxed text-muted-foreground md:text-base">
+                {essay.description}
+              </p>
             </div>
 
-            {/* Desktop layout */}
-            <div className="hidden lg:grid lg:grid-cols-[minmax(120px,auto)_minmax(0,1fr)_auto_auto] lg:items-center lg:gap-6 lg:px-6 lg:py-8 transition-transform duration-300 group-hover:translate-x-1">
-              <span className="text-5xl md:text-6xl lg:text-8xl font-semibold leading-none tracking-tight text-[var(--terracotta)]/30">
-                {essay.number}
-              </span>
-              <h2 className="text-xl md:text-2xl font-semibold tracking-tight pr-4">
-                {essay.title}
-              </h2>
-              <span className="text-[11px] font-mono uppercase tracking-[0.14em] text-muted-foreground whitespace-nowrap">
-                ESSAY · {essay.readTime}
-              </span>
-              <div>
-                <ArrowUpRight className="size-5 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
-              </div>
-            </div>
+            <span className="self-start whitespace-nowrap pt-1 font-mono text-[10px] uppercase tracking-[0.16em] text-muted-foreground lg:self-center lg:pt-0 lg:text-[11px]">
+              {essay.readTime} read · {essay.year}
+            </span>
+
+            <ArrowUpRight
+              className="col-start-2 row-start-2 size-5 self-end justify-self-end transition-transform duration-200 ease-out group-hover:translate-x-[3px] group-hover:-translate-y-[3px] lg:col-start-3 lg:row-start-1 lg:self-center"
+              aria-hidden="true"
+            />
           </Link>
         ))}
-      </Reveal>
-
-      <Reveal>
-        <p data-reveal-item className="mt-16 text-sm text-muted-foreground leading-relaxed">
-          More essays will appear here whenever I discover something worth writing about.
-        </p>
       </Reveal>
     </Section>
   );
